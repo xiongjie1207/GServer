@@ -2,14 +2,15 @@
 最初用于开发棋牌类游戏，游戏上线后经历了多次变更，做成了目前的框架，一方面方便自己的后续新项目的开发，另一方面分享出来供新鸟参考。
 同时也希望老鸟们能提出宝贵意见继续完善此框架。
 本框架采用的开源技术:<br/>
-1.netty长链接
-2.spring,spring mvc后台管理，对象管理，计划任务
+1.netty长链接操作
+2.spring,spring mvc 短链接操作，后台管理，对象管理，计划任务
 3.log4j日志系统
 4.在spring orm之上,包装了一层，从对象的增删改查动作生成sql语句
 5.c3p0数据库连接池
 6.缓存以spring data提供的接口，使用redis做缓存服务器
 7.数据库为mysql，其他数据库未作大量测试
 
+本项目使用maven构建，ide使用intellij idea，希望大家用正版intellij idea，对jetbrains提供支持
 如果有更好的建议和想法请联系我qq:914772406
 
 简单介绍：
@@ -161,6 +162,6 @@ public class Config extends WebMvcConfigurerAdapter {
 </pre>
 
 目前使用json作为数据传输协议，传输协议必须包含以下的节点数据
-{"pid":1}
+{"pid":"1"}
 pid即协议id，其他的数据则自己自定义添加。
-如{"pid":1,"uname":"test","pwd":"123456"}
+如{"pid":"1","uname":"test","pwd":"123456"}
