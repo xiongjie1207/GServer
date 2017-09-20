@@ -159,3 +159,8 @@ public class Config extends WebMvcConfigurerAdapter {
 }
 </code>
 </pre>
+
+目前使用json作为数据传输协议，传输协议必须包含以下的节点数据
+{"pid":1}
+pid即协议id，其他的数据则自己自定义添加。
+如{"pid":1,"uname":"test","pwd":"123456"}
