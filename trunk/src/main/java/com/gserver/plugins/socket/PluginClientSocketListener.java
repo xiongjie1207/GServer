@@ -8,7 +8,7 @@ import com.gserver.config.ClientConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
 import com.gserver.listener.ClientListener;
-import com.gserver.plugin.IPlugin;
+import com.gserver.plugins.IPlugin;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

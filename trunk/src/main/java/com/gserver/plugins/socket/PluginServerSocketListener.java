@@ -8,7 +8,7 @@ import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
 import com.gserver.listener.ClientListener;
-import com.gserver.plugin.IPlugin;
+import com.gserver.plugins.IPlugin;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

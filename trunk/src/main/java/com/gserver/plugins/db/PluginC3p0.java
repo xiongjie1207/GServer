@@ -1,6 +1,6 @@
 package com.gserver.plugins.db;
 
-import com.gserver.plugin.IPlugin;
+import com.gserver.plugins.IPlugin;
 import com.gserver.plugins.db.descriptor.ResolveDataBase;
 import com.gserver.plugins.db.descriptor.SimpleResolveDatabase;
 import com.gserver.plugins.db.spring.jdbc.SpringJDBCBuilder;

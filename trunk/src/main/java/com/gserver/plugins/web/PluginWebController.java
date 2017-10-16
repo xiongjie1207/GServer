@@ -3,7 +3,7 @@ package com.gserver.plugins.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
-import com.gserver.plugin.IPlugin;
+import com.gserver.plugins.IPlugin;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
 

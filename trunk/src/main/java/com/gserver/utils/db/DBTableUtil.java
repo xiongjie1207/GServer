@@ -28,11 +28,11 @@ public class DBTableUtil {
     public static String loadTableName(Class<? extends IEntity> clazz){
         String tableName = tableNameCache.get(clazz.getSimpleName());
         if(tableName==null) {
-            if (clazz.isAnnotationPresent(com.gserver.plugin.db.annotation.Table.class)) {
+            if (clazz.isAnnotationPresent(com.gserver.plugins.db.annotation.Table.class)) {
                 Annotation[] annotations = clazz.getAnnotations();
                 for (Annotation annotation : annotations) {
-                    if (annotation instanceof com.gserver.plugin.db.annotation.Table) {
-                        com.gserver.plugin.db.annotation.Table tableNameAnnotation = (com.gserver.plugin.db.annotation.Table) annotation;
+                    if (annotation instanceof com.gserver.plugins.db.annotation.Table) {
+                        com.gserver.plugins.db.annotation.Table tableNameAnnotation = (com.gserver.plugins.db.annotation.Table) annotation;
                         tableName = tableNameAnnotation.value();
                         tableNameCache.put(clazz.getSimpleName(),tableName);
                         break;
