@@ -1,6 +1,5 @@
 package com.gserver.plugin.socket;
 
-import com.gserver.plugin.IPlugin;
 import com.gserver.codec.CustomZLibDecoder;
 import com.gserver.codec.CustomZLibEncoder;
 import com.gserver.codec.MessageDecoder;
@@ -9,6 +8,7 @@ import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
 import com.gserver.listener.ClientListener;
+import com.gserver.plugin.IPlugin;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -55,7 +55,7 @@ import java.util.concurrent.TimeUnit;
  * 数据流发送格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  */
-public abstract class PluginSocketListener implements IPlugin {
+public abstract class PluginServerSocketListener implements IPlugin {
     private ChannelFuture channelFuture;
     private EventLoopGroup workerGroup;
     private EventLoopGroup bossGroup;
@@ -66,9 +66,8 @@ public abstract class PluginSocketListener implements IPlugin {
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
     private Logger logger = Logger.getLogger(this.getClass());
-    ;
 
-    public PluginSocketListener() {
+    protected PluginServerSocketListener() {
     }
 
     @Override
@@ -126,7 +125,7 @@ public abstract class PluginSocketListener implements IPlugin {
     }
 
     protected ChannelInitializer<Channel> getChannelInitializer() {
-        return new PluginSocketListener.GameServerChannelInitializer();
+        return new GameServerChannelInitializer();
     }
 
     private void operationComplete(ChannelFuture future) throws Exception {
@@ -157,26 +156,36 @@ public abstract class PluginSocketListener implements IPlugin {
         @Override
         protected void initChannel(Channel socketChannel) throws Exception {
             // TODO Auto-generated method stub
+            //接收数据通道
+            //指定数据长度
             socketChannel.pipeline().addFirst(LengthFieldBasedFrameDecoder.class.getSimpleName(),
                     new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
+            //对数据解压缩
             socketChannel.pipeline().addAfter(LengthFieldBasedFrameDecoder.class.getSimpleName(),
                     CustomZLibDecoder.class.getSimpleName(), new CustomZLibDecoder());
-            socketChannel.pipeline().addAfter(LengthFieldBasedFrameDecoder.class.getSimpleName(),
+            //对数据解码成string
+            socketChannel.pipeline().addAfter(CustomZLibDecoder.class.getSimpleName(),
                     StringDecoder.class.getSimpleName(), new StringDecoder(CharsetUtil.UTF_8));
+            //解码成java对象
             socketChannel.pipeline().addAfter(StringDecoder.class.getSimpleName(),
                     MessageDecoder.class.getSimpleName(), new MessageDecoder());
             //////////////////////////////////////////////////////////////////////////////////
+            //发送数据通道
+            //添加数据长度
             socketChannel.pipeline().addAfter(MessageDecoder.class.getSimpleName(),
                     LengthFieldPrepender.class.getSimpleName(), new LengthFieldPrepender(4));
+            //对数据压缩
             socketChannel.pipeline().addAfter(LengthFieldPrepender.class.getSimpleName(),
                     CustomZLibEncoder.class.getSimpleName(), new CustomZLibEncoder());
-            socketChannel.pipeline().addAfter(LengthFieldPrepender.class.getSimpleName(),
+            //对数据进行string编码
+            socketChannel.pipeline().addAfter(CustomZLibEncoder.class.getSimpleName(),
                     StringEncoder.class.getSimpleName(), new StringEncoder(CharsetUtil.UTF_8));
+            //对java对象编码
             socketChannel.pipeline().addAfter(StringEncoder.class.getSimpleName(),
                     MessageEncode.class.getSimpleName(), new MessageEncode());
             IdleStateHandler idleStateHandler = new IdleStateHandler(serverConfig.getReaderIdleTimeSeconds(), serverConfig.getWriterIdleTimeSeconds(), serverConfig.getAllIdleTimeSeconds(), TimeUnit.SECONDS);
             socketChannel.pipeline().addLast(IdleStateHandler.class.getSimpleName(), idleStateHandler);
-            PluginSocketListener.MessageHandler handler = new PluginSocketListener.MessageHandler();
+            PluginServerSocketListener.MessageHandler handler = new PluginServerSocketListener.MessageHandler();
             socketChannel.pipeline().addLast(eventExecutorGroup, handler);
         }
     }
@@ -186,15 +195,15 @@ public abstract class PluginSocketListener implements IPlugin {
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) throws Exception {
-            if (PluginSocketListener.this.clientListener != null) {
-                PluginSocketListener.this.clientListener.onClientConnected(ctx);
+            if (PluginServerSocketListener.this.clientListener != null) {
+                PluginServerSocketListener.this.clientListener.onClientConnected(ctx);
             }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-            if (PluginSocketListener.this.clientListener != null) {
-                PluginSocketListener.this.clientListener.onClientDisconnected(ctx);
+            if (PluginServerSocketListener.this.clientListener != null) {
+                PluginServerSocketListener.this.clientListener.onClientDisconnected(ctx);
             }
         }
 
@@ -213,8 +222,8 @@ public abstract class PluginSocketListener implements IPlugin {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-            if (PluginSocketListener.this.clientListener != null) {
-                PluginSocketListener.this.clientListener.onClientException(ctx);
+            if (PluginServerSocketListener.this.clientListener != null) {
+                PluginServerSocketListener.this.clientListener.onClientException(ctx);
             }
         }
 
@@ -224,13 +233,13 @@ public abstract class PluginSocketListener implements IPlugin {
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        PluginSocketListener.this.clientListener.onAllIdle(ctx);
+                        PluginServerSocketListener.this.clientListener.onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        PluginSocketListener.this.clientListener.onReaderIdle(ctx);
+                        PluginServerSocketListener.this.clientListener.onReaderIdle(ctx);
                         break;
                     case WRITER_IDLE:
-                        PluginSocketListener.this.clientListener.onWriterIdle(ctx);
+                        PluginServerSocketListener.this.clientListener.onWriterIdle(ctx);
                         break;
                 }
 

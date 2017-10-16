@@ -17,6 +17,8 @@
  */
 package com.gserver.plugin.db.generator;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
