@@ -8,8 +8,8 @@
 6.缓存以spring data提供的接口，使用redis做缓存服务器
 7.数据库为mysql，其他数据库未作大量测试
 
-本项目使用maven构建，jdk1.8,ide使用intellij idea，希望大家用正版intellij idea，对jetbrains提供支持
-如果有更好的建议和想法请联系我qq:914772406
+本项目使用maven构建，jdk版本1.8,ide使用intellij idea，希望大家用正版intellij idea，对jetbrains提供支持，
+如果对本项目有更好的建议和想法请联系我qq:914772406
 
 简单介绍：
 框架主要采用插件的思路，这里要感谢jfinal的作者，提供了一个思路，所有的功能都是以插件的形式集成到系统中，具体的使用方式可以看以下范例<br/>
