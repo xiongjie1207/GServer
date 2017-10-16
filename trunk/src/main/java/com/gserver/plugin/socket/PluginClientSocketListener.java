@@ -43,6 +43,7 @@ import java.util.Map;
  * <p>
  * Created by xiongjie on 2017/10/15.
  */
+
 public abstract class PluginClientSocketListener implements IPlugin {
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
     private Bootstrap bootstrap;
