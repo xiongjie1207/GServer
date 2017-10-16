@@ -1,4 +1,4 @@
-package com.gserver.plugin.web;
+package com.gserver.plugins.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.core.Commanders;

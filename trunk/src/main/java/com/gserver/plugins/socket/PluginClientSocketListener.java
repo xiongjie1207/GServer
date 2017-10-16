@@ -1,4 +1,4 @@
-package com.gserver.plugin.socket;
+package com.gserver.plugins.socket;
 
 import com.gserver.codec.CustomZLibDecoder;
 import com.gserver.codec.CustomZLibEncoder;

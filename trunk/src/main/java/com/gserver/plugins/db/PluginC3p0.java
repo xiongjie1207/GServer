@@ -1,4 +1,4 @@
-package com.gserver.plugin.db;
+package com.gserver.plugins.db;
 
 import com.gserver.plugin.IPlugin;
 import com.gserver.plugins.db.descriptor.ResolveDataBase;

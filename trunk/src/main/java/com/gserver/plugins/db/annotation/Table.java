@@ -1,3 +1,10 @@
+package com.gserver.plugins.db.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -13,29 +20,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * Created by xiongjie on 2016/12/22.
+ * Created by xiongjie on 2017/2/24.
  */
-package com.gserver.plugin.db.generator;
-
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * TableMeta
- */
-public class TableMeta {
-	
-	public String name;					// 表名
-	public String remarks;				// 表备注
-	public String primaryKey;			// 主键，复合主键以逗号分隔
-	public List<ColumnMeta> columnMetas = new ArrayList<ColumnMeta>();	// 字段 meta
-
-	
-	public String entityName;			// 生成的 model 名
-	public String modelContent;			// 生成的 model 内容
-
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Table {
+    String value();
 }
-
-
-
-

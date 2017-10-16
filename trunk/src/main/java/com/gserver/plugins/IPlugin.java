@@ -1,10 +1,3 @@
-package com.gserver.plugin.db.annotation;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -20,10 +13,15 @@ import java.lang.annotation.Target;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * Created by xiongjie on 2017/2/24.
+ * Created by xiongjie on 2016/12/22.
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Table {
-    String value();
+
+package com.gserver.plugins;
+
+/**
+ * IPlugin
+ */
+public interface IPlugin {
+	boolean start();
+	boolean stop();
 }
