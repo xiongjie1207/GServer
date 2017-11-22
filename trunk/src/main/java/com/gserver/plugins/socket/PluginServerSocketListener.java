@@ -66,21 +66,27 @@ public abstract class PluginServerSocketListener implements IPlugin {
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
     private Logger logger = Logger.getLogger(this.getClass());
-
+    Thread t;
     protected PluginServerSocketListener() {
     }
 
     @Override
     public boolean start() {
-        Thread t = new Thread(() -> this.runServer());
+        t = new Thread(() -> this.runServer());
         t.start();
         return true;
     }
 
     @Override
     public boolean stop() {
-        bossGroup.shutdownGracefully();
-        workerGroup.shutdownGracefully();
+        try {
+            bossGroup.shutdownGracefully().await();
+            workerGroup.shutdownGracefully().await();
+            eventExecutorGroup.shutdownGracefully().await();
+        } catch (InterruptedException e) {
+            logger.error("",e);
+        }
+
         return true;
     }
 
