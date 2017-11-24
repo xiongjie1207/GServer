@@ -23,10 +23,8 @@ import java.util.zip.Inflater;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
-@ChannelHandler.Sharable
 public class CustomZLibDecoder extends ByteToMessageDecoder {
 
 	/** 

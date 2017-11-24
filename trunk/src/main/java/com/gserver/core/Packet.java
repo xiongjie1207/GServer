@@ -21,10 +21,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Packet {
+public class Packet implements Serializable{
     private Map<String, Object> json;
     private Logger logger = Logger.getLogger(Packet.class);
 

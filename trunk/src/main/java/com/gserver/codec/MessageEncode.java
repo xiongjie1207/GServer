@@ -1,6 +1,7 @@
 package com.gserver.codec;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gserver.core.Packet;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
@@ -8,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -37,8 +39,18 @@ public class MessageEncode extends MessageToMessageEncoder<Serializable> {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Serializable o, List<Object> list) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonData = mapper.writeValueAsString(o);
+        String jsonData="";
+        if(o instanceof Packet){
+            jsonData = ((Packet)o).toJSONString();
+        }else if(o instanceof Map){
+            ObjectMapper mapper = new ObjectMapper();
+            jsonData = mapper.writeValueAsString(o);
+        }else if(o instanceof String){
+            jsonData = o.toString();
+        }else{
+            throw new Exception("invalid data");
+        }
+        logger.info("send:---------" + jsonData);
         list.add(jsonData);
     }
 }
