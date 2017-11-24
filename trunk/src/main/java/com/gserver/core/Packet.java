@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Packet implements Serializable{
+public class Packet{
     private Map<String, Object> json;
     private Logger logger = Logger.getLogger(Packet.class);
 

@@ -29,7 +29,7 @@ import java.util.Map;
  * Created by xiongjie on 2017/5/15.
  */
 @ChannelHandler.Sharable
-public class MessageEncode extends MessageToMessageEncoder<Serializable> {
+public class MessageEncode extends MessageToMessageEncoder<Object> {
 
     private Logger logger;
 
@@ -38,7 +38,7 @@ public class MessageEncode extends MessageToMessageEncoder<Serializable> {
     }
 
     @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, Serializable o, List<Object> list) throws Exception {
+    protected void encode(ChannelHandlerContext channelHandlerContext, Object o, List<Object> list) throws Exception {
         String jsonData="";
         if(o instanceof Packet){
             jsonData = ((Packet)o).toJSONString();
