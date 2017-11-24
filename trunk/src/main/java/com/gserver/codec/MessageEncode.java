@@ -42,13 +42,11 @@ public class MessageEncode extends MessageToMessageEncoder<Object> {
         String jsonData="";
         if(o instanceof Packet){
             jsonData = ((Packet)o).toJSONString();
-        }else if(o instanceof Map){
-            ObjectMapper mapper = new ObjectMapper();
-            jsonData = mapper.writeValueAsString(o);
         }else if(o instanceof String){
             jsonData = o.toString();
         }else{
-            throw new Exception("invalid data");
+            ObjectMapper mapper = new ObjectMapper();
+            jsonData = mapper.writeValueAsString(o);
         }
         logger.info("send:---------" + jsonData);
         list.add(jsonData);
