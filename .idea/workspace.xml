@@ -2,74 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__c3p0_c3p0_0_9_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__com_ibm_icu_icu4j_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_collections_commons_collections_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_io_commons_io_2_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__javax_mail_mail_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_b01.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__jaxen_jaxen_1_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__jdom_jdom_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__log4j_log4j_1_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_18.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_apache_ant_ant_1_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_aspectj_aspectjrt_1_6_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_freemarker_freemarker_2_3_18.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_htmlparser_htmlparser_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_24.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_3_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_beans_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_context_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_core_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_expression_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_jms_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_messaging_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_8_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_test_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_tx_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_web_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__xalan_xalan_2_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__xerces_xercesImpl_2_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/libraries/Maven__xom_xom_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trunk/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trunk/Server.iml" afterPath="$PROJECT_DIR$/trunk/Server.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/trunk/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,13 +14,89 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="CustomZLibDecoder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibDecoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageEncode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="521">
+              <caret line="45" column="53" lean-forward="false" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
+                <element signature="e#1262#1263#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Packet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Packet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomZLibEncoder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibEncoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageDecoder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PluginServerSocketListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginServerSocketListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="190" column="67" lean-forward="false" selection-start-line="190" selection-start-column="67" selection-end-line="190" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>.plugin.</find>
       <find>.plugins.</find>
       <find>eventExecutorGroup</find>
+      <find>initConfig</find>
+      <find>getaction</find>
     </findStrings>
     <replaceStrings>
       <replace>.plugins.</replace>
@@ -115,8 +125,22 @@
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/socket/PluginClientSocketListener.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/IPlugin.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/PluginC3p0.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginServerSocketListener.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Session.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/HttpSession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ISession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpSession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/ISession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/SocketSession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SessionContext.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameHttpSession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameSocketSession.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Packet.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibDecoder.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibEncoder.java" />
       </list>
     </option>
   </component>
@@ -146,10 +170,13 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="y" value="22" />
-    <option name="width" value="1376" />
-    <option name="height" value="878" />
+    <option name="x" value="992" />
+    <option name="y" value="-4" />
+    <option name="width" value="928" />
+    <option name="height" value="1084" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -166,7 +193,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -176,10 +202,29 @@
               <item name="GServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="trunk" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trunk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trunk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trunk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -192,6 +237,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins" />
+    <property name="SearchEverywhereHistoryKey" value="httpsession&#9;PSI&#9;JAVA://com.gserver.core.ISession.HttpSession" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -314,7 +360,14 @@
       <updated>1508129614765</updated>
       <workItem from="1508129616286" duration="3568000" />
       <workItem from="1508133896352" duration="3766000" />
-      <workItem from="1511328665906" duration="8529000" />
+      <workItem from="1511328665906" duration="12244000" />
+      <workItem from="1511343952745" duration="921000" />
+      <workItem from="1511344884744" duration="42000" />
+      <workItem from="1511351889054" duration="3533000" />
+      <workItem from="1511374251314" duration="1448000" />
+      <workItem from="1511404712256" duration="56000" />
+      <workItem from="1511495446069" duration="3876000" />
+      <workItem from="1511499437951" duration="2690000" />
     </task>
     <task id="LOCAL-00001" summary="增加ClientSocket">
       <created>1508130117892</created>
@@ -365,11 +418,32 @@
       <option name="project" value="LOCAL" />
       <updated>1511337175978</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="正常关闭server">
+      <created>1511337231901</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1511337231901</updated>
+    </task>
+    <task id="LOCAL-00009" summary="优化服务器启动顺序">
+      <created>1511375957538</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1511375957538</updated>
+    </task>
+    <task id="LOCAL-00010" summary="优化数据发送类型">
+      <created>1511502110654</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1511502110655</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15863000" />
+    <option name="totallyTimeSpent" value="32144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -380,22 +454,22 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17209046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10921125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22669609" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23331495" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -452,13 +526,22 @@
     <MESSAGE value="测试" />
     <MESSAGE value="修改包结构" />
     <MESSAGE value="正常关闭server" />
-    <option name="LAST_COMMIT_MESSAGE" value="正常关闭server" />
+    <MESSAGE value="优化服务器启动顺序" />
+    <MESSAGE value="优化数据发送类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化数据发送类型" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/jdbc/template/AbstractSqlTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -561,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42">
           <caret line="98" column="54" lean-forward="true" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -569,28 +651,110 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/HttpSession.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/ISession.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Commander.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1-b01/javax.servlet-api-3.1-b01.jar!/javax/servlet/http/HttpSession.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameSocketSession.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameHttpSession.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SessionContext.java" />
     <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginServerSocketListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="63" column="35" lean-forward="true" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        <state relative-caret-position="414">
+          <caret line="190" column="67" lean-forward="false" selection-start-line="190" selection-start-column="67" selection-end-line="190" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="45" column="53" lean-forward="false" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
-          <folding>
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="233">
+          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
