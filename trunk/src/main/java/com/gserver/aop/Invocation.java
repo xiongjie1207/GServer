@@ -31,26 +31,23 @@ public class Invocation {
     private Action action;
 
 
-    private int index = 0;
-
     public Invocation(Action action) {
         this.action = action;
     }
 
 
     public void invoke() {
-        if (index < action.getBeforeInterceptors().length) {
-            action.getBeforeInterceptors()[index++].intercept(this);
-        } else if (index++ == action.getBeforeInterceptors().length) {    // index++ ensure invoke action only one time
-            try {
-                action.getMethod().invoke(action.getCommander());
-            } catch (Exception e) {
-                Logger.getRootLogger().error("",e);
+        for (Interceptor interceptor : action.getBeforeInterceptors()) {
+            boolean ret = interceptor.intercept(action);
+            if (!ret) {
+                return;
             }
+        }
+        try {
+            action.getMethod().invoke(action.getCommander());
+        } catch (Exception e) {
+            Logger.getRootLogger().error("", e);
         }
     }
 
-    public <T extends Action> T getAction(){
-        return (T)this.action;
-    }
 }

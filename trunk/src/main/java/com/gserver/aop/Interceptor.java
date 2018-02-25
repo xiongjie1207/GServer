@@ -18,10 +18,12 @@
 
 package com.gserver.aop;
 
+import com.gserver.core.Action;
+
 /**
  * Interceptor.
  */
 public interface Interceptor {
-	void intercept(Invocation inv);
+	boolean intercept(Action action);
 }
 
