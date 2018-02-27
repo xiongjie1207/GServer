@@ -34,19 +34,9 @@ public class PluginC3p0 implements IPlugin {
     private LinkedHashMap<String, ResolveDataBase> dataSourceLinkedHashMap;
 
     public PluginC3p0(List<ResolveDataBase> listResolveDataBase) {
-        if(dataSourceLinkedHashMap==null){
-            dataSourceLinkedHashMap = new LinkedHashMap<String, ResolveDataBase>();
-        }
+        dataSourceLinkedHashMap = new LinkedHashMap<String, ResolveDataBase>();
         for (ResolveDataBase resolveDataBase:listResolveDataBase){
             dataSourceLinkedHashMap.put(resolveDataBase.getName(),resolveDataBase);
-        }
-    }
-    public PluginC3p0(LinkedHashMap<String, DataSource> dataSourceMap) {
-        if(dataSourceLinkedHashMap==null){
-            dataSourceLinkedHashMap = new LinkedHashMap<>();
-        }
-        for (Map.Entry<String,DataSource> entry:dataSourceMap.entrySet()){
-            dataSourceLinkedHashMap.put(entry.getKey(),new SimpleResolveDatabase(entry.getKey(), entry.getValue()));
         }
     }
     @Override
