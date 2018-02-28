@@ -21,31 +21,34 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Packet{
+public class Packet {
+
+    public static final String PID = "pid";
+
     private Map<String, Object> json;
     private Logger logger = Logger.getLogger(Packet.class);
 
     public Packet(int id) {
         json = new HashMap<String, Object>();
-        json.put(Constants.PID, id);
+        json.put(PID, id);
     }
+
 
     public Packet(Map<String, Object> json) {
         if (json == null) {
             throw new RuntimeException("数据不能为null");
         }
-        if (!json.containsKey(Constants.PID)) {
+        if (!json.containsKey(PID)) {
             throw new RuntimeException("缺少协议id");
         }
         this.json = json;
     }
 
     public int getProtocoleId() {
-        return Integer.parseInt(json.get(Constants.PID).toString());
+        return Integer.parseInt(json.get(PID).toString());
     }
 
     public Packet(String jsonStr) {
@@ -58,14 +61,14 @@ public class Packet{
         } catch (IOException e) {
             logger.error("", e);
         }
-        if (!json.containsKey(Constants.PID)) {
+        if (!json.containsKey(PID)) {
             throw new RuntimeException("缺少协议id");
         }
 
     }
 
     public void put(String key, Object value) {
-        if (this.containeKey(Constants.PID)) {
+        if (this.containeKey(PID)) {
             new RuntimeException("协议id重复");
         }
         json.put(key, value);
