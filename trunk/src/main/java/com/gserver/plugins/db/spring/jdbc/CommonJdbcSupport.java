@@ -104,7 +104,7 @@ public class CommonJdbcSupport extends JdbcDaoSupport {
     }
 
 
-    public long insert(final Table table) {
+    public int insert(final Table table) {
         try {
             SqlTemplate sqlTemplate = new SqlTemplate();
             final String sql = sqlTemplate.insert(table);
@@ -115,7 +115,7 @@ public class CommonJdbcSupport extends JdbcDaoSupport {
                 KeyHolder keyHolder = new GeneratedKeyHolder();
                 this.getJdbcTemplate().update((con) -> createPreparedStatement(con, sql, modifyParams, table.getPrimaryKey().getFields()), keyHolder);
                 if (keyHolder.getKey() != null) {
-                    return keyHolder.getKey().longValue();
+                    return keyHolder.getKey().intValue();
                 }
             } else {
                 this.getJdbcTemplate().update((con) -> createPreparedStatement(con, sql, modifyParams, table.getPrimaryKey().getFields()));

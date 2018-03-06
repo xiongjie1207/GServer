@@ -48,7 +48,7 @@ public class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     }
 
     @Override
-    protected long _insert(Table table) {
+    protected int _insert(Table table) {
         return commonJdbcSupport.insert(table);
     }
 

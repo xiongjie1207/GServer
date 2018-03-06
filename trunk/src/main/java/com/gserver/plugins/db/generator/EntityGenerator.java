@@ -47,11 +47,11 @@ public class EntityGenerator {
 
     public EntityGenerator(String entityPackageName, String entityOutputDir) {
         if (StringUtils.isBlank(entityPackageName))
-            throw new IllegalArgumentException("entityPackageName can not be blank.");
+            throw new IllegalArgumentException("daoPackageName can not be blank.");
         if (entityPackageName.contains("/") || entityPackageName.contains("\\"))
-            throw new IllegalArgumentException("entityPackageName error : " + entityPackageName);
+            throw new IllegalArgumentException("daoPackageName error : " + entityPackageName);
         if (StringUtils.isBlank(entityOutputDir))
-            throw new IllegalArgumentException("entityOutputDir can not be blank.");
+            throw new IllegalArgumentException("daoOutputDir can not be blank.");
 
         this.entityPackageName = entityPackageName;
         this.entityOutputDir = entityOutputDir;

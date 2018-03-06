@@ -64,7 +64,12 @@ public abstract class Commander {
         return value.toString();
     }
 
-
+    protected byte getDataToByte(String name){
+        return toByte(name,null);
+    }
+    protected byte getDataToByte(String name,byte defaultValue){
+        return toByte(name,defaultValue);
+    }
     protected long getDataToLong(String name) {
         return toLong(getData(name), null);
     }
@@ -177,7 +182,16 @@ public abstract class Commander {
             throw new FormatException("Can not parse the parameter \"" + value + "\" to Short value.");
         }
     }
-
+    private byte toByte(Object value,Byte defaultValue){
+        try{
+            if(value==null){
+                return defaultValue;
+            }
+            return Byte.parseByte(value.toString());
+        }catch (Exception e){
+            throw new FormatException("Can not parse the parameter \""+value + "\" to Byte value");
+        }
+    }
     private double toDouble(Object value, Double defaultValue) {
         try {
             if (value == null) {
