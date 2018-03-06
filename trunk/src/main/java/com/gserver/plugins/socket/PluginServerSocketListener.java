@@ -5,6 +5,7 @@ import com.gserver.codec.CustomZLibEncoder;
 import com.gserver.codec.MessageDecoder;
 import com.gserver.codec.MessageEncode;
 import com.gserver.config.ServerConfig;
+import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
 import com.gserver.listener.ClientListener;
@@ -60,7 +61,6 @@ public abstract class PluginServerSocketListener implements IPlugin {
     private EventLoopGroup workerGroup;
     private EventLoopGroup bossGroup;
     private ServerBootstrap serverBootstrap;
-    private ServerConfig serverConfig = new ServerConfig();
     private EventExecutorGroup eventExecutorGroup;
     private ClientListener clientListener;
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
@@ -94,18 +94,18 @@ public abstract class PluginServerSocketListener implements IPlugin {
         try {
 
             serverBootstrap = new ServerBootstrap();
-            initConfig(serverConfig);
-            if (serverConfig.getBossCount() == 0) {
+            initConfig(ServerConfig.getInstance());
+            if (ServerConfig.getInstance().getBossCount() == 0) {
                 bossGroup = new NioEventLoopGroup();
             } else {
-                bossGroup = new NioEventLoopGroup(serverConfig.getBossCount());
+                bossGroup = new NioEventLoopGroup(ServerConfig.getInstance().getBossCount());
             }
-            if (serverConfig.getWorkerCount() == 0) {
+            if (ServerConfig.getInstance().getWorkerCount() == 0) {
                 workerGroup = new NioEventLoopGroup();
             } else {
-                workerGroup = new NioEventLoopGroup(serverConfig.getWorkerCount());
+                workerGroup = new NioEventLoopGroup(ServerConfig.getInstance().getWorkerCount());
             }
-            eventExecutorGroup = new DefaultEventExecutorGroup(serverConfig.getHandlerTreadCount());
+            eventExecutorGroup = new DefaultEventExecutorGroup(ServerConfig.getInstance().getHandlerTreadCount());
             serverBootstrap.group(bossGroup, workerGroup);
             serverBootstrap.channel(NioServerSocketChannel.class);
             serverBootstrap.childHandler(getChannelInitializer());
@@ -117,10 +117,10 @@ public abstract class PluginServerSocketListener implements IPlugin {
             for (Object key : childOptionObjectMap.keySet()) {
                 serverBootstrap.childOption((ChannelOption<Object>) key, childOptionObjectMap.get(key));
             }
-            if (serverConfig.getPort() == 0) {
+            if (ServerConfig.getInstance().getPort() == 0) {
                 serverBootstrap.localAddress(new InetSocketAddress(5777));
             } else {
-                serverBootstrap.localAddress(new InetSocketAddress(serverConfig.getPort()));
+                serverBootstrap.localAddress(new InetSocketAddress(ServerConfig.getInstance().getPort()));
             }
             channelFuture = serverBootstrap.bind().addListener((ChannelFuture future) -> this.operationComplete(future));
 
@@ -189,7 +189,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
             //对java对象编码
             socketChannel.pipeline().addAfter(StringEncoder.class.getSimpleName(),
                     MessageEncode.class.getSimpleName(), new MessageEncode());
-            IdleStateHandler idleStateHandler = new IdleStateHandler(serverConfig.getReaderIdleTimeSeconds(), serverConfig.getWriterIdleTimeSeconds(), serverConfig.getAllIdleTimeSeconds(), TimeUnit.SECONDS);
+            IdleStateHandler idleStateHandler = new IdleStateHandler(ServerConfig.getInstance().getReaderIdleTimeSeconds(), ServerConfig.getInstance().getWriterIdleTimeSeconds(), ServerConfig.getInstance().getAllIdleTimeSeconds(), TimeUnit.SECONDS);
             socketChannel.pipeline().addLast(IdleStateHandler.class.getSimpleName(), idleStateHandler);
             PluginServerSocketListener.MessageHandler handler = new PluginServerSocketListener.MessageHandler();
             socketChannel.pipeline().addLast(eventExecutorGroup, handler);

@@ -17,6 +17,16 @@ package com.gserver.config;
  * Created by xiongjie on 2016/12/22.
  */
 public class ServerConfig {
+    private ServerConfig(){
+
+    }
+    private static ServerConfig instance;
+    public static ServerConfig getInstance(){
+        if(instance==null){
+            instance = new ServerConfig();
+        }
+        return instance;
+    }
     /**
      * boss线程池
      */
@@ -32,7 +42,7 @@ public class ServerConfig {
     /**
      * 监听端口
      */
-    private short port = 0;
+    private short port = 80;
     /**
      * 客户端读空闲时间
      */
