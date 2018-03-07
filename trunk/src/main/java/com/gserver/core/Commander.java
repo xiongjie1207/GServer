@@ -18,8 +18,12 @@ package com.gserver.core;
  */
 
 import com.gserver.exception.FormatException;
+import com.gserver.renderer.IRenderer;
 import com.gserver.utils.JsonUtils;
+import sun.misc.BASE64Encoder;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Map;
 
@@ -64,12 +68,14 @@ public abstract class Commander {
         return value.toString();
     }
 
-    protected byte getDataToByte(String name){
-        return toByte(name,null);
+    protected byte getDataToByte(String name) {
+        return toByte(name, null);
     }
-    protected byte getDataToByte(String name,byte defaultValue){
-        return toByte(name,defaultValue);
+
+    protected byte getDataToByte(String name, byte defaultValue) {
+        return toByte(name, defaultValue);
     }
+
     protected long getDataToLong(String name) {
         return toLong(getData(name), null);
     }
@@ -182,16 +188,18 @@ public abstract class Commander {
             throw new FormatException("Can not parse the parameter \"" + value + "\" to Short value.");
         }
     }
-    private byte toByte(Object value,Byte defaultValue){
-        try{
-            if(value==null){
+
+    private byte toByte(Object value, Byte defaultValue) {
+        try {
+            if (value == null) {
                 return defaultValue;
             }
             return Byte.parseByte(value.toString());
-        }catch (Exception e){
-            throw new FormatException("Can not parse the parameter \""+value + "\" to Byte value");
+        } catch (Exception e) {
+            throw new FormatException("Can not parse the parameter \"" + value + "\" to Byte value");
         }
     }
+
     private double toDouble(Object value, Double defaultValue) {
         try {
             if (value == null) {

@@ -272,7 +272,7 @@ public abstract class AbstractSqlTemplate {
 
             }
         }
-        return StringUtils.join(fields, ",");
+        return StringUtils.join(fields.toArray(), ",");
     }
 
 
