@@ -10,6 +10,7 @@ public class DaoGenerator extends AbsTemplateGenerator {
     protected String daoOutputDir;
     protected String modelPackageName;
     protected String cacheName = "";
+
     public DaoGenerator(String cacheName, String outputDir, String daoPackageName, String modelPackageName) {
         if (StringUtils.isBlank(cacheName))
             throw new IllegalArgumentException("daoPackageName can not be blank.");
@@ -60,6 +61,9 @@ public class DaoGenerator extends AbsTemplateGenerator {
         root.put("className", getClassName(tableMeta));
         root.put("packageName", getPackage());
         root.put("cacheName", cacheName);
+        if (tableMeta.primaryKey != null) {
+            root.put("primaryKey", tableMeta.primaryKey);
+        }
         root.put("importClasses", importClasses.toString());
         return root;
     }

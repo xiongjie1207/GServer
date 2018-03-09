@@ -26,13 +26,12 @@ import java.util.List;
 public class TableMeta {
 	
 	public String name;					// 表名
-	public String remarks;				// 表备注
+	public String remarks="";				// 表备注
 	public String primaryKey;			// 主键，复合主键以逗号分隔
 	public List<ColumnMeta> columnMetas = new ArrayList<ColumnMeta>();	// 字段 meta
 
-	
+
 	public String entityName;			// 生成的 model 名
-	public String modelContent;			// 生成的 model 内容
 
 }
 

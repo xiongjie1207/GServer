@@ -40,7 +40,7 @@ public class DaoInterfaceGenerator extends AbsTemplateGenerator {
 
     @Override
     protected String getClassName(TableMeta tableMeta) {
-        return "IDao"+tableMeta.entityName.replace("_","");
+        return "IDao"+ tableMeta.entityName.replace("_","");
     }
 
     @Override

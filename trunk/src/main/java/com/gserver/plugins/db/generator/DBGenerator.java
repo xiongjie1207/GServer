@@ -28,17 +28,14 @@ import javax.sql.DataSource;
  */
 public class DBGenerator {
 
-    protected MetaBuilder metaBuilder;
-    protected DaoGenerator daoGenerator;
-    protected EntityGenerator baseEntityGenerator;
-    protected DaoInterfaceGenerator daoInterfaceGenerator;
-    private boolean isGeneratDao = true;
+    protected MetaBuilder metaBuilder = null;
+    private List<AbsTemplateGenerator> absTemplateGenerators = new ArrayList<>();
 
     /**
      * @param dataSource       数据源
      * @param cacheName        缓存名称
-     * @param outputDir   输出目录
-     * @param modelPackageName 实体累的包名
+     * @param outputDir        输出目录
+     * @param modelPackageName 实体类的包名
      * @param daoPackageName   dao类的包名
      */
     public DBGenerator(DataSource dataSource, String cacheName, String outputDir, String modelPackageName, String daoPackageName) {
@@ -52,13 +49,16 @@ public class DBGenerator {
         if (baseModelGenerator == null) {
             throw new IllegalArgumentException("baseEntityGenerator can not be null.");
         }
-
         this.metaBuilder = new MetaBuilder(dataSource);
-        this.baseEntityGenerator = baseModelGenerator;
-        this.daoGenerator = daoGenerator;
-        this.daoInterfaceGenerator = new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName,baseModelGenerator.entityPackageName);
+
+        this.addGenerator(baseModelGenerator);
+        this.addGenerator(daoGenerator);
+        this.addGenerator(new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName, baseModelGenerator.entityPackageName));
     }
 
+    public void addGenerator(AbsTemplateGenerator absTemplateGenerator) {
+        this.absTemplateGenerators.add(absTemplateGenerator);
+    }
 
     /**
      * 设置 MetaBuilder，便于扩展自定义 MetaBuilder
@@ -85,9 +85,10 @@ public class DBGenerator {
      * 生成全部的表实体
      */
     public void generate() {
-        List<TableMeta> tableMetas = metaBuilder.build();
-
-        generate(tableMetas);
+        if(metaBuilder!=null) {
+            List<TableMeta> tableMetas = metaBuilder.build();
+            generate(tableMetas);
+        }
     }
 
     /**
@@ -118,18 +119,13 @@ public class DBGenerator {
 
     private void generate(List<TableMeta> tableMetas) {
         long start = System.currentTimeMillis();
-        if (tableMetas.size() == 0) {
-            System.out.println("TableMeta 数量为 0，不生成任何文件");
-            return;
+        for (AbsTemplateGenerator absTemplateGenerator : this.absTemplateGenerators) {
+            for(TableMeta tableMeta:tableMetas) {
+                absTemplateGenerator.generate(tableMeta);
+            }
         }
-
-        baseEntityGenerator.generate(tableMetas);
-        if (isGeneratDao) {
-            daoInterfaceGenerator.generate(tableMetas);
-            daoGenerator.generate(tableMetas);
-        }
-        long usedTime = (System.currentTimeMillis() - start) / 1000;
-        System.out.println("Generate complete in " + usedTime + " seconds.");
+        long usedTime = System.currentTimeMillis() - start;
+        System.out.println("Generate complete in " + usedTime + " millisseconds.");
     }
 }
 
