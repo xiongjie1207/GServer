@@ -29,21 +29,20 @@ import javax.sql.DataSource;
 public class DBGenerator {
 
     protected MetaBuilder metaBuilder;
-    protected EntityGenerator baseEntityGenerator;
     protected DaoGenerator daoGenerator;
+    protected EntityGenerator baseEntityGenerator;
     protected DaoInterfaceGenerator daoInterfaceGenerator;
     private boolean isGeneratDao = true;
 
     /**
-     *
-     * @param dataSource 数据源
-     * @param cacheName 缓存名称
+     * @param dataSource       数据源
+     * @param cacheName        缓存名称
+     * @param outputDir   输出目录
      * @param modelPackageName 实体累的包名
-     * @param daoPackageName dao类的包名
-     * @param modelOutputDir 输出目录
+     * @param daoPackageName   dao类的包名
      */
-    public DBGenerator(DataSource dataSource,String cacheName, String modelPackageName, String daoPackageName, String modelOutputDir) {
-        this(dataSource, new EntityGenerator(modelPackageName, modelOutputDir), new DaoGenerator(cacheName,daoPackageName,modelPackageName, modelOutputDir));
+    public DBGenerator(DataSource dataSource, String cacheName, String outputDir, String modelPackageName, String daoPackageName) {
+        this(dataSource, new EntityGenerator(outputDir, modelPackageName), new DaoGenerator(cacheName, outputDir, daoPackageName, modelPackageName));
     }
 
     public DBGenerator(DataSource dataSource, EntityGenerator baseModelGenerator, DaoGenerator daoGenerator) {
@@ -57,7 +56,7 @@ public class DBGenerator {
         this.metaBuilder = new MetaBuilder(dataSource);
         this.baseEntityGenerator = baseModelGenerator;
         this.daoGenerator = daoGenerator;
-        this.daoInterfaceGenerator = new DaoInterfaceGenerator(daoGenerator.daoPackageName,daoGenerator.modelPakageName,daoGenerator.daoOutputDir);
+        this.daoInterfaceGenerator = new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName,baseModelGenerator.entityPackageName);
     }
 
 
@@ -132,12 +131,6 @@ public class DBGenerator {
         long usedTime = (System.currentTimeMillis() - start) / 1000;
         System.out.println("Generate complete in " + usedTime + " seconds.");
     }
-
-
-    public void setGeneratDao(boolean isGeneratDao) {
-        this.isGeneratDao = isGeneratDao;
-    }
-
 }
 
 

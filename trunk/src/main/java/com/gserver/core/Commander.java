@@ -18,12 +18,8 @@ package com.gserver.core;
  */
 
 import com.gserver.exception.FormatException;
-import com.gserver.renderer.IRenderer;
 import com.gserver.utils.JsonUtils;
-import sun.misc.BASE64Encoder;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Map;
 
