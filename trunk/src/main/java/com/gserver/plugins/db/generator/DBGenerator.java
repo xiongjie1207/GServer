@@ -32,6 +32,7 @@ public class DBGenerator {
     private List<AbsTemplateGenerator> absTemplateGenerators = new ArrayList<>();
 
     /**
+     * 该方法同时生成dao
      * @param dataSource       数据源
      * @param cacheName        缓存名称
      * @param outputDir        输出目录
@@ -42,6 +43,22 @@ public class DBGenerator {
         this(dataSource, new EntityGenerator(outputDir, modelPackageName), new DaoGenerator(cacheName, outputDir, daoPackageName, modelPackageName));
     }
 
+    /**
+     *该方法不生成dao
+     * @param dataSource 数据源
+     * @param outputDir 输入目录
+     * @param modelPackageName 实体类的包名
+     */
+    public DBGenerator(DataSource dataSource, String outputDir, String modelPackageName) {
+        this(dataSource, new EntityGenerator(outputDir, modelPackageName), null);
+    }
+
+    /**
+     *
+     * @param dataSource 数据源
+     * @param baseModelGenerator 实体类生成器
+     * @param daoGenerator dao生成器
+     */
     public DBGenerator(DataSource dataSource, EntityGenerator baseModelGenerator, DaoGenerator daoGenerator) {
         if (dataSource == null) {
             throw new IllegalArgumentException("dataSource can not be null.");
@@ -52,8 +69,10 @@ public class DBGenerator {
         this.metaBuilder = new MetaBuilder(dataSource);
 
         this.addGenerator(baseModelGenerator);
-        this.addGenerator(daoGenerator);
-        this.addGenerator(new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName, baseModelGenerator.entityPackageName));
+        if(daoGenerator!=null) {
+            this.addGenerator(daoGenerator);
+            this.addGenerator(new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName, baseModelGenerator.entityPackageName));
+        }
     }
 
     public void addGenerator(AbsTemplateGenerator absTemplateGenerator) {
