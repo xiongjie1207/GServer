@@ -85,10 +85,8 @@ public class DBGenerator {
      * 生成全部的表实体
      */
     public void generate() {
-        if(metaBuilder!=null) {
-            List<TableMeta> tableMetas = metaBuilder.build();
-            generate(tableMetas);
-        }
+        List<TableMeta> tableMetas = metaBuilder.build();
+        generate(tableMetas);
     }
 
     /**
@@ -120,7 +118,7 @@ public class DBGenerator {
     private void generate(List<TableMeta> tableMetas) {
         long start = System.currentTimeMillis();
         for (AbsTemplateGenerator absTemplateGenerator : this.absTemplateGenerators) {
-            for(TableMeta tableMeta:tableMetas) {
+            for (TableMeta tableMeta : tableMetas) {
                 absTemplateGenerator.generate(tableMeta);
             }
         }
