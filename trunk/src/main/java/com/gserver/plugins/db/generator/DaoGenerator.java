@@ -43,7 +43,7 @@ public class DaoGenerator extends AbsTemplateGenerator {
 
     @Override
     protected String getClassName(TableMeta tableMeta) {
-        return "BaseDao" + tableMeta.entityName.replace("_", "");
+        return "BaseDao"+tableMeta.entityName.replace("_", "");
     }
 
     @Override
@@ -58,7 +58,6 @@ public class DaoGenerator extends AbsTemplateGenerator {
         importClasses.append("import ").append(modelPackageName).append(".").append(entityName).append(";");
         Map<String, Object> root = new HashMap<>();
         root.put("entity", entityName);
-        root.put("className", getClassName(tableMeta));
         root.put("packageName", getPackage());
         root.put("cacheName", cacheName);
         if (tableMeta.primaryKey != null) {

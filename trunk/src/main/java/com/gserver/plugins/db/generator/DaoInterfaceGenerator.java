@@ -55,7 +55,6 @@ public class DaoInterfaceGenerator extends AbsTemplateGenerator {
         importClasses.append("import ").append(modelPackageName).append(".").append(entityName).append(";");
         Map<String, Object> root = new HashMap<>();
         root.put("entity", entityName);
-        root.put("className",getClassName(tableMeta));
         root.put("packageName", getPackage());
         root.put("modelPackageName", importClasses);
         root.put("importClasses",importClasses.toString());
