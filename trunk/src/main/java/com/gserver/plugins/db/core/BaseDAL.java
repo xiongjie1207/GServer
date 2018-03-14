@@ -68,11 +68,11 @@ public interface BaseDAL {
     //-------------------------
     // insert
     //-------------------------
-    int insert(IEntity obj);
+    long insert(IEntity obj);
 
-    int insert(String table, Map<String, Object> obj);
+    long insert(String table, Map<String, Object> obj);
 
-    int insert(String database, String table, Map<String, Object> obj);
+    long insert(String database, String table, Map<String, Object> obj);
 
     void asynInsert(IEntity obj);
 

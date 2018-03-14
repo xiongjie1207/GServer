@@ -192,24 +192,24 @@ public abstract class AbstractBaseDAL implements BaseDAL {
 
 
     @Override
-    public int insert(IEntity obj) {
+    public long insert(IEntity obj) {
         return insert(new Model(obj));
     }
 
-    public int insert(String table, Map<String, Object> obj) {
+    public long insert(String table, Map<String, Object> obj) {
         Model model = new Model(table);
         model.addContent(obj);
         return insert(model);
     }
 
     @Override
-    public int insert(String database, String table, Map<String, Object> obj) {
+    public long insert(String database, String table, Map<String, Object> obj) {
         Model model = new Model(table);
         model.addContent(obj);
         return insert(model);
     }
 
-    private int insert(Model model) {
+    private long insert(Model model) {
 
         Table table = retrievalTable(model.getDatabase(), model.getTableName());
         for (String key : model.getContent().keySet()) {
@@ -220,7 +220,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
             }
 
         }
-        int result = _insert(table);
+        long result = _insert(table);
         return result;
     }
 
@@ -241,7 +241,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
      * @param table table instance
      * @return result
      */
-    protected abstract int _insert(Table table);
+    protected abstract long _insert(Table table);
 
     @Override
     public int updateByCriteria(IEntity obj, QueryCriteria queryCriteria) {
