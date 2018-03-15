@@ -18,6 +18,9 @@
 
 package com.gserver.plugins.db.generator;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -33,6 +36,7 @@ public class DBGenerator {
 
     /**
      * 该方法同时生成dao
+     *
      * @param dataSource       数据源
      * @param cacheName        缓存名称
      * @param outputDir        输出目录
@@ -44,9 +48,10 @@ public class DBGenerator {
     }
 
     /**
-     *该方法不生成dao
-     * @param dataSource 数据源
-     * @param outputDir 输入目录
+     * 该方法不生成dao
+     *
+     * @param dataSource       数据源
+     * @param outputDir        输入目录
      * @param modelPackageName 实体类的包名
      */
     public DBGenerator(DataSource dataSource, String outputDir, String modelPackageName) {
@@ -54,10 +59,9 @@ public class DBGenerator {
     }
 
     /**
-     *
-     * @param dataSource 数据源
+     * @param dataSource         数据源
      * @param baseModelGenerator 实体类生成器
-     * @param daoGenerator dao生成器
+     * @param daoGenerator       dao生成器
      */
     public DBGenerator(DataSource dataSource, EntityGenerator baseModelGenerator, DaoGenerator daoGenerator) {
         if (dataSource == null) {
@@ -69,7 +73,7 @@ public class DBGenerator {
         this.metaBuilder = new MetaBuilder(dataSource);
 
         this.addGenerator(baseModelGenerator);
-        if(daoGenerator!=null) {
+        if (daoGenerator != null) {
             this.addGenerator(daoGenerator);
             this.addGenerator(new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName, baseModelGenerator.entityPackageName));
         }

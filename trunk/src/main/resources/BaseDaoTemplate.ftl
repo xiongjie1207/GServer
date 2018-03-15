@@ -28,7 +28,7 @@ public abstract class BaseDao${entity} implements IDao${entity} {
 	public void update(${entity} entity) {
 		SpringJDBCBuilder.getInstance().buildDAL().updateByPrimaryKey(entity);
 	}
-	public Object insert(${entity} entity) {
+	public long insert(${entity} entity) {
 		return SpringJDBCBuilder.getInstance().buildDAL().insert(entity);
 	}
 	protected IDao${entity} currentProxy() {

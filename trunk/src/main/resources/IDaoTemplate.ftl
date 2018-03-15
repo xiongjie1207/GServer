@@ -12,7 +12,7 @@ public interface IDao${entity} {
 
 	public void update(${entity} entity);
 
-	public Object insert(${entity} entity);
+	public long insert(${entity} entity);
 
 
 }
