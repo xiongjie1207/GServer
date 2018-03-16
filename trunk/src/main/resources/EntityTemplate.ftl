@@ -14,11 +14,11 @@ public class ${entity} implements Serializable, IEntity {
 	</#list>
 
 	<#list fields as field>
-	public void set${field.fieldName?capitalize}(${field.fieldType} ${field.fieldName}) {
+	public void set${field.fieldName?cap_first}(${field.fieldType} ${field.fieldName}) {
 		this.${field.fieldName} = ${field.fieldName};
 	}
 
-	public ${field.fieldType} get${field.fieldName?capitalize}() {
+	public ${field.fieldType} get${field.fieldName?cap_first}() {
 		return this.${field.fieldName};
 	}
 
