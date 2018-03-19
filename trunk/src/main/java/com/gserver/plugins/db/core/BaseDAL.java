@@ -31,6 +31,15 @@ public interface BaseDAL {
     //-------------------------
     // selectByCriteria
     //-------------------------
+
+    /**
+     *
+     * @param fields "id,name,password"
+     * @param queryCriteria
+     * @return
+     */
+    QueryResult selectByCriteria(String fields, QueryCriteria queryCriteria);
+
     QueryResult selectByCriteria(List<String> fields, QueryCriteria queryCriteria);
 
     QueryResult selectByCriteria(String[] fields, QueryCriteria queryCriteria);
