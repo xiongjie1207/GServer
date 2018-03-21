@@ -20,9 +20,9 @@ public abstract class BaseDao${entity} implements IDao${entity} {
 		}
 		return null;
 	}
-	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#entity.${primaryKey}") })
-	public void delete(${entity} entity) {
-		SpringJDBCBuilder.getInstance().buildDAL().deleteByPrimaryKey(${entity}.class, entity.get${primaryKey?cap_first}());
+	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#id") })
+	public void delete(Object id) {
+		SpringJDBCBuilder.getInstance().buildDAL().deleteByPrimaryKey(${entity}.class, id);
 	}
 	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#entity.${primaryKey}") })
 	public void update(${entity} entity) {

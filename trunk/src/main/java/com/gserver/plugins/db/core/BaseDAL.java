@@ -34,7 +34,7 @@ public interface BaseDAL {
 
     /**
      *
-     * @param fields "id,name,password"
+     * @param fields e.g."id,name,password"
      * @param queryCriteria
      * @return
      */

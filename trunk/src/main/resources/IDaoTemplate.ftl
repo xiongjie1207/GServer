@@ -8,7 +8,7 @@ ${importClasses}
 public interface IDao${entity} {
 	public ${entity} load(Object id);
 
-	public void delete(${entity} entity);
+	public void delete(Object id);
 
 	public void update(${entity} entity);
 

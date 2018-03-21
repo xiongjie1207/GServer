@@ -66,6 +66,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     public QueryResult selectByCriteria(String[] fields, QueryCriteria queryCriteria) {
         return selectByCriteria(Arrays.asList(fields), queryCriteria);
     }
+
     public QueryResult selectByCriteria(String fields,QueryCriteria queryCriteria){
         return selectByCriteria(fields.split(","),queryCriteria);
     }
