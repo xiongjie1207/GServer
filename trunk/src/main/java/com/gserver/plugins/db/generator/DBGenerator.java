@@ -75,7 +75,6 @@ public class DBGenerator {
         this.addGenerator(baseModelGenerator);
         if (daoGenerator != null) {
             this.addGenerator(daoGenerator);
-            this.addGenerator(new DaoInterfaceGenerator(daoGenerator.daoOutputDir, daoGenerator.daoPackageName, baseModelGenerator.entityPackageName));
         }
     }
 

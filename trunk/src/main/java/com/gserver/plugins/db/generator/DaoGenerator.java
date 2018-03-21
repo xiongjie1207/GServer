@@ -43,12 +43,12 @@ public class DaoGenerator extends AbsTemplateGenerator {
 
     @Override
     protected String getClassName(TableMeta tableMeta) {
-        return "BaseDao"+tableMeta.entityName.replace("_", "");
+        return "IDao"+tableMeta.entityName.replace("_", "");
     }
 
     @Override
     protected String getTemplate() {
-        return "BaseDaoTemplate.ftl";
+        return "IDaoTemplate.ftl";
     }
 
     @Override
