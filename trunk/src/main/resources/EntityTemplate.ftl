@@ -9,6 +9,12 @@ import com.gserver.plugins.db.annotation.Table;
  **/
 @Table("${tableName}")
 public class ${entity} implements Serializable, IEntity {
+	private static final long serialVersionUID = 1l;
+
+	<#list fields as field>
+	public static final String FIELD_${field.fieldName?upper_case} = "${field.fieldName}";
+	</#list>
+
 	<#list fields as field>
 	private ${field.fieldType} ${field.fieldName};
 	</#list>
