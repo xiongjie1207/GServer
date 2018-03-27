@@ -125,10 +125,10 @@ public class QueryResult implements Serializable {
     }
 
     public <T> List<T> asList(Class<T> beanClass) {
-        if (resultList != null) {
-            return JsonUtils.mapListToObjList(resultList, beanClass);
+        if (resultList == null||resultList.size()==0) {
+            return new ArrayList<T>();
         }
-        return null;
+        return JsonUtils.mapListToObjList(resultList, beanClass);
     }
 
 

@@ -63,15 +63,16 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     }
 
     @Override
-    public QueryResult selectByCriteria(String[] fields, QueryCriteria queryCriteria) {
-        return selectByCriteria(Arrays.asList(fields), queryCriteria);
+    public QueryResult selectByCriteria(QueryCriteria queryCriteria, String... fields) {
+        return selectByCriteria(queryCriteria, Arrays.asList(fields));
     }
 
-    public QueryResult selectByCriteria(String fields,QueryCriteria queryCriteria){
-        return selectByCriteria(fields.split(","),queryCriteria);
+    public QueryResult selectByCriteria(QueryCriteria queryCriteria, String fields) {
+        return selectByCriteria(queryCriteria, fields.split(","));
     }
+
     @Override
-    public QueryResult selectByCriteria(List<String> fields, QueryCriteria queryCriteria) {
+    public QueryResult selectByCriteria(QueryCriteria queryCriteria, List<String> fields) {
 
         QueryResult queryResult = new QueryResult();
 
@@ -117,45 +118,62 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     }
 
     @Override
-    public QueryResult selectByPrimaryKey(String[] fields, Class<? extends IEntity> clazz, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String... fields) {
         if (fields == null) {
-            return selectByPrimaryKey(clazz, id);
+            return selectByPrimaryKey(id, clazz);
         } else {
-            return selectByPrimaryKey(Arrays.asList(fields), clazz, id);
+            return selectByPrimaryKey(id, clazz, Arrays.asList(fields));
         }
 
     }
 
     @Override
-    public QueryResult selectByPrimaryKey(String[] fields, String table, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, String table, String... fields) {
         if (fields == null) {
-            return selectByPrimaryKey(table, id);
+            return selectByPrimaryKey(id, table);
         } else {
-            return selectByPrimaryKey(Arrays.asList(fields), table, id);
+            return selectByPrimaryKey(id, table, Arrays.asList(fields));
         }
 
     }
 
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String fields) {
+        if (StringUtils.isEmpty(fields)) {
+            return selectByPrimaryKey(id, clazz);
+        } else {
+            return selectByPrimaryKey(id, clazz, fields.split(","));
+        }
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, String tableName, String fields) {
+        if (StringUtils.isEmpty(fields)) {
+            return selectByPrimaryKey(id, tableName);
+        } else {
+            return selectByPrimaryKey(id, tableName, fields.split(","));
+        }
+    }
 
     protected abstract int _countByCriteria(final Table table);
 
 
     @Override
-    public QueryResult selectByPrimaryKey(Class<? extends IEntity> clazz, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz) {
         List<String> fields = null;
-        return selectByPrimaryKey(fields, clazz, id);
+        return selectByPrimaryKey(id, clazz, fields);
     }
 
 
     @Override
-    public QueryResult selectByPrimaryKey(List<String> fields, Class<? extends IEntity> clazz, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, List<String> fields) {
         String tableName = DBTableUtil.loadTableName(clazz);
         Model model = new Model(tableName);
         return selectByPrimaryKey(fields, model, id);
     }
 
     @Override
-    public QueryResult selectByPrimaryKey(String tableName, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, String tableName) {
         List<String> fields = null;
         Model model = new Model(tableName);
         return selectByPrimaryKey(fields, model, id);
@@ -163,7 +181,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
 
 
     @Override
-    public QueryResult selectByPrimaryKey(List<String> fields, String tableName, Object id) {
+    public QueryResult selectByPrimaryKey(Object id, String tableName, List<String> fields) {
         Model model = new Model(tableName);
         return selectByPrimaryKey(fields, model, id);
     }
@@ -337,14 +355,14 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     protected abstract int _updateByPrimaryKey(Table table);
 
     @Override
-    public int deleteByPrimaryKey(Class<? extends IEntity> clazz, Object id) {
+    public int deleteByPrimaryKey(Object id, Class<? extends IEntity> clazz) {
         String tableName = DBTableUtil.loadTableName(clazz);
         Model model = new Model(tableName);
         return deleteByPrimaryKey(model, id);
     }
 
     @Override
-    public int deleteByPrimaryKey(String table, Object id) {
+    public int deleteByPrimaryKey(Object id, String table) {
         Model model = new Model(table);
         return deleteByPrimaryKey(model, id);
     }
@@ -378,9 +396,8 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     @Override
     public QueryResult selectByCriteria(QueryCriteria queryCriteria) {
         List<String> fields = null;
-        return selectByCriteria(fields, queryCriteria);
+        return selectByCriteria(queryCriteria, fields);
     }
-
 
 
     public void setResolveDatabase(ResolveDataBase resolveDatabase) {

@@ -14,7 +14,7 @@ ${importClasses}
 public interface IDao${entity} {
 	@Cacheable(value = "${cacheName}", key = "'${entity}_id/'+#id")
 	default ${entity} _load(Object id) {
-		QueryResult result = SpringJDBCBuilder.getInstance().buildDAL().selectByPrimaryKey(${entity}.class, id);
+		QueryResult result = SpringJDBCBuilder.getInstance().buildDAL().selectByPrimaryKey(id,${entity}.class);
 		if (result != null) {
 			return result.as(${entity}.class);
 		}
@@ -22,7 +22,7 @@ public interface IDao${entity} {
 	}
 	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#id") })
 	default void _delete(Object id) {
-		SpringJDBCBuilder.getInstance().buildDAL().deleteByPrimaryKey(${entity}.class, id);
+		SpringJDBCBuilder.getInstance().buildDAL().deleteByPrimaryKey(id,${entity}.class);
 	}
 	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#entity.${primaryKey}") })
 	default void _update(${entity} entity) {

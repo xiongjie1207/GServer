@@ -43,7 +43,7 @@ public class QueryCriteria {
 
     private int limitStart = 0;
 
-    private int limitEnd;
+    private int rowCount;
 
     private Object version;
 
@@ -64,7 +64,7 @@ public class QueryCriteria {
         clone.setOrderByClause(orderByClause);
         clone.setSelectOne(selectOne);
         clone.setLimitStart(limitStart);
-        clone.setLimitEnd(limitEnd);
+        clone.setRowCount(rowCount);
         clone.setVersion(version);
         return clone;
     }
@@ -126,12 +126,12 @@ public class QueryCriteria {
         this.limitStart = limitStart;
     }
 
-    public int getLimitEnd() {
-        return limitEnd;
+    public int getRowCount() {
+        return rowCount;
     }
 
-    public void setLimitEnd(int limitEnd) {
-        this.limitEnd = limitEnd;
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
     }
 
     public void setTable(Class<?> clazz) {
@@ -190,7 +190,7 @@ public class QueryCriteria {
         result = prime * result + ((groupBy == null) ? 0 : groupBy.hashCode());
         result = prime * result + (distinct ? 1231 : 1237);
         result = prime * result + (selectOne ? 1231 : 1237);
-        result = prime * result + limitStart + limitEnd;
+        result = prime * result + limitStart + rowCount;
         for (Criteria criteria : criterias) {
             for (Criterion cter : criteria.getCriterions()) {
                 result = prime * result + ((cter == null) ? 0 : cter.hashCode());

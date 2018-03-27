@@ -34,15 +34,15 @@ public interface BaseDAL {
 
     /**
      *
-     * @param fields e.g."id,name,password"
      * @param queryCriteria
+     * @param fields e.g."id,name,password"
      * @return
      */
-    QueryResult selectByCriteria(String fields, QueryCriteria queryCriteria);
+    QueryResult selectByCriteria(QueryCriteria queryCriteria, String fields);
 
-    QueryResult selectByCriteria(List<String> fields, QueryCriteria queryCriteria);
+    QueryResult selectByCriteria(QueryCriteria queryCriteria, List<String> fields);
 
-    QueryResult selectByCriteria(String[] fields, QueryCriteria queryCriteria);
+    QueryResult selectByCriteria(QueryCriteria queryCriteria, String... fields);
 
 
     QueryResult selectByCriteria(QueryCriteria queryCriteria);
@@ -59,19 +59,23 @@ public interface BaseDAL {
     // selectByPrimaryKey
     //-------------------------
 
-    QueryResult selectByPrimaryKey(Class<? extends IEntity> clazz, Object id);
+    QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz);
 
-    QueryResult selectByPrimaryKey(String tableName, Object id);
-
-
-    QueryResult selectByPrimaryKey(List<String> fields, Class<? extends IEntity> clazz, Object id);
-
-    QueryResult selectByPrimaryKey(List<String> fields, String tableName, Object id);
+    QueryResult selectByPrimaryKey(Object id, String tableName);
 
 
-    QueryResult selectByPrimaryKey(String[] fields, Class<? extends IEntity> clazz, Object id);
+    QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, List<String> fields);
 
-    QueryResult selectByPrimaryKey(String[] fields, String tableName, Object id);
+    QueryResult selectByPrimaryKey(Object id, String tableName, List<String> fields);
+
+
+    QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String... fields);
+
+    QueryResult selectByPrimaryKey(Object id, String tableName, String... fields);
+
+    QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String fields);
+
+    QueryResult selectByPrimaryKey(Object id, String tableName, String fields);
 
 
     //-------------------------
@@ -103,9 +107,9 @@ public interface BaseDAL {
     // delete
     //-------------------------
 
-    int deleteByPrimaryKey(String table, Object id);
+    int deleteByPrimaryKey(Object id, String table);
 
-    int deleteByPrimaryKey(Class<? extends IEntity> clazz, Object id);
+    int deleteByPrimaryKey(Object id, Class<? extends IEntity> clazz);
 
 
     int deleteByCriteria(QueryCriteria queryCriteria);

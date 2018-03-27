@@ -161,43 +161,43 @@ public class JsonUtils {
     }
 
     public static <T> List<T> mapListToObjList(List<Map<String, Object>> resultList, Class<T> beanClass) {
-        if (null != resultList && resultList.size() > 0) {
-            BeanMap beanMap = null;
-            List<T> rtList = new ArrayList<T>();
-            try {
-                for (Map<String, Object> item : resultList) {
-                    Object bean = beanClass.newInstance();
-                    beanMap = new BeanMap(bean);
-                    for (Object key : beanMap.keySet()) {
-                        String keyName = String.valueOf(key);
-                        if (item.containsKey(keyName)) {
-                            try {
-                                Object value = item.get(keyName);
-                                if (value instanceof Map) {
-                                    Map<String, Object> valueMap = (Map<String, Object>) value;
-                                    if (valueMap.containsKey("$numberLong")) {
-                                        value = valueMap.get("$numberLong");
-                                    } else {
+        if (null == resultList || resultList.size() == 0) {
+            return new ArrayList<T>();
+        }
+        BeanMap beanMap = null;
+        List<T> rtList = new ArrayList<T>();
+        try {
+            for (Map<String, Object> item : resultList) {
+                Object bean = beanClass.newInstance();
+                beanMap = new BeanMap(bean);
+                for (Object key : beanMap.keySet()) {
+                    String keyName = String.valueOf(key);
+                    if (item.containsKey(keyName)) {
+                        try {
+                            Object value = item.get(keyName);
+                            if (value instanceof Map) {
+                                Map<String, Object> valueMap = (Map<String, Object>) value;
+                                if (valueMap.containsKey("$numberLong")) {
+                                    value = valueMap.get("$numberLong");
+                                } else {
 
-                                    }
                                 }
-                                BeanUtils.copyProperty(bean, String.valueOf(key), value);
-                            } catch (InvocationTargetException e) {
-                                logger.error("Bean copy property error.", e);
                             }
+                            BeanUtils.copyProperty(bean, String.valueOf(key), value);
+                        } catch (InvocationTargetException e) {
+                            logger.error("Bean copy property error.", e);
                         }
                     }
-                    rtList.add(beanClass.cast(bean));
                 }
-
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                rtList.add(beanClass.cast(bean));
             }
-            return rtList;
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        return null;
+        return rtList;
     }
 
     /**

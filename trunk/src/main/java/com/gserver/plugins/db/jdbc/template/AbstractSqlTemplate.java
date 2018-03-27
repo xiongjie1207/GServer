@@ -243,9 +243,9 @@ public abstract class AbstractSqlTemplate {
             return sql.toString() + " limit 0,1";
         }
 
-        if (queryCriteria.getLimitEnd() > 0) {
+        if (queryCriteria.getRowCount() > 0) {
 
-            return sql.toString() + " limit " + queryCriteria.getLimitStart() + "," + queryCriteria.getLimitEnd();
+            return sql.toString() + " limit " + queryCriteria.getLimitStart() + "," + queryCriteria.getRowCount();
         }
         table.resetQueryCriteria();
         table.resetQueryFields();
