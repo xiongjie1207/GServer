@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EntityGenerator extends AbsTemplateGenerator {
+class EntityGenerator extends AbsTemplateGenerator {
     protected String entityPackageName;
     protected String entityOutputDir;
     public EntityGenerator(String outputDir, String entityPackageName) {

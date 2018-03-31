@@ -33,7 +33,7 @@ import javax.sql.DataSource;
 /**
  * MetaBuilder
  */
-public class MetaBuilder {
+class MetaBuilder {
 
 	protected DataSource dataSource;
 	protected Set<String> excludedTables = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);

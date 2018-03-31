@@ -39,7 +39,7 @@ import java.util.Map.Entry;
 
 import static com.gserver.plugins.db.descriptor.JavaType.DATE;
 
-public class CommonJdbcSupport extends JdbcDaoSupport {
+class CommonJdbcSupport extends JdbcDaoSupport {
 
 
     public List<Map<String, Object>> selectByCriteria(final Table table) {

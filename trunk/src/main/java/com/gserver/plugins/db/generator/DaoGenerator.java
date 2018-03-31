@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DaoGenerator extends AbsTemplateGenerator {
+class DaoGenerator extends AbsTemplateGenerator {
     protected String daoPackageName;
     protected String daoOutputDir;
     protected String modelPackageName;

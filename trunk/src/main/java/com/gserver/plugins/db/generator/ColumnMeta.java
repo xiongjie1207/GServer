@@ -21,7 +21,7 @@ package com.gserver.plugins.db.generator;
 /**
  * ColumnMeta
  */
-public class ColumnMeta {
+class ColumnMeta {
 	
 	public String name;				// 字段名
 	public String javaType;			// 字段对应的 java 类型

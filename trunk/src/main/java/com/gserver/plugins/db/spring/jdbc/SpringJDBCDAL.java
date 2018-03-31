@@ -16,6 +16,7 @@ package com.gserver.plugins.db.spring.jdbc;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
+
 import com.gserver.plugins.db.core.AbstractBaseDAL;
 import com.gserver.plugins.db.core.BaseDAL;
 import com.gserver.plugins.db.descriptor.Table;
@@ -24,7 +25,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 import java.util.Map;
 
-public class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
+class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
 
 
     private CommonJdbcSupport commonJdbcSupport;
@@ -37,6 +38,7 @@ public class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     protected List<Map<String, Object>> _selectByCriteria(Table table) {
         return commonJdbcSupport.selectByCriteria(table);
     }
+
     @Override
     protected int _countByCriteria(Table table) {
         return commonJdbcSupport.countByCriteria(table);
@@ -71,6 +73,7 @@ public class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     protected int _deleteByCriteria(Table table) {
         return commonJdbcSupport.deleteByCriteria(table);
     }
+
     public JdbcTemplate getJdbcTemplate() {
         return commonJdbcSupport.getJdbcTemplate();
     }

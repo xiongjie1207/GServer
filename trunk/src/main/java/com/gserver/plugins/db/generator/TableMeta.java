@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * TableMeta
  */
-public class TableMeta {
+class TableMeta {
 	
 	public String name;					// 表名
 	public String remarks="";				// 表备注

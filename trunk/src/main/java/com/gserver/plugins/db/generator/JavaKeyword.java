@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * JavaKeyword.
  */
-public class JavaKeyword {
+class JavaKeyword {
 
     private String[] keywordArray = {
             "abstract",
