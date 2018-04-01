@@ -16,11 +16,11 @@ public class PageView<T> implements Serializable {
 	/** 分页数据 **/
 	private List<T> records;
 	/** 总页数 **/
-	private long totalpage = 1;
+	private int totalpage = 1;
 	/** 当前页 **/
 	private int currentpage = 0;
 	/** 总记录数 **/
-	private long totalrecord=1;
+	private int totalrecord=1;
 	/** 页码开始索引和结束索引 **/
 	@JsonIgnore
 	private PageIndex pageindex;
@@ -55,10 +55,11 @@ public class PageView<T> implements Serializable {
 		return totalrecord;
 	}
 
-	public void setTotalrecord(long totalrecord) {
+	public void setTotalrecord(int totalrecord) {
 		this.totalrecord = totalrecord;
-		int page = (int) (this.totalrecord / this.itemCount);
-		setTotalpage(page);
+		double value = (double) this.totalrecord / (double)this.itemCount;
+		double page = Math.ceil(value);
+		setTotalpage((int)page);
 	}
 
 	public List<T> getRecords() {
@@ -77,7 +78,7 @@ public class PageView<T> implements Serializable {
 		return totalpage;
 	}
 
-	private void setTotalpage(long totalpage) {
+	private void setTotalpage(int totalpage) {
 		this.totalpage = totalpage;
 		if(currentpage>totalpage){
 			currentpage= (int) totalpage;
