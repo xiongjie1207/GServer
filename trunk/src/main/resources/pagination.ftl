@@ -1,4 +1,4 @@
-<#macro pagination pageView>
+<#macro nav pageView>
 	<script type="text/javascript">
         function pageinationView(pageNum) {
             document.getElementById("pageNum").value = pageNum;
@@ -37,7 +37,7 @@
     </div>
 </#macro>
 
-<#macro paginationForm action name>
+<#macro form action name>
 	<form action="${action}" id="paginationForm" method="post">
         <input type="hidden" name="${name}" id="pageNum"/>
         <#nested>
