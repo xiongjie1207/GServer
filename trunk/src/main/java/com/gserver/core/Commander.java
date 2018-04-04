@@ -17,14 +17,12 @@ package com.gserver.core;
  * Created by xiongjie on 2016/12/22.
  */
 
-import com.gserver.aop.annotation.Commander;
 import com.gserver.exception.FormatException;
 import com.gserver.utils.JsonUtils;
 
 import java.util.Date;
 import java.util.Map;
-@Commander
-public abstract class BaseCommander {
+public abstract class Commander {
     protected <T extends Action> T getAction() {
         return (T) ServerContext.getContext().getAction();
     }

@@ -3,7 +3,6 @@ package com.gserver.core;
 import com.gserver.aop.Interceptor;
 import com.gserver.aop.InterceptorBuilder;
 import com.gserver.aop.annotation.Before;
-import com.gserver.aop.annotation.Commander;
 import com.gserver.aop.annotation.Ignore;
 import com.gserver.core.annotation.ActionKey;
 import org.apache.log4j.Logger;
@@ -21,10 +20,7 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
         try {
-            Commander commander = bean.getClass().getAnnotation(Commander.class);
-            if (commander == null) {
-                return bean;
-            }
+
             Method[] methods = bean.getClass().getDeclaredMethods();
             for (Method method : methods) {
                 ActionKey actionKeyAnnotation = method.getAnnotation(ActionKey.class);
