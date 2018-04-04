@@ -22,12 +22,12 @@ import com.gserver.aop.Interceptor;
 import java.lang.reflect.Method;
 
 public class Action {
-    private Commander commander;
+    private Object commander;
     private Method method;
     private Integer actionKey;
     private Packet packet;
     private final Interceptor[] beforeInterceptors;
-    public Action(Integer actionKey, Commander commander, Method method,Interceptor[] beforeInterceptors) {
+    public Action(Integer actionKey, Object commander, Method method, Interceptor[] beforeInterceptors) {
         this.setActionKey(actionKey);
         this.setCommander(commander);
         this.setMethod(method);
@@ -36,8 +36,8 @@ public class Action {
     public Interceptor[] getBeforeInterceptors() {
         return beforeInterceptors;
     }
-    public <T extends Commander> T getCommander() {
-        return (T)commander;
+    public Object getCommander() {
+        return commander;
     }
 
     public void setPacket(Packet packet) {
@@ -48,7 +48,7 @@ public class Action {
         return this.packet;
     }
 
-    private void setCommander(Commander commander) {
+    private void setCommander(Object commander) {
         this.commander = commander;
     }
 
