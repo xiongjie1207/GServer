@@ -40,6 +40,12 @@ class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     }
 
     @Override
+    protected <T> T _executeBySql(String sql) {
+        return commonJdbcSupport.executeBySql(sql);
+    }
+
+
+    @Override
     protected int _countByCriteria(Table table) {
         return commonJdbcSupport.countByCriteria(table);
     }

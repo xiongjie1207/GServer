@@ -265,12 +265,12 @@ public abstract class AbstractSqlTemplate {
     private String caculationSelectField(Table table) {
         List<String> fields = new ArrayList<>();
         for (String key : table.getQueryFields().keySet()) {
-            if (table.getColumns().containsKey(key)) {
-                fields.add(ColumnWrapperUtils.columnWrap(key));
-            } else {
-                throw new RuntimeException(key + " is not in " + table.getTableName());
-
-            }
+            fields.add(ColumnWrapperUtils.columnWrap(key));
+//            if (table.getColumns().containsKey(key)) {
+//            } else {
+//                throw new RuntimeException(key + " is not in " + table.getTableName());
+//
+//            }
         }
         return StringUtils.join(fields.toArray(), ",");
     }

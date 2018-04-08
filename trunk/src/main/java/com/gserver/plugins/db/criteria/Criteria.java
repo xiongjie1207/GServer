@@ -160,17 +160,7 @@ public class Criteria {
         addCriterion(Condition.NOT_BETWEEN, value1, value2, value1.getClass().getName(), column);
         return this;
     }
-    
-    /**
-     * 快速封装sql查询条件
-     *
-     * @param sql sql片段
-     * @return
-     */
-    public Criteria append(String sql) {
-        return andColumnSql(sql);
 
-    }
 
     public String toString() {
         if (null != criterions) {

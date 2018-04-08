@@ -83,15 +83,21 @@ public abstract class AbstractBaseDAL implements BaseDAL {
                 table.putQueryField(field, true);
             }
         }
-
         table.setQueryCriteria(queryCriteria);
         //查询数据
         List<Map<String, Object>> result = _selectByCriteria(table);
         queryResult.setResultList(result);
+
         return queryResult;
     }
 
+    public <T> T executeBySql(final String sql){
+        return _executeBySql(sql);
+    }
+
     protected abstract List<Map<String, Object>> _selectByCriteria(final Table table);
+
+    protected abstract <T> T _executeBySql(final String sql);
 
 
     protected Table retrievalTable(String database, String dataTable) {
@@ -116,6 +122,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
 
         return result;
     }
+
 
     @Override
     public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String... fields) {
@@ -156,7 +163,6 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     }
 
     protected abstract int _countByCriteria(final Table table);
-
 
     @Override
     public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz) {

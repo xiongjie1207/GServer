@@ -24,12 +24,15 @@ import com.gserver.plugins.db.descriptor.Table;
 import com.gserver.plugins.db.spring.jdbc.model.ModifyParams;
 import com.gserver.plugins.db.spring.jdbc.template.SqlTemplate;
 import org.apache.commons.lang.ArrayUtils;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -88,6 +91,17 @@ class CommonJdbcSupport extends JdbcDaoSupport {
         return getJdbcTemplate().queryForObject(sql, param.toArray(), Integer.class);
     }
 
+    public <T> T executeBySql(final String sql) {
+        return getJdbcTemplate().execute(sql, (PreparedStatementCallback<T>) preparedStatement -> {
+            preparedStatement.execute();
+            ResultSet rs = preparedStatement.getResultSet();
+            if (rs.next()) {
+                return (T)(rs.getObject(1));
+            } else {
+                return null;
+            }
+        });
+    }
 
     public Map<String, Object> selectByPrimaryKey(final Table table) {
         SqlTemplate sqlTemplate = new SqlTemplate();
@@ -95,10 +109,10 @@ class CommonJdbcSupport extends JdbcDaoSupport {
         List<Object> param = buildPrimaryKeyParameters(table);
 
         logger.debug(ArrayUtils.toString(param.toArray()));
-        List <Map< String, Object >> result = getJdbcTemplate().queryForList(sql, param.toArray());
-        if(result.size()>0) {
+        List<Map<String, Object>> result = getJdbcTemplate().queryForList(sql, param.toArray());
+        if (result.size() > 0) {
             return result.get(0);
-        }else {
+        } else {
             return null;
         }
     }

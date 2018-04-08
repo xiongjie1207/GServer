@@ -48,6 +48,7 @@ public interface BaseDAL {
     QueryResult selectByCriteria(QueryCriteria queryCriteria);
 
 
+    <T> T executeBySql(final String sql);
     //-------------------------
     // countByCriteria
     //-------------------------
