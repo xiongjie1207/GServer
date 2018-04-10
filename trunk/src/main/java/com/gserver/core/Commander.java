@@ -54,8 +54,7 @@ public abstract class Commander {
         return toInt(getData(name), null);
     }
 
-    protected String getDataToString(String name, String defalutString) {
-        Object value = getData(name);
+    protected String getDataToString(String value, String defalutString) {
         if (value == null) {
 
             return defalutString;
@@ -64,11 +63,11 @@ public abstract class Commander {
     }
 
     protected byte getDataToByte(String name) {
-        return toByte(name, null);
+        return toByte(getData(name), null);
     }
 
     protected byte getDataToByte(String name, byte defaultValue) {
-        return toByte(name, defaultValue);
+        return toByte(getData(name), defaultValue);
     }
 
     protected long getDataToLong(String name) {
@@ -112,7 +111,7 @@ public abstract class Commander {
     }
 
     protected String getDataToString(String name) {
-        return getDataToString(name, null);
+        return getDataToString(getData(name), null);
     }
 
     protected long getDataToLong(String name, long defaultValue) {
