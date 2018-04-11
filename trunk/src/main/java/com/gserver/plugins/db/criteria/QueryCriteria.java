@@ -69,10 +69,12 @@ public class QueryCriteria {
         return clone;
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
+    public void setOrderByClause(String...orderByClause) {
+        this.orderByClause = StringUtils.join(orderByClause, ",");
     }
-
+    public void setOrderByClauseDesc(String...orderByClause) {
+        this.orderByClause = StringUtils.join(orderByClause, " desc,")+" desc";
+    }
     public String getOrderByClause() {
         return orderByClause;
     }
