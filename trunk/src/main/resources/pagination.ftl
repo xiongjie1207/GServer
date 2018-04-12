@@ -37,8 +37,8 @@
     </div>
 </#macro>
 
-<#macro form action name>
-	<form action="${action}" id="paginationForm" method="post">
+<#macro form action name class="">
+	<form action="${action}" class="${class}" id="paginationForm" method="post">
         <input type="hidden" name="${name}" id="pageNum"/>
         <#nested>
     </form>
