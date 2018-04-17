@@ -85,7 +85,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnIsNull(column);
-        column = null;
         return this;
     }
 
@@ -94,7 +93,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnIsNotNull(column);
-        column = null;
         return this;
     }
 
@@ -103,7 +101,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnEqualTo(column, value);
-        column = null;
         return this;
     }
 
@@ -112,7 +109,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnNotEqualTo(column, value);
-        column = null;
         return this;
     }
 
@@ -121,7 +117,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnGreaterThan(column, value);
-        column = null;
         return this;
     }
 
@@ -130,7 +125,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnGreaterThanOrEqualTo(column, value);
-        column = null;
         return this;
     }
 
@@ -139,7 +133,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnLessThan(column, value);
-        column = null;
         return this;
     }
 
@@ -148,7 +141,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnLessThanOrEqualTo(column, value);
-        column = null;
         return this;
     }
 
@@ -157,7 +149,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnIn(column, values);
-        column = null;
         return this;
     }
 
@@ -166,7 +157,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnNotIn(column, values);
-        column = null;
         return this;
     }
 
@@ -175,7 +165,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnLike(column, value);
-        column = null;
         return this;
     }
 
@@ -184,7 +173,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnNotLike(column, value);
-        column = null;
         return this;
     }
 
@@ -193,7 +181,6 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnBetween(column, value1, value2);
-        column = null;
         return this;
     }
 
@@ -202,17 +189,18 @@ public class Criteria {
             throw new RuntimeException("Column cannot be null");
         }
         andColumnNotBetween(column, value1, value2);
-        column = null;
         return this;
     }
 
     public Criteria andColumnIsNull(String column) {
         addCriterion(Condition.IS_NULL, column);
+        this.column = null;
         return this;
     }
 
     public Criteria andColumnIsNotNull(String column) {
         addCriterion(Condition.IS_NOT_NULL, column);
+        this.column = null;
         return this;
     }
 
@@ -220,6 +208,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.EQUAL, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -227,6 +216,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.NOT_EQUAL, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -234,6 +224,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.GREATER_THAN, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -241,6 +232,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.GREATER_THAN_OR_EQUAL, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -248,6 +240,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LESS_THAN, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -255,6 +248,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LESS_THAN_OR_EQUAL, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -262,6 +256,7 @@ public class Criteria {
         if (null != values && values.size() > 0) {
             addCriterion(Condition.IN, values, values.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -269,6 +264,7 @@ public class Criteria {
         if (null != values && values.size() > 0) {
             addCriterion(Condition.NOT_IN, values, values.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -276,6 +272,7 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LIKE, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
@@ -283,16 +280,19 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.NOT_LIKE, value, value.getClass().getName(), column);
         }
+        this.column = null;
         return this;
     }
 
     public Criteria andColumnBetween(String column, Object value1, Object value2) {
         addCriterion(Condition.BETWEEN, value1, value2, value1.getClass().getName(), column);
+        this.column = null;
         return this;
     }
 
     public Criteria andColumnNotBetween(String column, Object value1, Object value2) {
         addCriterion(Condition.NOT_BETWEEN, value1, value2, value1.getClass().getName(), column);
+        this.column = null;
         return this;
     }
 
