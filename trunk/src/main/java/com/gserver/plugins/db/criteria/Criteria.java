@@ -24,7 +24,6 @@ import java.util.List;
 
 public class Criteria {
     protected List<Criterion> criterions;
-    private String column = null;
 
     protected Criteria() {
         criterions = new ArrayList<Criterion>();
@@ -72,135 +71,18 @@ public class Criteria {
         return this;
     }
 
-    public Criteria andColumn(String column) {
-        if (this.column != null) {
-            throw new RuntimeException("Column has been initialized");
-        }
-        this.column = column;
-        return this;
+    public Column andColumn(String column) {
+        return new Column(column);
     }
 
-    public Criteria isNull() {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnIsNull(column);
-        return this;
-    }
-
-    public Criteria isNotNull() {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnIsNotNull(column);
-        return this;
-    }
-
-    public Criteria equalTo(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnEqualTo(column, value);
-        return this;
-    }
-
-    public Criteria notEqualTo(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnNotEqualTo(column, value);
-        return this;
-    }
-
-    public Criteria greaterThan(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnGreaterThan(column, value);
-        return this;
-    }
-
-    public Criteria greaterThanOrEqualTo(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnGreaterThanOrEqualTo(column, value);
-        return this;
-    }
-
-    public Criteria lessThan(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnLessThan(column, value);
-        return this;
-    }
-
-    public Criteria lessThanOrEqualTo(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnLessThanOrEqualTo(column, value);
-        return this;
-    }
-
-    public Criteria in(List<?> values) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnIn(column, values);
-        return this;
-    }
-
-    public Criteria notIn(List<?> values) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnNotIn(column, values);
-        return this;
-    }
-
-    public Criteria like(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnLike(column, value);
-        return this;
-    }
-
-    public Criteria notLike(Object value) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnNotLike(column, value);
-        return this;
-    }
-
-    public Criteria between(Object value1, Object value2) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnBetween(column, value1, value2);
-        return this;
-    }
-
-    public Criteria notBetween(Object value1, Object value2) {
-        if (column == null) {
-            throw new RuntimeException("Column cannot be null");
-        }
-        andColumnNotBetween(column, value1, value2);
-        return this;
-    }
 
     public Criteria andColumnIsNull(String column) {
         addCriterion(Condition.IS_NULL, column);
-        this.column = null;
         return this;
     }
 
     public Criteria andColumnIsNotNull(String column) {
         addCriterion(Condition.IS_NOT_NULL, column);
-        this.column = null;
         return this;
     }
 
@@ -208,7 +90,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.EQUAL, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -216,7 +97,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.NOT_EQUAL, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -224,7 +104,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.GREATER_THAN, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -232,7 +111,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.GREATER_THAN_OR_EQUAL, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -240,7 +118,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LESS_THAN, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -248,7 +125,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LESS_THAN_OR_EQUAL, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -256,7 +132,6 @@ public class Criteria {
         if (null != values && values.size() > 0) {
             addCriterion(Condition.IN, values, values.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -264,7 +139,6 @@ public class Criteria {
         if (null != values && values.size() > 0) {
             addCriterion(Condition.NOT_IN, values, values.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -272,7 +146,6 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.LIKE, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
@@ -280,19 +153,16 @@ public class Criteria {
         if (null != value) {
             addCriterion(Condition.NOT_LIKE, value, value.getClass().getName(), column);
         }
-        this.column = null;
         return this;
     }
 
     public Criteria andColumnBetween(String column, Object value1, Object value2) {
         addCriterion(Condition.BETWEEN, value1, value2, value1.getClass().getName(), column);
-        this.column = null;
         return this;
     }
 
     public Criteria andColumnNotBetween(String column, Object value1, Object value2) {
         addCriterion(Condition.NOT_BETWEEN, value1, value2, value1.getClass().getName(), column);
-        this.column = null;
         return this;
     }
 
@@ -302,4 +172,83 @@ public class Criteria {
         }
         return null;
     }
+
+    public class Column {
+        private String name;
+
+        private Column(String name) {
+            this.name = name;
+        }
+
+        public Criteria isNull() {
+            Criteria.this.andColumnIsNull(name);
+            return Criteria.this;
+        }
+
+        public Criteria isNotNull() {
+            Criteria.this.andColumnIsNotNull(name);
+            return Criteria.this;
+        }
+
+        public Criteria equalTo(Object value) {
+            Criteria.this.andColumnEqualTo(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria notEqualTo(Object value) {
+            Criteria.this.andColumnNotEqualTo(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria greaterThan(Object value) {
+            Criteria.this.andColumnGreaterThan(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria greaterThanOrEqualTo(Object value) {
+            Criteria.this.andColumnGreaterThanOrEqualTo(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria lessThan(Object value) {
+            Criteria.this.andColumnLessThan(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria lessThanOrEqualTo(Object value) {
+            Criteria.this.andColumnLessThanOrEqualTo(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria in(List<?> values) {
+            Criteria.this.andColumnIn(name, values);
+            return Criteria.this;
+        }
+
+        public Criteria notIn(List<?> values) {
+            Criteria.this.andColumnNotIn(name, values);
+            return Criteria.this;
+        }
+
+        public Criteria like(Object value) {
+            Criteria.this.andColumnLike(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria notLike(Object value) {
+            Criteria.this.andColumnNotLike(name, value);
+            return Criteria.this;
+        }
+
+        public Criteria between(Object value1, Object value2) {
+            Criteria.this.andColumnBetween(name, value1, value2);
+            return Criteria.this;
+        }
+
+        public Criteria notBetween(Object value1, Object value2) {
+            Criteria.this.andColumnNotBetween(name, value1, value2);
+            return Criteria.this;
+        }
+    }
+
 }

@@ -31,7 +31,7 @@ class ColumnMeta {
 	
 	/*
 	-----------+---------+------+-----+---------+----------------
-	 Field     | Type    | Null | Key | Default | Remarks
+	 Column     | Type    | Null | Key | Default | Remarks
 	-----------+---------+------+-----+---------+----------------
 	 id		   | int(11) | NO	| PRI | NULL	| remarks here	
 	*/
