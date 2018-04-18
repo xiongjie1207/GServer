@@ -2,15 +2,10 @@ package com.gserver.plugins.db;
 
 import com.gserver.plugins.IPlugin;
 import com.gserver.plugins.db.descriptor.ResolveDataBase;
-import com.gserver.plugins.db.descriptor.SimpleResolveDatabase;
 import com.gserver.plugins.db.spring.jdbc.SpringJDBCBuilder;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
-import javax.sql.DataSource;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
