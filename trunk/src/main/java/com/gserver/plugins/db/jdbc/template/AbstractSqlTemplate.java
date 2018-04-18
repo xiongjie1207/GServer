@@ -266,11 +266,6 @@ public abstract class AbstractSqlTemplate {
         List<String> fields = new ArrayList<>();
         for (String key : table.getQueryFields().keySet()) {
             fields.add(ColumnWrapperUtils.columnWrap(key));
-//            if (table.getColumns().containsKey(key)) {
-//            } else {
-//                throw new RuntimeException(key + " is not in " + table.getTableName());
-//
-//            }
         }
         return StringUtils.join(fields.toArray(), ",");
     }
