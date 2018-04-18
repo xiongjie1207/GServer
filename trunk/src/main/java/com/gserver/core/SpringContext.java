@@ -3,6 +3,8 @@ package com.gserver.core;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 
+import javax.servlet.ServletContext;
+
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -21,15 +23,22 @@ import org.springframework.context.ApplicationContext;
  * Created by xiongjie on 2017/1/2.
  */
 public class SpringContext {
-    private static  ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext;
+
     public static void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         SpringContext.applicationContext = applicationContext;
     }
 
-    public static <T> T getBean(Class<T> clazz){
+    public static ApplicationContext getApplicationContext() {
+        return SpringContext.applicationContext;
+    }
+
+    public static <T> T getBean(Class<T> clazz) {
         return SpringContext.applicationContext.getBean(clazz);
     }
-    public static <T> T getBean(String beanName){
+
+    public static <T> T getBean(String beanName) {
         return (T) SpringContext.applicationContext.getBean(beanName);
     }
+
 }
