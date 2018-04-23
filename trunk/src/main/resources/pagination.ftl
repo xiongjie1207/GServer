@@ -6,7 +6,7 @@
         }
     </script>
 	<div>
-        <label>共${pageView.totalpage}页，每页${pageView.itemCount}条数据，约${pageView.totalrecord}条数据</label>
+        <label>共<span class="badge badge-success">${pageView.totalpage}</span>页，每页<span class="badge badge-success">${pageView.itemCount}</span>条数据，约<span class="badge badge-success">${pageView.totalrecord}</span>条数据</label>
 
 		<#if (pageView.currentpage > 0)>
 			<a href="javascript:pageinationView(0)" title="首页"><span>首页</span></a>
