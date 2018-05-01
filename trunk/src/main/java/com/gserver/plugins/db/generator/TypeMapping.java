@@ -48,25 +48,25 @@ public class TypeMapping {
         put("java.lang.String", "String");
 
         // int, integer, tinyint, smallint, mediumint
-        put("java.lang.Integer", "int");
+        put("java.lang.Integer", "java.lang.Integer");
 
         // bigint
-        put("java.lang.Long", "long");
+        put("java.lang.Long", "java.lang.Long");
 
         // real, double
-        put("java.lang.Double", "double");
+        put("java.lang.Double", "java.lang.Double");
 
         // float
-        put("java.lang.Float", "float");
+        put("java.lang.Float", "java.lang.Float");
 
         // bit
-        put("java.lang.Boolean", "boolean");
+        put("java.lang.Boolean", "java.lang.Boolean");
 
         // decimal, numeric
-        put("java.math.BigDecimal", "long");
+        put("java.math.BigDecimal", "java.lang.Long");
 
         // unsigned bigint
-        put("java.math.BigInteger", "long");
+        put("java.math.BigInteger", "java.lang.Long");
     }};
 
     public String getType(String typeString) {
