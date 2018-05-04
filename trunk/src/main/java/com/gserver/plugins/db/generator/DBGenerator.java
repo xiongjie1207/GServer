@@ -18,12 +18,9 @@
 
 package com.gserver.plugins.db.generator;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
-
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
 
 /**
  * 生成器
