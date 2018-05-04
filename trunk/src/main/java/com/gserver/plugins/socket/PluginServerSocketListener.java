@@ -5,7 +5,6 @@ import com.gserver.codec.CustomZLibEncoder;
 import com.gserver.codec.MessageDecoder;
 import com.gserver.codec.MessageEncode;
 import com.gserver.config.ServerConfig;
-import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
 import com.gserver.listener.ClientListener;

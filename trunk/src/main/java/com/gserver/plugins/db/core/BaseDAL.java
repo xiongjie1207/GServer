@@ -123,4 +123,5 @@ public interface BaseDAL {
 
     JdbcTemplate getJdbcTemplate();
 
+    void stopAsyTask();
 }

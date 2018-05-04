@@ -21,8 +21,6 @@ import com.gserver.plugins.db.core.BaseDAL;
 import com.gserver.plugins.db.descriptor.IEntity;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 
@@ -39,8 +37,6 @@ public class AsynSQLTask implements Runnable {
      * 开关
      */
     private volatile boolean activeFlag = true;
-
-    private List<AsynRecord> records = new ArrayList<AsynRecord>();
 
 
     private BaseDAL baseDAL;
@@ -67,8 +63,11 @@ public class AsynSQLTask implements Runnable {
                         baseDAL.insert(r.getTable(), r.getMapObj());
                         break;
                 }
-            } catch (Exception e) {
-                logger.error("【严重】日志任务失败!", e);
+            }
+            catch (Exception e) {
+                if (!(e instanceof InterruptedException)) {
+                    logger.error(e.getMessage(), e);
+                }
             }
         }
     }

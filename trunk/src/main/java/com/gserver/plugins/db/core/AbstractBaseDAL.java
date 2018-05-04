@@ -27,6 +27,7 @@ import com.gserver.utils.db.DBTableUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -41,25 +42,37 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     protected ResolveDataBase resolveDatabase;
 
 
+
+    private ExecutorService asynWriterService;
     protected String version;
 
     protected List<String> versionTables;
 
-
+    private List<AsynSQLTask> tasks;
     private BlockingQueue<AsynRecord> sqlQueue;
 
     private Logger logger = Logger.getLogger(this.getClass());
 
     public AbstractBaseDAL() {
         int asynWriterThreadSize = 2;
+        tasks = new ArrayList<>();
         sqlQueue = new LinkedBlockingQueue<AsynRecord>();
-        ExecutorService asynWriterService = Executors.newFixedThreadPool(asynWriterThreadSize);
+        asynWriterService = Executors.newFixedThreadPool(asynWriterThreadSize);
         for (int i = 0; i < asynWriterThreadSize; i++) {
             AsynSQLTask task = new AsynSQLTask(this);
             task.setLogQueue(sqlQueue);
+            tasks.add(task);
             asynWriterService.submit(task);
         }
         logger.info("Asyn dal init ok!");
+    }
+
+    @Override
+    public void stopAsyTask() {
+        for (AsynSQLTask asynSQLTask:tasks){
+            asynSQLTask.setActiveFlag(false);
+        }
+        asynWriterService.shutdownNow();
     }
 
     @Override
@@ -303,7 +316,6 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         return result;
 
     }
-
     protected abstract int _updateByCriteria(Table table);
 
     @Override

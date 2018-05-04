@@ -19,7 +19,8 @@
 package com.gserver.aop;
 
 import com.gserver.core.Action;
-import org.apache.log4j.Logger;
+
+import java.lang.reflect.InvocationTargetException;
 
 
 /**
@@ -36,18 +37,14 @@ public class Invocation {
     }
 
 
-    public void invoke() {
+    public void invoke() throws InvocationTargetException, IllegalAccessException {
         for (Interceptor interceptor : action.getBeforeInterceptors()) {
             boolean ret = interceptor.intercept(action);
             if (!ret) {
                 return;
             }
         }
-        try {
-            action.getMethod().invoke(action.getCommander());
-        } catch (Exception e) {
-            Logger.getRootLogger().error("", e);
-        }
+        action.getMethod().invoke(action.getCommander());
     }
 
 }
