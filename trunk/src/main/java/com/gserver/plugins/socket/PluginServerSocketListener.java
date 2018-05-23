@@ -65,9 +65,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
     private Logger logger = Logger.getLogger(this.getClass());
-    Thread t;
-    protected PluginServerSocketListener() {
-    }
+    private Thread t;
 
     @Override
     public boolean start() {
@@ -83,7 +81,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
             workerGroup.shutdownGracefully().await();
             eventExecutorGroup.shutdownGracefully().await();
         } catch (InterruptedException e) {
-            logger.error("",e);
+            logger.error(e.getMessage(),e);
         }
 
         return true;
@@ -117,7 +115,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
                 serverBootstrap.childOption((ChannelOption<Object>) key, childOptionObjectMap.get(key));
             }
             if (ServerConfig.getInstance().getPort() == 0) {
-                serverBootstrap.localAddress(new InetSocketAddress(5777));
+                serverBootstrap.localAddress(new InetSocketAddress(7777));
             } else {
                 serverBootstrap.localAddress(new InetSocketAddress(ServerConfig.getInstance().getPort()));
             }
@@ -221,7 +219,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-            logger.info("==============channel-read-complete==============");
+            logger.debug("==============channel-read-complete==============");
 
         }
 
