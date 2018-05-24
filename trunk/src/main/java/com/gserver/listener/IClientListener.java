@@ -20,7 +20,7 @@ package com.gserver.listener;
 import io.netty.channel.ChannelHandlerContext;
 
 
-public interface ClientListener {
+public interface IClientListener {
     void onClientConnected(ChannelHandlerContext ctx);
 
     void onClientDisconnected(ChannelHandlerContext ctx);

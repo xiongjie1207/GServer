@@ -7,7 +7,7 @@ import com.gserver.codec.MessageEncode;
 import com.gserver.config.ClientConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
-import com.gserver.listener.ClientListener;
+import com.gserver.listener.IClientListener;
 import com.gserver.plugins.IPlugin;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -47,7 +47,7 @@ import java.util.Map;
 public abstract class PluginClientSocketListener implements IPlugin {
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
     private Bootstrap bootstrap;
-    private ClientListener clientListener;
+    private IClientListener clientListener;
     private ChannelFuture channelFuture;
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Logger logger = Logger.getLogger(this.getClass());
@@ -94,7 +94,7 @@ public abstract class PluginClientSocketListener implements IPlugin {
 
     }
 
-    public void setClientListener(ClientListener clientListener) {
+    public void setClientListener(IClientListener clientListener) {
         this.clientListener = clientListener;
     }
 
