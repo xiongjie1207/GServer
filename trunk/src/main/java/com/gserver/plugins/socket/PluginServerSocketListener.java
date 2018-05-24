@@ -64,6 +64,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
     protected EventExecutorGroup eventExecutorGroup;
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
+    protected IClientListener clientListener=null;
     private Logger logger = Logger.getLogger(this.getClass());
     private Thread t;
 
@@ -115,6 +116,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
                 serverBootstrap.childOption((ChannelOption<Object>) key, childOptionObjectMap.get(key));
             }
             serverBootstrap.localAddress(new InetSocketAddress(getPort()));
+            clientListener = getClientListener();
             channelFuture = serverBootstrap.bind().addListener((ChannelFuture future) -> this.operationComplete(future));
 
             channelFuture.channel().closeFuture().sync();
@@ -194,15 +196,15 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
-            if (getClientListener() != null) {
-                getClientListener().onClientConnected(ctx);
+            if (clientListener != null) {
+                clientListener.onClientConnected(ctx);
             }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
-            if (getClientListener() != null) {
-                getClientListener().onClientDisconnected(ctx);
+            if (clientListener != null) {
+                clientListener.onClientDisconnected(ctx);
             }
         }
 
@@ -221,8 +223,8 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-            if (getClientListener() != null) {
-                getClientListener().onClientException(ctx);
+            if (clientListener != null) {
+                clientListener.onClientException(ctx);
             }
             if (cause instanceof IOException && ctx.channel().isActive()) {
                 logger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
@@ -232,17 +234,20 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
+            if(clientListener==null){
+                return;
+            }
             if (evt instanceof IdleStateEvent) {
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        getClientListener().onAllIdle(ctx);
+                        clientListener.onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        getClientListener().onReaderIdle(ctx);
+                        clientListener.onReaderIdle(ctx);
                         break;
                     case WRITER_IDLE:
-                        getClientListener().onWriterIdle(ctx);
+                        clientListener.onWriterIdle(ctx);
                         break;
                 }
 

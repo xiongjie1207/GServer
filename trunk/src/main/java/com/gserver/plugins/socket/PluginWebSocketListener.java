@@ -72,15 +72,15 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
-            if (getClientListener() != null) {
-                getClientListener().onClientConnected(ctx);
+            if (clientListener != null) {
+                clientListener.onClientConnected(ctx);
             }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
-            if (getClientListener() != null) {
-                getClientListener().onClientDisconnected(ctx);
+            if (clientListener != null) {
+                clientListener.onClientDisconnected(ctx);
             }
         }
         @Override
@@ -199,8 +199,8 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-            if (getClientListener() != null) {
-                getClientListener().onClientException(ctx);
+            if (clientListener != null) {
+                clientListener.onClientException(ctx);
             }
             if (cause instanceof IOException && ctx.channel().isActive()) {
                 logger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
@@ -210,17 +210,20 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
 
         @Override
         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
+            if(clientListener==null){
+                return;
+            }
             if (evt instanceof IdleStateEvent) {
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        getClientListener().onAllIdle(ctx);
+                        clientListener.onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        getClientListener().onReaderIdle(ctx);
+                        clientListener.onReaderIdle(ctx);
                         break;
                     case WRITER_IDLE:
-                        getClientListener().onWriterIdle(ctx);
+                        clientListener.onWriterIdle(ctx);
                         break;
                 }
 
