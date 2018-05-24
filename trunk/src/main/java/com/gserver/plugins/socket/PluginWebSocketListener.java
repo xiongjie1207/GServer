@@ -136,7 +136,7 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
             try
             {
                 jsonObject = objectMapper.readValue(request, Map.class);
-                System.out.println(jsonObject);
+                logger.debug(jsonObject);
             }
             catch (Exception e)
             {
