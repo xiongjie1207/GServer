@@ -32,6 +32,9 @@ public interface IDao${entity} {
 	default long insert(${entity} entity) {
 		return SpringJDBCBuilder.getInstance().buildDAL().insert(entity);
 	}
+	default void asyncInsert(${entity} entity) {
+		SpringJDBCBuilder.getInstance().buildDAL().asynInsert(entity);
+	}
 	default ${entity} load(Object id) {
 		return ((IDao${entity})AopContext.currentProxy())._load(id);
 	}

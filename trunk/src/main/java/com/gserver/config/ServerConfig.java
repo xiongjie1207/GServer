@@ -17,6 +17,8 @@ package com.gserver.config;
  * Created by xiongjie on 2016/12/22.
  */
 public class ServerConfig {
+
+
     private ServerConfig(){
 
     }
@@ -27,6 +29,7 @@ public class ServerConfig {
         }
         return instance;
     }
+    private short webSocketPort;
     /**
      * boss线程池
      */
@@ -114,5 +117,13 @@ public class ServerConfig {
 
     public void setHandlerTreadCount(short handlerTreadCount) {
         this.handlerTreadCount = handlerTreadCount;
+    }
+
+    public short getWebSocketPort() {
+        return webSocketPort;
+    }
+
+    public void setWebSocketPort(short webSocketPort) {
+        this.webSocketPort = webSocketPort;
     }
 }
