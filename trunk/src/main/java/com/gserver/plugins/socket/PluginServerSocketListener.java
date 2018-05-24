@@ -64,7 +64,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
     protected EventExecutorGroup eventExecutorGroup;
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
-    protected IClientListener clientListener=null;
+
     private Logger logger = Logger.getLogger(this.getClass());
     private Thread t;
 
@@ -116,7 +116,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
                 serverBootstrap.childOption((ChannelOption<Object>) key, childOptionObjectMap.get(key));
             }
             serverBootstrap.localAddress(new InetSocketAddress(getPort()));
-            clientListener = getClientListener();
+
             channelFuture = serverBootstrap.bind().addListener((ChannelFuture future) -> this.operationComplete(future));
 
             channelFuture.channel().closeFuture().sync();
@@ -148,7 +148,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
     protected void initChildOption(Map<ChannelOption<?>, Object> config) {
     }
 
-    protected abstract IClientListener getClientListener();
+    protected abstract IClientListener createClientListener();
 
 
     private class GameServerChannelInitializer extends ChannelInitializer<Channel> {
@@ -193,7 +193,10 @@ public abstract class PluginServerSocketListener implements IPlugin {
     }
     @ChannelHandler.Sharable
     protected class MessageHandler extends ChannelInboundHandlerAdapter {
-
+        private IClientListener clientListener;
+        public MessageHandler(){
+            clientListener = createClientListener();
+        }
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
             if (clientListener != null) {

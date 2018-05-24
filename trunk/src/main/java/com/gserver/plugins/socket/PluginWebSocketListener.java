@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
+import com.gserver.listener.IClientListener;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
@@ -66,10 +67,12 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
 
     @ChannelHandler.Sharable
     public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
-
+        private IClientListener clientListener;
         private ObjectMapper objectMapper = new ObjectMapper();
         private WebSocketServerHandshaker handshaker;
-
+        public WebSocketServerHandler(){
+            clientListener = createClientListener();
+        }
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
             if (clientListener != null) {
