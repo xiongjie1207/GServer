@@ -13,7 +13,6 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.group.ChannelGroup;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpObjectAggregator;
@@ -65,50 +64,29 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
         return ServerConfig.getInstance().getWebSocketPort();
     }
 
-    /**
-     * websocket 具体业务处理方法
-     *
-     * */
-
     @ChannelHandler.Sharable
     public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 
         private ObjectMapper objectMapper = new ObjectMapper();
         private WebSocketServerHandshaker handshaker;
 
-        public final void push(final ChannelHandlerContext ctx,final String message){
-
-            TextWebSocketFrame tws = new TextWebSocketFrame(message);
-            ctx.channel().writeAndFlush(tws);
-
-        }
-        /**
-         * 群发
-         *
-         * */
-        public final void push(final ChannelGroup ctxGroup, final String message){
-
-            TextWebSocketFrame tws = new TextWebSocketFrame(message);
-            ctxGroup.writeAndFlush(tws);
-
-        }
-
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
-            if (PluginWebSocketListener.this.getClientListener() != null) {
-                PluginWebSocketListener.this.getClientListener().onClientConnected(ctx);
+            if (getClientListener() != null) {
+                getClientListener().onClientConnected(ctx);
             }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
-            if (PluginWebSocketListener.this.getClientListener() != null) {
-                PluginWebSocketListener.this.getClientListener().onClientDisconnected(ctx);
+            if (getClientListener() != null) {
+                getClientListener().onClientDisconnected(ctx);
             }
         }
         @Override
         public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
             // TODO Auto-generated method stub
+            logger.debug("==============channel-read-complete==============");
             ctx.flush();
         }
 
@@ -220,10 +198,9 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
         }
 
         @Override
-        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
-                throws Exception {
-            if (PluginWebSocketListener.this.getClientListener() != null) {
-                PluginWebSocketListener.this.getClientListener().onClientException(ctx);
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+            if (getClientListener() != null) {
+                getClientListener().onClientException(ctx);
             }
             if (cause instanceof IOException && ctx.channel().isActive()) {
                 logger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
@@ -237,13 +214,13 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        PluginWebSocketListener.this.getClientListener().onAllIdle(ctx);
+                        getClientListener().onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        PluginWebSocketListener.this.getClientListener().onReaderIdle(ctx);
+                        getClientListener().onReaderIdle(ctx);
                         break;
                     case WRITER_IDLE:
-                        PluginWebSocketListener.this.getClientListener().onWriterIdle(ctx);
+                        getClientListener().onWriterIdle(ctx);
                         break;
                 }
 

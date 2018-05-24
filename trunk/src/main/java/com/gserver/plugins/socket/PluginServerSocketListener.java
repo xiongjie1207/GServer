@@ -194,15 +194,15 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
-            if (PluginServerSocketListener.this.getClientListener() != null) {
-                PluginServerSocketListener.this.getClientListener().onClientConnected(ctx);
+            if (getClientListener() != null) {
+                getClientListener().onClientConnected(ctx);
             }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
-            if (PluginServerSocketListener.this.getClientListener() != null) {
-                PluginServerSocketListener.this.getClientListener().onClientDisconnected(ctx);
+            if (getClientListener() != null) {
+                getClientListener().onClientDisconnected(ctx);
             }
         }
 
@@ -221,8 +221,8 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-            if (PluginServerSocketListener.this.getClientListener() != null) {
-                PluginServerSocketListener.this.getClientListener().onClientException(ctx);
+            if (getClientListener() != null) {
+                getClientListener().onClientException(ctx);
             }
             if (cause instanceof IOException && ctx.channel().isActive()) {
                 logger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
@@ -236,13 +236,13 @@ public abstract class PluginServerSocketListener implements IPlugin {
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        PluginServerSocketListener.this.getClientListener().onAllIdle(ctx);
+                        getClientListener().onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        PluginServerSocketListener.this.getClientListener().onReaderIdle(ctx);
+                        getClientListener().onReaderIdle(ctx);
                         break;
                     case WRITER_IDLE:
-                        PluginServerSocketListener.this.getClientListener().onWriterIdle(ctx);
+                        getClientListener().onWriterIdle(ctx);
                         break;
                 }
 
