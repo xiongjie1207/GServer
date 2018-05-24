@@ -7,7 +7,6 @@ import com.gserver.codec.MessageEncode;
 import com.gserver.config.ClientConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
-import com.gserver.listener.IClientListener;
 import com.gserver.plugins.IPlugin;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -47,7 +46,6 @@ import java.util.Map;
 public abstract class PluginClientSocketListener implements IPlugin {
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
     private Bootstrap bootstrap;
-    private IClientListener clientListener;
     private ChannelFuture channelFuture;
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Logger logger = Logger.getLogger(this.getClass());
@@ -92,10 +90,6 @@ public abstract class PluginClientSocketListener implements IPlugin {
 
     protected void initOption(Map<ChannelOption<?>, Object> config) {
 
-    }
-
-    public void setClientListener(IClientListener clientListener) {
-        this.clientListener = clientListener;
     }
 
     public ChannelFuture writeData(byte[] data) {
@@ -171,13 +165,11 @@ public abstract class PluginClientSocketListener implements IPlugin {
         @Override
         public void channelInactive(ChannelHandlerContext ctx) throws Exception {
             logger.error("断开连接" + Calendar.getInstance().getTime().toString());
-            PluginClientSocketListener.this.clientListener.onClientDisconnected(ctx);
             super.channelInactive(ctx);
         }
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) throws Exception {
-            PluginClientSocketListener.this.clientListener.onClientConnected(ctx);
         }
 
     }

@@ -7,7 +7,6 @@ import com.gserver.codec.MessageEncode;
 import com.gserver.config.ServerConfig;
 import com.gserver.core.Commanders;
 import com.gserver.core.Packet;
-import com.gserver.listener.IClientListener;
 import com.gserver.plugins.IPlugin;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -148,7 +147,6 @@ public abstract class PluginServerSocketListener implements IPlugin {
     protected void initChildOption(Map<ChannelOption<?>, Object> config) {
     }
 
-    protected abstract IClientListener createClientListener();
 
 
     private class GameServerChannelInitializer extends ChannelInitializer<Channel> {
@@ -193,22 +191,14 @@ public abstract class PluginServerSocketListener implements IPlugin {
     }
     @ChannelHandler.Sharable
     protected class MessageHandler extends ChannelInboundHandlerAdapter {
-        private IClientListener clientListener;
         public MessageHandler(){
-            clientListener = createClientListener();
         }
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
-            if (clientListener != null) {
-                clientListener.onClientConnected(ctx);
-            }
         }
 
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
-            if (clientListener != null) {
-                clientListener.onClientDisconnected(ctx);
-            }
         }
 
         @Override
@@ -226,31 +216,24 @@ public abstract class PluginServerSocketListener implements IPlugin {
 
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-            if (clientListener != null) {
-                clientListener.onClientException(ctx);
-            }
             if (cause instanceof IOException && ctx.channel().isActive()) {
                 logger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
-                ctx.close();
             }
+            ctx.close();
         }
 
         @Override
         public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
-            if(clientListener==null){
-                return;
-            }
             if (evt instanceof IdleStateEvent) {
                 IdleStateEvent e = (IdleStateEvent) evt;
                 switch (e.state()) {
                     case ALL_IDLE:
-                        clientListener.onAllIdle(ctx);
                         break;
                     case READER_IDLE:
-                        clientListener.onReaderIdle(ctx);
+                        logger.info("写空闲:"+ctx.channel());
+                        ctx.channel().close();
                         break;
                     case WRITER_IDLE:
-                        clientListener.onWriterIdle(ctx);
                         break;
                 }
 
