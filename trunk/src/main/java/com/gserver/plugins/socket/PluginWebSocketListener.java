@@ -78,7 +78,7 @@ public abstract class PluginWebSocketListener extends PluginServerSocketListener
         public void channelInactive(ChannelHandlerContext ctx) {
         }
         @Override
-        public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        public void channelReadComplete(ChannelHandlerContext ctx) {
             // TODO Auto-generated method stub
             logger.debug("==============channel-read-complete==============");
             ctx.flush();

@@ -231,6 +231,7 @@ public abstract class PluginServerSocketListener implements IPlugin {
                         break;
                     case READER_IDLE:
                         logger.info("写空闲:"+ctx.channel());
+                        ctx.channel().disconnect();
                         ctx.channel().close();
                         break;
                     case WRITER_IDLE:
