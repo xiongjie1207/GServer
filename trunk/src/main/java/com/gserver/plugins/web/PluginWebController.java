@@ -61,7 +61,7 @@ public abstract class PluginWebController implements IPlugin {
     }
 
     @ModelAttribute
-    public void setReqAndRes(HttpServletRequest request, HttpServletResponse response) {
+    private void setReqAndRes(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding(CHAR_SET_UTF_8);
             response.setCharacterEncoding(CHAR_SET_UTF_8);
