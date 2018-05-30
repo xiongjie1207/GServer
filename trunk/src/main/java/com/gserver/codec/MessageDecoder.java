@@ -41,7 +41,7 @@ public class MessageDecoder extends MessageToMessageDecoder<String> {
             throws Exception {
         // TODO Auto-generated method stub
         try {
-            logger.info("receive:---------" + paramI);
+            logger.info("socket receive:---------" + paramI);
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> json = objectMapper.readValue(paramI, HashMap.class);
             paramList.add(json);

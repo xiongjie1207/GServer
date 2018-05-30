@@ -48,7 +48,7 @@ public class MessageEncode extends MessageToMessageEncoder<Object> {
             ObjectMapper mapper = new ObjectMapper();
             jsonData = mapper.writeValueAsString(o);
         }
-        logger.info("send:---------" + jsonData);
+        logger.info("socket send:---------" + jsonData);
         list.add(jsonData);
     }
 }

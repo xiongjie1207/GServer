@@ -82,7 +82,7 @@ public abstract class PluginWebController implements IPlugin {
                 if (dataStr == null) {
                     return;
                 }
-                logger.info("receive data:" + dataStr);
+                logger.info("http receive:" + dataStr);
                 ObjectMapper objectMapper = new ObjectMapper();
                 Map<String, Object> msg = objectMapper.readValue(dataStr, Map.class);
                 Packet packet = new Packet(msg);
