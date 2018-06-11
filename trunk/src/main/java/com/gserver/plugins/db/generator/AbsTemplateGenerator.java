@@ -38,7 +38,7 @@ public abstract class AbsTemplateGenerator {
 
     public void generate(TableMeta tableMeta) {
         try {
-            File dir = new File(getOutputDir() + File.separator + getPackage());
+            File dir = new File(getOutputDir() + File.separator + getPackage().replace(".", File.separator));
             if (!dir.exists())
                 dir.mkdirs();
             String target = dir.toString() + File.separator + getClassName(tableMeta) + ".java";
