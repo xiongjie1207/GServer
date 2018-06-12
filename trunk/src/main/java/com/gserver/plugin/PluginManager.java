@@ -1,6 +1,5 @@
 package com.gserver.plugin;
 
-import com.gserver.components.IComponent;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 
@@ -21,6 +20,7 @@ public class PluginManager {
     private PluginManager() {
         cache = new HashMap<>();
     }
+
 
     public static PluginManager getInstance() {
         if (instance == null) {
@@ -56,16 +56,16 @@ public class PluginManager {
         for (File jar : jars) {
             File cacheJar = cache.get(jar.getName());
             if (cacheJar != null) {
-                if (jar.lastModified()>cacheJar.lastModified()) {
+                if (jar.lastModified() > cacheJar.lastModified()) {
                     cache.put(jar.getName(), jar);
-                }else{
+                } else {
                     break;
                 }
             } else {
                 cache.put(jar.getName(), jar);
 
             }
-            logger.debug("load jar:"+jar.getPath());
+            logger.debug("load jar:" + jar.getPath());
             URL url = new URL("file:" + jar.getPath());
             URLClassLoader classLoader = new URLClassLoader(new URL[]{url}, Thread.currentThread()
                     .getContextClassLoader());
