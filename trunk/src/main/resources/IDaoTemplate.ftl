@@ -3,8 +3,8 @@ package ${packageName};
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
-import com.gserver.plugins.db.descriptor.QueryResult;
-import com.gserver.plugins.db.spring.jdbc.SpringJDBCBuilder;
+import com.gserver.components.db.descriptor.QueryResult;
+import com.gserver.components.db.spring.jdbc.SpringJDBCBuilder;
 import org.springframework.aop.framework.AopContext;
 ${importClasses}
 

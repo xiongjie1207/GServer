@@ -1,6 +1,6 @@
 package com.gserver.utils.db;
 
-import com.gserver.plugins.db.descriptor.IEntity;
+import com.gserver.components.db.descriptor.IEntity;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
@@ -28,11 +28,11 @@ public class DBTableUtil {
     public static String loadTableName(Class<? extends IEntity> clazz){
         String tableName = tableNameCache.get(clazz.getSimpleName());
         if(tableName==null) {
-            if (clazz.isAnnotationPresent(com.gserver.plugins.db.annotation.Table.class)) {
+            if (clazz.isAnnotationPresent(com.gserver.components.db.annotation.Table.class)) {
                 Annotation[] annotations = clazz.getAnnotations();
                 for (Annotation annotation : annotations) {
-                    if (annotation instanceof com.gserver.plugins.db.annotation.Table) {
-                        com.gserver.plugins.db.annotation.Table tableNameAnnotation = (com.gserver.plugins.db.annotation.Table) annotation;
+                    if (annotation instanceof com.gserver.components.db.annotation.Table) {
+                        com.gserver.components.db.annotation.Table tableNameAnnotation = (com.gserver.components.db.annotation.Table) annotation;
                         tableName = tableNameAnnotation.value();
                         tableNameCache.put(clazz.getSimpleName(),tableName);
                         break;

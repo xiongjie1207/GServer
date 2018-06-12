@@ -16,9 +16,9 @@ package com.gserver.utils.db;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
-import com.gserver.plugins.db.descriptor.Column;
-import com.gserver.plugins.db.descriptor.JavaType;
-import com.gserver.plugins.db.descriptor.JavaTypeResolver;
+import com.gserver.components.db.descriptor.Column;
+import com.gserver.components.db.descriptor.JavaType;
+import com.gserver.components.db.descriptor.JavaTypeResolver;
 
 public class VersionWrapperUtils {
 
