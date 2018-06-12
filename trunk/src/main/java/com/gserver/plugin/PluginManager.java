@@ -16,11 +16,11 @@ import java.util.Map;
 public class PluginManager {
     Logger logger = Logger.getLogger(PluginManager.class);
     private static PluginManager instance;
-    private Map<String, File> jarCache;
+    private Map<String, Long> jarLastModified;
     private Map<String, IPlugin> pluginMap;
 
     private PluginManager() {
-        jarCache = new HashMap<>();
+        jarLastModified = new HashMap<>();
         pluginMap = new HashMap<>();
     }
 
@@ -76,15 +76,16 @@ public class PluginManager {
     private List<Class<IPlugin>> initJar(File[] jars) throws MalformedURLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         List<Class<IPlugin>> plugins = new ArrayList<>();
         for (File jar : jars) {
-            File cacheJar = jarCache.get(jar.getName());
-            if (cacheJar != null) {
-                if (jar.lastModified() > cacheJar.lastModified()) {
-                    jarCache.put(jar.getName(), jar);
+            Long lastModified = jarLastModified.get(jar.getName());
+            long jarDate = jar.lastModified();
+            if (lastModified != null) {
+                if (jarDate > lastModified.longValue()) {
+                    jarLastModified.put(jar.getName(), jarDate);
                 } else {
                     break;
                 }
             } else {
-                jarCache.put(jar.getName(), jar);
+                jarLastModified.put(jar.getName(), jarDate);
 
             }
             logger.debug("load jar:" + jar.getPath());
