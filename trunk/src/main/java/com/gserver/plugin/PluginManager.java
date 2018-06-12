@@ -49,10 +49,7 @@ public class PluginManager {
 
 
     public void removePlugin(IPlugin plugin) {
-        boolean ret = plugin.stop();
-        if (ret) {
-            pluginMap.remove(String.valueOf(plugin.getName().hashCode()));
-        }
+        pluginMap.remove(String.valueOf(plugin.getName().hashCode()));
     }
 
     public List<Class<IPlugin>> loadPluginFromJar(String pluginsDir) {
