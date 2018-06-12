@@ -63,7 +63,7 @@ public class JavaTypeConversion {
                 for (SimpleDateFormat format : formats) {
                     try {
                         Date date = format.parse(value);
-                        logger.info("时间格式转换成功format:" + format.toPattern());
+                        logger.debug("时间格式转换成功format:" + format.toPattern());
                         result = new Timestamp(date.getTime());
                         fmtFlag = true;
                         break;
