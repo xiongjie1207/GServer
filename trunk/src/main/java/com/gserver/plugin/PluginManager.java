@@ -40,11 +40,8 @@ public class PluginManager {
         if (pluginMap.containsKey(String.valueOf(plugin.getName().hashCode()))) {
             return false;
         }
-        boolean ret = plugin.start();
-        if (ret) {
-            pluginMap.put(String.valueOf(plugin.getName().hashCode()), plugin);
-        }
-        return ret;
+        pluginMap.put(String.valueOf(plugin.getName().hashCode()), plugin);
+        return true;
     }
 
 
