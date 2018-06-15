@@ -17,6 +17,7 @@ package com.gserver.core;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 
@@ -85,15 +86,9 @@ public class Packet {
         return null;
     }
 
-    public String toJSONString() {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.writeValueAsString(json);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            logger.error("", e);
-        }
-        return null;
+    public String toJSONString() throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(json);
     }
 
     public void remove(String key) {
@@ -113,12 +108,6 @@ public class Packet {
 
     @Override
     public Packet clone() {
-        try {
-            return new Packet(json);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            logger.error("", e);
-        }
-        return null;
+        return new Packet(json);
     }
 }
