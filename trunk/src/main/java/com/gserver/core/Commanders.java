@@ -55,7 +55,7 @@ public class Commanders {
                     new Invocation(socketAction).invoke();
                     ServerContext.getContext().reset();
                 }else {
-                    logger.warn("No mapping found for socket request with protocol:"+packet.getProtocoleId());
+                    logger.warn("No mapping found for protocol:"+packet.getProtocoleId());
                 }
             }
         } catch (Exception e) {
@@ -79,7 +79,7 @@ public class Commanders {
                     new Invocation(httpAction).invoke();
                     ServerContext.getContext().reset();
                 }else{
-                    logger.warn("No mapping found for http request with protocol:"+packet.getProtocoleId());
+                    logger.warn("No mapping found for protocol:"+packet.getProtocoleId());
                 }
             }
         } catch (Exception e) {
