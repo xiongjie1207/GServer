@@ -80,7 +80,7 @@ public class JsonUtils {
                 if (list.isEmpty()) {
                     return null;
                 }
-                for (Map<?, ?> obj : list) {
+                for (Map<?, ?> obj: list) {
                     resultList.add(MAPPER.convertValue(obj, valueType));
                 }
                 return resultList;
@@ -99,7 +99,7 @@ public class JsonUtils {
     public static Map<?, ?> objToMap(Object obj) {
         Map<String, Object> map = MAPPER.convertValue(obj, Map.class);
         Map<String, Object> result = new HashMap<String, Object>();
-        for (Entry<String, Object> item : map.entrySet()) {
+        for (Entry<String, Object> item: map.entrySet()) {
             if (null != item.getValue()) {
                 result.put(item.getKey(), item.getValue());
             }
@@ -112,7 +112,7 @@ public class JsonUtils {
      */
     public static List<Map<String, Object>> objListToMapList(List<?> list) {
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-        for (Object obj : list) {
+        for (Object obj: list) {
             result.add((Map<String, Object>) objToMap(obj));
         }
         return result;
@@ -121,14 +121,14 @@ public class JsonUtils {
     public static <T> T mapToObj(Map<String, Object> map, Class<T> valueType) {
         if (null != map) {
             Map<String, Object> keyMap = new HashMap<String, Object>();
-            for (Object key : map.keySet()) {
+            for (Object key: map.keySet()) {
                 keyMap.put(String.valueOf(key), key);
             }
             Object bean = null;
             try {
                 bean = valueType.newInstance();
                 BeanMap beanMap = new BeanMap(bean);
-                for (Object key : beanMap.keySet()) {
+                for (Object key: beanMap.keySet()) {
                     String keyName = String.valueOf(key);
                     if (keyMap.containsKey(keyName)) {
                         Object value = map.get(keyName);
@@ -167,25 +167,29 @@ public class JsonUtils {
         BeanMap beanMap = null;
         List<T> rtList = new ArrayList<T>();
         try {
-            for (Map<String, Object> item : resultList) {
+            for (Map<String, Object> item: resultList) {
                 Object bean = beanClass.newInstance();
-                beanMap = new BeanMap(bean);
-                for (Object key : beanMap.keySet()) {
-                    String keyName = String.valueOf(key);
-                    if (item.containsKey(keyName)) {
-                        try {
-                            Object value = item.get(keyName);
-                            if (value instanceof Map) {
-                                Map<String, Object> valueMap = (Map<String, Object>) value;
-                                if (valueMap.containsKey("$numberLong")) {
-                                    value = valueMap.get("$numberLong");
-                                } else {
+                if (bean instanceof Map) {
+                    ((Map) bean).putAll(item);
+                } else {
+                    beanMap = new BeanMap(bean);
+                    for (Object key: beanMap.keySet()) {
+                        String keyName = String.valueOf(key);
+                        if (item.containsKey(keyName)) {
+                            try {
+                                Object value = item.get(keyName);
+                                if (value instanceof Map) {
+                                    Map<String, Object> valueMap = (Map<String, Object>) value;
+                                    if (valueMap.containsKey("$numberLong")) {
+                                        value = valueMap.get("$numberLong");
+                                    } else {
 
+                                    }
                                 }
+                                BeanUtils.copyProperty(bean, String.valueOf(key), value);
+                            } catch (InvocationTargetException e) {
+                                logger.error("Bean copy property error.", e);
                             }
-                            BeanUtils.copyProperty(bean, String.valueOf(key), value);
-                        } catch (InvocationTargetException e) {
-                            logger.error("Bean copy property error.", e);
                         }
                     }
                 }
@@ -388,7 +392,7 @@ public class JsonUtils {
         String[] names = property.split("\\.");
 
         Map<String, Object> result = jsonData;
-        for (String n : names) {
+        for (String n: names) {
             Object r = result.get(n);
             if (r == null) {
                 return null;
