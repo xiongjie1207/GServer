@@ -21,6 +21,7 @@ import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -128,6 +129,7 @@ public class QueryResult implements Serializable {
         if (resultList == null||resultList.size()==0) {
             return new ArrayList<T>();
         }
+
         return JsonUtils.mapListToObjList(resultList, beanClass);
     }
 

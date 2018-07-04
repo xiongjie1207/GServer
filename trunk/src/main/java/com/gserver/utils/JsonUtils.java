@@ -136,8 +136,6 @@ public class JsonUtils {
                             Map<String, Object> valueMap = (Map<String, Object>) value;
                             if (valueMap.containsKey("$numberLong")) {
                                 value = valueMap.get("$numberLong");
-                            } else {
-
                             }
                         }
                         BeanUtils.copyProperty(bean, String.valueOf(key), value);
@@ -169,27 +167,23 @@ public class JsonUtils {
         try {
             for (Map<String, Object> item: resultList) {
                 Object bean = beanClass.newInstance();
-                if (bean instanceof Map) {
-                    ((Map) bean).putAll(item);
-                } else {
-                    beanMap = new BeanMap(bean);
-                    for (Object key: beanMap.keySet()) {
-                        String keyName = String.valueOf(key);
-                        if (item.containsKey(keyName)) {
-                            try {
-                                Object value = item.get(keyName);
-                                if (value instanceof Map) {
-                                    Map<String, Object> valueMap = (Map<String, Object>) value;
-                                    if (valueMap.containsKey("$numberLong")) {
-                                        value = valueMap.get("$numberLong");
-                                    } else {
+                beanMap = new BeanMap(bean);
+                for (Object key: beanMap.keySet()) {
+                    String keyName = String.valueOf(key);
+                    if (item.containsKey(keyName)) {
+                        try {
+                            Object value = item.get(keyName);
+                            if (value instanceof Map) {
+                                Map<String, Object> valueMap = (Map<String, Object>) value;
+                                if (valueMap.containsKey("$numberLong")) {
+                                    value = valueMap.get("$numberLong");
+                                } else {
 
-                                    }
                                 }
-                                BeanUtils.copyProperty(bean, String.valueOf(key), value);
-                            } catch (InvocationTargetException e) {
-                                logger.error("Bean copy property error.", e);
                             }
+                            BeanUtils.copyProperty(bean, String.valueOf(key), value);
+                        } catch (InvocationTargetException e) {
+                            logger.error("Bean copy property error.", e);
                         }
                     }
                 }
