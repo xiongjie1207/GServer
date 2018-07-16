@@ -50,68 +50,18 @@ public class WereWolfServer extends GServer {
 <pre>
 <code>
 @Component
-public class SocketListener extends PluginSocketListener {
-    private Logger logger = Logger.getLogger(this.getClass());
+public class ServerSocketListener extends ComponentServerSocketListener{
 
-    public SocketListener() {
-        this.setClientListener(getClientListener());
-    }
 
     @Override
     protected void initConfig(ServerConfig config) {
-        config.setPort((short) 5300);
+        Map<String, Object> map = SpringContext.getBean("config");
+        config.setPort(MapUtils.getShort(map, "socketPort"));
+        config.setAllIdleTimeSeconds(6000);
+        config.setReaderIdleTimeSeconds(6000);
+        config.setWriterIdleTimeSeconds(6000);
     }
 
-    @Override
-    protected void initOption(Map<ChannelOption<?>, Object> config) {
-
-    }
-
-    @Override
-    protected void initChildOption(Map<ChannelOption<?>, Object> config) {
-
-    }
-
-    protected ClientListener getClientListener() {
-        return new ClientListener() {
-
-            /*
-             * 新客户端连接监听
-             * @param ctx
-             */
-            public void onClientConnected(ChannelHandlerContext ctx) {
-                logger.debug("client connected.............");
-            }
-
-            @Override
-            public void onClientException(ChannelHandlerContext ctx) {
-                logger.debug("client exception.............");
-            }
-
-            /*
-                         * 断线监听
-                         * @param ctx
-                         */
-            public void onClientDisconnected(ChannelHandlerContext ctx) {
-                logger.debug("client disconnected.............");
-            }
-
-            @Override
-            public void onReaderIdle(ChannelHandlerContext ctx) {
-                logger.debug("client onReaderIdle.............");
-            }
-
-            @Override
-            public void onWriterIdle(ChannelHandlerContext ctx) {
-                logger.debug("client onWriterIdle.............");
-            }
-
-            @Override
-            public void onAllIdle(ChannelHandlerContext ctx) {
-                logger.debug("client onAllIdle.............");
-            }
-        };
-    }
 }
 </code>
 </pre>
