@@ -16,38 +16,33 @@
 <pre>
 <code>
 @Component
-public class Server extends GServer {
+public class WereWolfServer extends GServer {
+
     @Override
-	protected void onServerStart() {
-		super.onServerStart();
-	}
-	@Override
-    protected void initCommanders(List<Commander> commanders) {
-    ／/所有从客户端来的协议调用在commander中实现
-      UserCommandar userCommander = SpringContext.getBean(UserCommandar.class);
-        commanders.add(userCommander);
+    protected void initComponents(List<IComponent> components) {
+        DataSource dataSource = SpringContext.getBean("dataSource");
+        List<ResolveDataBase> resolveDatabases = new ArrayList<>();
+        resolveDatabases.add(new SimpleResolveDatabase(DBType.MYSQL, dataSource));
+        ComponentC3P0 dataSourcePlugin = new ComponentC3P0(resolveDatabases);
+        components.add(dataSourcePlugin);
+        //逻辑服务器
+        ServerSocketListener serverSocketListener = SpringContext.getBean(ServerSocketListener.class);
+        components.add(serverSocketListener);
+
     }
+
     @Override
-    protected void initPlugins(List<IPlugin> plugins) {
-        LinkedHashMap<String, DataSource> dataSourceLinkedHashMap = new LinkedHashMap<>();
+    protected void afterStartServer() {
         
-        Object dataSource = SpringContext.getBean("dataSource");
-        dataSourceLinkedHashMap.put("mysql", (DataSource) dataSource);
-
-        PluginC3p0 dataSourcePlugin = new PluginC3p0(dataSourceLinkedHashMap);
-        plugins.add(dataSourcePlugin);
-
-        SocketListener listener = SpringContext.getBean(SocketListener.class);
-        plugins.add(listener);
     }
     @Override
-    protected String getPicPath() {
+    protected void afterStopServer() {
+        
     }
     @Override
     protected boolean debugModel() {
         return true;
     }
-
 
 }
 </code>
