@@ -89,7 +89,7 @@ public class UserCommandar extends SocketCommander {
 </pre>
 commander中的actionKey可以支持基于tcp或者http协议的访问调用.
 
-采用tomcat做服务器，使用spring java config扫描注解
+采用tomcat做服务器，使用spring扫描注解
 
 ComponentScan中提供自己的路径
 <pre>
