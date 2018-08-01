@@ -54,12 +54,12 @@ public abstract class Commander {
         return toInt(getData(name), null);
     }
 
-    protected String getDataToString(String value, String defalutString) {
-        if (value == null) {
-
+    protected String getDataToString(String name, String defalutString) {
+        if(getData(name)==null){
             return defalutString;
+        }else{
+            return getData(name).toString();
         }
-        return value.toString();
     }
 
     protected byte getDataToByte(String name) {
