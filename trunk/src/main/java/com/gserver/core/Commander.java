@@ -22,6 +22,7 @@ import com.gserver.utils.JsonUtils;
 
 import java.util.Date;
 import java.util.Map;
+
 public abstract class Commander {
     protected <T extends Action> T getAction() {
         return (T) ServerContext.getContext().getAction();
@@ -55,11 +56,15 @@ public abstract class Commander {
     }
 
     protected String getDataToString(String name, String defalutString) {
-        if(getData(name)==null){
+        if (getData(name) == null) {
             return defalutString;
-        }else{
+        } else {
             return getData(name).toString();
         }
+    }
+
+    protected String getDataToString(String name) {
+        return getDataToString(name, null);
     }
 
     protected byte getDataToByte(String name) {
@@ -110,9 +115,6 @@ public abstract class Commander {
         return toInt(getData(name), defaultValue);
     }
 
-    protected String getDataToString(String name) {
-        return getDataToString(getData(name), null);
-    }
 
     protected long getDataToLong(String name, long defaultValue) {
         return toLong(getData(name), defaultValue);
