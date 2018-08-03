@@ -39,14 +39,18 @@ public class MessageEncode extends MessageToMessageEncoder<Object> {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Object o, List<Object> list) throws Exception {
-        String jsonData="";
-        if(o instanceof Packet){
-            jsonData = ((Packet)o).toJSONString();
-        }else if(o instanceof String){
-            jsonData = o.toString();
-        }else{
-            ObjectMapper mapper = new ObjectMapper();
-            jsonData = mapper.writeValueAsString(o);
+        String jsonData = "";
+        try {
+            if (o instanceof Packet) {
+                jsonData = ((Packet) o).toJSONString();
+            } else if (o instanceof String) {
+                jsonData = o.toString();
+            } else {
+                ObjectMapper mapper = new ObjectMapper();
+                jsonData = mapper.writeValueAsString(o);
+            }
+        } catch (Exception e) {
+            logger.error(e.getCause(), e);
         }
         logger.info("socket send:---------" + jsonData);
         list.add(jsonData);

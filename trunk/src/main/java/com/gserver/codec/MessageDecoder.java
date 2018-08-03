@@ -46,7 +46,7 @@ public class MessageDecoder extends MessageToMessageDecoder<String> {
             Map<String, Object> json = objectMapper.readValue(paramI, HashMap.class);
             paramList.add(json);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getCause(), e);
         }
 
     }
