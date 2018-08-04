@@ -88,7 +88,12 @@ public class Packet {
 
     public String toJSONString() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(json);
+        try {
+            return objectMapper.writeValueAsString(json);
+        }catch (Exception e){
+            logger.error(e.getCause(), e);
+        }
+        return "";
     }
 
     public void remove(String key) {
