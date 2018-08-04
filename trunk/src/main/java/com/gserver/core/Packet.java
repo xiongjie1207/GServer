@@ -86,7 +86,7 @@ public class Packet {
         return null;
     }
 
-    public String toJSONString() throws JsonProcessingException {
+    public String toJSONString() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             return objectMapper.writeValueAsString(json);
