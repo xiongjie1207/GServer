@@ -16,11 +16,12 @@ package com.gserver.components.db.jdbc;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
+
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractSQL<T> {
-
+    private boolean forUpdate = false;
     private static final String AND = " \nAND ";
     private static final String OR = ") \nOR (";
     private StatementType statementType;
@@ -42,6 +43,14 @@ public abstract class AbstractSQL<T> {
         this.statementType = StatementType.UPDATE;
         this.tables.add(table);
         return getSelf();
+    }
+
+    public boolean isForUpdate() {
+        return forUpdate;
+    }
+
+    public void setForUpdate(boolean forUpdate) {
+        this.forUpdate = forUpdate;
     }
 
     public T SET(String sets) {
@@ -156,12 +165,15 @@ public abstract class AbstractSQL<T> {
             builder.append("\n");
         }
         builder.append(keyword);
+        if (parts == null) {
+            return;
+        }
         builder.append(" ");
         builder.append(open);
         int i = 0;
         for (String part : parts) {
             if (i > 0) {
-                if(!keyword.equals("WHERE")) {
+                if (!keyword.equals("WHERE")) {
                     builder.append(",");
                 }
             }
@@ -185,6 +197,10 @@ public abstract class AbstractSQL<T> {
         sqlClause(builder, "GROUP BY", groupBy, "", "");
         sqlClause(builder, "HAVING", having, "(", ")");
         sqlClause(builder, "ORDER BY", orderBy, "", "");
+        if (forUpdate) {
+            sqlClause(builder, "FOR UPDATE", null
+                    , "", "");
+        }
 
     }
 

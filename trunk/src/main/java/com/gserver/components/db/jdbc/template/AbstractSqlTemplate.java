@@ -272,7 +272,16 @@ public abstract class AbstractSqlTemplate {
 
 
     public String selectByPrimaryKey(Table table) {
+        String sqlStr = selectByPrimaryKey(table,false);
+        return sqlStr;
+    }
+    public String selectByPrimaryKeyForUpdate(Table table) {
+        String sqlStr = selectByPrimaryKey(table,true);
+        return sqlStr;
+    }
+    public String selectByPrimaryKey(Table table,boolean forUpdate) {
         SQL sql = new SQL();
+        sql.setForUpdate(forUpdate);
         String selectFields = caculationSelectField(table);
         if (StringUtils.isNotEmpty(selectFields)) {
             sql.SELECT(selectFields);
@@ -281,12 +290,9 @@ public abstract class AbstractSqlTemplate {
         }
         sql.FROM(ColumnWrapperUtils.columnWrap(table.getTableName()));
         caculationPrimaryKey(sql, table);
-        String sqlStr = sql.toString() + " for update";
-
-
+        String sqlStr = sql.toString();
         return sqlStr;
     }
-
     public String countByCriteria(Table table) {
         SQL sql = new SQL();
         table.resetQueryConditions();
