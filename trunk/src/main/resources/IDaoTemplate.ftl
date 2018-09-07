@@ -13,21 +13,14 @@ ${importClasses}
  **/
 public interface IDao${entity} {
 	@Cacheable(value = "${cacheName}", key = "'${entity}_id/'+#id")
-	default ${entity} _load(Object id) {
-		QueryResult result = SpringJDBCBuilder.getInstance().buildDAL().selectByPrimaryKey(id,${entity}.class);
+	default ${entity} _load(boolean forUpdate,Object id) {
+		QueryResult result = SpringJDBCBuilder.getInstance().buildDAL().selectByPrimaryKey(forUpdate,id,${entity}.class);
 		if (result != null) {
 			return result.as(${entity}.class);
 		}
 		return null;
 	}
-	@Cacheable(value = "${cacheName}", key = "'${entity}_id/'+#id")
-	default ${entity} _loadForUpdate(Object id) {
-		QueryResult result = SpringJDBCBuilder.getInstance().buildDAL().selectByPrimaryKeyForUpdate(id,${entity}.class);
-		if (result != null) {
-			return result.as(${entity}.class);
-		}
-		return null;
-	}
+
 	@Caching(evict = { @CacheEvict(value = "${cacheName}", key = "'${entity}_id/'+#id") })
 	default void _delete(Object id) {
 		SpringJDBCBuilder.getInstance().buildDAL().deleteByPrimaryKey(id,${entity}.class);
@@ -44,10 +37,10 @@ public interface IDao${entity} {
 		SpringJDBCBuilder.getInstance().buildDAL().asynInsert(entity);
 	}
 	default ${entity} load(Object id) {
-		return ((IDao${entity})AopContext.currentProxy())._load(id);
+		return ((IDao${entity})AopContext.currentProxy())._load(false,id);
 	}
-	default ${entity} loadForUpdate(Object id) {
-		return ((IDao${entity})AopContext.currentProxy())._loadForUpdate(id);
+    default ${entity} loadForUpdate(Object id) {
+		return ((IDao${entity})AopContext.currentProxy())._load(true,id);
 	}
 	default void delete(Object id) {
 		((IDao${entity})AopContext.currentProxy())._delete(id);

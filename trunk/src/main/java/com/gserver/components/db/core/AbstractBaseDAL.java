@@ -137,76 +137,79 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     }
 
 
-    @Override
-    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String... fields) {
-        if (fields == null) {
-            return selectByPrimaryKey(id, clazz);
-        } else {
-            return selectByPrimaryKey(id, clazz, Arrays.asList(fields));
-        }
-
-    }
-
-    @Override
-    public QueryResult selectByPrimaryKey(Object id, String table, String... fields) {
-        if (fields == null) {
-            return selectByPrimaryKey(id, table);
-        } else {
-            return selectByPrimaryKey(id, table, Arrays.asList(fields));
-        }
-
-    }
-
-    @Override
-    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String fields) {
-        if (StringUtils.isEmpty(fields)) {
-            return selectByPrimaryKey(id, clazz);
-        } else {
-            return selectByPrimaryKey(id, clazz, fields.split(","));
-        }
-    }
-
-    @Override
-    public QueryResult selectByPrimaryKey(Object id, String tableName, String fields) {
-        if (StringUtils.isEmpty(fields)) {
-            return selectByPrimaryKey(id, tableName);
-        } else {
-            return selectByPrimaryKey(id, tableName, fields.split(","));
-        }
-    }
 
     protected abstract int _countByCriteria(final Table table);
 
+
     @Override
-    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz) {
-        List<String> fields = null;
-        return selectByPrimaryKey(id, clazz, fields);
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, String... fields) {
+        if (fields == null) {
+            return selectByPrimaryKey(forUpdate,id, clazz);
+        } else {
+            return selectByPrimaryKey(forUpdate,id, clazz, Arrays.asList(fields));
+        }
+
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String table, String... fields) {
+        if (fields == null) {
+            return selectByPrimaryKey(forUpdate,id, table);
+        } else {
+            return selectByPrimaryKey(forUpdate,id, table, Arrays.asList(fields));
+        }
+
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, String fields) {
+        if (StringUtils.isEmpty(fields)) {
+            return selectByPrimaryKey(forUpdate,id, clazz);
+        } else {
+            return selectByPrimaryKey(forUpdate,id, clazz, fields.split(","));
+        }
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName, String fields) {
+        if (StringUtils.isEmpty(fields)) {
+            return selectByPrimaryKey(forUpdate,id, tableName);
+        } else {
+            return selectByPrimaryKey(forUpdate,id, tableName, fields.split(","));
+        }
     }
 
 
     @Override
-    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, List<String> fields) {
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz) {
+        List<String> fields = null;
+        return selectByPrimaryKey(forUpdate,id, clazz, fields);
+    }
+
+
+    @Override
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, List<String> fields) {
         String tableName = DBTableUtil.loadTableName(clazz);
         Model model = new Model(tableName);
-        return selectByPrimaryKey(fields, model, id);
+        return selectByPrimaryKey(forUpdate,fields, model, id);
     }
 
     @Override
-    public QueryResult selectByPrimaryKey(Object id, String tableName) {
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName) {
         List<String> fields = null;
         Model model = new Model(tableName);
-        return selectByPrimaryKey(fields, model, id);
+        return selectByPrimaryKey(forUpdate,fields, model, id);
     }
 
 
     @Override
-    public QueryResult selectByPrimaryKey(Object id, String tableName, List<String> fields) {
+    public QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName, List<String> fields) {
         Model model = new Model(tableName);
-        return selectByPrimaryKey(fields, model, id);
+        return selectByPrimaryKey(forUpdate,fields, model, id);
     }
 
 
-    private QueryResult selectByPrimaryKey(List<String> fields, Model model, Object primaryKeyValue) {
+    private QueryResult selectByPrimaryKey(boolean forUpdate,List<String> fields, Model model, Object primaryKeyValue) {
 
         Table table = retrievalTable(model.getDatabase(), model.getTableName());
         QueryResult queryResult = new QueryResult();
@@ -218,7 +221,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         if (primaryKeyValue != null) {
             table.putCondition(table.getPrimaryKey().getFields().get(0), primaryKeyValue);
         }
-        Map<String, Object> result = _selectByPrimaryKey(table);
+        Map<String, Object> result = _selectByPrimaryKey(forUpdate, table);
 
         if (result != null) {
             queryResult.setResultMap(result);
@@ -228,8 +231,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         }
     }
 
-    protected abstract Map<String, Object> _selectByPrimaryKey(final Table table);
-
+    protected abstract Map<String, Object> _selectByPrimaryKey(boolean forUpdate,final Table table);
 
     @Override
     public long insert(IEntity obj) {

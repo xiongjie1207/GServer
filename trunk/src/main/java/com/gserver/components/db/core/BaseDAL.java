@@ -59,7 +59,6 @@ public interface BaseDAL {
     //-------------------------
     // selectByPrimaryKey
     //-------------------------
-
     QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz);
 
     QueryResult selectByPrimaryKey(Object id, String tableName);
@@ -78,7 +77,24 @@ public interface BaseDAL {
 
     QueryResult selectByPrimaryKey(Object id, String tableName, String fields);
 
+    //=======================================
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz);
 
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName);
+
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, List<String> fields);
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName, List<String> fields);
+
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, String... fields);
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName, String... fields);
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, Class<? extends IEntity> clazz, String fields);
+
+    QueryResult selectByPrimaryKey(boolean forUpdate,Object id, String tableName, String fields);
     //-------------------------
     // insert
     //-------------------------

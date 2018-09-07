@@ -19,6 +19,8 @@ package com.gserver.components.db.spring.jdbc;
 
 import com.gserver.components.db.core.AbstractBaseDAL;
 import com.gserver.components.db.core.BaseDAL;
+import com.gserver.components.db.descriptor.IEntity;
+import com.gserver.components.db.descriptor.QueryResult;
 import com.gserver.components.db.descriptor.Table;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -50,11 +52,11 @@ class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
         return commonJdbcSupport.countByCriteria(table);
     }
 
-    @Override
-    protected Map<String, Object> _selectByPrimaryKey(Table table) {
-        return commonJdbcSupport.selectByPrimaryKey(table);
-    }
 
+    @Override
+    protected Map<String, Object> _selectByPrimaryKey(boolean forUpdate,Table table) {
+        return commonJdbcSupport.selectByPrimaryKey(forUpdate,table);
+    }
     @Override
     protected long _insert(Table table) {
         return commonJdbcSupport.insert(table);
@@ -78,6 +80,46 @@ class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     @Override
     protected int _deleteByCriteria(Table table) {
         return commonJdbcSupport.deleteByCriteria(table);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz) {
+        return this.selectByPrimaryKey(false,id,clazz );
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, String tableName) {
+        return this.selectByPrimaryKey(false, id, tableName);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, List<String> fields) {
+        return this.selectByPrimaryKey(false, id, clazz,fields);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, String tableName, List<String> fields) {
+        return this.selectByPrimaryKey(false, id, tableName,fields);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String... fields) {
+        return this.selectByPrimaryKey(false, id, clazz,fields);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, String tableName, String... fields) {
+        return this.selectByPrimaryKey(false, id, tableName,fields);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, Class<? extends IEntity> clazz, String fields) {
+        return this.selectByPrimaryKey(false, id, clazz,fields);
+    }
+
+    @Override
+    public QueryResult selectByPrimaryKey(Object id, String tableName, String fields) {
+        return this.selectByPrimaryKey(false, id, tableName,fields);
     }
 
     public JdbcTemplate getJdbcTemplate() {

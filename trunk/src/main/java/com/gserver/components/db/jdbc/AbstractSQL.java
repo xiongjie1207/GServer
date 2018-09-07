@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractSQL<T> {
-    private boolean forUpdate = false;
     private static final String AND = " \nAND ";
     private static final String OR = ") \nOR (";
     private StatementType statementType;
@@ -45,13 +44,6 @@ public abstract class AbstractSQL<T> {
         return getSelf();
     }
 
-    public boolean isForUpdate() {
-        return forUpdate;
-    }
-
-    public void setForUpdate(boolean forUpdate) {
-        this.forUpdate = forUpdate;
-    }
 
     public T SET(String sets) {
         this.sets.add(sets);
@@ -197,10 +189,6 @@ public abstract class AbstractSQL<T> {
         sqlClause(builder, "GROUP BY", groupBy, "", "");
         sqlClause(builder, "HAVING", having, "(", ")");
         sqlClause(builder, "ORDER BY", orderBy, "", "");
-        if (forUpdate) {
-            sqlClause(builder, "FOR UPDATE", null
-                    , "", "");
-        }
 
     }
 

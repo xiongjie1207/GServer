@@ -23,6 +23,7 @@ import com.gserver.components.db.descriptor.JavaTypeResolver;
 import com.gserver.components.db.descriptor.Table;
 import com.gserver.components.db.spring.jdbc.model.ModifyParams;
 import com.gserver.components.db.spring.jdbc.template.SqlTemplate;
+import jdk.nashorn.internal.ir.SplitReturn;
 import org.apache.commons.lang.ArrayUtils;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -102,9 +103,12 @@ class CommonJdbcSupport extends JdbcDaoSupport {
         });
     }
 
-    public Map<String, Object> selectByPrimaryKey(final Table table) {
+    public Map<String, Object> selectByPrimaryKey(boolean forUpdate,final Table table) {
         SqlTemplate sqlTemplate = new SqlTemplate();
-        final String sql = sqlTemplate.selectByPrimaryKey(table);
+        String sql = sqlTemplate.selectByPrimaryKey(table);
+        if(forUpdate){
+            sql+=" FOR UPDATE";
+        }
         List<Object> param = buildPrimaryKeyParameters(table);
 
         logger.debug(ArrayUtils.toString(param.toArray()));
@@ -115,7 +119,6 @@ class CommonJdbcSupport extends JdbcDaoSupport {
             return null;
         }
     }
-
 
     public long insert(final Table table) {
         try {
