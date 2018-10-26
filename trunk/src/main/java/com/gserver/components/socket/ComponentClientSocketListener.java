@@ -98,7 +98,7 @@ public abstract class ComponentClientSocketListener implements IComponent {
         if (channelFuture != null) {
             if (channelFuture.channel().isWritable()) {
                 ByteBuf bb = Unpooled.buffer();
-                bb.writeBytes(data);
+                bb.order(config.getByteOrder()).writeBytes(data);
                 return channelFuture.channel().writeAndFlush(bb);
 
             } else {
