@@ -41,6 +41,7 @@ import static io.netty.handler.codec.http.HttpUtil.isKeepAlive;
 
 public abstract class ComponentWebSocketListener extends ComponentServerSocketListener {
     private Logger logger = Logger.getLogger(this.getClass());
+
     @Override
     protected ChannelInitializer<Channel> getChannelInitializer() {
         return new GameServerChannelInitializer();
@@ -68,8 +69,10 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
     public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
         private ObjectMapper objectMapper = new ObjectMapper();
         private WebSocketServerHandshaker handshaker;
-        public WebSocketServerHandler(){
+
+        public WebSocketServerHandler() {
         }
+
         @Override
         public void channelActive(ChannelHandlerContext ctx) {
         }
@@ -77,6 +80,7 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
         @Override
         public void channelInactive(ChannelHandlerContext ctx) {
         }
+
         @Override
         public void channelReadComplete(ChannelHandlerContext ctx) {
             // TODO Auto-generated method stub
@@ -90,53 +94,49 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
                 throws Exception {
             // TODO Auto-generated method stub
 
-            if(msg instanceof FullHttpRequest){
+            if (msg instanceof FullHttpRequest) {
 
-                handleHttpRequest(ctx,(FullHttpRequest)msg);
-            }else if(msg instanceof WebSocketFrame){
-                handlerWebSocketFrame(ctx,(WebSocketFrame)msg);
+                handleHttpRequest(ctx, (FullHttpRequest) msg);
+            } else if (msg instanceof WebSocketFrame) {
+                handlerWebSocketFrame(ctx, (WebSocketFrame) msg);
             }
-
 
 
         }
 
 
-        private void handlerWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception{
+        private void handlerWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {
 
             //关闭请求
-            if(frame instanceof CloseWebSocketFrame){
+            if (frame instanceof CloseWebSocketFrame) {
 
-                handshaker.close(ctx.channel(), (CloseWebSocketFrame)frame.retain());
+                handshaker.close(ctx.channel(), (CloseWebSocketFrame) frame.retain());
 
                 return;
             }
             //ping请求
-            if(frame instanceof PingWebSocketFrame){
+            if (frame instanceof PingWebSocketFrame) {
 
                 ctx.channel().write(new PongWebSocketFrame(frame.content().retain()));
 
                 return;
             }
             //只支持文本格式，不支持二进制消息
-            if(!(frame instanceof TextWebSocketFrame)){
+            if (!(frame instanceof TextWebSocketFrame)) {
 
                 throw new Exception("仅支持文本格式");
             }
 
             //客户端发送过来的消息
             String request = ((TextWebSocketFrame) frame).text();
-            Map<String,Object> jsonObject = null;
-            try
-            {
+            Map<String, Object> jsonObject = null;
+            try {
                 jsonObject = objectMapper.readValue(request, Map.class);
                 logger.debug(jsonObject);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 logger.error(e.getMessage(), e.getCause());
             }
-            if (jsonObject == null){
+            if (jsonObject == null) {
 
                 return;
             }
@@ -146,24 +146,25 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
             ReferenceCountUtil.release(frame);
 
         }
+
         //第一次请求是http请求，请求头包括ws的信息
-        private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req){
+        private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) {
 
 
-            if(!req.decoderResult().isSuccess()){
+            if (!req.decoderResult().isSuccess()) {
 
-                sendHttpResponse(ctx,req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
+                sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
                 return;
             }
 
-            WebSocketServerHandshakerFactory wsFactory = new WebSocketServerHandshakerFactory("ws:/"+ctx.channel()+ "/websocket",null,false);
+            WebSocketServerHandshakerFactory wsFactory = new WebSocketServerHandshakerFactory("ws:/" + ctx.channel() + "/websocket", null, false);
             handshaker = wsFactory.newHandshaker(req);
 
 
-            if(handshaker == null){
+            if (handshaker == null) {
                 //不支持
                 WebSocketServerHandshakerFactory.sendUnsupportedVersionResponse(ctx.channel());
-            }else{
+            } else {
 
                 handshaker.handshake(ctx.channel(), req);
             }
@@ -171,12 +172,11 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
         }
 
 
-        private void sendHttpResponse(ChannelHandlerContext ctx,FullHttpRequest req,DefaultFullHttpResponse res){
+        private void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, DefaultFullHttpResponse res) {
 
 
             // 返回应答给客户端
-            if (res.status().code() != 200)
-            {
+            if (res.status().code() != 200) {
                 ByteBuf buf = Unpooled.copiedBuffer(res.status().toString(), CharsetUtil.UTF_8);
                 res.content().writeBytes(buf);
                 buf.release();
@@ -184,8 +184,7 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
 
             // 如果是非Keep-Alive，关闭连接
             ChannelFuture f = ctx.channel().writeAndFlush(res);
-            if (!isKeepAlive(req) || res.status().code() != 200)
-            {
+            if (!isKeepAlive(req) || res.status().code() != 200) {
                 f.addListener(ChannelFutureListener.CLOSE);
             }
 
@@ -207,7 +206,8 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
                     case ALL_IDLE:
                         break;
                     case READER_IDLE:
-                        logger.info("写空闲:"+ctx.channel());
+                        logger.info("写空闲:" + ctx.channel());
+                        ctx.channel().disconnect();
                         ctx.channel().close();
                         break;
                     case WRITER_IDLE:
