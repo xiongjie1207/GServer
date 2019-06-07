@@ -44,8 +44,9 @@ public class CustomZLibEncoder extends MessageToByteEncoder<ByteBuf> {
 		compresser.finish();
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(data.length);
 		try {
-			byte[] buf = new byte[1024];
+
 			while (!compresser.finished()) {
+				byte[] buf = new byte[1024];
 				int i = compresser.deflate(buf);
 				bos.write(buf, 0, i);
 			}

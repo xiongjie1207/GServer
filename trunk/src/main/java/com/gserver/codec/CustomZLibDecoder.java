@@ -35,16 +35,16 @@ public class CustomZLibDecoder extends ByteToMessageDecoder {
      * @return byte[] 解压缩后的数据 
      */  
     private byte[] decompress(byte[] data) {
-        byte[] output = new byte[0];  
+        byte[] output = new byte[0];
   
         Inflater decompresser = new Inflater();  
         decompresser.reset();  
         decompresser.setInput(data);  
   
         ByteArrayOutputStream o = new ByteArrayOutputStream(data.length);  
-        try {  
-            byte[] buf = new byte[1024];  
-            while (!decompresser.finished()) {  
+        try {
+            while (!decompresser.finished()) {
+                byte[] buf = new byte[1024];
                 int i = decompresser.inflate(buf);  
                 o.write(buf, 0, i);  
             }  
@@ -53,7 +53,7 @@ public class CustomZLibDecoder extends ByteToMessageDecoder {
             output = data;  
             e.printStackTrace();  
         } finally {  
-            try {  
+            try {
                 o.close();  
 			} catch (IOException e) {  
                 e.printStackTrace();  

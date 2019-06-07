@@ -2,7 +2,7 @@ package com.gserver.components.socket;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.config.ServerConfig;
-import com.gserver.core.Commanders;
+import com.gserver.core.CommanderGroup;
 import com.gserver.core.Packet;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -142,7 +142,7 @@ public abstract class ComponentWebSocketListener extends ComponentServerSocketLi
             }
 
             Packet packet = new Packet(jsonObject);
-            Commanders.getInstance().dispatch(packet, ctx.channel());
+            CommanderGroup.getInstance().dispatch(packet, ctx.channel());
             ReferenceCountUtil.release(frame);
 
         }

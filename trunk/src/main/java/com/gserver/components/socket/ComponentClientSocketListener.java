@@ -5,7 +5,7 @@ import com.gserver.codec.CustomZLibEncoder;
 import com.gserver.codec.MessageDecoder;
 import com.gserver.codec.MessageEncode;
 import com.gserver.config.ClientConfig;
-import com.gserver.core.Commanders;
+import com.gserver.core.CommanderGroup;
 import com.gserver.core.Packet;
 import com.gserver.components.IComponent;
 import io.netty.bootstrap.Bootstrap;
@@ -158,7 +158,7 @@ public abstract class ComponentClientSocketListener implements IComponent {
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             try {
                 Packet packet = new Packet((Map<String, Object>) msg);
-                Commanders.getInstance().dispatch(packet, ctx.channel());
+                CommanderGroup.getInstance().dispatch(packet, ctx.channel());
             } catch (Exception e) {
                 logger.error("", e);
             }

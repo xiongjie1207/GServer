@@ -23,20 +23,25 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 
-public class Commanders {
+public class CommanderGroup implements Runnable {
     private boolean isRunning = true;
     private Logger logger = Logger.getLogger(this.getClass());
-    private static Commanders instance = new Commanders();
+    private static CommanderGroup instance = new CommanderGroup();
+    private BlockingQueue<Action> actions;
 
-    public static Commanders getInstance() {
+    public static CommanderGroup getInstance() {
         return instance;
     }
 
-    private Commanders() {
+    private CommanderGroup() {
         this.setRunning(true);
-
+        actions = new LinkedBlockingQueue<>();
+        Executors.newSingleThreadExecutor().execute(this);
     }
 
     public void setRunning(boolean isRunning) {
@@ -48,14 +53,12 @@ public class Commanders {
             if (isRunning) {
                 Action action = ActionMapping.getInstance().getAction(packet.getProtocoleId());
                 if (action != null) {
-                    SocketAction socketAction = new SocketAction(action.getActionKey(),action.getCommander(),action.getMethod(),action.getBeforeInterceptors());
+                    SocketAction socketAction = new SocketAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptors());
                     socketAction.setPacket(packet);
                     socketAction.setChannel(channel);
-                    ServerContext.getContext().setAction(socketAction);
-                    new Invocation(socketAction).invoke();
-                    ServerContext.getContext().reset();
-                }else {
-                    logger.warn("No mapping found for protocol:"+packet.getProtocoleId());
+                    actions.add(socketAction);
+                } else {
+                    logger.warn("No mapping found for protocol:" + packet.getProtocoleId());
                 }
             }
         } catch (Exception e) {
@@ -71,20 +74,44 @@ public class Commanders {
             if (isRunning) {
                 Action action = ActionMapping.getInstance().getAction(packet.getProtocoleId());
                 if (action != null) {
-                    HttpAction httpAction = new HttpAction(action.getActionKey(),action.getCommander(),action.getMethod(),action.getBeforeInterceptors());
+                    HttpAction httpAction = new HttpAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptors());
                     httpAction.setPacket(packet);
                     httpAction.setRequest(request);
                     httpAction.setResponse(response);
-                    ServerContext.getContext().setAction(httpAction);
-                    new Invocation(httpAction).invoke();
-                    ServerContext.getContext().reset();
-                }else{
-                    logger.warn("No mapping found for protocol:"+packet.getProtocoleId());
+                    executeCommand(httpAction);
+                } else {
+                    logger.warn("No mapping found for protocol:" + packet.getProtocoleId());
                 }
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
             logger.error("exception", e);
+        }
+    }
+
+    private void executeCommand(Action action) {
+        try {
+            ServerContext.getContext().setAction(action);
+            new Invocation(action).invoke();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            logger.error("exception", e);
+        } finally {
+            ServerContext.getContext().reset();
+        }
+    }
+
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        while (isRunning) {
+            try {
+                Action action = actions.take();
+                this.executeCommand(action);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                logger.error("run:", e);
+            }
         }
     }
 }

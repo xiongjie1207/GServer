@@ -6,7 +6,7 @@ import com.gserver.codec.MessageDecoder;
 import com.gserver.codec.MessageEncode;
 import com.gserver.components.IComponent;
 import com.gserver.config.ServerConfig;
-import com.gserver.core.Commanders;
+import com.gserver.core.CommanderGroup;
 import com.gserver.core.Packet;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -210,7 +210,7 @@ public abstract class ComponentServerSocketListener implements IComponent {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) {
             Packet packet = new Packet((Map<String, Object>) msg);
-            Commanders.getInstance().dispatch(packet, ctx.channel());
+            CommanderGroup.getInstance().dispatch(packet, ctx.channel());
             ReferenceCountUtil.release(msg);
         }
 

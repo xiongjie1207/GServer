@@ -2,7 +2,7 @@ package com.gserver.components.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.components.IComponent;
-import com.gserver.core.Commanders;
+import com.gserver.core.CommanderGroup;
 import com.gserver.core.Packet;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -88,7 +88,7 @@ public abstract class ComponentWebController implements IComponent {
                 ObjectMapper objectMapper = new ObjectMapper();
                 Map<String, Object> msg = objectMapper.readValue(dataStr, Map.class);
                 Packet packet = new Packet(msg);
-                Commanders.getInstance().dispatch(packet, getRequest(), getResponse());
+                CommanderGroup.getInstance().dispatch(packet, getRequest(), getResponse());
             }
         } catch (IOException e) {
             logger.error("", e);
