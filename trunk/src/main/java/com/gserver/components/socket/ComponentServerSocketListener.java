@@ -1,7 +1,5 @@
 package com.gserver.components.socket;
 
-import com.gserver.codec.CustomZLibDecoder;
-import com.gserver.codec.CustomZLibEncoder;
 import com.gserver.codec.MessageDecoder;
 import com.gserver.codec.MessageEncode;
 import com.gserver.components.IComponent;
@@ -160,11 +158,8 @@ public abstract class ComponentServerSocketListener implements IComponent {
             //指定数据长度
             socketChannel.pipeline().addFirst(LengthFieldBasedFrameDecoder.class.getSimpleName(),
                     new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
-            //对数据解压缩
-            socketChannel.pipeline().addAfter(LengthFieldBasedFrameDecoder.class.getSimpleName(),
-                    CustomZLibDecoder.class.getSimpleName(), new CustomZLibDecoder());
             //对数据解码成string
-            socketChannel.pipeline().addAfter(CustomZLibDecoder.class.getSimpleName(),
+            socketChannel.pipeline().addAfter(LengthFieldBasedFrameDecoder.class.getSimpleName(),
                     StringDecoder.class.getSimpleName(), new StringDecoder(CharsetUtil.UTF_8));
             //解码成java对象
             socketChannel.pipeline().addAfter(StringDecoder.class.getSimpleName(),
@@ -175,10 +170,8 @@ public abstract class ComponentServerSocketListener implements IComponent {
             socketChannel.pipeline().addAfter(MessageDecoder.class.getSimpleName(),
                     LengthFieldPrepender.class.getSimpleName(), new LengthFieldPrepender(4));
             //对数据压缩
-            socketChannel.pipeline().addAfter(LengthFieldPrepender.class.getSimpleName(),
-                    CustomZLibEncoder.class.getSimpleName(), new CustomZLibEncoder());
             //对数据进行string编码
-            socketChannel.pipeline().addAfter(CustomZLibEncoder.class.getSimpleName(),
+            socketChannel.pipeline().addAfter(LengthFieldPrepender.class.getSimpleName(),
                     StringEncoder.class.getSimpleName(), new StringEncoder(CharsetUtil.UTF_8));
             //对java对象编码
             socketChannel.pipeline().addAfter(StringEncoder.class.getSimpleName(),
@@ -238,7 +231,6 @@ public abstract class ComponentServerSocketListener implements IComponent {
                     case READER_IDLE:
                         logger.info("写空闲:" + ctx.channel());
                         ctx.channel().disconnect();
-                        ctx.channel().close();
                         break;
                     case WRITER_IDLE:
                         break;
