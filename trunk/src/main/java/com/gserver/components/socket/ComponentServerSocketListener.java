@@ -20,6 +20,7 @@ import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.EventExecutorGroup;
+import io.netty.util.concurrent.Future;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -75,11 +76,17 @@ public abstract class ComponentServerSocketListener implements IComponent {
     @Override
     public boolean stop() {
         try {
-            bossGroup.shutdownGracefully().await();
-            workerGroup.shutdownGracefully().await();
-            eventExecutorGroup.shutdownGracefully().await();
+            if (bossGroup.shutdownGracefully().await(1, TimeUnit.MINUTES)) {
+                logger.error("ServerBoss关闭成功");
+            }
+            if (workerGroup.shutdownGracefully().await(1, TimeUnit.MINUTES)) {
+                logger.error("ServerWork关闭成功");
+            }
+            if (eventExecutorGroup.shutdownGracefully().await(1, TimeUnit.MINUTES)) {
+                logger.error("ServerHandleGroup关闭成功");
+            }
         } catch (InterruptedException e) {
-            logger.error(e.getMessage(), e);
+            logger.error("关闭网络时发生异常:", e);
         }
 
         return true;
