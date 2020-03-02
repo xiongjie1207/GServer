@@ -27,11 +27,11 @@ import java.util.Map;
  * InterceptorBuilder
  */
 public class InterceptorBuilder {
-	
+
 	private static final Interceptor[] NULL_INTERS = new Interceptor[0];
 
 	private static Map<String, Interceptor> intersMap = new HashMap<String, Interceptor>();
-	
+
 	/**
 	 * Build Interceptors.
 	 * <pre>
@@ -43,15 +43,15 @@ public class InterceptorBuilder {
 		Interceptor[] methodInters = createInterceptors(annotation);
 		return methodInters;
 	}
-	
+
 	private static Interceptor[] createInterceptors(Before annotation) {
 		if (annotation == null)
 			return NULL_INTERS;
-		
+
 		Class<? extends Interceptor>[] interceptorClasses = annotation.value();
 		if (interceptorClasses.length == 0)
 			return NULL_INTERS;
-		
+
 		Interceptor[] result = new Interceptor[interceptorClasses.length];
 		try {
 			for (int i=0; i<result.length; i++) {
