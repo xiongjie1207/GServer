@@ -27,18 +27,22 @@ public class Action {
     private Integer actionKey;
     private Packet packet;
     private final Interceptor[] beforeInterceptors;
+
     public Action(Integer actionKey, Object commander, Method method, Interceptor[] beforeInterceptors) {
         this.setActionKey(actionKey);
         this.setCommander(commander);
         this.setMethod(method);
         this.beforeInterceptors = beforeInterceptors;
     }
+
     public Interceptor[] getBeforeInterceptors() {
         return beforeInterceptors;
     }
+
     public Object getCommander() {
         return commander;
     }
+
 
     public void setPacket(Packet packet) {
         this.packet = packet;

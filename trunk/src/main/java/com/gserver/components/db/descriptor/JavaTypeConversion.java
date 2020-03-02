@@ -58,12 +58,12 @@ public class JavaTypeConversion {
         if (JavaType.DATE == type) {
             if (valueObj instanceof String) {
                 boolean fmtFlag = false;
-                logger.debug("时间格式转换开始value:" + valueObj);
-                String value = String.valueOf(valueObj);
+                logger.info("时间格式转换开始:" + valueObj);
+                final String value = String.valueOf(valueObj);
                 for (SimpleDateFormat format : formats) {
                     try {
                         Date date = format.parse(value);
-                        logger.debug("时间格式转换成功format:" + format.toPattern());
+                        logger.info("时间格式转换成功format:" + format.toPattern());
                         result = new Timestamp(date.getTime());
                         fmtFlag = true;
                         break;
@@ -75,7 +75,7 @@ public class JavaTypeConversion {
                     if (NumberUtils.isNumber(value)) {
                         Long lv = NumberUtils.toLong(value);
                         result = new Timestamp(lv);
-                        logger.debug("时间格式转换成功:" + new Timestamp(lv));
+                        logger.info("毫秒时间格式转换成功:" + new Timestamp(lv));
                     }
                 }
             } else if (valueObj instanceof Long) {
