@@ -19,10 +19,30 @@
 package com.gserver.aop;
 import com.gserver.core.Action;
 
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * Interceptor.
  */
-public interface Interceptor {
-	boolean intercept(Action action);
+public abstract class Interceptor {
+	private Interceptor next;
+	public abstract void intercept(Action action);
+	protected void nextInterceptor(Action action){
+		if(next!=null){
+			next.intercept(action);
+		}else {
+			try {
+				action.getMethod().invoke(action.getCommander());
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void setNext(Interceptor next) {
+		this.next = next;
+	}
 }
 

@@ -38,13 +38,12 @@ public class Invocation {
 
 
     public void invoke() throws InvocationTargetException, IllegalAccessException {
-        for (Interceptor interceptor : action.getBeforeInterceptors()) {
-            boolean ret = interceptor.intercept(action);
-            if (!ret) {
-                return;
-            }
+        if (action.getBeforeInterceptors().length > 0) {
+            action.getBeforeInterceptors()[0].intercept(action);
+        }else{
+            action.getMethod().invoke(action.getCommander());
         }
-        action.getMethod().invoke(action.getCommander());
+
     }
 
 }

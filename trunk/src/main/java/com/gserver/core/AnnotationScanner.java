@@ -12,6 +12,8 @@ import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
     Logger logger = Logger.getLogger(this.getClass());
@@ -25,18 +27,32 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
             for (Method method : methods) {
                 ActionKey actionKeyAnnotation = method.getAnnotation(ActionKey.class);
                 if (actionKeyAnnotation != null) {
-                    Interceptor[] beforeInterceptors;
+                    List<Interceptor> beforeInterceptors = new ArrayList<>();
                     Ignore ignoreAnnotation = method.getAnnotation(Ignore.class);
                     if (ignoreAnnotation == null) {
                         Before beforeAnnotation = bean.getClass().getAnnotation(Before.class);
-                        if (method.getAnnotation(Before.class) != null) {
-                            beforeAnnotation = method.getAnnotation(Before.class);
+                        if (beforeAnnotation != null) {
+                            Interceptor[] interceptors = InterceptorBuilder.build(beforeAnnotation);
+                            for (Interceptor interceptor : interceptors) {
+                                beforeInterceptors.add(interceptor);
+                            }
                         }
-                        beforeInterceptors = InterceptorBuilder.build(beforeAnnotation);
-                    } else {
-                        beforeInterceptors = InterceptorBuilder.build(null);
+
                     }
-                    Action action = new Action(actionKeyAnnotation.value(), bean, method, beforeInterceptors);
+                    Before beforeAnnotation = method.getAnnotation(Before.class);
+                    if (beforeAnnotation != null) {
+
+                        Interceptor[] interceptors = InterceptorBuilder.build(beforeAnnotation);
+                        for (Interceptor interceptor : interceptors) {
+                            beforeInterceptors.add(interceptor);
+                        }
+                    }
+
+                    Interceptor[] interceptors = beforeInterceptors.toArray(new Interceptor[beforeInterceptors.size()]);
+                    for (int i = interceptors.length-1; i > 0; i--) {
+                        interceptors[i-1].setNext(interceptors[i]);
+                    }
+                    Action action = new Action(actionKeyAnnotation.value(), bean, method, interceptors);
                     ActionMapping.getInstance().addAction(action);
                 }
             }

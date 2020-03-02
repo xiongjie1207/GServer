@@ -30,7 +30,6 @@ public class InterceptorBuilder {
 
 	private static final Interceptor[] NULL_INTERS = new Interceptor[0];
 
-	private static Map<String, Interceptor> intersMap = new HashMap<String, Interceptor>();
 
 	/**
 	 * Build Interceptors.
@@ -55,12 +54,7 @@ public class InterceptorBuilder {
 		Interceptor[] result = new Interceptor[interceptorClasses.length];
 		try {
 			for (int i=0; i<result.length; i++) {
-				String interceptorName = interceptorClasses[i].getCanonicalName();
-				result[i] = intersMap.get(interceptorName);
-				if (result[i] == null) {
-					result[i] = interceptorClasses[i].newInstance();
-					intersMap.put(interceptorName, result[i]);
-				}
+				result[i] = interceptorClasses[i].newInstance();
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
