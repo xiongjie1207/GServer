@@ -25,8 +25,8 @@ import java.lang.reflect.Method;
 public class SocketAction extends Action {
     private Channel channel;
 
-    public SocketAction(Integer actionKey, Object commander, Method method, Interceptor[] interceptors) {
-        super(actionKey, commander, method,interceptors);
+    public SocketAction(Integer actionKey, Object commander, Method method, Interceptor interceptor) {
+        super(actionKey, commander, method,interceptor);
     }
 
     public void setChannel(Channel channel) {

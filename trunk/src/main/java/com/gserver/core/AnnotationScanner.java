@@ -47,12 +47,11 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
                             beforeInterceptors.add(interceptor);
                         }
                     }
-
-                    Interceptor[] interceptors = beforeInterceptors.toArray(new Interceptor[beforeInterceptors.size()]);
-                    for (int i = interceptors.length-1; i > 0; i--) {
-                        interceptors[i-1].setNext(interceptors[i]);
+                    Interceptor interceptor = null;
+                    if (beforeInterceptors.size() > 0) {
+                        interceptor = beforeInterceptors.get(0);
                     }
-                    Action action = new Action(actionKeyAnnotation.value(), bean, method, interceptors);
+                    Action action = new Action(actionKeyAnnotation.value(), bean, method, interceptor);
                     ActionMapping.getInstance().addAction(action);
                 }
             }

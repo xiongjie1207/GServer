@@ -26,17 +26,17 @@ public class Action {
     private Method method;
     private Integer actionKey;
     private Packet packet;
-    private final Interceptor[] beforeInterceptors;
+    private final Interceptor beforeInterceptor;
 
-    public Action(Integer actionKey, Object commander, Method method, Interceptor[] beforeInterceptors) {
+    public Action(Integer actionKey, Object commander, Method method, Interceptor beforeInterceptor) {
         this.setActionKey(actionKey);
         this.setCommander(commander);
         this.setMethod(method);
-        this.beforeInterceptors = beforeInterceptors;
+        this.beforeInterceptor = beforeInterceptor;
     }
 
-    public Interceptor[] getBeforeInterceptors() {
-        return beforeInterceptors;
+    public Interceptor getBeforeInterceptor() {
+        return beforeInterceptor;
     }
 
     public Object getCommander() {

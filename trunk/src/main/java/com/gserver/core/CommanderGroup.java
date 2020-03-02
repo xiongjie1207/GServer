@@ -53,7 +53,7 @@ public class CommanderGroup implements Runnable {
             if (isRunning) {
                 Action action = ActionMapping.getInstance().getAction(packet.getProtocoleId());
                 if (action != null) {
-                    SocketAction socketAction = new SocketAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptors());
+                    SocketAction socketAction = new SocketAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
                     socketAction.setPacket(packet);
                     socketAction.setChannel(channel);
                     actions.add(socketAction);
@@ -74,7 +74,7 @@ public class CommanderGroup implements Runnable {
             if (isRunning) {
                 Action action = ActionMapping.getInstance().getAction(packet.getProtocoleId());
                 if (action != null) {
-                    HttpAction httpAction = new HttpAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptors());
+                    HttpAction httpAction = new HttpAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
                     httpAction.setPacket(packet);
                     httpAction.setRequest(request);
                     httpAction.setResponse(response);
