@@ -18,7 +18,7 @@
 
 package com.gserver.aop;
 
-import com.gserver.aop.annotation.Before;
+import com.gserver.aop.annotation.Around;
 
 
 /**
@@ -36,12 +36,12 @@ public class InterceptorBuilder {
 	 * Interceptors of service: finalInters = globalInters + injectInters + classInters + methodInters
 	 * </pre>
 	 */
-	public static Interceptor[] build(Before annotation) {
+	public static Interceptor[] build(Around annotation) {
 		Interceptor[] methodInters = createInterceptors(annotation);
 		return methodInters;
 	}
 
-	private static Interceptor[] createInterceptors(Before annotation) {
+	private static Interceptor[] createInterceptors(Around annotation) {
 		if (annotation == null)
 			return NULL_INTERS;
 

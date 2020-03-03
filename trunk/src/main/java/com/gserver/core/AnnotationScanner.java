@@ -2,7 +2,7 @@ package com.gserver.core;
 
 import com.gserver.aop.Interceptor;
 import com.gserver.aop.InterceptorBuilder;
-import com.gserver.aop.annotation.Before;
+import com.gserver.aop.annotation.Around;
 import com.gserver.aop.annotation.Ignore;
 import com.gserver.core.annotation.ActionKey;
 import org.apache.log4j.Logger;
@@ -30,19 +30,19 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
                     List<Interceptor> beforeInterceptors = new ArrayList<>();
                     Ignore ignoreAnnotation = method.getAnnotation(Ignore.class);
                     if (ignoreAnnotation == null) {
-                        Before beforeAnnotation = bean.getClass().getAnnotation(Before.class);
-                        if (beforeAnnotation != null) {
-                            Interceptor[] interceptors = InterceptorBuilder.build(beforeAnnotation);
+                        Around aroundAnnotation = bean.getClass().getAnnotation(Around.class);
+                        if (aroundAnnotation != null) {
+                            Interceptor[] interceptors = InterceptorBuilder.build(aroundAnnotation);
                             for (Interceptor interceptor : interceptors) {
                                 beforeInterceptors.add(interceptor);
                             }
                         }
 
                     }
-                    Before beforeAnnotation = method.getAnnotation(Before.class);
-                    if (beforeAnnotation != null) {
+                    Around aroundAnnotation = method.getAnnotation(Around.class);
+                    if (aroundAnnotation != null) {
 
-                        Interceptor[] interceptors = InterceptorBuilder.build(beforeAnnotation);
+                        Interceptor[] interceptors = InterceptorBuilder.build(aroundAnnotation);
                         for (Interceptor interceptor : interceptors) {
                             beforeInterceptors.add(interceptor);
                         }
