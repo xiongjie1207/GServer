@@ -48,6 +48,11 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
                         }
                     }
                     Interceptor interceptor = null;
+                    if (beforeInterceptors.size() > 1) {
+                        for (int i = beforeInterceptors.size() - 1; i > 0; i--) {
+                            beforeInterceptors.get(i - 1).setNext(beforeInterceptors.get(i));
+                        }
+                    }
                     if (beforeInterceptors.size() > 0) {
                         interceptor = beforeInterceptors.get(0);
                     }
