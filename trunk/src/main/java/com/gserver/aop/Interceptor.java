@@ -30,7 +30,7 @@ public abstract class Interceptor {
 
     public abstract void intercept(Action action);
 
-    protected void nextInterceptor(Action action) {
+    protected void nextHandler(Action action) {
         if (next != null) {
             next.intercept(action);
         } else {
