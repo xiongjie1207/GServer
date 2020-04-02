@@ -195,7 +195,7 @@ public abstract class ComponentServerSocketListener implements IComponent {
     }
 
     @ChannelHandler.Sharable
-    public static class MessageHandler extends ChannelInboundHandlerAdapter {
+    protected class MessageHandler extends ChannelInboundHandlerAdapter {
         public MessageHandler() {
         }
 
