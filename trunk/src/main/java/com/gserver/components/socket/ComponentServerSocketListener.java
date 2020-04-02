@@ -63,7 +63,7 @@ public abstract class ComponentServerSocketListener implements IComponent {
     private Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = Logger.getLogger(ComponentServerSocketListener.class);
     private Thread t;
 
     @Override
@@ -195,7 +195,7 @@ public abstract class ComponentServerSocketListener implements IComponent {
     }
 
     @ChannelHandler.Sharable
-    public class MessageHandler extends ChannelInboundHandlerAdapter {
+    public static class MessageHandler extends ChannelInboundHandlerAdapter {
         public MessageHandler() {
         }
 
