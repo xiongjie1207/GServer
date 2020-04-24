@@ -1,4 +1,4 @@
-package com.mafia.server.model.entity;
+package ${packageName};
 
 import java.io.Serializable;
 import com.gserver.components.db.descriptor.IEntity;
