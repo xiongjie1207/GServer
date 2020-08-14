@@ -67,13 +67,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         logger.info("Asyn dal init ok!");
     }
 
-    @Override
-    public void stopAsyTask() {
-        for (AsynSQLTask asynSQLTask:tasks){
-            asynSQLTask.setActiveFlag(false);
-        }
-        asynWriterService.shutdownNow();
-    }
+
 
     @Override
     public QueryResult selectByCriteria(QueryCriteria queryCriteria, String... fields) {
@@ -265,17 +259,6 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         long result = _insert(table);
         return result;
     }
-
-    @Override
-    public void asynInsert(IEntity obj) {
-        sqlQueue.offer(new AsynRecord(Method.INSERT, obj));
-    }
-
-    @Override
-    public void asynInsert(String table, Map<String, Object> obj) {
-        sqlQueue.offer(new AsynRecord(Method.INSERT_TABLE, table, obj));
-    }
-
 
     /**
      * insert option

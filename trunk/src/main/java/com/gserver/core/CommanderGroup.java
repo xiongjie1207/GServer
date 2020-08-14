@@ -108,9 +108,9 @@ public class CommanderGroup implements Runnable {
             try {
                 Action action = actions.take();
                 this.executeCommand(action);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
-                logger.error("run:", e);
+                logger.error("CommanderGroup.run:", e);
             }
         }
     }

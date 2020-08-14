@@ -104,10 +104,6 @@ public interface BaseDAL {
 
     long insert(String database, String table, Map<String, Object> obj);
 
-    void asynInsert(IEntity obj);
-
-    void asynInsert(String table, Map<String, Object> obj);
-
 
     //-------------------------
     // update
@@ -138,6 +134,4 @@ public interface BaseDAL {
     void reloadTable(String database, String tableName);
 
     JdbcTemplate getJdbcTemplate();
-
-    void stopAsyTask();
 }
