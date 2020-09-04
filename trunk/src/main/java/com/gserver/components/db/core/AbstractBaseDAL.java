@@ -98,13 +98,13 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         return queryResult;
     }
 
-    public <T> T executeBySql(final String sql){
+    public List<Map<String, Object>> executeBySql(final String sql){
         return _executeBySql(sql);
     }
 
     protected abstract List<Map<String, Object>> _selectByCriteria(final Table table);
 
-    protected abstract <T> T _executeBySql(final String sql);
+    protected abstract List<Map<String, Object>> _executeBySql(final String sql);
 
 
     protected Table retrievalTable(String database, String dataTable) {

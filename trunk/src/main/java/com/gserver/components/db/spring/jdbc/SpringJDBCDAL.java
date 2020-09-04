@@ -42,7 +42,7 @@ class SpringJDBCDAL extends AbstractBaseDAL implements BaseDAL {
     }
 
     @Override
-    protected <T> T _executeBySql(String sql) {
+    protected List<Map<String, Object>> _executeBySql(String sql) {
         return commonJdbcSupport.executeBySql(sql);
     }
 

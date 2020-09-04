@@ -23,16 +23,13 @@ import com.gserver.components.db.descriptor.JavaTypeResolver;
 import com.gserver.components.db.descriptor.Table;
 import com.gserver.components.db.spring.jdbc.model.ModifyParams;
 import com.gserver.components.db.spring.jdbc.template.SqlTemplate;
-import jdk.nashorn.internal.ir.SplitReturn;
 import org.apache.commons.lang.ArrayUtils;
-import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -91,16 +88,9 @@ class CommonJdbcSupport extends JdbcDaoSupport {
         return getJdbcTemplate().queryForObject(sql, param.toArray(), Integer.class);
     }
 
-    public <T> T executeBySql(final String sql) {
-        return getJdbcTemplate().execute(sql, (PreparedStatementCallback<T>) preparedStatement -> {
-            preparedStatement.execute();
-            ResultSet rs = preparedStatement.getResultSet();
-            if (rs.next()) {
-                return (T)(rs.getObject(1));
-            } else {
-                return null;
-            }
-        });
+    public List<Map<String, Object>> executeBySql(final String sql) {
+        List<Map<String, Object>> result = getJdbcTemplate().queryForList(sql);
+        return result;
     }
 
     public Map<String, Object> selectByPrimaryKey(boolean forUpdate,final Table table) {
