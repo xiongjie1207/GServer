@@ -4,9 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.components.IComponent;
 import com.gserver.core.CommanderGroup;
 import com.gserver.core.Packet;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -80,13 +83,17 @@ public abstract class ComponentWebController implements IComponent {
     protected final void handle() {
         try {
             if (isRunning) {
-                String dataStr = getRequest().getReader().readLine();
-                if (dataStr == null) {
+                StringBuilder body = new StringBuilder();
+                String dataStr = null;
+                while ((dataStr = getRequest().getReader().readLine())!=null){
+                    body.append(dataStr);
+                }
+                if (StringUtils.isEmpty(body.toString())) {
                     return;
                 }
-                logger.info("http receive:" + dataStr);
+                logger.info("http receive:" + body.toString());
                 ObjectMapper objectMapper = new ObjectMapper();
-                Map<String, Object> msg = objectMapper.readValue(dataStr, Map.class);
+                Map<String, Object> msg = objectMapper.readValue(body.toString(), Map.class);
                 Packet packet = new Packet(msg);
                 CommanderGroup.getInstance().dispatch(packet, getRequest(), getResponse());
             }
