@@ -32,21 +32,23 @@ import java.util.concurrent.ConcurrentMap;
 
 public class SimpleResolveDatabase extends ResolveDataBase {
 
-    private Logger logger = Logger.getLogger(this.getClass());
     private final ConcurrentMap<Object, Content> cache = new ConcurrentHashMap<Object, Content>();
 
     public SimpleResolveDatabase(String name, DataSource dataSource) {
         super(name, dataSource);
     }
 
+    @Override
     public Table loadTable(String tableName) {
         return loadTable(null, tableName);
     }
 
+    @Override
     public Table loadTable(String database, String tableName) {
         return loadTable(database, tableName, null);
     }
 
+    @Override
     public Table loadTable(String database, String tableName, String versionField) {
         String cacheKey = tableName;
         if (StringUtils.isNotBlank(database)) {
@@ -128,6 +130,7 @@ public class SimpleResolveDatabase extends ResolveDataBase {
         return reloadTable(database, tableName, null);
     }
 
+    @Override
     public Table reloadTable(String database, String tableName, String versionField) {
         String cacheKey = tableName;
         if (StringUtils.isNotBlank(database)) {

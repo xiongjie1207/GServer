@@ -20,7 +20,14 @@ import java.nio.ByteOrder;
  * Created by xiongjie on 2017/10/15.
  */
 public class ClientConfig {
+    private static ClientConfig instance;
 
+    public static ClientConfig getInstance() {
+        if (instance == null) {
+            instance = new ClientConfig();
+        }
+        return instance;
+    }
 
     private String host = "127.0.0.1";
     private int port = 5000;

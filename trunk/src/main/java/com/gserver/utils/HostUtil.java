@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 
-public class HostUtils {
+public class HostUtil {
     public static InetAddress getLocalHostLANAddress() throws Exception {
         try {
             InetAddress candidateAddress = null;

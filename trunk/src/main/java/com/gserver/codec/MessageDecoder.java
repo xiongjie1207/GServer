@@ -17,36 +17,44 @@ package com.gserver.codec;
  * Created by xiongjie on 2016/12/22.
  */
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gserver.components.net.packet.Packet;
+import com.gserver.utils.Loggers;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
-import org.apache.log4j.Logger;
 
-import java.util.HashMap;
+import java.nio.charset.Charset;
 import java.util.List;
-import java.util.Map;
 
 @ChannelHandler.Sharable
-public class MessageDecoder extends MessageToMessageDecoder<String> {
-    private Logger logger;
-
+public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
+    private final Charset charset;
     public MessageDecoder() {
-        logger = Logger.getLogger(this.getClass());
-
+        this(Charset.defaultCharset());
     }
-
+    public MessageDecoder(Charset charset) {
+        if (charset == null) {
+            throw new NullPointerException("charset");
+        }
+        this.charset = charset;
+    }
     @Override
-    protected void decode(ChannelHandlerContext paramChannelHandlerContext, String paramI, List<Object> paramList)
+    protected void decode(ChannelHandlerContext paramChannelHandlerContext, ByteBuf bytebuf, List<Object> paramList)
             throws Exception {
         // TODO Auto-generated method stub
         try {
-            logger.info("socket receive:---------" + paramI);
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map<String, Object> json = objectMapper.readValue(paramI, HashMap.class);
-            paramList.add(json);
+            int pid = bytebuf.readInt();
+            Packet.Builder builder = Packet.newNetBuilder(pid);
+            int byteLength = bytebuf.readableBytes();
+            if(byteLength>0){
+                byte[] bytes = new byte[byteLength];
+                bytebuf.getBytes(bytebuf.readerIndex(), bytes);
+                builder.setData(bytes);
+            }
+            paramList.add(builder.build());
         } catch (Exception e) {
-            logger.error(e.getCause(), e);
+            Loggers.ErrorLogger.error(e.getMessage(), e);
         }
 
     }

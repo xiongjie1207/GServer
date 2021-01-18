@@ -17,6 +17,7 @@ package com.gserver.core;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.gserver.utils.Loggers;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -25,14 +26,13 @@ import java.util.Map;
 public class ActionMapping {
     private static ActionMapping instance = new ActionMapping();
     private Map<Integer, Action> mapping = new HashMap<Integer, Action>();
-    private Logger logger = Logger.getLogger(ActionMapping.class);
 
     public static ActionMapping getInstance() {
         return instance;
     }
 
     public void addAction(Action action) {
-        logger.debug("action mapping:" + action.getActionKey() + "---------" + action.toString());
+        Loggers.GameLogger.debug("action mapping:" + action.getActionKey() + "---------" + action.toString());
         if (this.mapping.get(action.getActionKey()) != null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Duplicate method ").append(action.getMethod().getName()).append(" for key ").append(action.getActionKey());

@@ -1,65 +1,70 @@
-package com.gserver.core;
-/**
- * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * <p>
- * Created by xiongjie on 2016/12/22.
- */
+package com.gserver.components.commands;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gserver.components.net.http.renderer.IRenderer;
+import com.gserver.components.net.http.renderer.JsonBaseRenderer;
 import com.gserver.exception.FormatException;
-import com.gserver.utils.JsonUtils;
+import io.netty.util.CharsetUtil;
+import org.apache.commons.lang.StringUtils;
 
+import javax.servlet.http.Cookie;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
-public abstract class Commander {
-    protected <T extends Action> T getAction() {
-        return (T) ServerContext.getContext().getAction();
+
+public class JsonCommander extends Commander {
+
+
+    /**
+     * @param cookie 添加cookies信息
+     */
+    protected void addCookie(Cookie cookie) {
+        this.getHttpServletResponse().addCookie(cookie);
     }
 
-    protected <T extends Object> T getData(String name) {
-        return JsonUtils.getValue(getAction().getPacket().getRoot(), name);
 
+
+    protected IRenderer createJsonRenderer() {
+        return new JsonBaseRenderer(this.getHttpAction().getRequest(), this.getHttpAction().getResponse());
     }
-
-    protected boolean hasNode(String name) {
-        String[] names = name.split("\\.");
-
-        Map<String, Object> result = getAction().getPacket().getRoot();
-        for (String n : names) {
-            Object r = result.get(n);
-            if (r == null) {
-                return false;
-            }
-            if (r instanceof Map) {
-                result = (Map<String, Object>) r;
-            } else {
-                return true;
-            }
+    protected <T extends Object> T getValue(String name) {
+        Map<String, Object> jsonObject = getObject(Map.class);
+        if (jsonObject == null) {
+            return null;
         }
-        return true;
+        return (T) jsonObject.get(name);
     }
+
+    protected <T> T getObject(Class<T> clazz) {
+        if (this.getData() == null) {
+            return null;
+        }
+        String data = new String(this.getData(), CharsetUtil.UTF_8);
+        if (StringUtils.isEmpty(data)) {
+            return null;
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        T jsonObject = null;
+        try {
+            jsonObject = objectMapper.readValue(data, clazz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+
 
     protected int getDataToInt(String name) {
-        return toInt(getData(name), null);
+        return toInt(getValue(name), null);
     }
 
     protected String getDataToString(String name, String defalutString) {
-        if (getData(name) == null) {
+        if (getValue(name) == null) {
             return defalutString;
         } else {
-            return getData(name).toString();
+            return getValue(name).toString();
         }
     }
 
@@ -68,73 +73,73 @@ public abstract class Commander {
     }
 
     protected byte getDataToByte(String name) {
-        return toByte(getData(name), null);
+        return toByte(getValue(name), null);
     }
 
     protected byte getDataToByte(String name, byte defaultValue) {
-        return toByte(getData(name), defaultValue);
+        return toByte(getValue(name), defaultValue);
     }
 
     protected long getDataToLong(String name) {
-        return toLong(getData(name), null);
+        return toLong(getValue(name), null);
     }
 
     protected boolean getDataToBoolean(String name) {
-        return toBoolean(getData(name), null);
+        return toBoolean(getValue(name), null);
     }
 
     protected short getDataToShort(String name) {
-        return toShort(getData(name), null);
+        return toShort(getValue(name), null);
     }
 
     protected float getDataToFloat(String name) {
-        return toFloat(getData(name), null);
+        return toFloat(getValue(name), null);
     }
 
     protected Date getDataToDate(String name) {
-        return toDate(getData(name), null, null);
+        return toDate(getValue(name), null, null);
     }
 
     protected Date getDataToDate(String name, String format) {
-        return toDate(getData(name), format, null);
+        return toDate(getValue(name), format, null);
     }
 
     protected Date getDataToDate(String name, String format, Date defaultValue) {
-        return toDate(getData(name), format, defaultValue);
+        return toDate(getValue(name), format, defaultValue);
     }
 
     protected Date getDataToDate(String name, Date defaultValue) {
-        return toDate(getData(name), null, defaultValue);
+        return toDate(getValue(name), null, defaultValue);
     }
 
     protected double getDataToDouble(String name) {
-        return toDouble(getData(name), null);
+        return toDouble(getValue(name), null);
     }
 
     protected int getDataToInt(String name, int defaultValue) {
-        return toInt(getData(name), defaultValue);
+        return toInt(getValue(name), defaultValue);
     }
 
 
     protected long getDataToLong(String name, long defaultValue) {
-        return toLong(getData(name), defaultValue);
+        return toLong(getValue(name), defaultValue);
     }
 
     protected boolean getDataToBoolean(String name, boolean defaultValue) {
-        return toBoolean(getData(name), defaultValue);
+        return toBoolean(getValue(name), defaultValue);
     }
 
     protected short getDataToShort(String name, short defaultValue) {
-        return toShort(getData(name), defaultValue);
+        return toShort(getValue(name), defaultValue);
     }
 
     protected float getDataToFloat(String name, float defaultValue) {
-        return toFloat(getData(name), defaultValue);
+        return toFloat(getValue(name), defaultValue);
     }
 
 
     protected double getDataToDouble(String name, double defaultValue) {
-        return toDouble(getData(name), defaultValue);
+        return toDouble(getValue(name), defaultValue);
     }
 
     private int toInt(Object value, Integer defaultValue) {

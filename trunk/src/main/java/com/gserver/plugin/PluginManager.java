@@ -1,7 +1,7 @@
 package com.gserver.plugin;
 
+import com.gserver.utils.Loggers;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 public class PluginManager {
-    Logger logger = Logger.getLogger(PluginManager.class);
     private static PluginManager instance;
     private Map<String, Long> jarLastModified;
     private Map<String, IPlugin> pluginMap;
@@ -68,7 +67,7 @@ public class PluginManager {
                 plugins = new ArrayList<>();
             }
         } catch (Exception e) {
-            logger.error(e.getCause(), e);
+            Loggers.ErrorLogger.error(e.getMessage(),e);
         }
         return plugins;
     }
@@ -88,7 +87,7 @@ public class PluginManager {
                 jarLastModified.put(jar.getName(), jarDate);
 
             }
-            logger.debug("load jar:" + jar.getPath());
+            Loggers.ServerLogger.debug("load jar:" + jar.getPath());
             URL url = new URL("file:" + jar.getPath());
             URLClassLoader classLoader = new URLClassLoader(new URL[]{url}, Thread.currentThread()
                     .getContextClassLoader());

@@ -23,6 +23,7 @@ import com.gserver.components.db.asyn.Method;
 import com.gserver.components.db.criteria.Model;
 import com.gserver.components.db.criteria.QueryCriteria;
 import com.gserver.components.db.descriptor.*;
+import com.gserver.utils.Loggers;
 import com.gserver.utils.db.DBTableUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -51,7 +52,6 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     private List<AsynSQLTask> tasks;
     private BlockingQueue<AsynRecord> sqlQueue;
 
-    private Logger logger = Logger.getLogger(this.getClass());
 
     public AbstractBaseDAL() {
         int asynWriterThreadSize = 2;
@@ -64,7 +64,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
             tasks.add(task);
             asynWriterService.submit(task);
         }
-        logger.info("Asyn dal init ok!");
+        Loggers.ServerLogger.info("Asyn dal init ok!");
     }
 
 
@@ -74,6 +74,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         return selectByCriteria(queryCriteria, Arrays.asList(fields));
     }
 
+    @Override
     public QueryResult selectByCriteria(QueryCriteria queryCriteria, String fields) {
         return selectByCriteria(queryCriteria, fields.split(","));
     }
@@ -98,6 +99,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         return queryResult;
     }
 
+    @Override
     public List<Map<String, Object>> executeBySql(final String sql){
         return _executeBySql(sql);
     }
@@ -232,6 +234,7 @@ public abstract class AbstractBaseDAL implements BaseDAL {
         return insert(new Model(obj));
     }
 
+    @Override
     public long insert(String table, Map<String, Object> obj) {
         Model model = new Model(table);
         model.addContent(obj);
@@ -403,16 +406,19 @@ public abstract class AbstractBaseDAL implements BaseDAL {
     }
 
 
+    @Override
     public void setResolveDatabase(ResolveDataBase resolveDatabase) {
         this.resolveDatabase = resolveDatabase;
     }
 
 
+    @Override
     public void reloadTable(String tableName) {
         reloadTable(null, tableName);
     }
 
 
+    @Override
     public void reloadTable(String database, String tableName) {
         resolveDatabase.reloadTable(database, tableName);
     }

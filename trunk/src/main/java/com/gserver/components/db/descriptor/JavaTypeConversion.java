@@ -17,6 +17,7 @@ package com.gserver.components.db.descriptor;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.gserver.utils.Loggers;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 
@@ -29,7 +30,6 @@ import java.util.Locale;
 public class JavaTypeConversion {
 
 
-    private static Logger logger = Logger.getLogger(JavaTypeConversion.class);
     private static final SimpleDateFormat[] formats = new SimpleDateFormat[]{
             new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US),
             new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US),
@@ -58,24 +58,24 @@ public class JavaTypeConversion {
         if (JavaType.DATE == type) {
             if (valueObj instanceof String) {
                 boolean fmtFlag = false;
-                logger.info("时间格式转换开始:" + valueObj);
+                Loggers.ServerLogger.info("时间格式转换开始:" + valueObj);
                 final String value = String.valueOf(valueObj);
                 for (SimpleDateFormat format : formats) {
                     try {
                         Date date = format.parse(value);
-                        logger.info("时间格式转换成功format:" + format.toPattern());
+                        Loggers.ServerLogger.info("时间格式转换成功format:" + format.toPattern());
                         result = new Timestamp(date.getTime());
                         fmtFlag = true;
                         break;
                     } catch (ParseException e) {
-                        logger.error("时间格式不匹配:" + value + "=>" + format.toPattern());
+                        Loggers.ServerLogger.error("时间格式不匹配:" + value + "=>" + format.toPattern());
                     }
                 }
                 if (!fmtFlag) {// 如果格式没转换成功 尝试毫秒值转换
                     if (NumberUtils.isNumber(value)) {
                         Long lv = NumberUtils.toLong(value);
                         result = new Timestamp(lv);
-                        logger.info("毫秒时间格式转换成功:" + new Timestamp(lv));
+                        Loggers.ServerLogger.info("毫秒时间格式转换成功:" + new Timestamp(lv));
                     }
                 }
             } else if (valueObj instanceof Long) {

@@ -5,6 +5,7 @@ import com.gserver.aop.InterceptorBuilder;
 import com.gserver.aop.annotation.Around;
 import com.gserver.aop.annotation.Ignore;
 import com.gserver.core.annotation.ActionKey;
+import com.gserver.utils.Loggers;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
-    Logger logger = Logger.getLogger(this.getClass());
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
@@ -57,13 +57,17 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
                     if (beforeInterceptors.size() > 0) {
                         interceptor = beforeInterceptors.get(0);
                     }
+                    boolean access = method.isAccessible();
+                    if(!access){
+                        method.setAccessible(true);
+                    }
                     Action action = new Action(actionKeyAnnotation.value(), bean, method, interceptor);
                     ActionMapping.getInstance().addAction(action);
                 }
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            logger.error("", e);
+            Loggers.ErrorLogger.error("", e);
         }
         return bean;
     }

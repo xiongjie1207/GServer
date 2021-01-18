@@ -19,6 +19,7 @@ package com.gserver.components.db.asyn;
 
 import com.gserver.components.db.core.BaseDAL;
 import com.gserver.components.db.descriptor.IEntity;
+import com.gserver.utils.Loggers;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
@@ -26,7 +27,6 @@ import java.util.concurrent.BlockingQueue;
 
 
 public class AsynSQLTask implements Runnable {
-    private Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * 日志队列
@@ -66,7 +66,7 @@ public class AsynSQLTask implements Runnable {
             }
             catch (Exception e) {
                 if (!(e instanceof InterruptedException)) {
-                    logger.error(e.getMessage(), e);
+                    Loggers.ErrorLogger.error(e.getMessage(), e);
                 }
             }
         }

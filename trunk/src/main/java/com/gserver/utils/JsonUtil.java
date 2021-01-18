@@ -27,7 +27,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.BeanMap;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -39,7 +38,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 
-public class JsonUtils {
+public class JsonUtil {
 
     /**
      * 格式化时间的string
@@ -49,9 +48,8 @@ public class JsonUtils {
 
     private static ObjectMapper MAPPER = generateMapper(Inclusion.ALWAYS);
 
-    private static Logger logger = Logger.getLogger(JsonUtils.class);
 
-    private JsonUtils() {
+    private JsonUtil() {
     }
 
     /**
@@ -85,11 +83,11 @@ public class JsonUtils {
                 }
                 return resultList;
             } catch (JsonParseException e) {
-                logger.error("JsonParseException: ", e);
+                Loggers.ErrorLogger.error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                logger.error("JsonMappingException: ", e);
+                Loggers.ErrorLogger.error("JsonMappingException: ", e);
             } catch (IOException e) {
-                logger.error("IOException: ", e);
+                Loggers.ErrorLogger.error("IOException: ", e);
             }
         }
         return null;
@@ -183,7 +181,7 @@ public class JsonUtils {
                             }
                             BeanUtils.copyProperty(bean, String.valueOf(key), value);
                         } catch (InvocationTargetException e) {
-                            logger.error("Bean copy property error.", e);
+                            Loggers.ErrorLogger.error("Bean copy property error.", e);
                         }
                     }
                 }
@@ -217,11 +215,11 @@ public class JsonUtils {
             try {
                 return MAPPER.readValue(json, valueType);
             } catch (JsonParseException e) {
-                logger.error("JsonParseException: ", e);
+                Loggers.ErrorLogger.error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                logger.error("JsonMappingException: ", e);
+                Loggers.ErrorLogger.error("JsonMappingException: ", e);
             } catch (IOException e) {
-                logger.error("IOException: ", e);
+                Loggers.ErrorLogger.error("IOException: ", e);
             }
         }
         return null;
@@ -242,11 +240,11 @@ public class JsonUtils {
             try {
                 return MAPPER.writeValueAsString(object);
             } catch (JsonGenerationException e) {
-                logger.error("JsonGenerationException: ", e);
+                Loggers.ErrorLogger.error("JsonGenerationException: ", e);
             } catch (JsonMappingException e) {
-                logger.error("JsonMappingException: ", e);
+                Loggers.ErrorLogger.error("JsonMappingException: ", e);
             } catch (IOException e) {
-                logger.error("IOException: ", e);
+                Loggers.ErrorLogger.error("IOException: ", e);
             }
         }
         return null;
@@ -265,11 +263,11 @@ public class JsonUtils {
             try {
                 return clazz.equals(String.class) ? (T) json : MAPPER.readValue(json, clazz);
             } catch (JsonParseException e) {
-                logger.error("JsonParseException: ", e);
+                Loggers.ErrorLogger.error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                logger.error("JsonMappingException: ", e);
+                Loggers.ErrorLogger.error("JsonMappingException: ", e);
             } catch (IOException e) {
-                logger.error("IOException: ", e);
+                Loggers.ErrorLogger.error("IOException: ", e);
             }
         }
         return null;
@@ -287,11 +285,11 @@ public class JsonUtils {
             try {
                 return (T) (typeReference.getType().equals(String.class) ? json : MAPPER.readValue(json, typeReference));
             } catch (JsonParseException e) {
-                logger.error("JsonParseException: ", e);
+                Loggers.ErrorLogger.error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                logger.error("JsonMappingException: ", e);
+                Loggers.ErrorLogger.error("JsonMappingException: ", e);
             } catch (IOException e) {
-                logger.error("IOException: ", e);
+                Loggers.ErrorLogger.error("IOException: ", e);
             }
         }
         return null;
@@ -307,7 +305,7 @@ public class JsonUtils {
         try {
             return src instanceof String ? (String) src : MAPPER.writeValueAsString(src);
         } catch (JsonProcessingException e) {
-            logger.error("JsonParseException: ", e);
+            Loggers.ErrorLogger.error("JsonParseException: ", e);
         }
         return null;
     }
@@ -327,7 +325,7 @@ public class JsonUtils {
             try {
                 return customMapper.writeValueAsString(src);
             } catch (JsonProcessingException e) {
-                logger.error("JsonProcessingException: ", e);
+                Loggers.ErrorLogger.error("JsonProcessingException: ", e);
             }
         }
         return null;
@@ -349,7 +347,7 @@ public class JsonUtils {
                 try {
                     return mapper.writeValueAsString(src);
                 } catch (JsonProcessingException e) {
-                    logger.error("JsonProcessingException: ", e);
+                    Loggers.ErrorLogger.error("JsonProcessingException: ", e);
                 }
             }
         } else {

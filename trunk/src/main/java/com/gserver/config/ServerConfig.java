@@ -1,4 +1,5 @@
 package com.gserver.config;
+
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -19,16 +20,24 @@ package com.gserver.config;
 public class ServerConfig {
 
 
-    private ServerConfig(){
+
+    private String bindIP;
+    private String version;
+
+    private ServerConfig() {
 
     }
+
     private static ServerConfig instance;
-    public static ServerConfig getInstance(){
-        if(instance==null){
+
+    public static ServerConfig getInstance() {
+        if (instance == null) {
             instance = new ServerConfig();
         }
         return instance;
     }
+    private long maxOnlinePlayer = 0;
+
     private short webSocketPort;
     /**
      * boss线程池
@@ -39,13 +48,9 @@ public class ServerConfig {
      */
     private short workerCount = 10;
     /**
-     * 业务处理线程池
-     */
-    private short handlerTreadCount=10;
-    /**
      * 监听端口
      */
-    private short port = 80;
+    private int port = 80;
     /**
      * 客户端读空闲时间
      */
@@ -85,7 +90,6 @@ public class ServerConfig {
     }
 
 
-
     public short getBossCount() {
         return bossCount;
     }
@@ -102,22 +106,14 @@ public class ServerConfig {
         this.workerCount = workerCount;
     }
 
-    public short getPort() {
+    public int getPort() {
         return port;
     }
 
-    public void setPort(short port) {
+    public void setPort(int port) {
         this.port = port;
     }
 
-
-    public short getHandlerTreadCount() {
-        return handlerTreadCount;
-    }
-
-    public void setHandlerTreadCount(short handlerTreadCount) {
-        this.handlerTreadCount = handlerTreadCount;
-    }
 
     public short getWebSocketPort() {
         return webSocketPort;
@@ -125,5 +121,29 @@ public class ServerConfig {
 
     public void setWebSocketPort(short webSocketPort) {
         this.webSocketPort = webSocketPort;
+    }
+
+    public long getMaxOnlinePlayer() {
+        return maxOnlinePlayer;
+    }
+
+    public void setMaxOnlinePlayer(long maxOnlinePlayer) {
+        this.maxOnlinePlayer = maxOnlinePlayer;
+    }
+
+    public String getBindIP() {
+        return bindIP;
+    }
+
+    public void setBindIP(String bindIP) {
+        this.bindIP = bindIP;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getVersion() {
+        return version;
     }
 }

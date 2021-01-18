@@ -17,7 +17,7 @@ package com.gserver.components.db.criteria;
  * Created by xiongjie on 2016/12/22.
  */
 import com.gserver.components.db.descriptor.IEntity;
-import com.gserver.utils.JsonUtils;
+import com.gserver.utils.JsonUtil;
 import com.gserver.utils.db.DBTableUtil;
 import org.apache.commons.lang.StringUtils;
 
@@ -63,7 +63,7 @@ public class  Model implements Serializable {
 
     public Model(IEntity entity) {
         this(DBTableUtil.loadTableName(entity.getClass()));
-        Map<String, Object> map = (Map<String, Object>) JsonUtils.objToMap(entity);
+        Map<String, Object> map = (Map<String, Object>) JsonUtil.objToMap(entity);
         if(map.size()==0){
             throw new RuntimeException("Entity no data");
         }

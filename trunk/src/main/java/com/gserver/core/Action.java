@@ -18,6 +18,7 @@ package com.gserver.core;
  */
 
 import com.gserver.aop.Interceptor;
+import com.gserver.components.net.packet.IPacket;
 
 import java.lang.reflect.Method;
 
@@ -25,7 +26,7 @@ public class Action {
     private Object commander;
     private Method method;
     private Integer actionKey;
-    private Packet packet;
+    private IPacket packet;
     private final Interceptor beforeInterceptor;
 
     public Action(Integer actionKey, Object commander, Method method, Interceptor beforeInterceptor) {
@@ -44,11 +45,11 @@ public class Action {
     }
 
 
-    public void setPacket(Packet packet) {
+    public void setPacket(IPacket packet) {
         this.packet = packet;
     }
 
-    public Packet getPacket() {
+    public IPacket getPacket() {
         return this.packet;
     }
 

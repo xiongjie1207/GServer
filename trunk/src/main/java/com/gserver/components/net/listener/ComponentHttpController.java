@@ -1,22 +1,23 @@
-package com.gserver.components.web;
+package com.gserver.components.net.listener;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gserver.components.IComponent;
+import com.gserver.components.net.packet.IPacket;
+import com.gserver.components.net.packet.Packet;
 import com.gserver.core.CommanderGroup;
-import com.gserver.core.Packet;
+import com.gserver.core.GameCons;
+import com.gserver.utils.Loggers;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import javax.servlet.ServletInputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -42,13 +43,12 @@ import java.util.*;
  * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  */
 
-public abstract class ComponentWebController implements IComponent {
+public abstract class ComponentHttpController implements IComponent {
     private static final String CHAR_SET_UTF_8 = "utf-8";
     private ThreadLocal<Map<String, Object>> tl = new ThreadLocal<Map<String, Object>>();
     private static final String HTTP_SERVLET_REQUEST = "HTTP_SERVLET_REQUEST";
     private static final String HTTP_SERVLET_RESPONSE = "HTTP_SERVLET_RESPONSE";
     private boolean isRunning = false;
-    private Logger logger = Logger.getLogger(this.getClass());
 
 
     @Override
@@ -62,16 +62,19 @@ public abstract class ComponentWebController implements IComponent {
         isRunning = false;
         return true;
     }
-    public String getName(){
+
+    @Override
+    public String getName() {
         return "ComponentWebController";
     }
+
     @ModelAttribute
     private void setReqAndRes(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding(CHAR_SET_UTF_8);
             response.setCharacterEncoding(CHAR_SET_UTF_8);
         } catch (UnsupportedEncodingException e) {
-            logger.error("setReqAndRes", e);
+            Loggers.ErrorLogger.error("setReqAndRes", e);
         }
         Map<String, Object> values = new HashMap<String, Object>();
         values.put(HTTP_SERVLET_REQUEST, request);
@@ -83,22 +86,19 @@ public abstract class ComponentWebController implements IComponent {
     protected final void handle() {
         try {
             if (isRunning) {
-                StringBuilder body = new StringBuilder();
+                StringBuilder stringBuilder = new StringBuilder();
                 String dataStr = null;
-                while ((dataStr = getRequest().getReader().readLine())!=null){
-                    body.append(dataStr);
+                while ((dataStr = getRequest().getReader().readLine()) != null) {
+                    stringBuilder.append(dataStr);
                 }
-                if (StringUtils.isEmpty(body.toString())) {
-                    return;
-                }
-                logger.info("http receive:" + body.toString());
-                ObjectMapper objectMapper = new ObjectMapper();
-                Map<String, Object> msg = objectMapper.readValue(body.toString(), Map.class);
-                Packet packet = new Packet(msg);
+                String data = stringBuilder.toString();
+                String pid = getRequest().getHeader(GameCons.PID);
+                IPacket packet = Packet.newNetBuilder(Integer.parseInt(pid)).setData(data.getBytes()).build();
+                Loggers.PacketLogger.info(String.format("http receive %s",packet.toString()));
                 CommanderGroup.getInstance().dispatch(packet, getRequest(), getResponse());
             }
         } catch (IOException e) {
-            logger.error("", e);
+            Loggers.ErrorLogger.error("", e);
         }
     }
 
@@ -111,66 +111,22 @@ public abstract class ComponentWebController implements IComponent {
         return (HttpServletRequest) tl.get().get(HTTP_SERVLET_REQUEST);
     }
 
-    public ComponentWebController setAttr(String name, Object value) {
+    public ComponentHttpController setAttr(String name, Object value) {
         getRequest().setAttribute(name, value);
         return this;
     }
 
-    public ComponentWebController removeAttr(String name) {
+    public ComponentHttpController removeAttr(String name) {
         getRequest().removeAttribute(name);
         return this;
     }
 
-    public ComponentWebController setAttrs(Map<String, Object> attrMap) {
-        for (Map.Entry<String, Object> entry : attrMap.entrySet())
+    public ComponentHttpController setAttrs(Map<String, Object> attrMap) {
+        for (Map.Entry<String, Object> entry : attrMap.entrySet()) {
             getRequest().setAttribute(entry.getKey(), entry.getValue());
+        }
         return this;
     }
-
-
-    public String getPara(String name) {
-        return getRequest().getParameter(name);
-    }
-
-
-    public String getPara(String name, String defaultValue) {
-        String result = getRequest().getParameter(name);
-        return result != null && !"".equals(result) ? result : defaultValue;
-    }
-
-
-    public Map<String, String[]> getParaMap() {
-        return getRequest().getParameterMap();
-    }
-
-    public Enumeration<String> getParaNames() {
-        return getRequest().getParameterNames();
-    }
-
-    public String[] getParaValues(String name) {
-        return getRequest().getParameterValues(name);
-    }
-
-    public Integer[] getParaValuesToInt(String name) {
-        String[] values = getRequest().getParameterValues(name);
-        if (values == null)
-            return null;
-        Integer[] result = new Integer[values.length];
-        for (int i = 0; i < result.length; i++)
-            result[i] = Integer.parseInt(values[i]);
-        return result;
-    }
-
-    public Long[] getParaValuesToLong(String name) {
-        String[] values = getRequest().getParameterValues(name);
-        if (values == null)
-            return null;
-        Long[] result = new Long[values.length];
-        for (int i = 0; i < result.length; i++)
-            result[i] = Long.parseLong(values[i]);
-        return result;
-    }
-
 
     public Enumeration<String> getAttrNames() {
         return getRequest().getAttributeNames();
@@ -190,88 +146,6 @@ public abstract class ComponentWebController implements IComponent {
         return (Integer) getRequest().getAttribute(name);
     }
 
-    private Integer toInt(String value, Integer defaultValue) {
-        try {
-            if (value == null || "".equals(value.trim()))
-                return defaultValue;
-            value = value.trim();
-            return Integer.parseInt(value);
-        } catch (Exception e) {
-            throw null;
-        }
-    }
-
-
-    public Integer getParaToInt(String name) {
-        return toInt(getRequest().getParameter(name), null);
-    }
-
-
-    public Integer getParaToInt(String name, Integer defaultValue) {
-        return toInt(getRequest().getParameter(name), defaultValue);
-    }
-
-    private Long toLong(String value, Long defaultValue) {
-        try {
-            if (value == null || "".equals(value.trim()))
-                return defaultValue;
-            value = value.trim();
-            return Long.parseLong(value);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-
-    public Long getParaToLong(String name) {
-        return toLong(getRequest().getParameter(name), null);
-    }
-
-
-    public Long getParaToLong(String name, Long defaultValue) {
-        return toLong(getRequest().getParameter(name), defaultValue);
-    }
-
-    private Boolean toBoolean(String value, Boolean defaultValue) {
-        if (value == null || "".equals(value.trim()))
-            return defaultValue;
-        value = value.trim().toLowerCase();
-        if ("1".equals(value) || "true".equals(value))
-            return Boolean.TRUE;
-        else if ("0".equals(value) || "false".equals(value))
-            return Boolean.FALSE;
-        return Boolean.FALSE;
-    }
-
-    public Boolean getParaToBoolean(String name) {
-        return toBoolean(getRequest().getParameter(name), null);
-    }
-
-
-    public Boolean getParaToBoolean(String name, Boolean defaultValue) {
-        return toBoolean(getRequest().getParameter(name), defaultValue);
-    }
-
-
-    private Date toDate(String value, Date defaultValue) {
-        try {
-            if (value == null || "".equals(value.trim()))
-                return defaultValue;
-            return new java.text.SimpleDateFormat("yyyy-MM-dd").parse(value.trim());
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public Date getParaToDate(String name) {
-        return toDate(getRequest().getParameter(name), null);
-    }
-
-
-    public Date getParaToDate(String name, Date defaultValue) {
-        return toDate(getRequest().getParameter(name), defaultValue);
-    }
-
 
     public HttpSession getSession() {
         return getRequest().getSession();
@@ -289,16 +163,17 @@ public abstract class ComponentWebController implements IComponent {
     }
 
 
-    public ComponentWebController setSessionAttr(String key, Object value) {
+    public ComponentHttpController setSessionAttr(String key, Object value) {
         getRequest().getSession(true).setAttribute(key, value);
         return this;
     }
 
 
-    public ComponentWebController removeSessionAttr(String key) {
+    public ComponentHttpController removeSessionAttr(String key) {
         HttpSession session = getRequest().getSession(false);
-        if (session != null)
+        if (session != null) {
             session.removeAttribute(key);
+        }
         return this;
     }
 
@@ -338,10 +213,13 @@ public abstract class ComponentWebController implements IComponent {
 
     public Cookie getCookieObject(String name) {
         Cookie[] cookies = getRequest().getCookies();
-        if (cookies != null)
-            for (Cookie cookie : cookies)
-                if (cookie.getName().equals(name))
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(name)) {
                     return cookie;
+                }
+            }
+        }
         return null;
     }
 
@@ -351,51 +229,51 @@ public abstract class ComponentWebController implements IComponent {
         return result != null ? result : new Cookie[0];
     }
 
-    public ComponentWebController setCookie(String name, String value, int maxAgeInSeconds, boolean isHttpOnly) {
+    public ComponentHttpController setCookie(String name, String value, int maxAgeInSeconds, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, isHttpOnly);
     }
 
 
-    public ComponentWebController setCookie(String name, String value, int maxAgeInSeconds) {
+    public ComponentHttpController setCookie(String name, String value, int maxAgeInSeconds) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, null);
     }
 
 
-    public ComponentWebController setCookie(Cookie cookie) {
+    public ComponentHttpController setCookie(Cookie cookie) {
         getResponse().addCookie(cookie);
         return this;
     }
 
 
-    public ComponentWebController setCookie(String name, String value, int maxAgeInSeconds, String path, boolean isHttpOnly) {
+    public ComponentHttpController setCookie(String name, String value, int maxAgeInSeconds, String path, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, isHttpOnly);
     }
 
 
-    public ComponentWebController setCookie(String name, String value, int maxAgeInSeconds, String path) {
+    public ComponentHttpController setCookie(String name, String value, int maxAgeInSeconds, String path) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, null);
     }
 
 
-    public ComponentWebController setCookie(String name, String value, int maxAgeInSeconds, String path, String domain, boolean isHttpOnly) {
+    public ComponentHttpController setCookie(String name, String value, int maxAgeInSeconds, String path, String domain, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, domain, isHttpOnly);
     }
 
 
-    public ComponentWebController removeCookie(String name) {
+    public ComponentHttpController removeCookie(String name) {
         return doSetCookie(name, null, 0, null, null, null);
     }
 
 
-    public ComponentWebController removeCookie(String name, String path) {
+    public ComponentHttpController removeCookie(String name, String path) {
         return doSetCookie(name, null, 0, path, null, null);
     }
 
-    public ComponentWebController removeCookie(String name, String path, String domain) {
+    public ComponentHttpController removeCookie(String name, String path, String domain) {
         return doSetCookie(name, null, 0, path, domain, null);
     }
 
-    private ComponentWebController doSetCookie(String name, String value, int maxAgeInSeconds, String path, String domain, Boolean isHttpOnly) {
+    private ComponentHttpController doSetCookie(String name, String value, int maxAgeInSeconds, String path, String domain, Boolean isHttpOnly) {
         Cookie cookie = new Cookie(name, value);
         cookie.setMaxAge(maxAgeInSeconds);
         // set the default path value to "/"

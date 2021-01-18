@@ -16,12 +16,11 @@ package com.gserver.components.db.descriptor;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
-import com.gserver.utils.JsonUtils;
+import com.gserver.utils.JsonUtil;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -120,7 +119,7 @@ public class QueryResult implements Serializable {
     public <T> T as(Class<T> beanClass) {
         Map<String, Object> result = get();
         if (result != null) {
-            return JsonUtils.mapToObj(result, beanClass);
+            return JsonUtil.mapToObj(result, beanClass);
         }
         return null;
     }
@@ -130,7 +129,7 @@ public class QueryResult implements Serializable {
             return new ArrayList<T>();
         }
 
-        return JsonUtils.mapListToObjList(resultList, beanClass);
+        return JsonUtil.mapListToObjList(resultList, beanClass);
     }
 
 

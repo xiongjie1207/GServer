@@ -1,6 +1,7 @@
 package com.gserver.core;
 
 import com.gserver.aop.Interceptor;
+import com.gserver.components.session.ISession;
 import io.netty.channel.Channel;
 
 import java.lang.reflect.Method;
@@ -23,17 +24,17 @@ import java.lang.reflect.Method;
  * Created by xiongjie on 2016/12/23.
  */
 public class SocketAction extends Action {
-    private Channel channel;
+    private ISession session;
 
     public SocketAction(Integer actionKey, Object commander, Method method, Interceptor interceptor) {
         super(actionKey, commander, method,interceptor);
     }
 
-    public void setChannel(Channel channel) {
-        this.channel = channel;
+    public void setSession(ISession session) {
+        this.session = session;
     }
 
-    public Channel getChannel() {
-        return channel;
+    public ISession getSession() {
+        return session;
     }
 }

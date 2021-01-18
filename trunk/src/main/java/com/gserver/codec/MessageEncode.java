@@ -1,15 +1,15 @@
 package com.gserver.codec;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gserver.core.Packet;
+import com.gserver.components.net.packet.IPacket;
+import com.gserver.utils.Loggers;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
-import org.apache.log4j.Logger;
 
-import java.io.Serializable;
+import java.nio.charset.Charset;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -29,30 +29,32 @@ import java.util.Map;
  * Created by xiongjie on 2017/5/15.
  */
 @ChannelHandler.Sharable
-public class MessageEncode extends MessageToMessageEncoder<Object> {
-
-    private Logger logger;
+public class MessageEncode extends MessageToMessageEncoder<IPacket> {
+    private final Charset charset;
 
     public MessageEncode() {
-        logger = Logger.getLogger(this.getClass());
+        this(Charset.defaultCharset());
+    }
+
+    public MessageEncode(Charset charset) {
+        if (charset == null) {
+            throw new NullPointerException("charset");
+        }
+        this.charset = charset;
     }
 
     @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, Object o, List<Object> list) throws Exception {
-        String jsonData = "";
+    protected void encode(ChannelHandlerContext channelHandlerContext, IPacket packet, List<Object> list) throws Exception {
         try {
-            if (o instanceof Packet) {
-                jsonData = ((Packet) o).toJSONString();
-            } else if (o instanceof String) {
-                jsonData = o.toString();
-            } else {
-                ObjectMapper mapper = new ObjectMapper();
-                jsonData = mapper.writeValueAsString(o);
+            ByteBuf byteBuf = Unpooled.buffer(256);
+            byteBuf.writeInt(packet.getPid());
+            if (packet.getData() != null) {
+                byteBuf.writeBytes(packet.getData());
             }
+            list.add(byteBuf);
         } catch (Exception e) {
-            logger.error(e.getCause(), e);
+            Loggers.ErrorLogger.error(e.getMessage(), e);
         }
-        logger.info("socket send:---------" + jsonData);
-        list.add(jsonData);
+
     }
 }
