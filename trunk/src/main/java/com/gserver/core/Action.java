@@ -20,6 +20,7 @@ package com.gserver.core;
 import com.gserver.aop.Interceptor;
 import com.gserver.components.net.packet.IPacket;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Action {
@@ -35,7 +36,15 @@ public class Action {
         this.setMethod(method);
         this.beforeInterceptor = beforeInterceptor;
     }
-
+    public void invoke(){
+        try {
+            method.invoke(commander);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
     public Interceptor getBeforeInterceptor() {
         return beforeInterceptor;
     }

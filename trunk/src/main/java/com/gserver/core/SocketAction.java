@@ -26,8 +26,8 @@ import java.lang.reflect.Method;
 public class SocketAction extends Action {
     private ISession session;
 
-    public SocketAction(Integer actionKey, Object commander, Method method, Interceptor interceptor) {
-        super(actionKey, commander, method,interceptor);
+    public SocketAction(Action action) {
+        super(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
     }
 
     public void setSession(ISession session) {

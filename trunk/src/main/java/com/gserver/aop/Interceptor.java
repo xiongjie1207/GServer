@@ -20,8 +20,6 @@ package com.gserver.aop;
 
 import com.gserver.core.Action;
 
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * Interceptor.
  */
@@ -35,10 +33,8 @@ public abstract class Interceptor {
             next.intercept(action);
         } else {
             try {
-                action.getMethod().invoke(action.getCommander());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+                action.invoke();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

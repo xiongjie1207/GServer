@@ -27,8 +27,8 @@ public class HttpAction extends Action {
     private HttpServletResponse response;
     private HttpServletRequest request;
 
-    public HttpAction(Integer actionKey, Object commander, Method method, Interceptor interceptor) {
-        super(actionKey, commander, method,interceptor);
+    public HttpAction(Action action) {
+        super(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
     }
 
     public HttpServletResponse getResponse() {

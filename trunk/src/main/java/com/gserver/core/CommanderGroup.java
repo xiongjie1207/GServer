@@ -55,7 +55,7 @@ public class CommanderGroup implements Runnable {
         try {
             Action action = ActionMapping.getInstance().getAction(packet.getPid());
             if (action != null) {
-                SocketAction socketAction = new SocketAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
+                SocketAction socketAction = new SocketAction(action);
                 socketAction.setPacket(packet);
                 socketAction.setSession(session);
                 actions.add(socketAction);
@@ -74,7 +74,7 @@ public class CommanderGroup implements Runnable {
         try {
             Action action = ActionMapping.getInstance().getAction(packet.getPid());
             if (action != null) {
-                HttpAction httpAction = new HttpAction(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
+                HttpAction httpAction = new HttpAction(action);
                 httpAction.setPacket(packet);
                 httpAction.setRequest(request);
                 httpAction.setResponse(response);
