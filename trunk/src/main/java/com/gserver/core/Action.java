@@ -17,33 +17,26 @@ package com.gserver.core;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.esotericsoftware.reflectasm.MethodAccess;
 import com.gserver.aop.Interceptor;
 import com.gserver.components.net.packet.IPacket;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 public class Action {
     private Object commander;
-    private Method method;
     private Integer actionKey;
     private IPacket packet;
+    private int methodIndex;
+    private MethodAccess methodAccess;
     private final Interceptor beforeInterceptor;
-
-    public Action(Integer actionKey, Object commander, Method method, Interceptor beforeInterceptor) {
-        this.setActionKey(actionKey);
-        this.setCommander(commander);
-        this.setMethod(method);
+    public Action(Integer actionKey, MethodAccess methodAccess, Object commander, int methodIndex, Interceptor beforeInterceptor) {
+        this.actionKey = actionKey;
+        this.commander = commander;
+        this.methodAccess = methodAccess;
+        this.methodIndex = methodIndex;
         this.beforeInterceptor = beforeInterceptor;
     }
     public void invoke(){
-        try {
-            method.invoke(commander);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
+        methodAccess.invoke(commander, methodIndex);
     }
     public Interceptor getBeforeInterceptor() {
         return beforeInterceptor;
@@ -53,6 +46,13 @@ public class Action {
         return commander;
     }
 
+    public int getMethodIndex() {
+        return methodIndex;
+    }
+
+    public MethodAccess getMethodAccess() {
+        return methodAccess;
+    }
 
     public void setPacket(IPacket packet) {
         this.packet = packet;
@@ -62,28 +62,15 @@ public class Action {
         return this.packet;
     }
 
-    private void setCommander(Object commander) {
-        this.commander = commander;
-    }
-
-    public Method getMethod() {
-        return method;
-    }
-
-    private void setMethod(Method method) {
-        this.method = method;
-    }
 
     public Integer getActionKey() {
         return actionKey;
     }
 
-    private void setActionKey(Integer actionKey) {
-        this.actionKey = actionKey;
-    }
+
 
     @Override
     public String toString() {
-        return this.commander.getClass().getSimpleName() + ":" + this.method.getName();
+        return this.commander.getClass().getSimpleName() + ":" + this.actionKey;
     }
 }

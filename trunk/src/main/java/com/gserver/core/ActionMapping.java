@@ -32,10 +32,10 @@ public class ActionMapping {
     }
 
     public void addAction(Action action) {
-        Loggers.GameLogger.debug("action mapping:" + action.getActionKey() + "---------" + action.toString());
+        Loggers.GameLogger.debug("action mapping:" + action.toString());
         if (this.mapping.get(action.getActionKey()) != null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("Duplicate method ").append(action.getMethod().getName()).append(" for key ").append(action.getActionKey());
+            sb.append("Duplicate method ").append(" for key ").append(action.getActionKey());
             throw new RuntimeException(sb.toString());
         }
         this.mapping.put(action.getActionKey(), action);

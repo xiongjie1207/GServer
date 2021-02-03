@@ -1,5 +1,6 @@
 package com.gserver.core;
 
+import com.esotericsoftware.reflectasm.MethodAccess;
 import com.gserver.aop.Interceptor;
 import com.gserver.aop.InterceptorBuilder;
 import com.gserver.aop.annotation.Around;
@@ -57,11 +58,9 @@ public class AnnotationScanner implements BeanPostProcessor, PriorityOrdered {
                     if (beforeInterceptors.size() > 0) {
                         interceptor = beforeInterceptors.get(0);
                     }
-                    boolean access = method.isAccessible();
-                    if(!access){
-                        method.setAccessible(true);
-                    }
-                    Action action = new Action(actionKeyAnnotation.value(), bean, method, interceptor);
+                    MethodAccess methodAccess = MethodAccess.get(bean.getClass());
+                    int index = methodAccess.getIndex(method.getName());
+                    Action action = new Action(actionKeyAnnotation.value(), methodAccess,bean,index, interceptor);
                     ActionMapping.getInstance().addAction(action);
                 }
             }

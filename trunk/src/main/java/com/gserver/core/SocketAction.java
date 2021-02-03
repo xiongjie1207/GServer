@@ -27,7 +27,7 @@ public class SocketAction extends Action {
     private ISession session;
 
     public SocketAction(Action action) {
-        super(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
+        super(action.getActionKey(),action.getMethodAccess(), action.getCommander(), action.getMethodIndex(), action.getBeforeInterceptor());
     }
 
     public void setSession(ISession session) {

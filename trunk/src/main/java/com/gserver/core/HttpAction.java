@@ -28,7 +28,7 @@ public class HttpAction extends Action {
     private HttpServletRequest request;
 
     public HttpAction(Action action) {
-        super(action.getActionKey(), action.getCommander(), action.getMethod(), action.getBeforeInterceptor());
+        super(action.getActionKey(),action.getMethodAccess(), action.getCommander(), action.getMethodIndex(), action.getBeforeInterceptor());
     }
 
     public HttpServletResponse getResponse() {
