@@ -25,7 +25,7 @@ public class SessionCounter {
     }
 
 
-    public long decrement() {
+    public long decrementAndGet() {
         return atomicLimitNumber.decrementAndGet();
     }
 

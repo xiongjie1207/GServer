@@ -49,8 +49,9 @@ public class ServerHandler extends SimpleChannelInboundHandler<IPacket> {
             ISession session = ctx.channel().attr(attributeKey).get();
             ctx.channel().attr(attributeKey).set(null);
             Loggers.SessionLogger.warn("channelUnregistered:"+session);
-            SessionCounter.getInstance().incrementAndGet();
+
         }
+        SessionCounter.getInstance().decrementAndGet();
     }
 
     @Override
