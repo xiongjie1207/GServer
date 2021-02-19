@@ -8,5 +8,5 @@
 6.缓存以spring data提供的接口，使用redis做缓存服务器
 7.数据库为mysql，其他数据库未作大量测试
 
-本项目使用maven构建，jdk版本1.8,ide使用intellij idea，希望大家用正版intellij idea，对jetbrains提供支持，
+本项目使用maven构建，jdk版本1.8
 如果对本项目有更好的建议和想法请联系我qq:914772406
