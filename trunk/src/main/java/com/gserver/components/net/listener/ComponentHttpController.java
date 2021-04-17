@@ -93,7 +93,13 @@ public abstract class ComponentHttpController implements IComponent {
                 }
                 String data = stringBuilder.toString();
                 String pid = getRequest().getHeader(GameCons.PID);
-                IPacket packet = Packet.newNetBuilder(Integer.parseInt(pid)).setData(data.getBytes()).build();
+                IPacket packet;
+                if(StringUtils.isBlank(data)){
+                    packet = Packet.newNetBuilder(Integer.parseInt(pid)).setData(null).build();
+                }else{
+                    packet = Packet.newNetBuilder(Integer.parseInt(pid)).setData(data.getBytes()).build();
+                }
+
                 Loggers.PacketLogger.info(String.format("http receive %s",packet.toString()));
                 CommanderGroup.getInstance().dispatch(packet, getRequest(), getResponse());
             }

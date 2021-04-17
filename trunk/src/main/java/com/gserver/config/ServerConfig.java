@@ -36,7 +36,7 @@ public class ServerConfig {
         }
         return instance;
     }
-    private long maxOnlinePlayer = 0;
+    private long maxOnlinePlayer = 10000;
 
     private short webSocketPort;
     /**

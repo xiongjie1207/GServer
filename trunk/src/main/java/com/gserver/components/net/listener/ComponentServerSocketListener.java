@@ -41,10 +41,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 所有数据流传输采用json格式
- * 其中pid是必须要有的，用来指定协议
  * 基于tcp/ip的数据传输
- * 数据流发送格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
- * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
+ * 数据流发送格式{"name":"guest","password":"111111","id":1,"clientType":0 }
+ * 数据流接收格式{"name":"guest","password":"111111","id":1,"clientType":0 }
  */
 public class ComponentServerSocketListener implements IComponent {
     private ChannelFuture channelFuture;
@@ -110,7 +109,7 @@ public class ComponentServerSocketListener implements IComponent {
             for (Object key : childOptionObjectMap.keySet()) {
                 serverBootstrap.childOption((ChannelOption<Object>) key, childOptionObjectMap.get(key));
             }
-            serverBootstrap.localAddress(new InetSocketAddress(ServerConfig.getInstance().getBindIP(),ServerConfig.getInstance().getPort()));
+            serverBootstrap.localAddress(new InetSocketAddress(ServerConfig.getInstance().getPort()));
 
             channelFuture = serverBootstrap.bind().addListener((ChannelFuture future) -> this.operationComplete(future));
             channelFuture.channel().closeFuture().addListener(ChannelFutureListener.CLOSE);

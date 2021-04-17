@@ -17,12 +17,15 @@ package com.gserver.utils;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.BeanMap;
@@ -47,7 +50,19 @@ public class JsonUtil {
 
 
     private static ObjectMapper MAPPER = generateMapper(Inclusion.ALWAYS);
+    static {
+        //序列化的时候序列对象的所有属性
+        MAPPER.setSerializationInclusion(JsonInclude.Include.ALWAYS);
 
+        //反序列化的时候如果多了其他属性,不抛出异常
+        MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+
+        //如果是空对象的时候,不抛异常
+        MAPPER.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, true);
+
+        //取消时间的转化格式,默认是时间戳,可以取消,同时需要设置要表现的时间格式
+        MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
+    }
 
     private JsonUtil() {
     }
@@ -374,8 +389,6 @@ public class JsonUtil {
     private static ObjectMapper generateMapper(Inclusion inclusion) {
 
         ObjectMapper customMapper = new ObjectMapper();
-        // 所有日期格式都统一为以下样式
-        customMapper.setDateFormat(new SimpleDateFormat(DATE_TIME_FORMAT));
 
         return customMapper;
     }

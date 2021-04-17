@@ -28,7 +28,7 @@ public class JsonCommander extends Commander {
     protected IRenderer createJsonRenderer() {
         return new JsonBaseRenderer(this.getHttpAction().getRequest(), this.getHttpAction().getResponse());
     }
-    protected <T extends Object> T getValue(String name) {
+    protected <T extends Object> T getData(String name) {
         Map<String, Object> jsonObject = getObject(Map.class);
         if (jsonObject == null) {
             return null;
@@ -57,14 +57,14 @@ public class JsonCommander extends Commander {
 
 
     protected int getDataToInt(String name) {
-        return toInt(getValue(name), null);
+        return toInt(getData(name), null);
     }
 
     protected String getDataToString(String name, String defalutString) {
-        if (getValue(name) == null) {
+        if (getData(name) == null) {
             return defalutString;
         } else {
-            return getValue(name).toString();
+            return getData(name).toString();
         }
     }
 
@@ -73,73 +73,73 @@ public class JsonCommander extends Commander {
     }
 
     protected byte getDataToByte(String name) {
-        return toByte(getValue(name), null);
+        return toByte(getData(name), null);
     }
 
     protected byte getDataToByte(String name, byte defaultValue) {
-        return toByte(getValue(name), defaultValue);
+        return toByte(getData(name), defaultValue);
     }
 
     protected long getDataToLong(String name) {
-        return toLong(getValue(name), null);
+        return toLong(getData(name), null);
     }
 
     protected boolean getDataToBoolean(String name) {
-        return toBoolean(getValue(name), null);
+        return toBoolean(getData(name), null);
     }
 
     protected short getDataToShort(String name) {
-        return toShort(getValue(name), null);
+        return toShort(getData(name), null);
     }
 
     protected float getDataToFloat(String name) {
-        return toFloat(getValue(name), null);
+        return toFloat(getData(name), null);
     }
 
     protected Date getDataToDate(String name) {
-        return toDate(getValue(name), null, null);
+        return toDate(getData(name), null, null);
     }
 
     protected Date getDataToDate(String name, String format) {
-        return toDate(getValue(name), format, null);
+        return toDate(getData(name), format, null);
     }
 
     protected Date getDataToDate(String name, String format, Date defaultValue) {
-        return toDate(getValue(name), format, defaultValue);
+        return toDate(getData(name), format, defaultValue);
     }
 
     protected Date getDataToDate(String name, Date defaultValue) {
-        return toDate(getValue(name), null, defaultValue);
+        return toDate(getData(name), null, defaultValue);
     }
 
     protected double getDataToDouble(String name) {
-        return toDouble(getValue(name), null);
+        return toDouble(getData(name), null);
     }
 
     protected int getDataToInt(String name, int defaultValue) {
-        return toInt(getValue(name), defaultValue);
+        return toInt(getData(name), defaultValue);
     }
 
 
     protected long getDataToLong(String name, long defaultValue) {
-        return toLong(getValue(name), defaultValue);
+        return toLong(getData(name), defaultValue);
     }
 
     protected boolean getDataToBoolean(String name, boolean defaultValue) {
-        return toBoolean(getValue(name), defaultValue);
+        return toBoolean(getData(name), defaultValue);
     }
 
     protected short getDataToShort(String name, short defaultValue) {
-        return toShort(getValue(name), defaultValue);
+        return toShort(getData(name), defaultValue);
     }
 
     protected float getDataToFloat(String name, float defaultValue) {
-        return toFloat(getValue(name), defaultValue);
+        return toFloat(getData(name), defaultValue);
     }
 
 
     protected double getDataToDouble(String name, double defaultValue) {
-        return toDouble(getValue(name), defaultValue);
+        return toDouble(getData(name), defaultValue);
     }
 
     private int toInt(Object value, Integer defaultValue) {

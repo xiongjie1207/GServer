@@ -68,7 +68,7 @@ public class JavaTypeConversion {
                         fmtFlag = true;
                         break;
                     } catch (ParseException e) {
-                        Loggers.ServerLogger.error("时间格式不匹配:" + value + "=>" + format.toPattern());
+                        Loggers.ServerLogger.warn("时间格式不匹配:" + value + "=>" + format.toPattern());
                     }
                 }
                 if (!fmtFlag) {// 如果格式没转换成功 尝试毫秒值转换
