@@ -12,7 +12,7 @@ public class SPacket implements IPacket {
     }
 
     @Override
-    public int getPid() {
+    public final int getPid() {
         return this.packetHead.getPid();
     }
 

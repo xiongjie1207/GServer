@@ -41,8 +41,16 @@ public class ClientLauncher extends Launcher {
 
         @Override
         protected void OnConnected(boolean flag) {
-            IPacket packet = Packet.newNetBuilder(Protocol.Login).build();
-            this.getChannelFuture().channel().writeAndFlush(packet);
+            while (true){
+                try {
+
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                IPacket packet = Packet.newNetBuilder(Protocol.Login).build();
+                this.getChannelFuture().channel().writeAndFlush(packet);
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ public class GameServerChannelInitializer extends GameChannelInitializer {
     }
 
     @Override
-    protected void initChannel(Channel socketChannel) throws Exception {
+    protected final   void initChannel(Channel socketChannel) throws Exception {
         super.initChannel(socketChannel);
         socketChannel.pipeline().addLast(new SocketServerHandler());
     }
