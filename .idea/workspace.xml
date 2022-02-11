@@ -1,91 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_esotericsoftware_reflectasm_1_11_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/WeGame.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ComponentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jaxen_jaxen_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jdom_jdom_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_6_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_htmlparser_htmlparser_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_3_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_3_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_3_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jms_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_8_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_2_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_6_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xom_xom_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/gServer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/Interceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/InterceptorBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/InterceptorBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/Invocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/Invocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Around.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/annotation/Around.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Ignore.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/annotation/Ignore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/codec/MessageDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/codec/MessageEncode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/IComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/IComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/commands/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/commands/JsonCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/commands/JsonCommander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/ComponentC3P0.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/annotation/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/AsynRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/AsynSQLTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/Method.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/core/AbstractBaseDAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/core/BaseDAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Condition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Criteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Criterion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/QueryCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Column.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Content.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/DBType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/IEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaTypeConversion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaTypeResolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/PrimaryKey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/QueryResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/ResolveDataBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/SimpleResolveDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/AbsTemplateGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/ColumnMeta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/DBGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/DaoGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/EntityGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/JavaKeyword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/MetaBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/ProjectGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/TableMeta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/TypeMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/AbstractSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/SQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/template/AbstractSqlTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/CommonJdbcSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/SpringJDBCBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/SpringJDBCDAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/model/ModifyParams.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/template/SqlTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/ServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/SocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/SocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/WebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/WebSocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/IRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/IRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/JsonBaseRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/JsonBaseRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/TextRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/TextRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameChannelInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameClientChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameClientChannelInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameServerChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameServerChannelInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentClientSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentClientSocketListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentHttpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentHttpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentServerSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentServerSocketListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentWebSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentWebSocketListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/IPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/IPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/PacketBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/PacketBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/PacketHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/PacketHead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/SPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/SPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/ISession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/ISession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/SessionCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/SessionCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/ClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/SProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/SProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/ServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ActionMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ActionMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/AnnotationScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/GameComponentScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/CommanderGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/CommanderGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/GameCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/GameCons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/HttpAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ServerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ServerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SocketAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/SocketAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SpringContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/SpringContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/annotation/ActionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/annotation/ActionKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/exception/FormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/exception/FormatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/IPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/plugin/IPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/plugin/PluginManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/server/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/WateWave.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/server/WateWave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/AppStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/AppStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/HostUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/HostUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/HttpRequestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/HttpRequestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/IAsyncRequestCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/IAsyncRequestCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/JsonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/Loggers.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/Loggers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/LongIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/LongIdGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/PacketLoggingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/PacketLoggingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/ThreadNameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/ThreadNameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/ColumnWrapperUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/DBTableUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/VersionWrapperUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PageIndex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PageView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/EntityTemplate.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/IDaoTemplate.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/pagination.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/client/ClientLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/client/UserCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/AdminCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/HttpServerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/ServerLauncher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/UserCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/utils/Protocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/proto/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/proto/player.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/client/client-dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/DBCacheContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/ServerConfig.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/server-dispatcher-servlet.xml" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/trunk/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.plugin.</find>
-      <find>.plugins.</find>
-      <find>eventExecutorGroup</find>
-      <find>initConfig</find>
-      <find>getaction</find>
-      <find>onServerStart</find>
-      <find>sync</find>
-      <find>&lt;command&gt;</find>
-      <find>serverId</find>
-      <find>4v4game</find>
-      <find>jsp</find>
-      <find>instrall</find>
-      <find>HttpMethod</find>
-      <find>post</find>
-      <find>0000-00-00</find>
+      <find>executeByCriteria</find>
+      <find>_sumByCriteria</find>
+      <find>sum</find>
+      <find>_sum</find>
+      <find>executeBySql</find>
+      <find>q</find>
+      <find>execute</find>
+      <find>groupby</find>
+      <find>query</find>
+      <find>class Criteria</find>
+      <find>this.criteria</find>
+      <find>class Field</find>
+      <find>andc</find>
+      <find>class column</find>
+      <find>base</find>
+      <find>rende</find>
+      <find>jsonbase</find>
+      <find>pagevi</find>
+      <find>43</find>
+      <find>SpringContext</find>
+      <find>GServer</find>
+      <find>class GServer</find>
+      <find>loadTable</find>
+      <find>retrievalTable</find>
+      <find>loadTables</find>
+      <find>springcontext</find>
+      <find>setlim</find>
+      <find>setpagecount</find>
+      <find>pageCount</find>
+      <find>limit</find>
     </findStrings>
     <replaceStrings>
       <replace>.plugins.</replace>
       <replace>1978-12-07</replace>
+      <replace>Criteria.this</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/trunk/src/main/java/com/gserver</dir>
+      <dir>$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc</dir>
+      <dir>$PROJECT_DIR$/trunk/src/main/java</dir>
+      <dir>$PROJECT_DIR$/trunk/src/main</dir>
+      <dir>$PROJECT_DIR$/trunk</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/trunk/pom.xml" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/web/PluginWebController.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/db/PluginC3p0.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/db/annotation/Table.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/socket/PluginServerSocketListener.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/socket/PluginClientSocketListener.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/IPlugin.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/PluginC3p0.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginServerSocketListener.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Session.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/HttpSession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ISession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpSession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/ISession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/SocketSession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SessionContext.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameHttpSession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameSocketSession.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibDecoder.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibEncoder.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Packet.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java" />
         <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/manager/PluginManager.java" />
-        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java" />
         <option value="$USER_HOME$/app/apache-tomcat-8.5 .23_app/conf/server.xml" />
         <option value="$USER_HOME$/app/apache-tomcat-8_5_app/conf/server.xml" />
         <option value="$USER_HOME$/.IntelliJIdea2017.3/system/tomcat/Unnamed_GServer_2/conf/server.xml" />
@@ -93,6 +286,47 @@
         <option value="$USER_HOME$/app/apache-tomcat_app/conf/server.xml" />
         <option value="$USER_HOME$/app/jeebbs/install/db/jeebbs-db-5.sql" />
         <option value="$USER_HOME$/app/jeebbs/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/trunk/src/main/resources/EntityTemplate.ftl" />
+        <option value="$PROJECT_DIR$/trunk/src/main/resources/IDaoTemplate.ftl" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/JsonUtils.java" />
+        <option value="$PROJECT_DIR$/trunk/pom.xml" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/web/utils/PageIndex.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/web/utils/PageView.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/DaoGenerator.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/ColumnMeta.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/EntityGenerator.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/MetaBuilder.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TableMeta.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/JavaKeyword.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/resources/ftl/test.ftl" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/Pagination.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PaginationFormDirective.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PaginationDirective.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Command.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/CommandBeanProcessor.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ActionCommanderBuilder.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Action.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpAction.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SocketAction.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Commander.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SuperCommander.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/AnnotationScanner.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/BaseCommander.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Commander.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/QueryResult.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc/SpringJDBCDAL.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc/CommonJdbcSupport.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/core/BaseDAL.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/core/AbstractBaseDAL.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TypeMapping.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/criteria/Criteria.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/PluginC3p0.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SpringContext.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/jdbc/template/AbstractSqlTemplate.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/criteria/QueryCriteria.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/DBType.java" />
+        <option value="$PROJECT_DIR$/trunk/src/main/resources/pagination.ftl" />
       </list>
     </option>
   </component>
@@ -109,12 +343,20 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -123,12 +365,16 @@
   <component name="MavenRunner">
     <option name="jreName" value="1.8" />
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="992" />
     <option name="y" value="-4" />
     <option name="width" value="928" />
     <option name="height" value="1084" />
   </component>
+  <component name="ProjectId" id="1wTepSgaDY6wlaxFjuJE72VgQoM" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -147,23 +393,10 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,103 +420,99 @@
               <item name="trunk" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="httpsession&#9;PSI&#9;JAVA://com.gserver.core.ISession.HttpSession" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/xiongjie/文档/java_workspace/4v4game/GServer/trunk/src/main/java/com/gserver/plugins/db/criteria/Criteria.java&#10;queryresult&#9;FILE&#9;file:///home/xiongjie/文档/java_workspace/4v4game/GServer/trunk/src/main/java/com/gserver/plugins/db/descriptor/QueryResult.java&#10;httpsession&#9;PSI&#9;JAVA://com.gserver.core.ISession.HttpSession" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blokus" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/web/utils" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gserver.utils.web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="GServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="_GServer_2" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="33261" />
       </RunnerSettings>
@@ -332,6 +561,9 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5_app" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -339,11 +571,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="_GServer" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="43119" />
       </RunnerSettings>
@@ -392,20 +624,28 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="bbs" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat_app" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="webserver" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment />
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_GServer_2" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="43119" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Debug with VisualVM">
+        <option name="DEBUG_PORT" value="41203" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -437,6 +677,36 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug with VisualVM">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -452,26 +722,36 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run with VisualVM">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -501,6 +781,89 @@
       <workItem from="1519190505092" duration="6790000" />
       <workItem from="1519198322787" duration="2668000" />
       <workItem from="1519221145658" duration="252000" />
+      <workItem from="1522122801257" duration="19000" />
+      <workItem from="1522122914574" duration="9711000" />
+      <workItem from="1522138166105" duration="4715000" />
+      <workItem from="1522154376745" duration="1360000" />
+      <workItem from="1522203930531" duration="37000" />
+      <workItem from="1522204257532" duration="2609000" />
+      <workItem from="1522285554007" duration="5429000" />
+      <workItem from="1522371905558" duration="6986000" />
+      <workItem from="1522382427782" duration="1394000" />
+      <workItem from="1522398771306" duration="599000" />
+      <workItem from="1522400487684" duration="1147000" />
+      <workItem from="1522413657087" duration="2123000" />
+      <workItem from="1522433970543" duration="170000" />
+      <workItem from="1522456960892" duration="946000" />
+      <workItem from="1522459405447" duration="15174000" />
+      <workItem from="1522524252975" duration="79000" />
+      <workItem from="1522524403607" duration="43000" />
+      <workItem from="1522524516792" duration="24000" />
+      <workItem from="1522524742629" duration="702000" />
+      <workItem from="1522525791644" duration="115000" />
+      <workItem from="1522576195626" duration="3900000" />
+      <workItem from="1522580220982" duration="144000" />
+      <workItem from="1522588104348" duration="521000" />
+      <workItem from="1522675875485" duration="28000" />
+      <workItem from="1522725533558" duration="1233000" />
+      <workItem from="1522773860692" duration="340000" />
+      <workItem from="1522807095906" duration="3493000" />
+      <workItem from="1522811198915" duration="5221000" />
+      <workItem from="1522843911246" duration="1616000" />
+      <workItem from="1523184664605" duration="80000" />
+      <workItem from="1523184828378" duration="34000" />
+      <workItem from="1523184881310" duration="9651000" />
+      <workItem from="1523238262136" duration="2606000" />
+      <workItem from="1523344436052" duration="2659000" />
+      <workItem from="1523412913438" duration="8595000" />
+      <workItem from="1523497686727" duration="6854000" />
+      <workItem from="1523547143000" duration="110000" />
+      <workItem from="1523547273936" duration="25000" />
+      <workItem from="1523547318819" duration="161000" />
+      <workItem from="1523583733214" duration="7148000" />
+      <workItem from="1523759764982" duration="621000" />
+      <workItem from="1523844383392" duration="11167000" />
+      <workItem from="1524020029027" duration="11770000" />
+      <workItem from="1524282556917" duration="2723000" />
+      <workItem from="1524500717120" duration="706000" />
+      <workItem from="1628487191808" duration="1187000" />
+      <workItem from="1628488613185" duration="1830000" />
+      <workItem from="1628506786889" duration="160000" />
+      <workItem from="1629348481501" duration="485000" />
+      <workItem from="1629348979026" duration="150000" />
+      <workItem from="1629349142811" duration="97000" />
+      <workItem from="1629349277850" duration="747000" />
+      <workItem from="1629350047150" duration="593000" />
+      <workItem from="1630380637415" duration="361000" />
+      <workItem from="1630384731152" duration="27000" />
+      <workItem from="1634095790915" duration="136000" />
+      <workItem from="1634097147263" duration="33000" />
+      <workItem from="1634109742078" duration="350000" />
+      <workItem from="1640687000065" duration="351000" />
+      <workItem from="1642245755239" duration="6475000" />
+      <workItem from="1642260949826" duration="1276000" />
+      <workItem from="1642262984365" duration="1486000" />
+      <workItem from="1642265513115" duration="280000" />
+      <workItem from="1642266493196" duration="4000" />
+      <workItem from="1642488079368" duration="68000" />
+      <workItem from="1642488200189" duration="19000" />
+      <workItem from="1642488330483" duration="190000" />
+      <workItem from="1642489234950" duration="491000" />
+      <workItem from="1642493613684" duration="281000" />
+      <workItem from="1642494194407" duration="86000" />
+      <workItem from="1642494526545" duration="724000" />
+      <workItem from="1642496154903" duration="94000" />
+      <workItem from="1642498345781" duration="766000" />
+      <workItem from="1642693623327" duration="390000" />
+      <workItem from="1642695521842" duration="2594000" />
+      <workItem from="1642734359224" duration="732000" />
+      <workItem from="1642740665308" duration="151000" />
+      <workItem from="1642742011223" duration="611000" />
+      <workItem from="1642742646234" duration="2748000" />
+      <workItem from="1643168955580" duration="41000" />
+      <workItem from="1643169438341" duration="52000" />
+      <workItem from="1643191056261" duration="105000" />
+      <workItem from="1643533644599" duration="1514000" />
     </task>
     <task id="LOCAL-00001" summary="增加ClientSocket">
       <created>1508130117892</created>
@@ -607,49 +970,267 @@
       <option name="project" value="LOCAL" />
       <updated>1512233176436</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="代码优化">
+      <created>1522138916045</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1522138916045</updated>
+    </task>
+    <task id="LOCAL-00017" summary="代码优化">
+      <created>1522143150150</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1522143150150</updated>
+    </task>
+    <task id="LOCAL-00018" summary="代码优化">
+      <created>1522466266341</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1522466266341</updated>
+    </task>
+    <task id="LOCAL-00019" summary="代码优化">
+      <created>1522509771767</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1522509771767</updated>
+    </task>
+    <task id="LOCAL-00020" summary="代码优化">
+      <created>1522518131020</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1522518131020</updated>
+    </task>
+    <task id="LOCAL-00021" summary="代码优化">
+      <created>1522579887581</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1522579887581</updated>
+    </task>
+    <task id="LOCAL-00022" summary="代码优化">
+      <created>1522588327284</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1522588327284</updated>
+    </task>
+    <task id="LOCAL-00023" summary="代码优化">
+      <created>1522815510390</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1522815510390</updated>
+    </task>
+    <task id="LOCAL-00024" summary="代码优化">
+      <created>1522817302208</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1522817302208</updated>
+    </task>
+    <task id="LOCAL-00025" summary="代码优化">
+      <created>1523193380021</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1523193380021</updated>
+    </task>
+    <task id="LOCAL-00026" summary="代码优化">
+      <created>1523353634612</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1523353634612</updated>
+    </task>
+    <task id="LOCAL-00027" summary="数据库查询排序优化">
+      <created>1523417821806</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1523417821806</updated>
+    </task>
+    <task id="LOCAL-00028" summary="代码优化">
+      <created>1523434804132</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1523434804132</updated>
+    </task>
+    <task id="LOCAL-00029" summary="代码优化">
+      <created>1523516633901</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1523516633901</updated>
+    </task>
+    <task id="LOCAL-00030" summary="代码优化">
+      <created>1523940096880</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1523940096880</updated>
+    </task>
+    <task id="LOCAL-00031" summary="代码优化">
+      <created>1523941221332</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1523941221332</updated>
+    </task>
+    <task id="LOCAL-00032" summary="代码优化">
+      <created>1523941977267</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1523941977267</updated>
+    </task>
+    <task id="LOCAL-00033" summary="代码优化">
+      <created>1523949496939</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1523949496939</updated>
+    </task>
+    <task id="LOCAL-00034" summary="代码优化">
+      <created>1524039345866</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1524039345866</updated>
+    </task>
+    <task id="LOCAL-00035" summary="代码优化">
+      <created>1524047955444</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1524047955444</updated>
+    </task>
+    <task id="LOCAL-00036" summary="代码优化">
+      <created>1524049095815</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1524049095815</updated>
+    </task>
+    <task id="LOCAL-00037" summary="代码优化">
+      <created>1524192844564</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1524192844564</updated>
+    </task>
+    <task id="LOCAL-00038" summary="代码优化">
+      <created>1524471454980</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1524471454980</updated>
+    </task>
+    <task id="LOCAL-00039" summary="代码优化">
+      <created>1524501211270</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1524501211270</updated>
+    </task>
+    <task id="LOCAL-00040" summary="代码优化">
+      <created>1524501332171</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1524501332171</updated>
+    </task>
+    <task id="LOCAL-00041" summary="代码优化">
+      <created>1630380826792</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1630380826792</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49825000" />
+    <option name="totallyTimeSpent" value="184613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14726973" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5334029" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3058455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17815775" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.454071" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5019305" side_tool="true" weight="0.6691023" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32985386" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.11196911" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32845187" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32881" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4980695" weight="0.6691023" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22118036" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27301255" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="SVN Repositories" order="7" sideWeight="0.4980695" weight="0.32985386" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.24476987" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32845187" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32985386" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3629707" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4980695" weight="0.6691023" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5019305" side_tool="true" weight="0.6691023" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32881" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24434638" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32881" />
+      <window_info anchor="bottom" id="SVN Repositories" order="12" sideWeight="0.4980695" weight="0.32985386" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="5" visible="true" weight="0.110865965" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4539749" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -666,29 +1247,11 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加ClientSocket" />
@@ -698,297 +1261,351 @@
     <MESSAGE value="优化服务器启动顺序" />
     <MESSAGE value="优化数据发送类型" />
     <MESSAGE value="优化" />
+    <MESSAGE value="数据库查询排序优化" />
     <MESSAGE value="代码优化" />
     <option name="LAST_COMMIT_MESSAGE" value="代码优化" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/jdbc/template/AbstractSqlTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/web/PluginWebController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/annotation/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/ColumnMeta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/DBGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/EntityGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/JavaKeyword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/MetaBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/ProjectGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TableMeta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TypeMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/IPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/listener/ClientListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/HttpSession.java" />
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/ISession.java" />
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1-b01/javax.servlet-api-3.1-b01.jar!/javax/servlet/http/HttpSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameSocketSession.java" />
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/server/session/GameHttpSession.java" />
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SessionContext.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/ByteToMessageDecoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/MessageToByteEncoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/CustomZLibEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="30" column="62" lean-forward="true" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.4.1/jackson-databind-2.4.1.jar!/com/fasterxml/jackson/databind/ObjectMapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="978" column="45" lean-forward="true" selection-start-line="978" selection-start-column="45" selection-end-line="978" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Packet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/PluginC3p0.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="43" column="63" lean-forward="false" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/manager/PluginManager.java" />
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Commander.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ActionCommanderBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Action.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="549">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/Invocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1391">
-          <caret line="179" column="26" lean-forward="true" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
+        <state relative-caret-position="484">
+          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginClientSocketListener.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="164" column="44" lean-forward="true" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+        <state relative-caret-position="265">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/socket/PluginServerSocketListener.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="219" column="44" lean-forward="true" selection-start-line="219" selection-start-column="44" selection-end-line="219" selection-end-column="44" />
+        <state relative-caret-position="241">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SocketAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.2.2.RELEASE/spring-context-4.2.2.RELEASE.jar!/org/springframework/stereotype/Component.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Before.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="29" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Commander.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ActionCommanderBuilder.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.2.2.RELEASE/spring-beans-4.2.2.RELEASE.jar!/org/springframework/beans/factory/config/BeanPostProcessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Commanders.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="45" column="16" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="889">
+          <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/pom.xml">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Commander.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="220">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/app/必读.txt">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/AnnotationScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="147">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/app/apache-tomcat-8.5 _app.23/conf/server.xml" />
-    <entry file="file://$USER_HOME$/app/apache-tomcat-8.5 .23_app/conf/server.xml" />
-    <entry file="file://$USER_HOME$/app/apache-tomcat-8_5_app/conf/server.xml" />
-    <entry file="file://$USER_HOME$/app/apache-tomcat-8.5.23/conf/server.xml">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/asyn/AsynSQLTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="150" column="8" lean-forward="false" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="8" />
+        <state relative-caret-position="334">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.IntelliJIdea2017.3/system/tomcat/Unnamed_GServer_2/conf/server.xml">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/Table.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="111" column="63" lean-forward="false" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
+        <state relative-caret-position="709">
+          <caret line="122" column="25" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/app/jeebbs/install/install_params.jsp" />
-    <entry file="file://$USER_HOME$/app/jeebbs/install/db/jeebbs-db-5.sql" />
-    <entry file="file://$USER_HOME$/app/apache-tomcat_app/conf/server.xml">
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/QueryResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
+        <state relative-caret-position="-2243">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/app/jeebbs/WEB-INF/web.xml" />
-    <entry file="file://$USER_HOME$/app/apache-tomcat_app/logs/catalina.out">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="144">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc/CommonJdbcSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc/SpringJDBCDAL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/core/BaseDAL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/EntityGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/AbsTemplateGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/DaoGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TableMeta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/DBGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="109" column="52" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/TypeMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/generator/MetaBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="166" column="43" lean-forward="true" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/criteria/Criterion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="99" column="53" selection-start-line="99" selection-start-column="53" selection-end-line="99" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/PluginC3p0.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/criteria/Criteria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/resources/EntityTemplate.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/app/tomcat-8.5.29_bbs/conf/server.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="72" column="12" lean-forward="true" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.2.RELEASE/spring-web-4.2.2.RELEASE.jar!/org/springframework/web/context/ServletConfigAware.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.2.RELEASE/spring-web-4.2.2.RELEASE.jar!/org/springframework/web/context/ServletContextAware.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/InterceptorBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/GServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/jdbc/template/AbstractSqlTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5896">
+          <caret line="268" column="9" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/spring/jdbc/SpringJDBCBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/jdbc/AbstractSQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="201" column="5" lean-forward="true" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/ResolveDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1036">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/DBTableUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/core/AbstractBaseDAL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="169" column="34" selection-start-line="169" selection-start-column="34" selection-end-line="169" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/SimpleResolveDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SpringContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/criteria/QueryCriteria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/Md5EncoderUtils.java" />
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/HostUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-148">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1403">
+          <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins/db/descriptor/DBType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/main/resources/pagination.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
         </state>
       </provider>
     </entry>

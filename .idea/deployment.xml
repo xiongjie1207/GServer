@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" serverName="beta.4j4f.com">
     <serverData>
-      <paths name="beta.4v4game.com_game">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$/trunk" web="/" />
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="beta.4v4game.com_web">
+      <paths name="beta.4j4f.com">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$/trunk" web="/" />
