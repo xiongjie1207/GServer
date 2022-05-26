@@ -6,7 +6,6 @@ import com.wegame.core.CommanderGroup;
 import com.wegame.core.GameCons;
 import com.wegame.components.net.packet.IPacket;
 import com.wegame.components.net.packet.Packet;
-import com.wegame.utils.Loggers;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -27,6 +26,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -84,9 +84,9 @@ public class WebSocketServerHandler extends SocketServerHandler {
         Map<String, Object> jsonObject = null;
         try {
             jsonObject = objectMapper.readValue(request, Map.class);
-            Loggers.PacketLogger.debug(jsonObject.toString());
+            LoggerFactory.getLogger(this.getClass()).debug(jsonObject.toString());
         } catch (Exception e) {
-            Loggers.ErrorLogger.error(e.getMessage(), e.getCause());
+            LoggerFactory.getLogger(this.getClass()).error(e.getMessage(), e.getCause());
         }
         if (jsonObject == null) {
 

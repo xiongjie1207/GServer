@@ -21,8 +21,8 @@ import com.wegame.aop.Invocation;
 import com.wegame.components.net.packet.IPacket;
 import com.wegame.components.session.ISession;
 import com.wegame.utils.AppStatus;
-import com.wegame.utils.Loggers;
 import com.wegame.utils.ThreadNameFactory;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,8 +44,7 @@ public class CommanderGroup implements Runnable {
 
     private CommanderGroup() {
         actions = new LinkedBlockingQueue<>();
-        ThreadNameFactory threadNameFactory = new ThreadNameFactory("commandGroup");
-        scheduledThreadPool = Executors.newSingleThreadScheduledExecutor(threadNameFactory);
+        scheduledThreadPool = Executors.newScheduledThreadPool(10);
         scheduledThreadPool.scheduleWithFixedDelay(this,0,1,TimeUnit.MILLISECONDS);
 
     }
@@ -60,11 +59,11 @@ public class CommanderGroup implements Runnable {
                 socketAction.setSession(session);
                 actions.add(socketAction);
             } else {
-                Loggers.GameLogger.warn("No mapping found for protocol:" + packet.getPid());
+                LoggerFactory.getLogger(this.getClass()).warn("No mapping found for protocol:" + packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Loggers.ErrorLogger.error("exception", e);
+            LoggerFactory.getLogger(this.getClass()).error("exception", e);
         }
 
 
@@ -80,11 +79,11 @@ public class CommanderGroup implements Runnable {
                 httpAction.setResponse(response);
                 executeCommand(httpAction);
             } else {
-                Loggers.GameLogger.warn("No mapping found for protocol:" + packet.getPid());
+                LoggerFactory.getLogger(this.getClass()).warn("No mapping found for protocol:" + packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Loggers.ErrorLogger.error("exception", e);
+            LoggerFactory.getLogger(this.getClass()).error("exception", e);
         }
     }
 
@@ -96,7 +95,7 @@ public class CommanderGroup implements Runnable {
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Loggers.ErrorLogger.error("exception", e);
+            LoggerFactory.getLogger(this.getClass()).error("exception", e);
         } finally {
             ServerContext.getContext().reset();
         }
@@ -110,7 +109,7 @@ public class CommanderGroup implements Runnable {
             this.executeCommand(action);
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Loggers.ErrorLogger.error("CommanderGroup.run:", e);
+            LoggerFactory.getLogger(this.getClass()).error("CommanderGroup.run:", e);
         }
     }
 }

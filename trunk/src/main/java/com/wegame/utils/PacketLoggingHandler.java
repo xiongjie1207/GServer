@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import org.slf4j.LoggerFactory;
 
 public class PacketLoggingHandler extends LoggingHandler {
     public PacketLoggingHandler() {
@@ -34,14 +35,14 @@ public class PacketLoggingHandler extends LoggingHandler {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         IPacket packet = (IPacket) msg;
-        Loggers.PacketLogger.info("read:"+packet.toString());
+        LoggerFactory.getLogger(this.getClass()).info("read:"+packet.toString());
         ctx.fireChannelRead(msg);
     }
 
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         IPacket packet = (IPacket) msg;
-        Loggers.PacketLogger.info("write:"+packet.toString());
+        LoggerFactory.getLogger(this.getClass()).info("write:"+packet.toString());
         ctx.write(msg, promise);
     }
 }

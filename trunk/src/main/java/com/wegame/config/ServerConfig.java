@@ -36,7 +36,6 @@ public class ServerConfig {
         }
         return instance;
     }
-    private long maxOnlinePlayer = 10000;
 
     private short webSocketPort;
     /**
@@ -123,13 +122,6 @@ public class ServerConfig {
         this.webSocketPort = webSocketPort;
     }
 
-    public long getMaxOnlinePlayer() {
-        return maxOnlinePlayer;
-    }
-
-    public void setMaxOnlinePlayer(long maxOnlinePlayer) {
-        this.maxOnlinePlayer = maxOnlinePlayer;
-    }
 
     public String getBindIP() {
         return bindIP;

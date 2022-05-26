@@ -17,11 +17,11 @@ package com.wegame.core;
  * Created by xiongjie on 2016/12/22.
  */
 
-import com.wegame.utils.Loggers;
+
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
-
 public class ActionMapping {
     private static ActionMapping instance = new ActionMapping();
     private Map<Integer, Action> mapping = new HashMap<Integer, Action>();
@@ -31,7 +31,7 @@ public class ActionMapping {
     }
 
     public void addAction(Action action) {
-        Loggers.GameLogger.debug("action mapping:" + action.toString());
+        LoggerFactory.getLogger(this.getClass()).debug("action mapping:" + action.toString());
         if (this.mapping.get(action.getActionKey()) != null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Duplicate method ").append(" for key ").append(action.getActionKey());

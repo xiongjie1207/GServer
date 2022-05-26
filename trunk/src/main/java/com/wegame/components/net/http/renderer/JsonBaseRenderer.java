@@ -1,14 +1,14 @@
 package com.wegame.components.net.http.renderer;
 
+import com.wegame.components.net.listener.ComponentClientSocketListener;
 import com.wegame.components.net.packet.IPacket;
 import com.wegame.core.GameCons;
-import com.wegame.utils.Loggers;
 import io.netty.util.CharsetUtil;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 public class JsonBaseRenderer implements IRenderer<IPacket> {
     private HttpServletResponse response;
 
@@ -29,16 +29,16 @@ public class JsonBaseRenderer implements IRenderer<IPacket> {
 
         try {
             String data = new String(packet.getData(), CharsetUtil.UTF_8);
-            Loggers.PacketLogger.info(String.format("post pid:%s",packet.toString()));
+            LoggerFactory.getLogger(ComponentClientSocketListener.class).info(String.format("post pid:%s",packet.toString()));
             response.getWriter().write(data);
             response.getWriter().flush();
         } catch (Exception e) {
-            Loggers.ErrorLogger.error(e.getMessage(), e);
+            LoggerFactory.getLogger(ComponentClientSocketListener.class).error(e.getMessage(), e);
         } finally {
             try {
                 response.getWriter().close();
             } catch (IOException e) {
-                Loggers.ErrorLogger.error(e.getMessage(), e);
+                LoggerFactory.getLogger(ComponentClientSocketListener.class).error(e.getMessage(), e);
             }
         }
     }

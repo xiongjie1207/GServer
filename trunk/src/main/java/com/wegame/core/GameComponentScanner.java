@@ -7,7 +7,7 @@ import com.wegame.aop.annotation.Around;
 import com.wegame.aop.annotation.Ignore;
 import com.wegame.components.IComponent;
 import com.wegame.core.annotation.ActionKey;
-import com.wegame.utils.Loggers;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
@@ -16,7 +16,6 @@ import org.springframework.core.PriorityOrdered;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-
 public class GameComponentScanner implements BeanPostProcessor, PriorityOrdered {
 
     @Override
@@ -69,7 +68,7 @@ public class GameComponentScanner implements BeanPostProcessor, PriorityOrdered 
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Loggers.ErrorLogger.error("", e);
+            LoggerFactory.getLogger(this.getClass()).error("", e);
         }
         return bean;
     }

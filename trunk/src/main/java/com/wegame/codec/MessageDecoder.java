@@ -17,16 +17,17 @@ package com.wegame.codec;
  * Created by xiongjie on 2016/12/22.
  */
 
+import com.wegame.components.net.packet.IPacket;
 import com.wegame.components.net.packet.Packet;
-import com.wegame.utils.Loggers;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
+import lombok.extern.slf4j.Slf4j;
 
 import java.nio.charset.Charset;
 import java.util.List;
-
+@Slf4j
 @ChannelHandler.Sharable
 public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
     private final Charset charset;
@@ -52,9 +53,11 @@ public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
                 bytebuf.getBytes(bytebuf.readerIndex(), bytes);
                 builder.setData(bytes);
             }
-            paramList.add(builder.build());
+            IPacket packet = builder.build();
+            paramList.add(packet);
+            log.debug(packet.toString());
         } catch (Exception e) {
-            Loggers.ErrorLogger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
     }

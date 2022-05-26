@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections.BeanMap;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -97,11 +98,11 @@ public class JsonUtil {
                 }
                 return resultList;
             } catch (JsonParseException e) {
-                Loggers.ErrorLogger.error("JsonParseException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                Loggers.ErrorLogger.error("JsonMappingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonMappingException: ", e);
             } catch (IOException e) {
-                Loggers.ErrorLogger.error("IOException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("IOException: ", e);
             }
         }
         return null;
@@ -195,7 +196,7 @@ public class JsonUtil {
                             }
                             BeanUtils.copyProperty(bean, String.valueOf(key), value);
                         } catch (InvocationTargetException e) {
-                            Loggers.ErrorLogger.error("Bean copy property error.", e);
+                            LoggerFactory.getLogger(JsonUtil.class).error("Bean copy property error.", e);
                         }
                     }
                 }
@@ -229,11 +230,11 @@ public class JsonUtil {
             try {
                 return MAPPER.readValue(json, valueType);
             } catch (JsonParseException e) {
-                Loggers.ErrorLogger.error("JsonParseException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                Loggers.ErrorLogger.error("JsonMappingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonMappingException: ", e);
             } catch (IOException e) {
-                Loggers.ErrorLogger.error("IOException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("IOException: ", e);
             }
         }
         return null;
@@ -254,11 +255,11 @@ public class JsonUtil {
             try {
                 return MAPPER.writeValueAsString(object);
             } catch (JsonGenerationException e) {
-                Loggers.ErrorLogger.error("JsonGenerationException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonGenerationException: ", e);
             } catch (JsonMappingException e) {
-                Loggers.ErrorLogger.error("JsonMappingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonMappingException: ", e);
             } catch (IOException e) {
-                Loggers.ErrorLogger.error("IOException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("IOException: ", e);
             }
         }
         return null;
@@ -277,11 +278,11 @@ public class JsonUtil {
             try {
                 return clazz.equals(String.class) ? (T) json : MAPPER.readValue(json, clazz);
             } catch (JsonParseException e) {
-                Loggers.ErrorLogger.error("JsonParseException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                Loggers.ErrorLogger.error("JsonMappingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonMappingException: ", e);
             } catch (IOException e) {
-                Loggers.ErrorLogger.error("IOException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("IOException: ", e);
             }
         }
         return null;
@@ -299,11 +300,11 @@ public class JsonUtil {
             try {
                 return (T) (typeReference.getType().equals(String.class) ? json : MAPPER.readValue(json, typeReference));
             } catch (JsonParseException e) {
-                Loggers.ErrorLogger.error("JsonParseException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
-                Loggers.ErrorLogger.error("JsonMappingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonMappingException: ", e);
             } catch (IOException e) {
-                Loggers.ErrorLogger.error("IOException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("IOException: ", e);
             }
         }
         return null;
@@ -319,7 +320,7 @@ public class JsonUtil {
         try {
             return src instanceof String ? (String) src : MAPPER.writeValueAsString(src);
         } catch (JsonProcessingException e) {
-            Loggers.ErrorLogger.error("JsonParseException: ", e);
+            LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
         }
         return null;
     }
@@ -339,7 +340,7 @@ public class JsonUtil {
             try {
                 return customMapper.writeValueAsString(src);
             } catch (JsonProcessingException e) {
-                Loggers.ErrorLogger.error("JsonProcessingException: ", e);
+                LoggerFactory.getLogger(JsonUtil.class).error("JsonProcessingException: ", e);
             }
         }
         return null;
@@ -361,7 +362,7 @@ public class JsonUtil {
                 try {
                     return mapper.writeValueAsString(src);
                 } catch (JsonProcessingException e) {
-                    Loggers.ErrorLogger.error("JsonProcessingException: ", e);
+                    LoggerFactory.getLogger(JsonUtil.class).error("JsonProcessingException: ", e);
                 }
             }
         } else {

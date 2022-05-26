@@ -3,8 +3,8 @@ package com.wegame.components.net.packet;
 import com.google.protobuf.Message;
 import com.wegame.core.GameCons;
 import com.wegame.utils.JsonUtil;
-import com.wegame.utils.Loggers;
 import io.netty.util.CharsetUtil;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -25,12 +25,11 @@ import java.io.Serializable;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
-
 public class Packet extends SPacket {
     private Packet(int pid) {
         super(pid);
         if (pid < GameCons.SystemPid) {
-            Loggers.ErrorLogger.warn(String.format("pid必须大于%d!!!%d为系统保留", GameCons.SystemPid, GameCons.SystemPid));
+            LoggerFactory.getLogger(this.getClass()).warn(String.format("pid必须大于%d!!!%d为系统保留", GameCons.SystemPid, GameCons.SystemPid));
         }
 
     }

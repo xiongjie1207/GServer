@@ -3,13 +3,13 @@ package com.wegame.components.net.listener;
 import com.wegame.components.net.initializer.GameClientChannelInitializer;
 import com.wegame.config.ClientConfig;
 import com.wegame.components.IComponent;
-import com.wegame.utils.Loggers;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +64,7 @@ public class ComponentClientSocketListener implements IComponent {
             channelFuture.addListener((ChannelFutureListener) channelFuture -> OnConnectedHandler(true));
             return true;
         } catch (Exception e) {
-            Loggers.ErrorLogger.error("connect faild", e);
+            LoggerFactory.getLogger(ComponentClientSocketListener.class).error("connect faild", e);
             OnConnectedHandler(false);
         }
         return false;
@@ -99,10 +99,10 @@ public class ComponentClientSocketListener implements IComponent {
                 return channelFuture.channel().writeAndFlush(bb);
 
             } else {
-                Loggers.ErrorLogger.error("网络不可写");
+                LoggerFactory.getLogger(ComponentClientSocketListener.class).error("网络不可写");
             }
         } else {
-            Loggers.ErrorLogger.error("未建立网络连接");
+            LoggerFactory.getLogger(ComponentClientSocketListener.class).error("未建立网络连接");
         }
         return null;
     }

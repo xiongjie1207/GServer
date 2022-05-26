@@ -1,7 +1,8 @@
 package com.wegame.plugin;
 
-import com.wegame.utils.Loggers;
 import org.apache.commons.io.FilenameUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -67,7 +68,7 @@ public class PluginManager {
                 plugins = new ArrayList<>();
             }
         } catch (Exception e) {
-            Loggers.ErrorLogger.error(e.getMessage(),e);
+            LoggerFactory.getLogger(this.getClass()).error(e.getMessage(),e);
         }
         return plugins;
     }
@@ -87,7 +88,7 @@ public class PluginManager {
                 jarLastModified.put(jar.getName(), jarDate);
 
             }
-            Loggers.ServerLogger.debug("load jar:" + jar.getPath());
+            LoggerFactory.getLogger(this.getClass()).debug("load jar:" + jar.getPath());
             URL url = new URL("file:" + jar.getPath());
             URLClassLoader classLoader = new URLClassLoader(new URL[]{url}, Thread.currentThread()
                     .getContextClassLoader());

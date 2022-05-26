@@ -5,8 +5,8 @@ import com.wegame.components.net.packet.IPacket;
 import com.wegame.components.net.packet.Packet;
 import com.wegame.core.CommanderGroup;
 import com.wegame.core.GameCons;
-import com.wegame.utils.Loggers;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.Cookie;
@@ -42,7 +42,6 @@ import java.util.Map;
  * 数据流发送格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  */
-
 public abstract class ComponentHttpController implements IComponent {
     private static final String CHAR_SET_UTF_8 = "utf-8";
     private ThreadLocal<Map<String, Object>> tl = new ThreadLocal<Map<String, Object>>();
@@ -74,7 +73,7 @@ public abstract class ComponentHttpController implements IComponent {
             request.setCharacterEncoding(CHAR_SET_UTF_8);
             response.setCharacterEncoding(CHAR_SET_UTF_8);
         } catch (UnsupportedEncodingException e) {
-            Loggers.ErrorLogger.error("setReqAndRes", e);
+            LoggerFactory.getLogger(this.getClass()).error("setReqAndRes", e);
         }
         Map<String, Object> values = new HashMap<String, Object>();
         values.put(HTTP_SERVLET_REQUEST, request);
@@ -100,11 +99,11 @@ public abstract class ComponentHttpController implements IComponent {
                     packet = Packet.newNetBuilder(Integer.parseInt(pid)).setData(data.getBytes()).build();
                 }
 
-                Loggers.PacketLogger.info(String.format("http receive %s",packet.toString()));
+                LoggerFactory.getLogger(this.getClass()).info(String.format("http receive %s",packet.toString()));
                 CommanderGroup.getInstance().dispatch(packet, getRequest(), getResponse());
             }
         } catch (IOException e) {
-            Loggers.ErrorLogger.error("", e);
+            LoggerFactory.getLogger(this.getClass()).error("", e);
         }
     }
 

@@ -2,15 +2,14 @@ package com.wegame.components.net.handler;
 
 import com.wegame.components.session.GameSession;
 import com.wegame.components.session.ISession;
-import com.wegame.components.session.SessionCounter;
 import com.wegame.core.CommanderGroup;
 import com.wegame.core.GameCons;
 import com.wegame.components.net.packet.IPacket;
-import com.wegame.utils.Loggers;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -38,7 +37,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<IPacket> {
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);
         ISession session = new GameSession(ctx.channel());
-        Loggers.SessionLogger.warn("channelRegistered:"+session);
+        LoggerFactory.getLogger(this.getClass()).warn("channelRegistered:"+session);
     }
 
 
@@ -48,16 +47,15 @@ public class ServerHandler extends SimpleChannelInboundHandler<IPacket> {
         if (ctx.channel().hasAttr(attributeKey)) {
             ISession session = ctx.channel().attr(attributeKey).get();
             ctx.channel().attr(attributeKey).set(null);
-            Loggers.SessionLogger.warn("channelUnregistered:"+session);
+            LoggerFactory.getLogger(this.getClass()).warn("channelUnregistered:"+session);
 
         }
-        SessionCounter.getInstance().decrementAndGet();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         if (cause instanceof IOException && ctx.channel().isActive()) {
-            Loggers.SessionLogger.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
+            LoggerFactory.getLogger(this.getClass()).error("simpleclient" + ctx.channel().remoteAddress() + "异常");
         }
         ctx.close();
     }

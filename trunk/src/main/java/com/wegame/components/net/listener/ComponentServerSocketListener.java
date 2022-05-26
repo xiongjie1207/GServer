@@ -3,7 +3,6 @@ package com.wegame.components.net.listener;
 import com.wegame.components.IComponent;
 import com.wegame.components.net.initializer.GameServerChannelInitializer;
 import com.wegame.config.ServerConfig;
-import com.wegame.utils.Loggers;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -15,6 +14,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -65,13 +65,13 @@ public class ComponentServerSocketListener implements IComponent {
         try {
             channelFuture.channel().close();
             if (bossGroup.shutdownGracefully().await(1, TimeUnit.SECONDS)) {
-                Loggers.ServerStatusLogger.info("ServerBoss关闭成功");
+                LoggerFactory.getLogger(this.getClass()).info("ServerBoss关闭成功");
             }
             if (workerGroup.shutdownGracefully().await(1, TimeUnit.SECONDS)) {
-                Loggers.ServerStatusLogger.info("ServerWork关闭成功");
+                LoggerFactory.getLogger(this.getClass()).info("ServerWork关闭成功");
             }
         } catch (Exception e) {
-            Loggers.ErrorLogger.error("关闭网络时发生异常:", e);
+            LoggerFactory.getLogger(this.getClass()).error("关闭网络时发生异常:", e);
         }
 
         return true;
@@ -114,7 +114,7 @@ public class ComponentServerSocketListener implements IComponent {
             channelFuture = serverBootstrap.bind().addListener((ChannelFuture future) -> this.operationComplete(future));
             channelFuture.channel().closeFuture().addListener(ChannelFutureListener.CLOSE);
         } catch (Exception e) {
-            Loggers.ErrorLogger.error("", e);
+            LoggerFactory.getLogger(this.getClass()).error("", e);
         }
     }
 
@@ -125,9 +125,9 @@ public class ComponentServerSocketListener implements IComponent {
     private void operationComplete(ChannelFuture future) throws Exception {
         // TODO Auto-generated method stub
         if (future.isSuccess()) {
-            Loggers.ServerStatusLogger.info("[GServer] Started success");
+            LoggerFactory.getLogger(this.getClass()).info("[GServer] Started success");
         } else {
-            Loggers.ServerStatusLogger.error("[GServer] Started Failed");
+            LoggerFactory.getLogger(this.getClass()).error("[GServer] Started Failed");
         }
     }
 

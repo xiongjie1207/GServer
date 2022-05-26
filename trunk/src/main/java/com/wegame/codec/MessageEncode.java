@@ -1,12 +1,12 @@
 package com.wegame.codec;
 
 import com.wegame.components.net.packet.IPacket;
-import com.wegame.utils.Loggers;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -52,8 +52,9 @@ public class MessageEncode extends MessageToMessageEncoder<IPacket> {
                 byteBuf.writeBytes(packet.getData());
             }
             list.add(byteBuf);
+            LoggerFactory.getLogger(this.getClass()).debug(packet.toString());
         } catch (Exception e) {
-            Loggers.ErrorLogger.error(e.getMessage(), e);
+            LoggerFactory.getLogger(this.getClass()).error(e.getMessage(), e);
         }
 
     }
