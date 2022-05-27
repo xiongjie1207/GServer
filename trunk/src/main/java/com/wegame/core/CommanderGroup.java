@@ -27,10 +27,11 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.Executors.*;
 
 
 public class CommanderGroup implements Runnable {
@@ -44,7 +45,8 @@ public class CommanderGroup implements Runnable {
 
     private CommanderGroup() {
         actions = new LinkedBlockingQueue<>();
-        scheduledThreadPool = Executors.newScheduledThreadPool(10);
+        ThreadNameFactory threadNameFactory = new ThreadNameFactory("commandGroup");
+        scheduledThreadPool = newSingleThreadScheduledExecutor(threadNameFactory);
         scheduledThreadPool.scheduleWithFixedDelay(this,0,1,TimeUnit.MILLISECONDS);
 
     }
