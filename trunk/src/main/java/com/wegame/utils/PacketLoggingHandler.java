@@ -1,48 +1,29 @@
 package com.wegame.utils;
 
-import com.wegame.components.net.packet.IPacket;
+import com.wegame.framework.packet.IPacket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class PacketLoggingHandler extends LoggingHandler {
-    public PacketLoggingHandler() {
-        super();
-    }
-
     public PacketLoggingHandler(LogLevel level) {
         super(level);
     }
 
-    public PacketLoggingHandler(Class<?> clazz) {
-        super(clazz);
-    }
-
-    public PacketLoggingHandler(Class<?> clazz, LogLevel level) {
-        super(clazz, level);
-    }
-
-    public PacketLoggingHandler(String name) {
-        super(name);
-    }
-
-    public PacketLoggingHandler(String name, LogLevel level) {
-        super(name, level);
-    }
-
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         IPacket packet = (IPacket) msg;
-        LoggerFactory.getLogger(this.getClass()).info("read:"+packet.toString());
+        log.debug("read:" + packet.toString());
         ctx.fireChannelRead(msg);
     }
 
     @Override
-    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) {
         IPacket packet = (IPacket) msg;
-        LoggerFactory.getLogger(this.getClass()).info("write:"+packet.toString());
+        log.debug("write:" + packet.toString());
         ctx.write(msg, promise);
     }
 }

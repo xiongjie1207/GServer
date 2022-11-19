@@ -20,34 +20,31 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * Created by xiongjie on 2016/12/22.
  */
-public class ThreadNameFactory implements ThreadFactory{
+public class ThreadNameFactory implements ThreadFactory {
     private final ThreadGroup group;
     private final AtomicInteger threadNumber = new AtomicInteger(0);
     private final String namePrefix;
     private final boolean daemon;
 
-    public ThreadNameFactory(String namePreFix)
-    {
-       this(namePreFix, false);
+    public ThreadNameFactory(String namePreFix) {
+        this(namePreFix, false);
     }
 
-    public ThreadNameFactory(String namePreFix, boolean daemon)
-    {
+    public ThreadNameFactory(String namePreFix, boolean daemon) {
         SecurityManager s = System.getSecurityManager();
         group = (s != null) ? s.getThreadGroup() : Thread.currentThread()
-                .getThreadGroup();
+            .getThreadGroup();
         this.namePrefix = namePreFix + "-thread-";
         this.daemon = daemon;
     }
 
     @Override
-    public Thread newThread(Runnable r)
-    {
+    public Thread newThread(Runnable r) {
         Thread t = new Thread(group, r, namePrefix
-                + threadNumber.getAndIncrement(), 0);
-        if(daemon) {
-           t.setDaemon(daemon);
-        }else{
+            + threadNumber.getAndIncrement(), 0);
+        if (daemon) {
+            t.setDaemon(daemon);
+        } else {
             if (t.isDaemon()) {
                 t.setDaemon(false);
             }

@@ -27,11 +27,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.collections.BeanMap;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -39,6 +34,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.collections.BeanMap;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
 
 
 public class JsonUtil {
@@ -49,7 +48,8 @@ public class JsonUtil {
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    private static ObjectMapper MAPPER = generateMapper(Inclusion.ALWAYS);
+    private static final ObjectMapper MAPPER = generateMapper(Inclusion.ALWAYS);
+
     static {
         //序列化的时候序列对象的所有属性
         MAPPER.setSerializationInclusion(JsonInclude.Include.ALWAYS);
@@ -93,7 +93,7 @@ public class JsonUtil {
                 if (list.isEmpty()) {
                     return null;
                 }
-                for (Map<?, ?> obj: list) {
+                for (Map<?, ?> obj : list) {
                     resultList.add(MAPPER.convertValue(obj, valueType));
                 }
                 return resultList;
@@ -112,7 +112,7 @@ public class JsonUtil {
     public static Map<?, ?> objToMap(Object obj) {
         Map<String, Object> map = MAPPER.convertValue(obj, Map.class);
         Map<String, Object> result = new HashMap<String, Object>();
-        for (Entry<String, Object> item: map.entrySet()) {
+        for (Entry<String, Object> item : map.entrySet()) {
             if (null != item.getValue()) {
                 result.put(item.getKey(), item.getValue());
             }
@@ -125,7 +125,7 @@ public class JsonUtil {
      */
     public static List<Map<String, Object>> objListToMapList(List<?> list) {
         List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-        for (Object obj: list) {
+        for (Object obj : list) {
             result.add((Map<String, Object>) objToMap(obj));
         }
         return result;
@@ -134,14 +134,14 @@ public class JsonUtil {
     public static <T> T mapToObj(Map<String, Object> map, Class<T> valueType) {
         if (null != map) {
             Map<String, Object> keyMap = new HashMap<String, Object>();
-            for (Object key: map.keySet()) {
+            for (Object key : map.keySet()) {
                 keyMap.put(String.valueOf(key), key);
             }
             Object bean = null;
             try {
                 bean = valueType.newInstance();
                 BeanMap beanMap = new BeanMap(bean);
-                for (Object key: beanMap.keySet()) {
+                for (Object key : beanMap.keySet()) {
                     String keyName = String.valueOf(key);
                     if (keyMap.containsKey(keyName)) {
                         Object value = map.get(keyName);
@@ -171,17 +171,18 @@ public class JsonUtil {
         return result;
     }
 
-    public static <T> List<T> mapListToObjList(List<Map<String, Object>> resultList, Class<T> beanClass) {
+    public static <T> List<T> mapListToObjList(List<Map<String, Object>> resultList,
+                                               Class<T> beanClass) {
         if (null == resultList || resultList.size() == 0) {
             return new ArrayList<T>();
         }
         BeanMap beanMap = null;
         List<T> rtList = new ArrayList<T>();
         try {
-            for (Map<String, Object> item: resultList) {
+            for (Map<String, Object> item : resultList) {
                 Object bean = beanClass.newInstance();
                 beanMap = new BeanMap(bean);
-                for (Object key: beanMap.keySet()) {
+                for (Object key : beanMap.keySet()) {
                     String keyName = String.valueOf(key);
                     if (item.containsKey(keyName)) {
                         try {
@@ -196,7 +197,8 @@ public class JsonUtil {
                             }
                             BeanUtils.copyProperty(bean, String.valueOf(key), value);
                         } catch (InvocationTargetException e) {
-                            LoggerFactory.getLogger(JsonUtil.class).error("Bean copy property error.", e);
+                            LoggerFactory.getLogger(JsonUtil.class)
+                                .error("Bean copy property error.", e);
                         }
                     }
                 }
@@ -298,7 +300,8 @@ public class JsonUtil {
     public static <T> T fromJson(String json, TypeReference<?> typeReference) {
         if (StringUtils.isNotEmpty(json)) {
             try {
-                return (T) (typeReference.getType().equals(String.class) ? json : MAPPER.readValue(json, typeReference));
+                return (T) (typeReference.getType().equals(String.class) ? json :
+                    MAPPER.readValue(json, typeReference));
             } catch (JsonParseException e) {
                 LoggerFactory.getLogger(JsonUtil.class).error("JsonParseException: ", e);
             } catch (JsonMappingException e) {
@@ -397,7 +400,7 @@ public class JsonUtil {
         String[] names = property.split("\\.");
 
         Map<String, Object> result = jsonData;
-        for (String n: names) {
+        for (String n : names) {
             Object r = result.get(n);
             if (r == null) {
                 return null;
