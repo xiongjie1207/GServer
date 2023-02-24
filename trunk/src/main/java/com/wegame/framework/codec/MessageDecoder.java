@@ -49,12 +49,12 @@ public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
         // TODO Auto-generated method stub
         try {
             short module = bytebuf.readShort();
-            short pid = bytebuf.readShort();
+            int pid = bytebuf.readInt();
             Packet.Builder builder = Packet.newNetBuilder(module,pid);
             int byteLength = bytebuf.readableBytes();
             if (byteLength > 0) {
                 byte[] bytes = new byte[byteLength];
-                bytebuf.getBytes(bytebuf.readerIndex(), bytes);
+                bytebuf.readBytes(bytes);
                 builder.setData(bytes);
             }
             IPacket packet = builder.build();

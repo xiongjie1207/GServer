@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Packet extends SPacket {
-    private Packet(short module,short pid) {
+    private Packet(short module,int pid) {
         super(module,pid);
     }
 
@@ -35,28 +35,19 @@ public class Packet extends SPacket {
         JsonBuilder jsonBuilder = new JsonBuilder(module,pid);
         return jsonBuilder;
     }
-    public static Builder<Serializable> newJsonBuilder(short pid) {
-        return newJsonBuilder((short) 0,pid);
-    }
-    public static Builder<byte[]> newNetBuilder(short module,short pid) {
+    public static Builder<byte[]> newNetBuilder(short module,int pid) {
         NetBuilder netBuilder = new NetBuilder(module,pid);
         return netBuilder;
-    }
-    public static Builder<byte[]> newNetBuilder(short pid) {
-        return newNetBuilder((short) 0,pid);
     }
     public static ProtoBuilder newProtoBuilder(short module,short pid) {
         ProtoBuilder protoBuilder = new ProtoBuilder(module,pid);
         return protoBuilder;
     }
-    public static ProtoBuilder newProtoBuilder(short pid) {
-        return newProtoBuilder((short) 0,pid);
-    }
 
     @Override
     public String toString() {
         StringBuilder msg = new StringBuilder();
-        msg.append("协议id:").append(this.getPid());
+        msg.append("协议:").append(this.getModule()).append("/").append(this.getPid());
         if (this.getData() != null) {
             String body = new String(this.getData(), CharsetUtil.UTF_8);
             msg.append("----").append("数据:").append(body);
@@ -91,7 +82,7 @@ public class Packet extends SPacket {
     public static class NetBuilder extends Builder<byte[]> {
         private byte[] data;
 
-        private NetBuilder(short module,short pid) {
+        private NetBuilder(short module,int pid) {
             super(module,pid);
         }
 
@@ -144,10 +135,10 @@ public class Packet extends SPacket {
     }
 
     public static abstract class Builder<T> {
-        protected short pid;
+        protected int pid;
         protected short module;
 
-        protected Builder(short module,short pid) {
+        protected Builder(short module,int pid) {
             this.module = module;
             this.pid = pid;
         }

@@ -48,7 +48,7 @@ public class MessageEncode extends MessageToMessageEncoder<IPacket> {
         try {
             ByteBuf byteBuf = Unpooled.buffer(256);
             byteBuf.writeShort(packet.getModule());
-            byteBuf.writeShort(packet.getPid());
+            byteBuf.writeInt(packet.getPid());
             if (packet.getData() != null) {
                 byteBuf.writeBytes(packet.getData());
             }

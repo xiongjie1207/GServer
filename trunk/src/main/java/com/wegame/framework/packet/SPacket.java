@@ -4,7 +4,7 @@ public class SPacket implements IPacket {
     protected PacketHead packetHead;
     protected PacketBody packetBody;
 
-    protected SPacket(short module,short id) {
+    protected SPacket(short module,int id) {
         packetHead = new PacketHead(module,id);
         packetBody = new PacketBody();
     }
@@ -15,7 +15,7 @@ public class SPacket implements IPacket {
     }
 
     @Override
-    public final short getPid() {
+    public final int getPid() {
         return this.packetHead.getPid();
     }
 

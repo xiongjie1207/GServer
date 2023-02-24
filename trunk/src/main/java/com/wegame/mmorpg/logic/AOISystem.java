@@ -414,7 +414,7 @@ public class AOISystem {
         if (toPlayers.size() > 0) {
             HashMap<String, Object> pack = new HashMap<>();
             pack.put("ghostPlayers", toPlayers);
-            IPacket packet = Packet.newJsonBuilder((short) 100).setData(pack).build();
+            IPacket packet = Packet.newJsonBuilder((short) 0,(short) 100).setData(pack).build();
             entity.sendMessage(packet);
             // 如果entity正在行走，给这些新玩家，发送一个导航事件;
             this.syncSelfRunOptToOthers(toPlayers, entity);

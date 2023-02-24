@@ -78,7 +78,7 @@ public class GameEventLoop implements Runnable {
                     actions.add(socketAction);
                 }
             } else {
-                log.warn("No mapping found for protocol:" + packet.getPid());
+                log.warn("No mapping found for socket protocol:"+packet.getModule()+"_"+ packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -99,7 +99,7 @@ public class GameEventLoop implements Runnable {
                 executeCommand(httpAction);
             } else {
                 log
-                    .warn("No mapping found for protocol:" + packet.getPid());
+                    .warn("No mapping found for http protocol:"+packet.getModule()+"_"+ packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block

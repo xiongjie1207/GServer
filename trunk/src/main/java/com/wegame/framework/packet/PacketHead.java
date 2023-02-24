@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class PacketHead {
-    private short pid;
+    private int pid;
     private short module;
-    public PacketHead(short module,short pid)
+    public PacketHead(short module,int pid)
     {
         this.module = module;
         this.pid = pid;

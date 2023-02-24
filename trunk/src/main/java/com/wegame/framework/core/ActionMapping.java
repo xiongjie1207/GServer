@@ -35,17 +35,18 @@ public class ActionMapping {
         LoggerFactory.getLogger(this.getClass()).debug("action mapping:" + action.toString());
         String key = createKey(action.getModule(),action.getPid());
         if (this.mapping.containsKey(key)) {
-            throw new RuntimeException(MessageFormat.format("Duplicate method for module{0} key{1}",action.getModule(),action.getPid()));
+            throw new RuntimeException(MessageFormat.format("Duplicate method for module:{0} key:{1}",action.getModule(),action.getPid()));
         }
         this.mapping.put(key, action);
 
     }
 
-    public Action getAction(short module,short pid) {
+    public Action getAction(short module,int pid) {
         return this.mapping.get(createKey(module,pid));
     }
-    private String createKey(short module,short pid){
-        String key = MessageFormat.format("{0}:{1}",module,pid);
-        return key;
+    private String createKey(short module,int pid){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(module).append("/").append(pid);
+        return stringBuilder.toString();
     }
 }
