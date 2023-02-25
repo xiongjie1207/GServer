@@ -48,7 +48,7 @@ public class GameEventLoop implements Runnable {
     }
 
     public void start(int initialDelay, int delay) {
-        ScheduledUtil.getInstance().submitTask(this,initialDelay,delay);
+        ScheduledUtil.getInstance().newSingleThreadExecutor(this,initialDelay,delay);
     }
 
     public void stop() {
