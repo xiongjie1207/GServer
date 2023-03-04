@@ -1,9 +1,9 @@
 package com.wegame.mmorpg.logic;
 
 
+import com.wegame.mmorpg.component.AStarComponent;
 import com.wegame.mmorpg.constants.RoleState;
 import com.wegame.mmorpg.entity.CharacterEntity;
-import com.wegame.mmorpg.component.AStarComponent;
 import com.wegame.mmorpg.entity.MonestEntity;
 import com.wegame.mmorpg.entity.PlayerEntity;
 import com.wegame.mmorpg.model.Vector3;

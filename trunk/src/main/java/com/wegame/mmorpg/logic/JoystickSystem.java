@@ -1,8 +1,8 @@
 package com.wegame.mmorpg.logic;
 
+import com.wegame.mmorpg.component.JoystickComponent;
 import com.wegame.mmorpg.constants.RoleState;
 import com.wegame.mmorpg.entity.PlayerEntity;
-import com.wegame.mmorpg.component.JoystickComponent;
 import com.wegame.mmorpg.model.Vector3;
 import com.wegame.utils.DeltaTime;
 

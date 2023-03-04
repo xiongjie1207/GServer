@@ -1,7 +1,7 @@
 package com.wegame.mmorpg.logic;
 
-import com.wegame.mmorpg.entity.PlayerEntity;
 import com.wegame.mmorpg.component.AttackComponent;
+import com.wegame.mmorpg.entity.PlayerEntity;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

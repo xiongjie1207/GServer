@@ -31,17 +31,15 @@ public class ThreadNameFactory implements ThreadFactory {
     }
 
     public ThreadNameFactory(String namePreFix, boolean daemon) {
-        SecurityManager s = System.getSecurityManager();
-        group = (s != null) ? s.getThreadGroup() : Thread.currentThread()
-            .getThreadGroup();
+        group = Thread.currentThread().getThreadGroup();
         this.namePrefix = namePreFix + "-thread-";
         this.daemon = daemon;
     }
 
     @Override
     public Thread newThread(Runnable r) {
-        Thread t = new Thread(group, r, namePrefix
-            + threadNumber.getAndIncrement(), 0);
+        String threadName = namePrefix + threadNumber.getAndIncrement();
+        Thread t = new Thread(group, r, threadName, 0);
         if (daemon) {
             t.setDaemon(daemon);
         } else {
@@ -53,9 +51,5 @@ public class ThreadNameFactory implements ThreadFactory {
             }
         }
         return t;
-    }
-
-    public String getNamePrefix() {
-        return namePrefix;
     }
 }
