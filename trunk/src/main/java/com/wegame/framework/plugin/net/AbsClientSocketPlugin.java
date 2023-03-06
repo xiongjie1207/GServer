@@ -54,32 +54,21 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
 
     @Override
     public final boolean start() {
-        try {
-            bootstrap = new Bootstrap();
-            config = new ClientConfig();
-            initConfig(config);
-            bootstrap.group(workerGroup);
-            bootstrap.channel(NioSocketChannel.class);
-            initOption(optionObjectMap);
-            for (Object key : optionObjectMap.keySet()) {
-                bootstrap.option((ChannelOption<Object>) key, optionObjectMap.get(key));
-            }
-            bootstrap.handler(getChannelInitializer());
-            // Start the client.
-            channelFuture = bootstrap.connect(config.getHost(),
-                config.getPort()).sync();
-            channelFuture.addListener(
-                (ChannelFutureListener) channelFuture -> OnConnectedHandler(true));
-            return true;
-        } catch (Exception e) {
-            LoggerFactory.getLogger(AbsClientSocketPlugin.class).error("connect faild", e);
-            OnConnectedHandler(false);
+        bootstrap = new Bootstrap();
+        config = new ClientConfig();
+        initConfig(config);
+        bootstrap.group(workerGroup);
+        bootstrap.channel(NioSocketChannel.class);
+        initOption(optionObjectMap);
+        for (Object key : optionObjectMap.keySet()) {
+            bootstrap.option((ChannelOption<Object>) key, optionObjectMap.get(key));
         }
-        return false;
+        bootstrap.handler(getChannelInitializer());
+        this.connect();
+        return true;
     }
 
-    protected void OnConnectedHandler(boolean flag) {
-
+    protected void OnConnectedHandler(ChannelFuture future) {
     }
 
     @Override
@@ -119,7 +108,19 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
 
 
     protected ChannelInitializer<Channel> getChannelInitializer() {
-        return new GameClientChannelInitializer();
+        return new GameClientChannelInitializer(this);
     }
 
+    public void connect(){
+        try {
+            channelFuture = bootstrap.connect(config.getHost(),
+                config.getPort()).sync();
+            channelFuture.addListener((ChannelFutureListener) future -> OnConnectedHandler(future));
+            channelFuture.channel().closeFuture().sync();
+        } catch (Exception e) {
+            LoggerFactory.getLogger(AbsClientSocketPlugin.class).error("connect faild", e);
+            OnConnectedHandler(channelFuture);
+        }
+
+    }
 }
