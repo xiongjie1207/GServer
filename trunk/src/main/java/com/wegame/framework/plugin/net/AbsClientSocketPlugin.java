@@ -14,8 +14,10 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -64,7 +66,7 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
             bootstrap.option((ChannelOption<Object>) key, optionObjectMap.get(key));
         }
         bootstrap.handler(getChannelInitializer());
-        this.connect();
+        workerGroup.schedule(() -> connect(), 500, TimeUnit.MILLISECONDS);
         return true;
     }
 
@@ -111,12 +113,8 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
     }
 
     public void connect(){
+        log.debug(MessageFormat.format("正在连接服务器...{0}:{1}",config.getHost(),config.getPort()));
         channelFuture = bootstrap.connect(config.getHost(),config.getPort());
         channelFuture.addListener((ChannelFutureListener) future -> OnConnectedHandler(future));
-        try {
-            channelFuture.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
-            log.error("client socket sync error");
-        }
     }
 }

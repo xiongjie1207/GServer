@@ -5,8 +5,8 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
 import java.io.IOException;
-import org.slf4j.LoggerFactory;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @ChannelHandler.Sharable
 public class SocketClientHandler extends ServerHandler {
     private AbsClientSocketPlugin clientSocketPlugin;
@@ -28,7 +28,7 @@ public class SocketClientHandler extends ServerHandler {
                 case ALL_IDLE:
                     break;
                 case READER_IDLE:
-                    LoggerFactory.getLogger(this.getClass()).info("写空闲:" + ctx.channel());
+                    log.info("写空闲:" + ctx.channel());
                     ctx.channel().close();
                     ctx.close();
                     break;
@@ -47,8 +47,7 @@ public class SocketClientHandler extends ServerHandler {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         if (cause instanceof IOException && ctx.channel().isActive()) {
-            LoggerFactory.getLogger(this.getClass())
-                .error("simpleclient" + ctx.channel().remoteAddress() + "异常");
+            log.error("client socket" + ctx.channel().remoteAddress() + "异常");
         }
         ctx.close();
     }
