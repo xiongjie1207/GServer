@@ -16,7 +16,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Copyright (c) 2015-2017, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * <p>
  * Created by xiongjie on 2017/10/15.
  */
-
+@Slf4j
 public abstract class AbsClientSocketPlugin implements IPlugin {
     private final EventLoopGroup workerGroup = new NioEventLoopGroup();
     private final Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
@@ -97,10 +97,10 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
                 return channelFuture.channel().writeAndFlush(bb);
 
             } else {
-                LoggerFactory.getLogger(AbsClientSocketPlugin.class).error("网络不可写");
+                log.error("网络不可写");
             }
         } else {
-            LoggerFactory.getLogger(AbsClientSocketPlugin.class).error("未建立网络连接");
+            log.error("未建立网络连接");
         }
         return null;
     }
@@ -111,15 +111,12 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
     }
 
     public void connect(){
+        channelFuture = bootstrap.connect(config.getHost(),config.getPort());
+        channelFuture.addListener((ChannelFutureListener) future -> OnConnectedHandler(future));
         try {
-            channelFuture = bootstrap.connect(config.getHost(),
-                config.getPort()).sync();
-            channelFuture.addListener((ChannelFutureListener) future -> OnConnectedHandler(future));
             channelFuture.channel().closeFuture().sync();
-        } catch (Exception e) {
-            LoggerFactory.getLogger(AbsClientSocketPlugin.class).error("connect faild", e);
-            OnConnectedHandler(channelFuture);
+        } catch (InterruptedException e) {
+            log.error("client socket sync error");
         }
-
     }
 }
