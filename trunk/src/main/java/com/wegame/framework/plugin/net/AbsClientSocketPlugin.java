@@ -68,8 +68,7 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
         return true;
     }
 
-    protected void OnConnectedHandler(ChannelFuture future) {
-    }
+    protected abstract void OnConnectedHandler(ChannelFuture future);
 
     @Override
     public boolean stop() {
