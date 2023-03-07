@@ -1,6 +1,6 @@
 package com.wegame.framework.initializer;
 
-import com.wegame.framework.handler.SocketClientHandler;
+import com.wegame.framework.handler.ClientSocketHandler;
 import com.wegame.framework.plugin.net.AbsClientSocketPlugin;
 import io.netty.channel.Channel;
 
@@ -11,6 +11,6 @@ public class GameClientChannelInitializer extends GameChannelInitializer {
     }
     @Override
     protected void initCustomChannel(Channel socketChannel) {
-        socketChannel.pipeline().addLast(new SocketClientHandler(this.clientSocketPlugin));
+        socketChannel.pipeline().addLast(new ClientSocketHandler(this.clientSocketPlugin));
     }
 }

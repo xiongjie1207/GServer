@@ -6,9 +6,9 @@ import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.LoggerFactory;
 
 @ChannelHandler.Sharable
-public class SocketServerHandler extends ServerHandler {
+public class ServerSocketHandler extends ServerHandler {
 
-    public SocketServerHandler() {
+    public ServerSocketHandler() {
         super();
     }
 

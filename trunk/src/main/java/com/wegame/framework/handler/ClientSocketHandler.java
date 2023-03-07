@@ -8,9 +8,9 @@ import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @ChannelHandler.Sharable
-public class SocketClientHandler extends ServerHandler {
+public class ClientSocketHandler extends ServerHandler {
     private AbsClientSocketPlugin clientSocketPlugin;
-    public SocketClientHandler(AbsClientSocketPlugin clientSocketPlugin) {
+    public ClientSocketHandler(AbsClientSocketPlugin clientSocketPlugin) {
         this.clientSocketPlugin = clientSocketPlugin;
     }
 

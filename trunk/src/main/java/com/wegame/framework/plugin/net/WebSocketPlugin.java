@@ -2,7 +2,7 @@ package com.wegame.framework.plugin.net;
 
 import com.wegame.framework.config.ServerConfig;
 import com.wegame.framework.core.SpringContext;
-import com.wegame.framework.handler.WebSocketServerHandler;
+import com.wegame.framework.handler.WebServerSocketHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.handler.codec.http.HttpObjectAggregator;
@@ -31,7 +31,7 @@ public class WebSocketPlugin extends AbsServerSocketPlugin {
                     config.getWriterIdleTimeSeconds(),
                     config.getAllIdleTimeSeconds(), TimeUnit.SECONDS);
             ch.pipeline().addLast(IdleStateHandler.class.getSimpleName(), idleStateHandler);
-            WebSocketServerHandler handler = new WebSocketServerHandler();
+            WebServerSocketHandler handler = new WebServerSocketHandler();
             ch.pipeline().addLast(handler);
         }
 

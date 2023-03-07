@@ -32,11 +32,11 @@ import java.util.Map;
 import org.slf4j.LoggerFactory;
 
 @ChannelHandler.Sharable
-public class WebSocketServerHandler extends SocketServerHandler {
+public class WebServerSocketHandler extends ServerSocketHandler {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private WebSocketServerHandshaker handshaker;
 
-    public WebSocketServerHandler() {
+    public WebServerSocketHandler() {
     }
 
 
