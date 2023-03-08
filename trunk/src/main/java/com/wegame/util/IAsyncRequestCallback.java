@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.concurrent.FailureCallback;

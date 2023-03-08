@@ -4,7 +4,7 @@ import com.wegame.framework.codec.MessageDecoder;
 import com.wegame.framework.codec.MessageEncode;
 import com.wegame.framework.config.ServerConfig;
 import com.wegame.framework.core.SpringContext;
-import com.wegame.utils.PacketLoggingHandler;
+import com.wegame.util.PacketLoggingHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;

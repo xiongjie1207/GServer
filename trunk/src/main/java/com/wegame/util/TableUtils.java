@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
@@ -15,7 +15,7 @@ import java.util.List;
  * @Author xiongjie
  * @Date 2023/03/04 22:23
  **/
-public class TableUtil {
+public class TableUtils {
     public static Table<String,String,Float> createTableFromCSV(String file) throws IOException, CsvException {
         Table<String,String,Float> table= HashBasedTable.create();
         InputStreamReader reader = new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8"));

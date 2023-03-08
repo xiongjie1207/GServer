@@ -5,7 +5,7 @@ import com.wegame.framework.core.GameEventLoop;
 import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.packet.Packet;
 import com.wegame.framework.plugin.IPlugin;
-import com.wegame.utils.AppStatus;
+import com.wegame.util.AppStatus;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;

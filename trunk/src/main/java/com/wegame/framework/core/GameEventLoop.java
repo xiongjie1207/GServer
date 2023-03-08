@@ -20,13 +20,13 @@ package com.wegame.framework.core;
 import com.wegame.framework.aop.Invocation;
 import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.session.ISession;
-import com.wegame.utils.AppStatus;
-import com.wegame.utils.DeltaTime;
-import com.wegame.utils.ScheduledUtil;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.wegame.util.AppStatus;
+import com.wegame.util.DeltaTime;
+import com.wegame.util.ScheduledUtils;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -46,11 +46,11 @@ public class GameEventLoop implements Runnable {
     }
 
     public void start(int initialDelay, int delay) {
-        ScheduledUtil.getInstance().newSingleThreadExecutor(this,initialDelay,delay);
+        ScheduledUtils.getInstance().newSingleThreadExecutor(this,initialDelay,delay);
     }
 
     public void stop() {
-        ScheduledUtil.getInstance().shutdown();
+        ScheduledUtils.getInstance().shutdown();
     }
 
     public void addUpdater(IUpdater updater) {

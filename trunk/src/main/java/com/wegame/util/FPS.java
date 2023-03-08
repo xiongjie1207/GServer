@@ -1,10 +1,8 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang.math.NumberUtils;
 
 /**
  * @Author xiongjie

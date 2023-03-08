@@ -2,7 +2,7 @@ package com.wegame.mmorpg.logic;
 
 import com.wegame.mmorpg.component.SkillBuffComponent;
 import com.wegame.mmorpg.entity.PlayerEntity;
-import com.wegame.utils.DeltaTime;
+import com.wegame.util.DeltaTime;
 import java.util.HashMap;
 import java.util.Map.Entry;
 

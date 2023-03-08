@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import static java.lang.System.exit;
 

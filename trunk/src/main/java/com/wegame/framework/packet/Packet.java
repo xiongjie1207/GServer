@@ -2,7 +2,7 @@ package com.wegame.framework.packet;
 
 import com.baidu.bjf.remoting.protobuf.Codec;
 import com.baidu.bjf.remoting.protobuf.ProtobufProxy;
-import com.wegame.utils.JsonUtil;
+import com.wegame.util.JsonUtils;
 import io.netty.util.CharsetUtil;
 import java.io.IOException;
 import java.io.Serializable;
@@ -72,7 +72,7 @@ public class Packet extends SPacket {
         public IPacket build() {
             Packet packet = new Packet(this.module,this.pid);
             if (this.data != null) {
-                packet.packetBody.setData(JsonUtil.toJson(this.data).getBytes());
+                packet.packetBody.setData(JsonUtils.toJson(this.data).getBytes());
             }
             return packet;
         }

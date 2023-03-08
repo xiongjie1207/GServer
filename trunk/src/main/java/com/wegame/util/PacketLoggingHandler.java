@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import com.wegame.framework.packet.IPacket;
 import io.netty.channel.ChannelHandlerContext;

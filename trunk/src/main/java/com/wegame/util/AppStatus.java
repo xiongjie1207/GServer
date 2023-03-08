@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 public enum AppStatus {
     Starting, Running, Shutdowning, Stoped;

@@ -7,7 +7,7 @@ import com.wegame.mmorpg.entity.MonestEntity;
 import com.wegame.mmorpg.entity.PlayerEntity;
 import com.wegame.mmorpg.entity.SceneEntity;
 import com.wegame.mmorpg.model.Vector3;
-import com.wegame.utils.DeltaTime;
+import com.wegame.util.DeltaTime;
 
 public class AISystem {
     private SceneEntity sceneEntity;

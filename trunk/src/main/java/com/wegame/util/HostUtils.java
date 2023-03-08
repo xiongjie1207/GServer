@@ -1,10 +1,10 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
 
-public class HostUtil {
+public class HostUtils {
     public static InetAddress getLocalHostLANAddress() throws Exception {
         try {
             InetAddress candidateAddress = null;

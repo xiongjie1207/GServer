@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 /**
  * @Author xiongjie

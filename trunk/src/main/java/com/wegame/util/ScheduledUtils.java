@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -9,17 +9,17 @@ import java.util.concurrent.TimeUnit;
  * @Author xiongjie
  * @Date 2022/11/18 18:59
  **/
-public class ScheduledUtil {
+public class ScheduledUtils {
     private ExecutorService scheduledExecutorService;
     private ScheduledExecutorService singleScheduledExecutorService;
-    private static ScheduledUtil instance;
-    public static ScheduledUtil getInstance(){
+    private static ScheduledUtils instance;
+    public static ScheduledUtils getInstance(){
         if(instance==null){
-            instance=new ScheduledUtil();
+            instance=new ScheduledUtils();
         }
         return instance;
     }
-    private ScheduledUtil(){
+    private ScheduledUtils(){
         scheduledExecutorService = Executors.newFixedThreadPool(4);
     }
     public void newSingleThreadExecutor(Runnable runnable, int initialDelay, int delay){

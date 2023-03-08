@@ -1,4 +1,4 @@
-package com.wegame.utils;
+package com.wegame.util;
 
 import com.wegame.framework.core.GameCons;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 
-public class HttpRequestUtil {
+public class HttpRequestUtils {
     public static <R> R request(int module,int pid, String url, HashMap<String, Object> param,
                                 Class<R> clazz) {
         HttpHeaders headers = new HttpHeaders();
@@ -22,7 +22,7 @@ public class HttpRequestUtil {
         if (param == null) {
             param = new HashMap<>();
         }
-        HttpEntity<String> formEntity = new HttpEntity<>(JsonUtil.toJson(param), headers);
+        HttpEntity<String> formEntity = new HttpEntity<>(JsonUtils.toJson(param), headers);
         RestTemplate restTemplate = new RestTemplate();
         R result = restTemplate.postForEntity(url, formEntity, clazz).getBody();
         return result;
@@ -39,7 +39,7 @@ public class HttpRequestUtil {
         if (param == null) {
             param = new HashMap<>();
         }
-        HttpEntity<String> formEntity = new HttpEntity<>(JsonUtil.toJson(param), headers);
+        HttpEntity<String> formEntity = new HttpEntity<>(JsonUtils.toJson(param), headers);
         AsyncRestTemplate restTemplate = new AsyncRestTemplate();
         ListenableFuture<ResponseEntity<R>> entity =
             restTemplate.postForEntity(url, formEntity, clazz);
