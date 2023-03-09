@@ -8,7 +8,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -17,7 +16,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -66,26 +64,24 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
             bootstrap.option((ChannelOption<Object>) key, optionObjectMap.get(key));
         }
         bootstrap.handler(getChannelInitializer());
-        workerGroup.schedule(() -> connect(), 500, TimeUnit.MILLISECONDS);
+        this.connect();
         return true;
     }
-
-    protected abstract void OnConnectedHandler(ChannelFuture future);
 
     @Override
     public boolean stop() {
         workerGroup.shutdownGracefully();
         return true;
     }
-
+    public ClientConfig getConfig(){
+        return this.config;
+    }
     public ChannelFuture getChannelFuture() {
         return channelFuture;
     }
 
 
-    protected void initConfig(ClientConfig config) {
-
-    }
+    protected abstract void initConfig(ClientConfig config);
 
     protected void initOption(Map<ChannelOption<?>, Object> config) {
 
@@ -113,8 +109,12 @@ public abstract class AbsClientSocketPlugin implements IPlugin {
     }
 
     public void connect(){
-        log.debug(MessageFormat.format("正在连接服务器...{0}:{1}",config.getHost(),config.getPort()));
-        channelFuture = bootstrap.connect(config.getHost(),config.getPort());
-        channelFuture.addListener((ChannelFutureListener) future -> OnConnectedHandler(future));
+        log.debug(MessageFormat.format("正在连接服务器...{0}:{1}",this.config.getHost(),String.valueOf(this.config.getPort())));
+        channelFuture = bootstrap.connect(this.config.getHost(),this.config.getPort());
+    }
+    public void close(){
+        if(channelFuture!=null){
+            channelFuture.channel().close();
+        }
     }
 }

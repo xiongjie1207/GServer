@@ -8,21 +8,17 @@ import com.wegame.framework.session.ISession;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.AttributeKey;
 import java.io.IOException;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 @ChannelHandler.Sharable
-public class ServerHandler extends SimpleChannelInboundHandler<IPacket> {
+@Slf4j
+public class SocketHandler extends SimpleChannelInboundHandler<IPacket> {
 
-    public ServerHandler() {
+    public SocketHandler() {
         super(true);
-    }
-
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        super.channelReadComplete(ctx);
-        ctx.flush();
     }
 
     @Override
@@ -33,29 +29,43 @@ public class ServerHandler extends SimpleChannelInboundHandler<IPacket> {
     }
 
     @Override
-    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        super.channelRegistered(ctx);
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        super.channelActive(ctx);
         ISession session = new GameSession(ctx.channel());
-        LoggerFactory.getLogger(this.getClass()).warn("channelRegistered:" + session);
+        log.warn("channelActive:" + session);
     }
 
 
     @Override
-    public void channelUnregistered(ChannelHandlerContext ctx) {
+    public void channelInactive(ChannelHandlerContext ctx) {
         AttributeKey<ISession> attributeKey = AttributeKey.valueOf(GameCons.SessionAttrKey);
         if (ctx.channel().hasAttr(attributeKey)) {
             ISession session = ctx.channel().attr(attributeKey).get();
             ctx.channel().attr(attributeKey).set(null);
-            LoggerFactory.getLogger(this.getClass()).warn("channelUnregistered:" + session);
+            log.warn("channelInactive:" + session);
 
         }
     }
+    @Override
+    public final void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
+        if (evt instanceof IdleStateEvent) {
+            IdleStateEvent e = (IdleStateEvent) evt;
+            switch (e.state()) {
+                case ALL_IDLE, WRITER_IDLE:
+                    break;
+                case READER_IDLE:
+                    log.info("写空闲:" + ctx.channel());
+                    ctx.channel().close();
+                    ctx.close();
+                    break;
+            }
 
+        }
+    }
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         if (cause instanceof IOException && ctx.channel().isActive()) {
-            LoggerFactory.getLogger(this.getClass())
-                .error("simpleclient" + ctx.channel().remoteAddress() + "异常");
+            log.error("simpleclient" + ctx.channel().remoteAddress() + "异常");
         }
         ctx.close();
     }

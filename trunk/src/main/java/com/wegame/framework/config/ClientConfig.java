@@ -26,4 +26,5 @@ public class ClientConfig {
     private int port = 5000;
     private ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
 
+    private boolean reconnect=false;
 }

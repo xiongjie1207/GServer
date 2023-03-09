@@ -3,52 +3,26 @@ package com.wegame.framework.handler;
 import com.wegame.framework.plugin.net.AbsClientSocketPlugin;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.timeout.IdleStateEvent;
-import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @ChannelHandler.Sharable
-public class ClientSocketHandler extends ServerHandler {
+public class ClientSocketHandler extends SocketHandler {
     private AbsClientSocketPlugin clientSocketPlugin;
     public ClientSocketHandler(AbsClientSocketPlugin clientSocketPlugin) {
         this.clientSocketPlugin = clientSocketPlugin;
     }
-
-
     @Override
-    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-        super.channelRegistered(ctx);
-    }
-
-    @Override
-    public final void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
-        if (evt instanceof IdleStateEvent) {
-            IdleStateEvent e = (IdleStateEvent) evt;
-            switch (e.state()) {
-                case ALL_IDLE:
-                    break;
-                case READER_IDLE:
-                    log.info("写空闲:" + ctx.channel());
-                    ctx.channel().close();
-                    ctx.close();
-                    break;
-                case WRITER_IDLE:
-                    break;
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelUnregistered(ctx);
+        if(clientSocketPlugin.getConfig().isReconnect()){
+            try {
+                log.error("连接失败,开始重连...");
+                TimeUnit.SECONDS.sleep(1);
+                clientSocketPlugin.connect();
+            } catch (Exception e) {
+                log.error(e.getMessage(),e);
             }
-
         }
-    }
-    @Override
-    public void channelUnregistered(ChannelHandlerContext ctx) {
-        System.err.println("运行中断开重连。。。");
-        clientSocketPlugin.connect();
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        if (cause instanceof IOException && ctx.channel().isActive()) {
-            log.error("client socket" + ctx.channel().remoteAddress() + "异常");
-        }
-        ctx.close();
     }
 }
