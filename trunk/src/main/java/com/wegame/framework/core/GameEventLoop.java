@@ -126,8 +126,7 @@ public class GameEventLoop implements Runnable {
             DeltaTime.update();
             List<Action> tempAction;
             synchronized (this.actions) {
-                tempAction = new ArrayList<>(this.actions.size());
-                tempAction.addAll(this.actions);
+                tempAction = new ArrayList<>(this.actions);
                 this.actions.clear();
             }
             for (Action action : tempAction) {

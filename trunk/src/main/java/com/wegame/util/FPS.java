@@ -10,18 +10,18 @@ import java.util.List;
  **/
 public class FPS {
     private float currentTime=0;
-    private float duaration;
+    private float interval;
     private List<IFPSListener> listeners;
 
     /**
      *
-     * @param duaration 刷新一帧的时间
+     * @param interval 每间隔interval秒刷新一次
      */
-    public FPS(float duaration){
-        if(duaration<=0){
-            duaration=1000;
+    public FPS(float interval){
+        if(interval<=0){
+            interval=1000;
         }
-        this.duaration = duaration;
+        this.interval = interval;
         this.listeners = new ArrayList<>();
     }
     public void addListener(IFPSListener listener){
@@ -30,8 +30,8 @@ public class FPS {
 
     public void update() {
         this.currentTime+= DeltaTime.getDeltaTimeMs();
-        while (this.currentTime>=this.duaration){
-            this.currentTime = this.currentTime-this.duaration;
+        while (this.currentTime>=this.interval){
+            this.currentTime = this.currentTime-this.interval;
             for (IFPSListener IFPSListener :this.listeners){
                 IFPSListener.onUpdate();
             }

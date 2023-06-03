@@ -8,7 +8,7 @@ import com.opencsv.exceptions.CsvException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
@@ -18,7 +18,8 @@ import java.util.List;
 public class TableUtils {
     public static Table<String,String,Float> createTableFromCSV(String file) throws IOException, CsvException {
         Table<String,String,Float> table= HashBasedTable.create();
-        InputStreamReader reader = new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8"));
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(file),
+            StandardCharsets.UTF_8);
         CSVReader csvReader = new CSVReaderBuilder(reader).build();
         List<String[]> list = csvReader.readAll();
         csvReader.close();
