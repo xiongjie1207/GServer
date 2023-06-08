@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -21,26 +22,22 @@ public class SafeProperties extends Properties {
 
     private static final String whiteSpaceChars = " \t\r\n\f";
 
-    private PropertiesContext context = new PropertiesContext();
+    private final PropertiesContext context = new PropertiesContext();
 
     public PropertiesContext getContext() {
         return context;
     }
-
-    public synchronized void load(InputStream inStream) throws IOException {
-
-        BufferedReader in;
-
-        in = new BufferedReader(new InputStreamReader(inStream, "8859_1"));
+    public void load(InputStream inStream) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(inStream,
+            StandardCharsets.ISO_8859_1));
         while (true) {
             // Get next line
             String line = in.readLine();
             // intract property/comment string
-            String intactLine = line;
             if (line == null) {
                 return;
             }
-
+            StringBuilder intactLine = new StringBuilder(line);
             if (line.length() > 0) {
 
                 // Find start of key
@@ -63,7 +60,7 @@ public class SafeProperties extends Properties {
                 if ((firstChar != '#') && (firstChar != '!')) {
                     while (continueLine(line)) {
                         String nextLine = in.readLine();
-                        intactLine = intactLine + "\n" + nextLine;
+                        intactLine.append("\n").append(nextLine);
                         if (nextLine == null) {
                             nextLine = "";
                         }
@@ -75,8 +72,8 @@ public class SafeProperties extends Properties {
                                 break;
                             }
                         }
-                        nextLine = nextLine.substring(startIndex, nextLine.length());
-                        line = new String(loppedLine + nextLine);
+                        nextLine = nextLine.substring(startIndex);
+                        line = loppedLine + nextLine;
                         len = line.length();
                     }
 
@@ -120,14 +117,14 @@ public class SafeProperties extends Properties {
                     key = loadConvert(key);
                     value = loadConvert(value);
                     //memorize the property also with the whold string
-                    put(key, value, intactLine);
+                    put(key, value, intactLine.toString());
                 } else {
                     //memorize the comment string
-                    context.addCommentLine(intactLine);
+                    context.addCommentLine(intactLine.toString());
                 }
             } else {
                 //memorize the string even the string is empty
-                context.addCommentLine(intactLine);
+                context.addCommentLine(intactLine.toString());
             }
         }
     }
@@ -150,38 +147,14 @@ public class SafeProperties extends Properties {
                     int value = 0;
                     for (int i = 0; i < 4; i++) {
                         aChar = theString.charAt(x++);
-                        switch (aChar) {
-                            case '0':
-                            case '1':
-                            case '2':
-                            case '3':
-                            case '4':
-                            case '5':
-                            case '6':
-                            case '7':
-                            case '8':
-                            case '9':
-                                value = (value << 4) + aChar - '0';
-                                break;
-                            case 'a':
-                            case 'b':
-                            case 'c':
-                            case 'd':
-                            case 'e':
-                            case 'f':
-                                value = (value << 4) + 10 + aChar - 'a';
-                                break;
-                            case 'A':
-                            case 'B':
-                            case 'C':
-                            case 'D':
-                            case 'E':
-                            case 'F':
-                                value = (value << 4) + 10 + aChar - 'A';
-                                break;
-                            default:
+                        value = switch (aChar) {
+                            case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ->
+                                (value << 4) + aChar - '0';
+                            case 'a', 'b', 'c', 'd', 'e', 'f' -> (value << 4) + 10 + aChar - 'a';
+                            case 'A', 'B', 'C', 'D', 'E', 'F' -> (value << 4) + 10 + aChar - 'A';
+                            default ->
                                 throw new IllegalArgumentException("Malformed \\uxxxx encoding.");
-                        }
+                        };
                     }
                     outBuffer.append((char) value);
                 } else {
@@ -214,12 +187,13 @@ public class SafeProperties extends Properties {
         return outBuffer.toString();
     }
 
-    public synchronized void store(OutputStream out, String header) throws IOException {
-        BufferedWriter awriter = new BufferedWriter(new OutputStreamWriter(out, "8859_1"));
+    public void store(OutputStream out, String header) throws IOException {
+        BufferedWriter awriter = new BufferedWriter(new OutputStreamWriter(out,
+            StandardCharsets.ISO_8859_1));
         if (header != null) {
             writeln(awriter, "#" + header);
         }
-        List entrys = context.getCommentOrEntrys();
+        List<Object> entrys = context.getCommentOrEntrys();
         for (Object obj : entrys) {
             if (obj.toString() != null) {
                 writeln(awriter, obj.toString());
@@ -315,26 +289,26 @@ public class SafeProperties extends Properties {
         {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E',
             'F'};
 
-    public synchronized Object put(Object key, Object value) {
+    public Object put(Object key, Object value) {
         context.putOrUpdate(key.toString(), value.toString());
         return super.put(key, value);
     }
 
-    public synchronized Object put(Object key, Object value, String line) {
+    public Object put(Object key, Object value, String line) {
         context.putOrUpdate(key.toString(), value.toString(), line);
         return super.put(key, value);
     }
 
 
-    public synchronized Object remove(Object key) {
+    public Object remove(Object key) {
         context.remove(key.toString());
         return super.remove(key);
     }
 
-    class PropertiesContext {
-        private List commentOrEntrys = new ArrayList();
+    private class PropertiesContext {
+        private final List<Object> commentOrEntrys = new ArrayList<>();
 
-        public List getCommentOrEntrys() {
+        public List<Object> getCommentOrEntrys() {
             return commentOrEntrys;
         }
 
