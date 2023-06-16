@@ -16,8 +16,8 @@ import java.util.List;
  * @Date 2023/03/04 22:23
  **/
 public class TableUtils {
-    public static Table<String,String,Float> createTableFromCSV(String file) throws IOException, CsvException {
-        Table<String,String,Float> table= HashBasedTable.create();
+    public static Table<String,String,String> createTableFromCSV(String file) throws IOException, CsvException {
+        Table<String,String,String> table= HashBasedTable.create();
         InputStreamReader reader = new InputStreamReader(new FileInputStream(file),
             StandardCharsets.UTF_8);
         CSVReader csvReader = new CSVReaderBuilder(reader).build();
@@ -33,7 +33,7 @@ public class TableUtils {
             int colCount = strings.length;
             for (short col=1;col<colCount;++col){
                 String rowValue = strings[col];
-                table.put(strings[0],title[col],Float.parseFloat(rowValue));
+                table.put(strings[0], title[col], rowValue);
             }
         }
         return table;
