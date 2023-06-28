@@ -20,9 +20,10 @@ package com.wegame.framework.core;
 import com.esotericsoftware.reflectasm.MethodAccess;
 import com.wegame.framework.aop.Interceptor;
 import com.wegame.framework.packet.IPacket;
-import java.text.MessageFormat;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.text.MessageFormat;
 
 public class Action {
     @Getter

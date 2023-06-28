@@ -4,9 +4,10 @@ import com.baidu.bjf.remoting.protobuf.Codec;
 import com.baidu.bjf.remoting.protobuf.ProtobufProxy;
 import com.wegame.util.JsonUtils;
 import io.netty.util.CharsetUtil;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.Serializable;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).

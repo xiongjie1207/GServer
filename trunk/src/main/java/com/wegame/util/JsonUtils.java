@@ -27,6 +27,11 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.collections.BeanMap;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -34,10 +39,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.collections.BeanMap;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.LoggerFactory;
 
 
 public class JsonUtils {

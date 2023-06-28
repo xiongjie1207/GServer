@@ -18,10 +18,11 @@ package com.wegame.framework.core;
  */
 
 
+import org.slf4j.LoggerFactory;
+
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.LoggerFactory;
 
 public class ActionMapping {
     private static final ActionMapping instance = new ActionMapping();

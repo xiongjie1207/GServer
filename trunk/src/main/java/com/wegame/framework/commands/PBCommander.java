@@ -2,8 +2,9 @@ package com.wegame.framework.commands;
 
 import com.baidu.bjf.remoting.protobuf.Codec;
 import com.baidu.bjf.remoting.protobuf.ProtobufProxy;
-import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
 
 /**
  * @Author xiongjie

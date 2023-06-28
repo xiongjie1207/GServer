@@ -1,7 +1,5 @@
 package com.wegame.framework.handler;
 
-import static io.netty.handler.codec.http.HttpUtil.isKeepAlive;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wegame.framework.core.GameCons;
 import com.wegame.framework.core.GameEventLoop;
@@ -18,18 +16,15 @@ import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
-import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.PingWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.PongWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.WebSocketFrame;
-import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
-import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
+import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
-import java.util.Map;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
+
+import static io.netty.handler.codec.http.HttpUtil.isKeepAlive;
 
 @ChannelHandler.Sharable
 public class WebServerSocketHandler extends ServerSocketHandler {

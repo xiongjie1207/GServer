@@ -7,15 +7,16 @@ import com.wegame.framework.aop.Interceptor;
 import com.wegame.framework.aop.InterceptorBuilder;
 import com.wegame.framework.aop.annotation.Around;
 import com.wegame.framework.plugin.IPlugin;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GameComponentScanner implements BeanPostProcessor, PriorityOrdered {
 

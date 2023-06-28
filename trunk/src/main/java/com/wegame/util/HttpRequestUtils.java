@@ -1,7 +1,6 @@
 package com.wegame.util;
 
 import com.wegame.framework.core.GameCons;
-import java.util.HashMap;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -9,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
 
 public class HttpRequestUtils {
     public static <R> R request(int module,int pid, String url, HashMap<String, Object> param,

@@ -6,10 +6,11 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;
-import java.nio.charset.Charset;
-import java.util.List;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).

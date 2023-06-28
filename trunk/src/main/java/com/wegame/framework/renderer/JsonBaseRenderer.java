@@ -3,10 +3,11 @@ package com.wegame.framework.renderer;
 import com.wegame.framework.core.GameCons;
 import com.wegame.framework.packet.IPacket;
 import io.netty.util.CharsetUtil;
-import java.io.IOException;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.slf4j.LoggerFactory;
+import java.io.IOException;
 
 public class JsonBaseRenderer implements IRenderer<IPacket> {
     private final HttpServletResponse response;

@@ -2,16 +2,12 @@ package com.wegame.mmorpg.entity;
 
 import com.wegame.framework.core.IUpdater;
 import com.wegame.mmorpg.component.TransformComponent;
-import com.wegame.mmorpg.logic.AISystem;
-import com.wegame.mmorpg.logic.AOISystem;
-import com.wegame.mmorpg.logic.AStar;
-import com.wegame.mmorpg.logic.AttackSystem;
-import com.wegame.mmorpg.logic.NavSystem;
-import com.wegame.mmorpg.logic.SkillBuffSystem;
-import java.util.ArrayList;
-import java.util.List;
+import com.wegame.mmorpg.logic.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author xiongjie

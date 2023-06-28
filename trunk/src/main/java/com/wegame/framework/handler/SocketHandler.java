@@ -10,8 +10,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.AttributeKey;
-import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
 
 @ChannelHandler.Sharable
 @Slf4j

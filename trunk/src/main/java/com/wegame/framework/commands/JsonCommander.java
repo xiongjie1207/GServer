@@ -5,12 +5,13 @@ import com.wegame.framework.exception.FormatException;
 import com.wegame.framework.renderer.IRenderer;
 import com.wegame.framework.renderer.JsonBaseRenderer;
 import io.netty.util.CharsetUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+
+import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
-import javax.servlet.http.Cookie;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 
 @Slf4j
 public class JsonCommander extends Commander {

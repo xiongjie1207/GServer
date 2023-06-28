@@ -3,6 +3,7 @@ package com.wegame.mmorpg.logic;
 import com.wegame.mmorpg.model.MapPoint;
 import com.wegame.mmorpg.model.PathNode;
 import com.wegame.mmorpg.model.Vector3;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

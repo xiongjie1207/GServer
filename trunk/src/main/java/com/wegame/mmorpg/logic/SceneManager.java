@@ -3,6 +3,7 @@ package com.wegame.mmorpg.logic;
 import com.wegame.framework.core.GameEventLoop;
 import com.wegame.framework.core.IUpdater;
 import com.wegame.mmorpg.entity.SceneEntity;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -7,10 +7,11 @@ import com.wegame.mmorpg.entity.PlayerEntity;
 import com.wegame.mmorpg.model.AOIBlock;
 import com.wegame.mmorpg.model.AOIPoint;
 import com.wegame.mmorpg.model.Vector3;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class AOISystem {

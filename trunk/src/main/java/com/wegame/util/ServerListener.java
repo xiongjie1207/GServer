@@ -1,10 +1,10 @@
 package com.wegame.util;
 
-import static java.lang.System.exit;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
+import static java.lang.System.exit;
 
 @WebListener
 public class ServerListener implements ServletContextListener{

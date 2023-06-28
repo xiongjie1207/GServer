@@ -11,6 +11,7 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.timeout.IdleStateHandler;
+
 import java.util.concurrent.TimeUnit;
 
 public abstract class GameChannelInitializer extends ChannelInitializer<Channel> {

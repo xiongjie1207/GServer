@@ -1,9 +1,10 @@
 package com.wegame.mmorpg.model;
 
 import com.wegame.mmorpg.entity.PlayerEntity;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
 
 /**
  * @Author xiongjie

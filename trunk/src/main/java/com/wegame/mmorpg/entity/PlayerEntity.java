@@ -2,15 +2,7 @@ package com.wegame.mmorpg.entity;
 
 import com.baidu.bjf.remoting.protobuf.annotation.Protobuf;
 import com.wegame.framework.packet.IPacket;
-import com.wegame.mmorpg.component.AOIComponent;
-import com.wegame.mmorpg.component.AStarComponent;
-import com.wegame.mmorpg.component.AttackComponent;
-import com.wegame.mmorpg.component.EquipmentComponent;
-import com.wegame.mmorpg.component.JoystickComponent;
-import com.wegame.mmorpg.component.PlayerInfoComponent;
-import com.wegame.mmorpg.component.ShapeComponent;
-import com.wegame.mmorpg.component.SkillBuffComponent;
-import com.wegame.mmorpg.component.TransformComponent;
+import com.wegame.mmorpg.component.*;
 import com.wegame.mmorpg.constants.RoleState;
 import lombok.Data;
 

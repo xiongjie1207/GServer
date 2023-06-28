@@ -1,16 +1,13 @@
 package com.wegame.framework.plugin;
 
+import org.apache.commons.io.FilenameUtils;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.apache.commons.io.FilenameUtils;
-import org.slf4j.LoggerFactory;
+import java.util.*;
 
 public class PluginManager {
     private static PluginManager instance;

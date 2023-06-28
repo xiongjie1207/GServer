@@ -6,6 +6,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.util.AttributeKey;
+
 import java.lang.ref.WeakReference;
 
 public class GameSession<T> implements ChannelFutureListener, ISession<T> {

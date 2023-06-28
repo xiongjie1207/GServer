@@ -1,6 +1,7 @@
 package com.wegame.framework.core;
 
 import com.wegame.framework.plugin.IPlugin;
+
 import java.util.ArrayList;
 import java.util.List;
 

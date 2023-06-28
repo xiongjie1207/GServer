@@ -1,7 +1,8 @@
 package com.wegame.framework.config;
 
-import java.nio.ByteOrder;
 import lombok.Data;
+
+import java.nio.ByteOrder;
 
 /**
  * Copyright (c) 2015-2017, James Xiong 熊杰 (xiongjie.cn@gmail.com).
