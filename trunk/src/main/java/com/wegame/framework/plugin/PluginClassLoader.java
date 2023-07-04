@@ -15,13 +15,13 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date 2023/07/04 11:44
  **/
 @Slf4j
-public class PluginClassLoader extends URLClassLoader {
+class PluginClassLoader extends URLClassLoader {
     private final Map<String, Class<?>> loadedClasses = new ConcurrentHashMap<>();
     private final List<IPlugin> plugins = new ArrayList<>();
     public Map<String, Class<?>> getLoadedClasses() {
         return loadedClasses;
     }
-    public void addPlugin(IPlugin plugin){
+    void addPlugin(IPlugin plugin){
         this.plugins.add(plugin);
     }
     public PluginClassLoader(URL[] urls) {

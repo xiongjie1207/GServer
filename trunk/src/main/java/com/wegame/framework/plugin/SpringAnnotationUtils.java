@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Modifier;
 @Slf4j
-public class SpringAnnotationUtils {
+class SpringAnnotationUtils {
 
     /**
      * 判断一个类是否有 Spring 核心注解
