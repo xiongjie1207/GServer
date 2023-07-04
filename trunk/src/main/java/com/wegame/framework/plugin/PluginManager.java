@@ -29,9 +29,11 @@ public class PluginManager {
     }
     private final Map<String, PluginClassLoader> myClassLoaderCenter = new ConcurrentHashMap<>();
 
-    public void loadAllJar(Map<String,String> jars){
-        jars.forEach(this::load);
-    }
+    /**
+     *
+     * @param name 插件名称
+     * @param path jar包路径
+     */
     public void load(String name, String path) {
         try {
             URL url = new URL("jar:file:" + path + "!/");
@@ -96,6 +98,10 @@ public class PluginManager {
         }
     }
 
+    /**
+     * 插件名称
+     * @param name
+     */
     public void unload(String name) {
         try {
             try (PluginClassLoader pluginClassLoader = myClassLoaderCenter.remove(name)) {
