@@ -3,7 +3,7 @@ package com.wegame.framework.plugin.net;
 import com.wegame.framework.config.ServerConfig;
 import com.wegame.framework.core.SpringContext;
 import com.wegame.framework.initializer.GameServerChannelInitializer;
-import com.wegame.framework.plugin.IPlugin;
+import com.wegame.framework.plugin.IComponent;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
  * |-4字节长度-|-2字节module-|-2字节pid-|--数据--|
  */
 @Slf4j
-public abstract class AbsServerSocketPlugin implements IPlugin {
+public abstract class AbsServerSocketComponent implements IComponent {
     private final Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private final Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
     private ChannelFuture channelFuture;

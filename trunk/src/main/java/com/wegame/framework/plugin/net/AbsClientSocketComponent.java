@@ -2,7 +2,7 @@ package com.wegame.framework.plugin.net;
 
 import com.wegame.framework.config.ClientConfig;
 import com.wegame.framework.initializer.GameClientChannelInitializer;
-import com.wegame.framework.plugin.IPlugin;
+import com.wegame.framework.plugin.IComponent;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -33,14 +33,14 @@ import java.util.Map;
  * Created by xiongjie on 2017/10/15.
  */
 @Slf4j
-public abstract class AbsClientSocketPlugin implements IPlugin {
+public abstract class AbsClientSocketComponent implements IComponent {
     private final EventLoopGroup workerGroup = new NioEventLoopGroup();
     private final Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Bootstrap bootstrap;
     private ChannelFuture channelFuture;
     private ClientConfig config;
 
-    protected AbsClientSocketPlugin() {
+    protected AbsClientSocketComponent() {
 
     }
 

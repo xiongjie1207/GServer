@@ -12,7 +12,7 @@ import java.util.*;
 public class PluginManager {
     private static PluginManager instance;
     private final Map<String, Long> jarLastModified;
-    private final Map<String, IPlugin> pluginMap;
+    private final Map<String, IComponent> pluginMap;
 
     private PluginManager() {
         jarLastModified = new HashMap<>();
@@ -27,11 +27,11 @@ public class PluginManager {
         return instance;
     }
 
-    public Collection<IPlugin> listPlugin() {
+    public Collection<IComponent> listPlugin() {
         return this.pluginMap.values();
     }
 
-    public boolean addPlugin(IPlugin plugin) {
+    public boolean addPlugin(IComponent plugin) {
         if (pluginMap.containsKey(String.valueOf(plugin.getName().hashCode()))) {
             return false;
         }
@@ -40,12 +40,12 @@ public class PluginManager {
     }
 
 
-    public void removePlugin(IPlugin plugin) {
+    public void removePlugin(IComponent plugin) {
         pluginMap.remove(String.valueOf(plugin.getName().hashCode()));
     }
 
-    public List<Class<IPlugin>> loadPluginFromJar(String pluginsDir) {
-        List<Class<IPlugin>> plugins = null;
+    public List<Class<IComponent>> loadPluginFromJar(String pluginsDir) {
+        List<Class<IComponent>> plugins = null;
         File dir = new File(pluginsDir);
         File[] jars = dir.listFiles(pathname -> {
             String basename = FilenameUtils.getExtension(pathname.getName());
@@ -64,10 +64,10 @@ public class PluginManager {
         return plugins;
     }
 
-    private List<Class<IPlugin>> initJar(File[] jars)
+    private List<Class<IComponent>> initJar(File[] jars)
         throws MalformedURLException, ClassNotFoundException, IllegalAccessException,
         InstantiationException {
-        List<Class<IPlugin>> plugins = new ArrayList<>();
+        List<Class<IComponent>> plugins = new ArrayList<>();
         for (File jar : jars) {
             Long lastModified = jarLastModified.get(jar.getName());
             long jarDate = jar.lastModified();
@@ -86,7 +86,7 @@ public class PluginManager {
             URLClassLoader classLoader = new URLClassLoader(new URL[] {url}, Thread.currentThread()
                 .getContextClassLoader());
             String pluginPath = "Plugin";
-            Class<IPlugin> clazz = (Class<IPlugin>) classLoader.loadClass(pluginPath);
+            Class<IComponent> clazz = (Class<IComponent>) classLoader.loadClass(pluginPath);
             plugins.add(clazz);
         }
         return plugins;

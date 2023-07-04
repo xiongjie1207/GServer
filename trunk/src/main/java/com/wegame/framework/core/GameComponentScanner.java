@@ -6,7 +6,7 @@ import com.wegame.core.annotation.ActionKey;
 import com.wegame.framework.aop.Interceptor;
 import com.wegame.framework.aop.InterceptorBuilder;
 import com.wegame.framework.aop.annotation.Around;
-import com.wegame.framework.plugin.IPlugin;
+import com.wegame.framework.plugin.IComponent;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -63,8 +63,8 @@ public class GameComponentScanner implements BeanPostProcessor, PriorityOrdered 
                     ActionMapping.getInstance().addAction(action);
                 }
             }
-            if (IPlugin.class.isAssignableFrom(bean.getClass())) {
-                PluginManager.getInstance().getPlugins().add((IPlugin) bean);
+            if (IComponent.class.isAssignableFrom(bean.getClass())) {
+                PluginManager.getInstance().getPlugins().add((IComponent) bean);
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block

@@ -4,7 +4,7 @@ import com.wegame.framework.core.GameCons;
 import com.wegame.framework.core.GameEventLoop;
 import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.packet.Packet;
-import com.wegame.framework.plugin.IPlugin;
+import com.wegame.framework.plugin.IComponent;
 import com.wegame.util.AppStatus;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,7 +43,7 @@ import java.util.Map;
  * 数据流发送格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  */
-public abstract class HttpControllerPlugin implements IPlugin {
+public abstract class HttpControllerComponent implements IComponent {
     private static final String CHAR_SET_UTF_8 = "utf-8";
     private static final String HTTP_SERVLET_REQUEST = "HTTP_SERVLET_REQUEST";
     private static final String HTTP_SERVLET_RESPONSE = "HTTP_SERVLET_RESPONSE";
@@ -118,17 +118,17 @@ public abstract class HttpControllerPlugin implements IPlugin {
         return (HttpServletRequest) tl.get().get(HTTP_SERVLET_REQUEST);
     }
 
-    public HttpControllerPlugin setAttr(String name, Object value) {
+    public HttpControllerComponent setAttr(String name, Object value) {
         getRequest().setAttribute(name, value);
         return this;
     }
 
-    public HttpControllerPlugin removeAttr(String name) {
+    public HttpControllerComponent removeAttr(String name) {
         getRequest().removeAttribute(name);
         return this;
     }
 
-    public HttpControllerPlugin setAttrs(Map<String, Object> attrMap) {
+    public HttpControllerComponent setAttrs(Map<String, Object> attrMap) {
         for (Map.Entry<String, Object> entry : attrMap.entrySet()) {
             getRequest().setAttribute(entry.getKey(), entry.getValue());
         }
@@ -170,13 +170,13 @@ public abstract class HttpControllerPlugin implements IPlugin {
     }
 
 
-    public HttpControllerPlugin setSessionAttr(String key, Object value) {
+    public HttpControllerComponent setSessionAttr(String key, Object value) {
         getRequest().getSession(true).setAttribute(key, value);
         return this;
     }
 
 
-    public HttpControllerPlugin removeSessionAttr(String key) {
+    public HttpControllerComponent removeSessionAttr(String key) {
         HttpSession session = getRequest().getSession(false);
         if (session != null) {
             session.removeAttribute(key);
@@ -236,56 +236,56 @@ public abstract class HttpControllerPlugin implements IPlugin {
         return result != null ? result : new Cookie[0];
     }
 
-    public HttpControllerPlugin setCookie(String name, String value, int maxAgeInSeconds,
-                                          boolean isHttpOnly) {
+    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                             boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, isHttpOnly);
     }
 
 
-    public HttpControllerPlugin setCookie(String name, String value, int maxAgeInSeconds) {
+    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, null);
     }
 
 
-    public HttpControllerPlugin setCookie(Cookie cookie) {
+    public HttpControllerComponent setCookie(Cookie cookie) {
         getResponse().addCookie(cookie);
         return this;
     }
 
 
-    public HttpControllerPlugin setCookie(String name, String value, int maxAgeInSeconds,
-                                          String path, boolean isHttpOnly) {
+    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                             String path, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, isHttpOnly);
     }
 
 
-    public HttpControllerPlugin setCookie(String name, String value, int maxAgeInSeconds,
-                                          String path) {
+    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                             String path) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, null);
     }
 
 
-    public HttpControllerPlugin setCookie(String name, String value, int maxAgeInSeconds,
-                                          String path, String domain, boolean isHttpOnly) {
+    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                             String path, String domain, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, domain, isHttpOnly);
     }
 
 
-    public HttpControllerPlugin removeCookie(String name) {
+    public HttpControllerComponent removeCookie(String name) {
         return doSetCookie(name, null, 0, null, null, null);
     }
 
 
-    public HttpControllerPlugin removeCookie(String name, String path) {
+    public HttpControllerComponent removeCookie(String name, String path) {
         return doSetCookie(name, null, 0, path, null, null);
     }
 
-    public HttpControllerPlugin removeCookie(String name, String path, String domain) {
+    public HttpControllerComponent removeCookie(String name, String path, String domain) {
         return doSetCookie(name, null, 0, path, domain, null);
     }
 
-    private HttpControllerPlugin doSetCookie(String name, String value, int maxAgeInSeconds,
-                                             String path, String domain, Boolean isHttpOnly) {
+    private HttpControllerComponent doSetCookie(String name, String value, int maxAgeInSeconds,
+                                                String path, String domain, Boolean isHttpOnly) {
         Cookie cookie = new Cookie(name, value);
         cookie.setMaxAge(maxAgeInSeconds);
         // set the default path value to "/"

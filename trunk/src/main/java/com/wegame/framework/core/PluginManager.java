@@ -1,13 +1,13 @@
 package com.wegame.framework.core;
 
-import com.wegame.framework.plugin.IPlugin;
+import com.wegame.framework.plugin.IComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PluginManager {
     private static PluginManager instance;
-    private final List<IPlugin> plugins;
+    private final List<IComponent> plugins;
 
     private PluginManager() {
         plugins = new ArrayList<>();
@@ -20,7 +20,7 @@ public class PluginManager {
         return instance;
     }
 
-    public List<IPlugin> getPlugins() {
+    public List<IComponent> getPlugins() {
         return plugins;
     }
 }

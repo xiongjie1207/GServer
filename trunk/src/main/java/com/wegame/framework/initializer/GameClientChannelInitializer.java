@@ -1,12 +1,12 @@
 package com.wegame.framework.initializer;
 
 import com.wegame.framework.handler.ClientSocketHandler;
-import com.wegame.framework.plugin.net.AbsClientSocketPlugin;
+import com.wegame.framework.plugin.net.AbsClientSocketComponent;
 import io.netty.channel.Channel;
 
 public class GameClientChannelInitializer extends GameChannelInitializer {
-    private AbsClientSocketPlugin clientSocketPlugin;
-    public GameClientChannelInitializer(AbsClientSocketPlugin clientSocketPlugin) {
+    private AbsClientSocketComponent clientSocketPlugin;
+    public GameClientChannelInitializer(AbsClientSocketComponent clientSocketPlugin) {
         this.clientSocketPlugin = clientSocketPlugin;
     }
     @Override

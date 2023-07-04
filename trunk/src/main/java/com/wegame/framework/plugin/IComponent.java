@@ -1,6 +1,6 @@
 package com.wegame.framework.plugin;
 
-public interface IPlugin {
+public interface IComponent {
     String getName();
 
     boolean start();
