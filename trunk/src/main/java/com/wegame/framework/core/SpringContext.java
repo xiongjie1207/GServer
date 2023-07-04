@@ -1,7 +1,9 @@
 package com.wegame.framework.core;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -22,15 +24,19 @@ import org.springframework.context.ApplicationContext;
  */
 public class SpringContext {
     private static ApplicationContext applicationContext;
-
+    private static DefaultListableBeanFactory defaultListableBeanFactory;
     public static ApplicationContext getApplicationContext() {
         return SpringContext.applicationContext;
     }
+    public static  DefaultListableBeanFactory getDefaultListableBeanFactory(){return SpringContext.defaultListableBeanFactory;}
 
     public static void setApplicationContext(ApplicationContext applicationContext)
         throws BeansException {
         SpringContext.applicationContext = applicationContext;
+        ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) applicationContext;
+        SpringContext.defaultListableBeanFactory = (DefaultListableBeanFactory) configurableApplicationContext.getBeanFactory();
     }
+
 
     public static <T> T getBean(Class<T> clazz) {
         return SpringContext.applicationContext.getBean(clazz);

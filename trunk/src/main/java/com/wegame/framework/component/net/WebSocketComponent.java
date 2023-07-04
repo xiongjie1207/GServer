@@ -1,4 +1,4 @@
-package com.wegame.framework.plugin.net;
+package com.wegame.framework.component.net;
 
 import com.wegame.framework.config.ServerConfig;
 import com.wegame.framework.core.SpringContext;

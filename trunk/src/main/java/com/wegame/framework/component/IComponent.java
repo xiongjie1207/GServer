@@ -1,4 +1,4 @@
-package com.wegame.framework.plugin;
+package com.wegame.framework.component;
 
 public interface IComponent {
     String getName();

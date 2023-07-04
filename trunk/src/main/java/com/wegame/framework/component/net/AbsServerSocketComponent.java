@@ -1,9 +1,9 @@
-package com.wegame.framework.plugin.net;
+package com.wegame.framework.component.net;
 
+import com.wegame.framework.component.IComponent;
 import com.wegame.framework.config.ServerConfig;
 import com.wegame.framework.core.SpringContext;
 import com.wegame.framework.initializer.GameServerChannelInitializer;
-import com.wegame.framework.plugin.IComponent;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

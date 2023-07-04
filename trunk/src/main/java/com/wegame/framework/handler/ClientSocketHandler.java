@@ -1,6 +1,6 @@
 package com.wegame.framework.handler;
 
-import com.wegame.framework.plugin.net.AbsClientSocketComponent;
+import com.wegame.framework.component.net.AbsClientSocketComponent;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;

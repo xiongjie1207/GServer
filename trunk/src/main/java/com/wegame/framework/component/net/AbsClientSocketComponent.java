@@ -1,8 +1,8 @@
-package com.wegame.framework.plugin.net;
+package com.wegame.framework.component.net;
 
+import com.wegame.framework.component.IComponent;
 import com.wegame.framework.config.ClientConfig;
 import com.wegame.framework.initializer.GameClientChannelInitializer;
-import com.wegame.framework.plugin.IComponent;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

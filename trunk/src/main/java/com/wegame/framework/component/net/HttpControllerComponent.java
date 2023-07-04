@@ -1,10 +1,10 @@
-package com.wegame.framework.plugin.net;
+package com.wegame.framework.component.net;
 
+import com.wegame.framework.component.IComponent;
 import com.wegame.framework.core.GameCons;
 import com.wegame.framework.core.GameEventLoop;
 import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.packet.Packet;
-import com.wegame.framework.plugin.IComponent;
 import com.wegame.util.AppStatus;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
