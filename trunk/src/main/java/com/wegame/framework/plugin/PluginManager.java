@@ -30,14 +30,14 @@ public class PluginManager {
     private final Map<String, PluginClassLoader> myClassLoaderCenter = new ConcurrentHashMap<>();
 
     public void loadAllJar(Map<String,String> jars){
-        jars.forEach(this::loadJar);
+        jars.forEach(this::load);
     }
-    public void loadJar(String fileName,String path) {
+    public void load(String name, String path) {
         try {
             URL url = new URL("jar:file:" + path + "!/");
             // 创建自定义类加载器，并加到map中方便管理
             PluginClassLoader myClassloader = new PluginClassLoader(new URL[]{url});
-            myClassLoaderCenter.put(fileName, myClassloader);
+            myClassLoaderCenter.put(name, myClassloader);
             URLConnection urlConnection = url.openConnection();
             JarURLConnection jarURLConnection = (JarURLConnection) urlConnection;
             // 获取jar文件
@@ -91,14 +91,14 @@ public class PluginManager {
                 myClassloader.addPlugin(plugin);
             }
         } catch (Exception e) {
-            log.error("读取{} 文件异常", fileName);
+            log.error("读取{} 文件异常", name);
             log.error(e.getMessage(), e);
         }
     }
 
-    public void unload(String fileName) {
+    public void unload(String name) {
         try {
-            try (PluginClassLoader pluginClassLoader = myClassLoaderCenter.remove(fileName)) {
+            try (PluginClassLoader pluginClassLoader = myClassLoaderCenter.remove(name)) {
                 // 获取beanFactory，准备从spring中卸载
                 Set<String> beanNames = new HashSet<>();
                 for (Map.Entry<String, Class<?>> entry : pluginClassLoader.getLoadedClasses().entrySet()) {
@@ -136,7 +136,7 @@ public class PluginManager {
                 pluginClassLoader.unload();
             }
         } catch (Exception e) {
-            log.error("动态卸载{}，从类加载器中卸载失败", fileName);
+            log.error("动态卸载{}，从类加载器中卸载失败", name);
             log.error(e.getMessage(), e);
         }
     }
