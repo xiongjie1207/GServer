@@ -29,7 +29,10 @@ public class PluginManager {
     }
     private final Map<String, PluginClassLoader> myClassLoaderCenter = new ConcurrentHashMap<>();
 
-    public void loadJar(String path, String fileName) {
+    public void loadAllJar(Map<String,String> jars){
+        jars.forEach(this::loadJar);
+    }
+    public void loadJar(String fileName,String path) {
         try {
             URL url = new URL("jar:file:" + path + "!/");
             // 创建自定义类加载器，并加到map中方便管理
@@ -132,8 +135,6 @@ public class PluginManager {
                 // 卸载类加载器
                 pluginClassLoader.unload();
             }
-
-
         } catch (Exception e) {
             log.error("动态卸载{}，从类加载器中卸载失败", fileName);
             log.error(e.getMessage(), e);

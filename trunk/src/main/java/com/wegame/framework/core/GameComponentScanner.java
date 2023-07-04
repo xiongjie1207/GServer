@@ -64,7 +64,7 @@ public class GameComponentScanner implements BeanPostProcessor, PriorityOrdered 
                 }
             }
             if (IComponent.class.isAssignableFrom(bean.getClass())) {
-                PluginManager.getInstance().getPlugins().add((IComponent) bean);
+                ComponentManager.getInstance().getComponents().add((IComponent) bean);
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
