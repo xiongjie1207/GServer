@@ -11,6 +11,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -88,7 +90,11 @@ public abstract class AbsServerSocketComponent implements IComponent {
         }
         return true;
     }
-
+    @Bean
+    @ConfigurationProperties(prefix = "game.server.config")
+    protected ServerConfig createServerConfig() {
+        return new ServerConfig();
+    }
     @Override
     public final boolean stop() {
         try {
