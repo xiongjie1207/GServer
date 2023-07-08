@@ -55,7 +55,7 @@ public class PluginManager {
                 if (jarEntry.getName().endsWith(".class")) {
                     // 1. 加载类到jvm中
                     // 获取类的全路径名
-                    String className = stripFilenameExtension(jarEntry.getName());
+                    String className = stripFilenameExtension(jarEntry.getName()).replace('/', '.');
                     // 1.1进行反射获取
                     myClassloader.loadClass(className);
                 }
@@ -74,7 +74,7 @@ public class PluginManager {
                     // 此处beanName使用全路径名是为了防止beanName重复
                     String packageName = className.substring(0, className.lastIndexOf(".") + 1);
                     String beanName = StringUtils.unqualify(className);
-                    beanName = packageName + beanName.substring(0, 1).toLowerCase() + beanName.substring(1);
+                    beanName = packageName + StringUtils.uncapitalize(beanName);
                     // 2.3注册到spring的beanFactory中
                     GameAppContext.getDefaultListableBeanFactory().registerBeanDefinition(beanName, beanDefinition);
                     // 2.4允许注入和反向注入
