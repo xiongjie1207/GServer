@@ -3,7 +3,7 @@ package com.wegame.framework.initializer;
 import com.wegame.framework.codec.MessageDecoder;
 import com.wegame.framework.codec.MessageEncode;
 import com.wegame.framework.config.ServerConfig;
-import com.wegame.framework.core.SpringContext;
+import com.wegame.framework.core.GameAppContext;
 import com.wegame.util.PacketLoggingHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -33,7 +33,7 @@ public abstract class GameChannelInitializer extends ChannelInitializer<Channel>
         //对数据压缩
         //对java对象编码
         socketChannel.pipeline().addLast(MessageEncode.class.getSimpleName(), new MessageEncode());
-        ServerConfig serverConfig = SpringContext.getBean(ServerConfig.class);
+        ServerConfig serverConfig = GameAppContext.getBean(ServerConfig.class);
         IdleStateHandler idleStateHandler =
             new IdleStateHandler(serverConfig.getReaderIdleTimeSeconds(),
                 serverConfig.getWriterIdleTimeSeconds(),

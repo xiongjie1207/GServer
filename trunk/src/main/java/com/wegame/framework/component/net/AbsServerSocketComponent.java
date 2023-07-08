@@ -2,7 +2,7 @@ package com.wegame.framework.component.net;
 
 import com.wegame.framework.component.IComponent;
 import com.wegame.framework.config.ServerConfig;
-import com.wegame.framework.core.SpringContext;
+import com.wegame.framework.core.GameAppContext;
 import com.wegame.framework.initializer.GameServerChannelInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -54,7 +54,7 @@ public abstract class AbsServerSocketComponent implements IComponent {
     public final boolean start() {
         try {
             serverBootstrap = new ServerBootstrap();
-            ServerConfig serverConfig = SpringContext.getBean(ServerConfig.class);
+            ServerConfig serverConfig = GameAppContext.getBean(ServerConfig.class);
             initConfig(serverConfig);
             if (serverConfig.getBossCount() == 0) {
                 bossGroup = new NioEventLoopGroup();

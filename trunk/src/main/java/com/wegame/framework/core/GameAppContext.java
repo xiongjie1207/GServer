@@ -4,6 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.io.Resource;
 
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
@@ -22,28 +23,30 @@ import org.springframework.context.ConfigurableApplicationContext;
  * <p>
  * Created by xiongjie on 2017/1/2.
  */
-public class SpringContext {
+public class GameAppContext {
     private static ApplicationContext applicationContext;
     private static DefaultListableBeanFactory defaultListableBeanFactory;
     public static ApplicationContext getApplicationContext() {
-        return SpringContext.applicationContext;
+        return GameAppContext.applicationContext;
     }
-    public static  DefaultListableBeanFactory getDefaultListableBeanFactory(){return SpringContext.defaultListableBeanFactory;}
+    public static  DefaultListableBeanFactory getDefaultListableBeanFactory(){return GameAppContext.defaultListableBeanFactory;}
 
     public static void setApplicationContext(ApplicationContext applicationContext)
         throws BeansException {
-        SpringContext.applicationContext = applicationContext;
+        GameAppContext.applicationContext = applicationContext;
         ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) applicationContext;
-        SpringContext.defaultListableBeanFactory = (DefaultListableBeanFactory) configurableApplicationContext.getBeanFactory();
+        GameAppContext.defaultListableBeanFactory = (DefaultListableBeanFactory) configurableApplicationContext.getBeanFactory();
+    }
+    public static Resource getResource(String path){
+        return GameAppContext.applicationContext.getResource(path);
     }
 
-
     public static <T> T getBean(Class<T> clazz) {
-        return SpringContext.applicationContext.getBean(clazz);
+        return GameAppContext.applicationContext.getBean(clazz);
     }
 
     public static <T> T getBean(String beanName) {
-        return (T) SpringContext.applicationContext.getBean(beanName);
+        return (T) GameAppContext.applicationContext.getBean(beanName);
     }
 
 }

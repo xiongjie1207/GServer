@@ -1,7 +1,7 @@
 package com.wegame.framework.component.net;
 
 import com.wegame.framework.config.ServerConfig;
-import com.wegame.framework.core.SpringContext;
+import com.wegame.framework.core.GameAppContext;
 import com.wegame.framework.handler.WebServerSocketHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -26,7 +26,7 @@ public class WebSocketComponent extends AbsServerSocketComponent {
             ch.pipeline().addLast("http-decorder", new HttpRequestDecoder());
             ch.pipeline().addLast("http-aggregator", new HttpObjectAggregator(512 * 1024));
             ch.pipeline().addLast("http-encoder", new HttpResponseEncoder());
-            ServerConfig config = SpringContext.getBean(ServerConfig.class);
+            ServerConfig config = GameAppContext.getBean(ServerConfig.class);
             IdleStateHandler idleStateHandler =
                 new IdleStateHandler(config.getReaderIdleTimeSeconds(),
                     config.getWriterIdleTimeSeconds(),
