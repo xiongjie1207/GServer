@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Modifier;
+
 @Slf4j
 class SpringAnnotationUtils {
 
@@ -31,16 +32,36 @@ class SpringAnnotationUtils {
         }
 
         try {
-            if (clazz.getAnnotation(Component.class) != null ||
-            clazz.getAnnotation(Repository.class) != null ||
-            clazz.getAnnotation(Service.class) != null ||
-            clazz.getAnnotation(Controller.class) != null ||
-            clazz.getAnnotation(Configuration.class) != null) {
+            if (hasComponentAnnotation(clazz) ||
+                    hasRepositoryAnnotation(clazz) ||
+                    hasServiceAnnotation(clazz) ||
+                    hasControllerAnnotation(clazz) ||
+                    hasConfigurationAnnotation(clazz)) {
                 return true;
             }
-        }catch (Exception e){
-            log.error(e.getMessage(),e);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
         }
         return false;
+    }
+
+    public static boolean hasControllerAnnotation(Class<?> clazz) {
+        return clazz.getAnnotation(Controller.class) != null;
+    }
+
+    public static boolean hasServiceAnnotation(Class<?> clazz) {
+        return clazz.getAnnotation(Service.class) != null;
+    }
+
+    public static boolean hasRepositoryAnnotation(Class<?> clazz) {
+        return clazz.getAnnotation(Repository.class) != null;
+    }
+
+    public static boolean hasConfigurationAnnotation(Class<?> clazz) {
+        return clazz.getAnnotation(Configuration.class) != null;
+    }
+
+    public static boolean hasComponentAnnotation(Class<?> clazz) {
+        return clazz.getAnnotation(Component.class) != null;
     }
 }

@@ -5,7 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -21,6 +25,7 @@ import static org.springframework.util.StringUtils.stripFilenameExtension;
 
 @Slf4j
 public class PluginManager {
+    private static final String REQUEST_MAPPING_HANDLER_MAPPING="requestMappingHandlerMapping";
     private PluginManager(){}
     private static PluginManager instance;
 
@@ -68,22 +73,20 @@ public class PluginManager {
                 // 2.1 判断是否注入spring
                 boolean flag = SpringAnnotationUtils.hasSpringAnnotation(clazz);
                 if (flag) {
-                    // 2.2交给spring管理
-                    BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
-                    AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
-                    // 此处beanName使用全路径名是为了防止beanName重复
-                    String packageName = className.substring(0, className.lastIndexOf(".") + 1);
-                    String beanName = StringUtils.unqualify(className);
-                    beanName = packageName + StringUtils.uncapitalize(beanName);
-                    // 2.3注册到spring的beanFactory中
-                    GameAppContext.getDefaultListableBeanFactory().registerBeanDefinition(beanName, beanDefinition);
-                    // 2.4允许注入和反向注入
-                    GameAppContext.getDefaultListableBeanFactory().autowireBean(clazz);
-                    GameAppContext.getDefaultListableBeanFactory().initializeBean(clazz, beanName);
+                    registerBean(className,clazz);
+                    if(SpringAnnotationUtils.hasControllerAnnotation(clazz)){
+                        registerController(className);
+                    }
                     initBeanClass.add(clazz);
                 }
                 if (IPlugin.class.isAssignableFrom(clazz)) {
-                    IPlugin plugin = (IPlugin) clazz.getDeclaredConstructor().newInstance();
+                    IPlugin plugin;
+                    if(flag){
+                        String beanName = beanName(className);
+                        plugin = GameAppContext.getBean(beanName);
+                    }else{
+                        plugin = (IPlugin) clazz.getDeclaredConstructor().newInstance();
+                    }
                     plugins.add(plugin);
                 }
             }
@@ -100,7 +103,67 @@ public class PluginManager {
             log.error(e.getMessage(), e);
         }
     }
+    private String beanName(String className){
+        String packageName = className.substring(0, className.lastIndexOf(".") + 1);
+        String beanName = StringUtils.unqualify(className);
+        beanName = packageName + StringUtils.uncapitalize(beanName);
+        return beanName;
+    }
+    private void registerBean(String className,Class<?> clazz){
+        // 2.2交给spring管理
+        BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
+        AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
+        // 此处beanName使用全路径名是为了防止beanName重复
+        String beanName = beanName(className);
+        // 2.3注册到spring的beanFactory中
+        GameAppContext.getDefaultListableBeanFactory().registerBeanDefinition(beanName, beanDefinition);
+        // 2.4允许注入和反向注入
+        GameAppContext.getDefaultListableBeanFactory().autowireBean(clazz);
+        GameAppContext.getDefaultListableBeanFactory().initializeBean(clazz, beanName);
+    }
+    /**
+     * 注册controller
+     */
+    private void registerController(String className) throws Exception {
 
+        RequestMappingHandlerMapping requestMappingHandlerMapping =
+                GameAppContext.getBean(REQUEST_MAPPING_HANDLER_MAPPING);
+        String beanName = beanName(className);
+        //注册Controller
+        Method method = requestMappingHandlerMapping.getClass().getSuperclass().getSuperclass().
+                getDeclaredMethod("detectHandlerMethods", Object.class);
+        //将private改为可使用
+        method.setAccessible(true);
+        method.invoke(requestMappingHandlerMapping, beanName);
+    }
+
+
+    /**
+     * 卸载controller
+     * @param className
+     */
+    private void unregisterController(String className) {
+        final RequestMappingHandlerMapping requestMappingHandlerMapping = GameAppContext.getBean(REQUEST_MAPPING_HANDLER_MAPPING);
+
+        String handler = beanName(className);
+        Object controller = GameAppContext.getBean(handler);
+        final Class<?> targetClass = controller.getClass();
+        ReflectionUtils.doWithMethods(targetClass, method -> {
+            Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);
+            try {
+                Method createMappingMethod = RequestMappingHandlerMapping.class.
+                        getDeclaredMethod("getMappingForMethod", Method.class, Class.class);
+                createMappingMethod.setAccessible(true);
+                RequestMappingInfo requestMappingInfo = (RequestMappingInfo)
+                        createMappingMethod.invoke(requestMappingHandlerMapping, specificMethod, targetClass);
+                if (requestMappingInfo != null) {
+                    requestMappingHandlerMapping.unregisterMapping(requestMappingInfo);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, ReflectionUtils.USER_DECLARED_METHODS);
+    }
     /**
      * 插件名称
      * @param name
@@ -113,9 +176,7 @@ public class PluginManager {
                 for (Map.Entry<String, Class<?>> entry : pluginClassLoader.getLoadedClasses().entrySet()) {
                     // 1.1 截取beanName
                     String key = entry.getKey();
-                    String packageName = key.substring(0, key.lastIndexOf(".") + 1);
-                    String beanName = key.substring(key.lastIndexOf(".") + 1);
-                    beanName = packageName + beanName.substring(0, 1).toLowerCase() + beanName.substring(1);
+                    String beanName = beanName(key);
 
                     // 获取bean，如果获取失败，表名这个类没有加到spring容器中，则跳出本次循环
                     Object bean;
@@ -125,7 +186,9 @@ public class PluginManager {
                         // 异常说明spring中没有这个bean
                         continue;
                     }
-
+                    if(SpringAnnotationUtils.hasControllerAnnotation(entry.getValue())){
+                        unregisterController(key);
+                    }
                     // 2.0从spring中移除，这里的移除是仅仅移除的bean，并未移除bean定义
                     beanNames.add(beanName);
                     GameAppContext.getDefaultListableBeanFactory().destroyBean(beanName, bean);
