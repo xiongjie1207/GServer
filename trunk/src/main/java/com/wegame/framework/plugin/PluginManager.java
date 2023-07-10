@@ -2,6 +2,7 @@ package com.wegame.framework.plugin;
 
 import com.wegame.framework.core.GameAppContext;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -11,6 +12,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import java.io.File;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
@@ -40,11 +43,13 @@ public class PluginManager {
     /**
      *
      * @param name 插件名称
-     * @param path jar包路径
+     * @param jar jar包路径
      */
-    public void load(String name, String path) {
+    public void load(String name, String jar) {
         try {
-            URL url = new URL("jar:file:" + path + "!/");
+            String templatePath = GameAppContext.getResource("/WEB-INF/").getFile().getAbsolutePath();
+            String jarPath = GameAppContext.getResource(String.format("/WEB-INF/resources/plugins/%s",jar)).getFile().getAbsolutePath();
+            URL url = new URL("jar:file:" + jarPath + "!/");
             // 创建自定义类加载器，并加到map中方便管理
             PluginClassLoader myClassloader = new PluginClassLoader(new URL[]{url});
             myClassLoaderCenter.put(name, myClassloader);
@@ -63,6 +68,16 @@ public class PluginManager {
                     String className = stripFilenameExtension(jarEntry.getName()).replace('/', '.');
                     // 1.1进行反射获取
                     myClassloader.loadClass(className);
+                }else if(jarEntry.getName().startsWith("plugins_view/")){
+                    if(!jarEntry.isDirectory()){
+                        InputStream fis = jarFile.getInputStream(jarEntry);
+                        if(!templatePath.endsWith("/")){
+                            templatePath+="/";
+                        }
+                        templatePath+=jarEntry.getName();
+                        FileUtils.copyInputStreamToFile(fis,new File(templatePath));
+                    }
+
                 }
             }
             List<IPlugin> plugins = new ArrayList<>();
