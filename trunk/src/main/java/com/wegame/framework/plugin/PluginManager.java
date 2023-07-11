@@ -77,7 +77,6 @@ public class PluginManager {
                         templatePath+=jarEntry.getName();
                         FileUtils.copyInputStreamToFile(fis,new File(templatePath));
                     }
-
                 }
             }
             List<IPlugin> plugins = new ArrayList<>();
