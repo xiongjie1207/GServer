@@ -33,14 +33,14 @@ import java.util.Map;
  * Created by xiongjie on 2017/10/15.
  */
 @Slf4j
-public abstract class AbsClientSocketComponent implements IComponent {
+public abstract class AbsTcpClientComponent implements IComponent {
     private final EventLoopGroup workerGroup = new NioEventLoopGroup();
     private final Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private Bootstrap bootstrap;
     private ChannelFuture channelFuture;
     private ClientConfig config;
 
-    protected AbsClientSocketComponent() {
+    protected AbsTcpClientComponent() {
 
     }
 

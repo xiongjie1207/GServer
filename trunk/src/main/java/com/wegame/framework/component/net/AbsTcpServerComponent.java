@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
  * |-4字节长度-|-2字节module-|-2字节pid-|--数据--|
  */
 @Slf4j
-public abstract class AbsServerSocketComponent implements IComponent {
+public abstract class AbsTcpServerComponent implements IComponent {
     private final Map<ChannelOption<?>, Object> optionObjectMap = new HashMap<>();
     private final Map<ChannelOption<?>, Object> childOptionObjectMap = new HashMap<>();
     private ChannelFuture channelFuture;

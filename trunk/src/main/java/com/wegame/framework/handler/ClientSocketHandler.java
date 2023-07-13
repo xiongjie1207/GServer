@@ -1,6 +1,6 @@
 package com.wegame.framework.handler;
 
-import com.wegame.framework.component.net.AbsClientSocketComponent;
+import com.wegame.framework.component.net.AbsTcpClientComponent;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @ChannelHandler.Sharable
 public class ClientSocketHandler extends SocketHandler {
-    private AbsClientSocketComponent clientSocketPlugin;
-    public ClientSocketHandler(AbsClientSocketComponent clientSocketPlugin) {
+    private AbsTcpClientComponent clientSocketPlugin;
+    public ClientSocketHandler(AbsTcpClientComponent clientSocketPlugin) {
         this.clientSocketPlugin = clientSocketPlugin;
     }
     @Override

@@ -13,11 +13,12 @@ import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -40,30 +41,21 @@ import java.util.Map;
 
 /**
  * 基于http的数据传输
- * 数据流发送格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
- * 数据流接收格式{"pid":1,"name":"guest","password":"111111","id":1,"clientType":0 }
  */
-public abstract class HttpControllerComponent implements IComponent {
+public abstract class AbsHttpServerComponent implements IComponent {
     private static final String CHAR_SET_UTF_8 = "utf-8";
-    private static final String HTTP_SERVLET_REQUEST = "HTTP_SERVLET_REQUEST";
-    private static final String HTTP_SERVLET_RESPONSE = "HTTP_SERVLET_RESPONSE";
-    private final ThreadLocal<Map<String, Object>> tl = new ThreadLocal<Map<String, Object>>();
-
     @Override
     public boolean start() {
-        AppStatus.Status = AppStatus.Running;
         return true;
     }
 
     @Override
     public boolean stop() {
-        AppStatus.Status = AppStatus.Stoped;
         return true;
     }
-
     @Override
     public String getName() {
-        return "ComponentWebController";
+        return "httpServerComponent";
     }
 
     @ModelAttribute
@@ -74,13 +66,8 @@ public abstract class HttpControllerComponent implements IComponent {
         } catch (UnsupportedEncodingException e) {
             LoggerFactory.getLogger(this.getClass()).error("setReqAndRes", e);
         }
-        Map<String, Object> values = new HashMap<String, Object>();
-        values.put(HTTP_SERVLET_REQUEST, request);
-        values.put(HTTP_SERVLET_RESPONSE, response);
-        tl.set(values);
 
     }
-
     protected final void handle() {
         try {
             if (AppStatus.Status == AppStatus.Running) {
@@ -111,24 +98,26 @@ public abstract class HttpControllerComponent implements IComponent {
 
 
     protected HttpServletResponse getResponse() {
-        return (HttpServletResponse) tl.get().get(HTTP_SERVLET_RESPONSE);
+        ServletRequestAttributes attributes=(ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        return attributes.getResponse();
     }
 
     protected HttpServletRequest getRequest() {
-        return (HttpServletRequest) tl.get().get(HTTP_SERVLET_REQUEST);
+        ServletRequestAttributes attributes=(ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        return attributes.getRequest();
     }
 
-    public HttpControllerComponent setAttr(String name, Object value) {
+    public AbsHttpServerComponent setAttr(String name, Object value) {
         getRequest().setAttribute(name, value);
         return this;
     }
 
-    public HttpControllerComponent removeAttr(String name) {
+    public AbsHttpServerComponent removeAttr(String name) {
         getRequest().removeAttribute(name);
         return this;
     }
 
-    public HttpControllerComponent setAttrs(Map<String, Object> attrMap) {
+    public AbsHttpServerComponent setAttrs(Map<String, Object> attrMap) {
         for (Map.Entry<String, Object> entry : attrMap.entrySet()) {
             getRequest().setAttribute(entry.getKey(), entry.getValue());
         }
@@ -170,13 +159,13 @@ public abstract class HttpControllerComponent implements IComponent {
     }
 
 
-    public HttpControllerComponent setSessionAttr(String key, Object value) {
+    public AbsHttpServerComponent setSessionAttr(String key, Object value) {
         getRequest().getSession(true).setAttribute(key, value);
         return this;
     }
 
 
-    public HttpControllerComponent removeSessionAttr(String key) {
+    public AbsHttpServerComponent removeSessionAttr(String key) {
         HttpSession session = getRequest().getSession(false);
         if (session != null) {
             session.removeAttribute(key);
@@ -236,56 +225,56 @@ public abstract class HttpControllerComponent implements IComponent {
         return result != null ? result : new Cookie[0];
     }
 
-    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
-                                             boolean isHttpOnly) {
+    public AbsHttpServerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                            boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, isHttpOnly);
     }
 
 
-    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds) {
+    public AbsHttpServerComponent setCookie(String name, String value, int maxAgeInSeconds) {
         return doSetCookie(name, value, maxAgeInSeconds, null, null, null);
     }
 
 
-    public HttpControllerComponent setCookie(Cookie cookie) {
+    public AbsHttpServerComponent setCookie(Cookie cookie) {
         getResponse().addCookie(cookie);
         return this;
     }
 
 
-    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
-                                             String path, boolean isHttpOnly) {
+    public AbsHttpServerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                            String path, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, isHttpOnly);
     }
 
 
-    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
-                                             String path) {
+    public AbsHttpServerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                            String path) {
         return doSetCookie(name, value, maxAgeInSeconds, path, null, null);
     }
 
 
-    public HttpControllerComponent setCookie(String name, String value, int maxAgeInSeconds,
-                                             String path, String domain, boolean isHttpOnly) {
+    public AbsHttpServerComponent setCookie(String name, String value, int maxAgeInSeconds,
+                                            String path, String domain, boolean isHttpOnly) {
         return doSetCookie(name, value, maxAgeInSeconds, path, domain, isHttpOnly);
     }
 
 
-    public HttpControllerComponent removeCookie(String name) {
+    public AbsHttpServerComponent removeCookie(String name) {
         return doSetCookie(name, null, 0, null, null, null);
     }
 
 
-    public HttpControllerComponent removeCookie(String name, String path) {
+    public AbsHttpServerComponent removeCookie(String name, String path) {
         return doSetCookie(name, null, 0, path, null, null);
     }
 
-    public HttpControllerComponent removeCookie(String name, String path, String domain) {
+    public AbsHttpServerComponent removeCookie(String name, String path, String domain) {
         return doSetCookie(name, null, 0, path, domain, null);
     }
 
-    private HttpControllerComponent doSetCookie(String name, String value, int maxAgeInSeconds,
-                                                String path, String domain, Boolean isHttpOnly) {
+    private AbsHttpServerComponent doSetCookie(String name, String value, int maxAgeInSeconds,
+                                               String path, String domain, Boolean isHttpOnly) {
         Cookie cookie = new Cookie(name, value);
         cookie.setMaxAge(maxAgeInSeconds);
         // set the default path value to "/"

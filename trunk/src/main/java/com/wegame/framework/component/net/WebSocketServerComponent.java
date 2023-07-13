@@ -12,7 +12,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebSocketComponent extends AbsServerSocketComponent {
+public class WebSocketServerComponent extends AbsTcpServerComponent {
 
     @Override
     protected ChannelInitializer<Channel> getChannelInitializer() {
