@@ -44,7 +44,14 @@ public class GameAppContext {
     public static <T> T getBean(Class<T> clazz) {
         return GameAppContext.applicationContext.getBean(clazz);
     }
-
+    public static boolean isExist(Class<?> clazz){
+        try {
+            GameAppContext.applicationContext.getBean(clazz);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
     public static <T> T getBean(String beanName) {
         return (T) GameAppContext.applicationContext.getBean(beanName);
     }
