@@ -25,6 +25,26 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+        <spring-boot.version>3.1.1</spring-boot.version>
+        <protobuf.version>3.17.2</protobuf.version>
+        <mysql.version>8.0.32</mysql.version>
+        <commons-lang3.version>3.8</commons-lang3.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <lombok.version>1.18.22</lombok.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <datasource.version>3.1.0</datasource.version>
+        <datasource.connect.version>1.2.4</datasource.connect.version>
+        <httpclient.version>4.5.9</httpclient.version>
+        <httpmime.version>4.5</httpmime.version>
+        <encache.version>3.10.6</encache.version>
+        <JWT.version>3.4.0</JWT.version>
+        <skipTests>true</skipTests>
+        <javax-servlet-api-version>4.0.1</javax-servlet-api-version>
+        <grpc-spring-boot-starter.version>6.0.0</grpc-spring-boot-starter.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <nacos.version>2.0.3</nacos.version>
+        <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
     </properties>
     <dependencies>
         <dependency>
@@ -102,8 +122,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
