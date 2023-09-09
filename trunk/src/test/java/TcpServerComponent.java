@@ -1,11 +1,11 @@
-import com.wegame.framework.component.net.AbsServerSocketComponent;
+import com.wegame.framework.component.net.AbsTcpServerComponent;
 import com.wegame.framework.config.ServerConfig;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelOption;
 
 import java.util.Map;
 
-public class ServerSocketComponent extends AbsServerSocketComponent {
+public class TcpServerComponent extends AbsTcpServerComponent {
 
     @Override
     protected void initConfig(ServerConfig config) {

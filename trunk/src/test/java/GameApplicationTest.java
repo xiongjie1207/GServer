@@ -20,15 +20,15 @@ public class GameApplicationTest extends Launcher implements ApplicationRunner {
     }
 
     @Bean
-    protected ServerSocketComponent newServerSocketComponent(){
-        return new ServerSocketComponent();
+    protected TcpServerComponent newServerSocketComponent(){
+        return new TcpServerComponent();
     }
     @Override
     protected void beforeStop() {
         log.debug("服务器关闭");
     }
     @Bean
-    protected ServerSocketComponent newSocketComponent(){
-        return new ServerSocketComponent();
+    protected TcpServerComponent newSocketComponent(){
+        return new TcpServerComponent();
     }
 }
