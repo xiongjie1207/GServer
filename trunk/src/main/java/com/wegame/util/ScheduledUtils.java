@@ -31,8 +31,8 @@ public class ScheduledUtils {
         this.singleScheduledExecutorService.scheduleAtFixedRate(runnable, initialDelay, delay,
             TimeUnit.MILLISECONDS);
     }
-    public void submitTask(Runnable runnable){
-        scheduledExecutorService.submit(runnable);
+    public void executeTask(Runnable runnable){
+        scheduledExecutorService.execute(runnable);
     }
     public void shutdown(){
         this.singleScheduledExecutorService.shutdown();
