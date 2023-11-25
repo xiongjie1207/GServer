@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @CreateTime: 2021-11-19 22:03
  */
 public class NotifyChannel {
-    private AtomicInteger cas = new AtomicInteger();
+    private final AtomicInteger cas = new AtomicInteger();
 
     public static NotifyChannel SystemExit = new NotifyChannel();
 

@@ -2,13 +2,10 @@ package com.wegame.framework.grpc;
 
 import io.etcd.jetcd.lease.LeaseKeepAliveResponse;
 import io.grpc.stub.StreamObserver;
-import jakarta.annotation.Resource;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Program: wegame
@@ -18,8 +15,6 @@ import java.util.concurrent.TimeUnit;
  */
 @Data
 public class EtcdObserver implements StreamObserver<LeaseKeepAliveResponse> {
-    @Resource
-    private EtcdUtil etcdUtil;
 
     private static final Logger logger = LoggerFactory.getLogger(EtcdObserver.class);
 
@@ -53,15 +48,6 @@ public class EtcdObserver implements StreamObserver<LeaseKeepAliveResponse> {
     @Override
     public void onError(Throwable t) {
         logger.error("服务器：{}，etcd续约出错，错误内容：{}", key, t.getMessage());
-        // 服务器正常，但是在etcd掉线或崩溃的情况下，循环续约直至成功
-        // 判断服务器是否正常关闭
-        while (!NotifyChannel.SystemExit.isClose()) {
-            boolean repeatFlag = etcdUtil.putAndKeepAlive(key, value, ttl);
-            if (repeatFlag){
-                break;
-            }
-            TimeUnit.SECONDS.sleep(5);
-        }
     }
 
     @Override
