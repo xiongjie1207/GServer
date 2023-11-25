@@ -5,201 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_esotericsoftware_reflectasm_1_11_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/WeGame.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ComponentManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_30_1_1_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_8_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_2_6_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jaxen_jaxen_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jdom_jdom_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_18.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_6_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_18.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_htmlparser_htmlparser_1_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_24.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_7_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_7_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jms_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_7_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_4_2_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_7_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_8_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_7_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_2_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_6_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xmlParserAPIs_2_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xom_xom_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_esotericsoftware_reflectasm_1_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_b01.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/gServer.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/Interceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/InterceptorBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/InterceptorBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/Invocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/Invocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Around.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/annotation/Around.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/aop/annotation/Ignore.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/aop/annotation/Ignore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/codec/MessageDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/codec/MessageEncode.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/codec/MessageEncode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/IComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/IComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/commands/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/commands/JsonCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/commands/JsonCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/ComponentC3P0.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/annotation/Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/AsynRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/AsynSQLTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/asyn/Method.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/core/AbstractBaseDAL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/core/BaseDAL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Condition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Criteria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Criterion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/criteria/QueryCriteria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Column.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Content.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/DBType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/IEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaTypeConversion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/JavaTypeResolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/PrimaryKey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/QueryResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/ResolveDataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/SimpleResolveDatabase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/descriptor/Table.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/AbsTemplateGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/ColumnMeta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/DBGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/DaoGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/EntityGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/JavaKeyword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/MetaBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/ProjectGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/TableMeta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/generator/TypeMapping.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/AbstractSQL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/SQL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/jdbc/template/AbstractSqlTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/CommonJdbcSupport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/SpringJDBCBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/SpringJDBCDAL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/model/ModifyParams.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/db/spring/jdbc/template/SqlTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/SocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/SocketServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/handler/WebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/handler/WebSocketServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/IRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/IRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/JsonBaseRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/JsonBaseRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/http/renderer/TextRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/http/renderer/TextRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameChannelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameClientChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameClientChannelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/initializer/GameServerChannelInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/initializer/GameServerChannelInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentClientSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentClientSocketListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentHttpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentHttpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentServerSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentServerSocketListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/listener/ComponentWebSocketListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/listener/ComponentWebSocketListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/IPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/IPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/PacketBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/PacketBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/PacketHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/PacketHead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/net/packet/SPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/net/packet/SPacket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/ISession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/ISession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/components/session/SessionCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/components/session/SessionCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/ClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/SProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/SProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/config/ServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ActionMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ActionMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/AnnotationScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/GameComponentScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/CommanderGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/CommanderGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/GameCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/GameCons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/HttpAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/HttpAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ServerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/ServerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/ServerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SocketAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/SocketAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/SpringContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/SpringContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core/annotation/ActionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/core/annotation/ActionKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/exception/FormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/exception/FormatException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/IPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/plugin/IPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugin/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/plugin/PluginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/server/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/server/WateWave.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/server/WateWave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/AppStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/AppStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/HostUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/HostUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/HttpRequestUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/HttpRequestUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/IAsyncRequestCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/IAsyncRequestCallback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/JsonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/Loggers.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/Loggers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/LongIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/LongIdGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/PacketLoggingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/PacketLoggingHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/ThreadNameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/utils/ThreadNameFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/ColumnWrapperUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/DBTableUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/db/VersionWrapperUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PageIndex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web/PageView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/EntityTemplate.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/IDaoTemplate.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/resources/pagination.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/client/ClientLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/client/UserCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/AdminCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/HttpServerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/ServerLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/socket/server/UserCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/java/test/utils/Protocol.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/proto/build.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/proto/player.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/client/client-dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/DBCacheContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/ServerConfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/test/resources/server/server-dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/.idea/usage.statistics.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/WeGame.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +56,8 @@
       <list>
         <option value="AnnotationType" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -362,12 +209,16 @@
       <select />
     </treeState>
   </component>
-  <component name="MavenRunner">
-    <option name="jreName" value="1.8" />
-  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="992" />
     <option name="y" value="-4" />
@@ -436,47 +287,104 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/xiongjie/文档/java_workspace/4v4game/GServer/trunk/src/main/java/com/gserver/plugins/db/criteria/Criteria.java&#10;queryresult&#9;FILE&#9;file:///home/xiongjie/文档/java_workspace/4v4game/GServer/trunk/src/main/java/com/gserver/plugins/db/descriptor/QueryResult.java&#10;httpsession&#9;PSI&#9;JAVA://com.gserver.core.ISession.HttpSession" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/trunk/src/main/java/com/gserver/plugins" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blokus" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="项目" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "/home/xiongjie/JavaProjects/GServer/trunk/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37770897",
+    "settings.editor.selected.configurable": "build.tools",
+    "spring.configuration.checksum": "0577db339ace206af4fbe2f733f11d07",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/core" />
-      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/utils/web" />
-      <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
-      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/gserver/web/utils" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.gserver.utils.web" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/java" />
+      <recent name="$PROJECT_DIR$/trunk/src/test/resources" />
+      <recent name="$PROJECT_DIR$/trunk/src/test/java" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/plugin" />
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/logic" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.wegame.framework.plugin" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wegame.framework.config" />
+      <recent name="com.wegame.framework.grpc" />
+      <recent name="com.wegame.framework.core" />
+      <recent name="com.wegame.framework.handler" />
+      <recent name="com.wegame.utils" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.GameApplicationTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
     </configuration>
+    <configuration name="GameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GameApplication" />
+      <module name="wegame" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameApplicationTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GameApplicationTest" />
+      <module name="wegame" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameApplicationTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GameApplicationTest" />
+      <module name="wegame" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wegame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -488,8 +396,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="GServer" />
+    <configuration name="GameApplicationTest" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="wegame" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="GameApplicationTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -748,8 +657,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="aws.lambda" factoryName="Local">
+      <option name="credentialProviderId" />
+      <option name="regionId" />
+      <option name="debugHost" value="localhost" />
+      <option name="architecture" />
+      <option name="environmentVariables">
+        <map />
+      </option>
+      <option name="handler" />
+      <option name="image" value="false" />
+      <option name="logicalFunctionName" />
+      <option name="memorySize" value="128" />
+      <option name="pathMappings">
+        <list />
+      </option>
+      <option name="platform" />
+      <option name="runtime" />
+      <option name="templateFile" />
+      <option name="timeout" value="300" />
+      <option name="useTemplate" value="false" />
+      <option name="input" />
+      <option name="inputIsFile" value="false" />
+      <sam>
+        <option name="additionalBuildArgs" />
+        <option name="additionalLocalArgs" />
+        <option name="buildInContainer" value="false" />
+        <option name="dockerNetwork" />
+        <option name="skipImagePull" value="false" />
+      </sam>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.GameApplicationTest" />
+      <item itemvalue="Spring Boot.GameApplicationTest" />
+      <item itemvalue="Tomcat 服务器.webserver" />
+      <item itemvalue="应用程序.GameApplication" />
+      <item itemvalue="应用程序.GameApplicationTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GameApplicationTest" />
+        <item itemvalue="应用程序.GameApplicationTest" />
+        <item itemvalue="应用程序.GameApplicationTest" />
+        <item itemvalue="JUnit.GameApplicationTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
   </component>
@@ -864,118 +822,177 @@
       <workItem from="1643169438341" duration="52000" />
       <workItem from="1643191056261" duration="105000" />
       <workItem from="1643533644599" duration="1514000" />
-    </task>
-    <task id="LOCAL-00001" summary="增加ClientSocket">
-      <created>1508130117892</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1508130117892</updated>
-    </task>
-    <task id="LOCAL-00002" summary="增加ClientSocket">
-      <created>1508130283929</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1508130283929</updated>
-    </task>
-    <task id="LOCAL-00003" summary="增加ClientSocket">
-      <created>1508130349775</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1508130349775</updated>
-    </task>
-    <task id="LOCAL-00004" summary="测试">
-      <created>1508130899929</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1508130899929</updated>
-    </task>
-    <task id="LOCAL-00005" summary="修改包结构">
-      <created>1508131412857</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1508131412857</updated>
-    </task>
-    <task id="LOCAL-00006" summary="修改包结构">
-      <created>1508132224554</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1508132224554</updated>
-    </task>
-    <task id="LOCAL-00007" summary="正常关闭server">
-      <created>1511337175978</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1511337175978</updated>
-    </task>
-    <task id="LOCAL-00008" summary="正常关闭server">
-      <created>1511337231901</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1511337231901</updated>
-    </task>
-    <task id="LOCAL-00009" summary="优化服务器启动顺序">
-      <created>1511375957538</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1511375957538</updated>
-    </task>
-    <task id="LOCAL-00010" summary="优化数据发送类型">
-      <created>1511502110654</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1511502110655</updated>
-    </task>
-    <task id="LOCAL-00011" summary="优化数据发送类型">
-      <created>1511502133851</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1511502133851</updated>
-    </task>
-    <task id="LOCAL-00012" summary="优化数据发送类型">
-      <created>1511502483731</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1511502483731</updated>
-    </task>
-    <task id="LOCAL-00013" summary="优化数据发送类型">
-      <created>1511503869552</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1511503869552</updated>
-    </task>
-    <task id="LOCAL-00014" summary="优化">
-      <created>1512231923856</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1512231923856</updated>
-    </task>
-    <task id="LOCAL-00015" summary="代码优化">
-      <created>1512233176436</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1512233176436</updated>
-    </task>
-    <task id="LOCAL-00016" summary="代码优化">
-      <created>1522138916045</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1522138916045</updated>
+      <workItem from="1644567957268" duration="1591000" />
+      <workItem from="1644911560559" duration="152000" />
+      <workItem from="1644914059286" duration="966000" />
+      <workItem from="1646146047351" duration="2571000" />
+      <workItem from="1646197393224" duration="231000" />
+      <workItem from="1646198622404" duration="152000" />
+      <workItem from="1646200796989" duration="512000" />
+      <workItem from="1646204889374" duration="242000" />
+      <workItem from="1646205312243" duration="461000" />
+      <workItem from="1646364653112" duration="2604000" />
+      <workItem from="1649916375102" duration="73000" />
+      <workItem from="1650383935543" duration="139000" />
+      <workItem from="1651326442299" duration="462000" />
+      <workItem from="1652069062474" duration="155000" />
+      <workItem from="1653537951452" duration="19000" />
+      <workItem from="1653539195849" duration="1776000" />
+      <workItem from="1653656375169" duration="116000" />
+      <workItem from="1653668580659" duration="337000" />
+      <workItem from="1653881386850" duration="6737000" />
+      <workItem from="1653889211227" duration="1305000" />
+      <workItem from="1654929278841" duration="682000" />
+      <workItem from="1654930985318" duration="35000" />
+      <workItem from="1655733701476" duration="1129000" />
+      <workItem from="1655783769516" duration="1098000" />
+      <workItem from="1655790719016" duration="369000" />
+      <workItem from="1659004956833" duration="747000" />
+      <workItem from="1660882178373" duration="86000" />
+      <workItem from="1663665187341" duration="1974000" />
+      <workItem from="1666007802328" duration="167000" />
+      <workItem from="1666008043657" duration="44000" />
+      <workItem from="1666015324453" duration="44000" />
+      <workItem from="1666024864243" duration="149000" />
+      <workItem from="1667030344697" duration="380000" />
+      <workItem from="1667030767055" duration="75000" />
+      <workItem from="1667030882126" duration="36000" />
+      <workItem from="1667270451623" duration="22401000" />
+      <workItem from="1667356525333" duration="20889000" />
+      <workItem from="1667437866188" duration="17995000" />
+      <workItem from="1667525180861" duration="2016000" />
+      <workItem from="1667621156410" duration="168000" />
+      <workItem from="1667785848152" duration="896000" />
+      <workItem from="1667961540779" duration="384000" />
+      <workItem from="1668004056074" duration="1252000" />
+      <workItem from="1668568423757" duration="28719000" />
+      <workItem from="1668649720695" duration="29501000" />
+      <workItem from="1668700328573" duration="7422000" />
+      <workItem from="1668740765517" duration="27016000" />
+      <workItem from="1668823240234" duration="4611000" />
+      <workItem from="1669288146730" duration="5721000" />
+      <workItem from="1673272310969" duration="22000" />
+      <workItem from="1673541467734" duration="143000" />
+      <workItem from="1673592384254" duration="98000" />
+      <workItem from="1673854261378" duration="106000" />
+      <workItem from="1674362812193" duration="11000" />
+      <workItem from="1674909797702" duration="312000" />
+      <workItem from="1675097021598" duration="1164000" />
+      <workItem from="1675656575445" duration="2218000" />
+      <workItem from="1675659219300" duration="12000" />
+      <workItem from="1675664294619" duration="137000" />
+      <workItem from="1675664504839" duration="559000" />
+      <workItem from="1675962767746" duration="3000" />
+      <workItem from="1676000483608" duration="329000" />
+      <workItem from="1676274762041" duration="1358000" />
+      <workItem from="1676469851033" duration="153000" />
+      <workItem from="1676729094851" duration="54000" />
+      <workItem from="1676896111646" duration="429000" />
+      <workItem from="1677252201336" duration="381000" />
+      <workItem from="1677252593422" duration="118000" />
+      <workItem from="1677306386206" duration="19000" />
+      <workItem from="1677337501395" duration="1179000" />
+      <workItem from="1677382568188" duration="29000" />
+      <workItem from="1677472012387" duration="96000" />
+      <workItem from="1677474304279" duration="8492000" />
+      <workItem from="1677509175187" duration="1414000" />
+      <workItem from="1677513181683" duration="2645000" />
+      <workItem from="1677515982316" duration="1454000" />
+      <workItem from="1677557476288" duration="3044000" />
+      <workItem from="1677594445999" duration="512000" />
+      <workItem from="1677687363313" duration="1080000" />
+      <workItem from="1677689517624" duration="1123000" />
+      <workItem from="1677727060207" duration="146000" />
+      <workItem from="1677759767875" duration="843000" />
+      <workItem from="1677762213885" duration="702000" />
+      <workItem from="1677763273433" duration="10000" />
+      <workItem from="1677765608368" duration="2236000" />
+      <workItem from="1677849099190" duration="1701000" />
+      <workItem from="1677857635647" duration="197000" />
+      <workItem from="1677940167750" duration="5676000" />
+      <workItem from="1677946067713" duration="1161000" />
+      <workItem from="1678084490749" duration="4961000" />
+      <workItem from="1678156092853" duration="258000" />
+      <workItem from="1678257699920" duration="535000" />
+      <workItem from="1678328580313" duration="9000000" />
+      <workItem from="1678359632181" duration="259000" />
+      <workItem from="1678368826404" duration="660000" />
+      <workItem from="1679369302086" duration="1900000" />
+      <workItem from="1679731741728" duration="1726000" />
+      <workItem from="1681142902059" duration="162000" />
+      <workItem from="1682674297240" duration="196000" />
+      <workItem from="1683030797634" duration="865000" />
+      <workItem from="1683032202589" duration="796000" />
+      <workItem from="1683523749644" duration="773000" />
+      <workItem from="1684036732254" duration="648000" />
+      <workItem from="1684570004433" duration="667000" />
+      <workItem from="1684773159214" duration="210000" />
+      <workItem from="1685763874429" duration="4702000" />
+      <workItem from="1685790928593" duration="1648000" />
+      <workItem from="1685797908047" duration="249000" />
+      <workItem from="1685802458257" duration="754000" />
+      <workItem from="1686217551451" duration="56000" />
+      <workItem from="1686217629620" duration="1620000" />
+      <workItem from="1686219915326" duration="3190000" />
+      <workItem from="1686404836317" duration="4000" />
+      <workItem from="1686408142486" duration="1919000" />
+      <workItem from="1686413959168" duration="11000" />
+      <workItem from="1686660504564" duration="260000" />
+      <workItem from="1686838308105" duration="2798000" />
+      <workItem from="1686888542985" duration="1217000" />
+      <workItem from="1686923173720" duration="867000" />
+      <workItem from="1687320458262" duration="29000" />
+      <workItem from="1687949998810" duration="5779000" />
+      <workItem from="1687968611153" duration="462000" />
+      <workItem from="1688016333692" duration="882000" />
+      <workItem from="1688098338562" duration="2277000" />
+      <workItem from="1688177127999" duration="1838000" />
+      <workItem from="1688207091273" duration="1152000" />
+      <workItem from="1688394101180" duration="2059000" />
+      <workItem from="1688443020179" duration="2230000" />
+      <workItem from="1688449143058" duration="59000" />
+      <workItem from="1688449246118" duration="46000" />
+      <workItem from="1688453086844" duration="1461000" />
+      <workItem from="1688468835122" duration="8106000" />
+      <workItem from="1688481702532" duration="165000" />
+      <workItem from="1688542536752" duration="513000" />
+      <workItem from="1688554999699" duration="1845000" />
+      <workItem from="1688556910020" duration="257000" />
+      <workItem from="1688557238062" duration="53000" />
+      <workItem from="1688564540965" duration="61000" />
+      <workItem from="1688564733793" duration="84000" />
+      <workItem from="1688564875747" duration="6493000" />
+      <workItem from="1688571438211" duration="1225000" />
+      <workItem from="1688806965932" duration="2934000" />
+      <workItem from="1688811692946" duration="2924000" />
+      <workItem from="1688828291241" duration="791000" />
+      <workItem from="1688987306922" duration="8135000" />
+      <workItem from="1688996688705" duration="4974000" />
+      <workItem from="1689001816312" duration="1326000" />
+      <workItem from="1689003360928" duration="2891000" />
+      <workItem from="1689059869689" duration="266000" />
+      <workItem from="1689088183105" duration="9000" />
+      <workItem from="1689088918746" duration="156000" />
+      <workItem from="1689140173153" duration="204000" />
+      <workItem from="1689148337193" duration="55000" />
+      <workItem from="1689148442538" duration="1080000" />
+      <workItem from="1689236920846" duration="2915000" />
+      <workItem from="1689322938574" duration="130000" />
+      <workItem from="1689784446587" duration="115000" />
+      <workItem from="1689784568022" duration="20000" />
+      <workItem from="1691377928418" duration="30000" />
+      <workItem from="1691378126709" duration="3992000" />
+      <workItem from="1691479911731" duration="2075000" />
+      <workItem from="1691561794121" duration="3242000" />
+      <workItem from="1693977660103" duration="513000" />
+      <workItem from="1694235355418" duration="125000" />
+      <workItem from="1694235678996" duration="120000" />
+      <workItem from="1694235845490" duration="2486000" />
+      <workItem from="1698062697262" duration="495000" />
+      <workItem from="1698063197767" duration="364000" />
+      <workItem from="1699238478250" duration="60000" />
+      <workItem from="1700880448815" duration="2332000" />
+      <workItem from="1700882829452" duration="4916000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1152,7 +1169,175 @@
       <option name="project" value="LOCAL" />
       <updated>1630380826792</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="代码优化">
+      <created>1644568061584</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1644568061584</updated>
+    </task>
+    <task id="LOCAL-00043" summary="代码优化">
+      <created>1653540072880</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1653540072880</updated>
+    </task>
+    <task id="LOCAL-00044" summary="代码优化">
+      <created>1653668896199</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1653668896199</updated>
+    </task>
+    <task id="LOCAL-00045" summary="代码优化">
+      <created>1668831031605</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1668831031605</updated>
+    </task>
+    <task id="LOCAL-00046" summary="代码优化">
+      <created>1677252624530</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1677252624530</updated>
+    </task>
+    <task id="LOCAL-00047" summary="代码优化">
+      <created>1677338375783</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1677338375783</updated>
+    </task>
+    <task id="LOCAL-00048" summary="csv转table">
+      <created>1677946703563</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1677946703563</updated>
+    </task>
+    <task id="LOCAL-00049" summary="csv转table">
+      <created>1677946746645</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1677946746645</updated>
+    </task>
+    <task id="LOCAL-00050" summary="代码优化">
+      <created>1678087490282</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087490282</updated>
+    </task>
+    <task id="LOCAL-00051" summary="代码优化">
+      <created>1678087658859</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087658859</updated>
+    </task>
+    <task id="LOCAL-00052" summary="代码优化">
+      <created>1678088085313</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1678088085313</updated>
+    </task>
+    <task id="LOCAL-00053" summary="代码优化">
+      <created>1678089317819</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1678089317819</updated>
+    </task>
+    <task id="LOCAL-00054" summary="代码优化">
+      <created>1678156310225</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1678156310225</updated>
+    </task>
+    <task id="LOCAL-00055" summary="代码优化">
+      <created>1678257894452</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1678257894453</updated>
+    </task>
+    <task id="LOCAL-00056" summary="代码优化">
+      <created>1678339778687</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1678339778687</updated>
+    </task>
+    <task id="LOCAL-00057" summary="代码优化">
+      <created>1685792244583</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1685792244583</updated>
+    </task>
+    <task id="LOCAL-00058" summary="代码优化">
+      <created>1686219230671</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1686219230671</updated>
+    </task>
+    <task id="LOCAL-00059" summary="代码优化">
+      <created>1686221372433</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1686221372433</updated>
+    </task>
+    <task id="LOCAL-00060" summary="代码优化">
+      <created>1686408328495</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1686408328496</updated>
+    </task>
+    <task id="LOCAL-00061" summary="代码优化">
+      <created>1686888916744</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1686888916745</updated>
+    </task>
+    <task id="LOCAL-00062" summary="代码优化">
+      <created>1687950645800</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1687950645800</updated>
+    </task>
+    <task id="LOCAL-00063" summary="代码优化">
+      <created>1687959518662</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1687959518662</updated>
+    </task>
+    <task id="LOCAL-00064" summary="代码优化">
+      <created>1687963199638</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1687963199638</updated>
+    </task>
+    <task id="LOCAL-00065" summary="代码优化">
+      <created>1687968939896</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1687968939897</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1233,12 +1418,13 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
+    <option name="COLUMN_ID_ORDER">
       <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
       </list>
     </option>
   </component>
@@ -1262,8 +1448,17 @@
     <MESSAGE value="优化数据发送类型" />
     <MESSAGE value="优化" />
     <MESSAGE value="数据库查询排序优化" />
+    <MESSAGE value="csv转table" />
+    <MESSAGE value="springboot版本更新到3.1" />
+    <MESSAGE value="增加事件发布功能" />
+    <MESSAGE value="加入测试程序" />
+    <MESSAGE value="增加工具类" />
+    <MESSAGE value="添加动态注册spring controller功能" />
+    <MESSAGE value="热加载jar包" />
+    <MESSAGE value="修改serverconfig某些情况下为null的bug" />
     <MESSAGE value="代码优化" />
     <option name="LAST_COMMIT_MESSAGE" value="代码优化" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
