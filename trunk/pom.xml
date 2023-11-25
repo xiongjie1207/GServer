@@ -4,29 +4,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0  </version>
     </parent>
     <groupId>com.wegame</groupId>
     <artifactId>wegame</artifactId>
     <version>1.1</version>
     <packaging>jar</packaging>
-    <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <url>http://localhost:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>public</id>
-            <url>http://localhost:8081/repository/maven-releases/</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <name>Server</name>
+    <name>wegame</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
-        <spring-boot.version>3.1.1</spring-boot.version>
+        <spring-boot.version>3.2.0</spring-boot.version>
         <protobuf.version>3.17.2</protobuf.version>
         <mysql.version>8.0.32</mysql.version>
         <commons-lang3.version>3.8</commons-lang3.version>
@@ -46,6 +36,8 @@
         <JWT.version>3.4.0</JWT.version>
         <skipTests>true</skipTests>
         <javax-servlet-api-version>4.0.1</javax-servlet-api-version>
+        <grpc.version>1.41.0</grpc.version>
+        <protobuf.version>3.17.2</protobuf.version>
         <grpc-spring-boot-starter.version>6.0.0</grpc-spring-boot-starter.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <nacos.version>2.0.3</nacos.version>
@@ -54,11 +46,14 @@
         <guava.version>27.0.1-jre</guava.version>
         <opencsv.version>5.6</opencsv.version>
         <reflectasm.version>1.11.3</reflectasm.version>
+        <netty-all.version>4.1.101.Final</netty-all.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
+            <version>${netty-all.version}</version>
         </dependency>
         <dependency>
             <groupId>com.esotericsoftware</groupId>
@@ -109,6 +104,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -119,6 +115,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -139,6 +136,24 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <configuration>
+                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

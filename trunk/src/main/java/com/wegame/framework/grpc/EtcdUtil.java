@@ -1,6 +1,6 @@
 package com.wegame.framework.grpc;
 
-import com.sailurcloud.common.config.EtcdConfig;
+import com.wegame.framework.config.EtcdConfig;
 import io.etcd.jetcd.*;
 import io.etcd.jetcd.lease.LeaseGrantResponse;
 import io.etcd.jetcd.options.GetOption;
@@ -24,9 +24,9 @@ import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 
 /**
- * @Program: grpc-demo
+ * @Program: wegame
  * @Description: ETCD工具类
- * @Author: ccm
+ * @Author: xiongjie.cn@gmail.com
  * @CreateTime: 2021-11-11 13:47
  */
 @Component
@@ -46,7 +46,7 @@ public class EtcdUtil implements Consumer<WatchResponse> {
     private WatchListener watchListener;
 
     @PostConstruct
-    private void init() throws Exception {
+    private void init() {
         String[] etcd_address = etcdConfig.getEtcdAddress();
         Collection<URI> uris = new ArrayList<>();
         for (String etcdAddress : etcd_address) {

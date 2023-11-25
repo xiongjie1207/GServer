@@ -3,9 +3,9 @@ package com.wegame.framework.grpc;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Program: ibox
+ * @Program: wegame
  * @Description: 通知
- * @Author: ccm
+ * @Author: xiongjie.cn@gmail.com
  * @CreateTime: 2021-11-19 22:03
  */
 public class NotifyChannel {

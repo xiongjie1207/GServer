@@ -1,9 +1,9 @@
 package com.wegame.framework.grpc;
 
 /**
- * @Program: grpc-demo
+ * @Program: wegame
  * @Description: 函数式接口
- * @Author: ccm
+ * @Author: xiongjie.cn@gmail.com
  * @CreateTime: 2021-11-10 09:58
  */
 public interface Functional<Arg, Result> {

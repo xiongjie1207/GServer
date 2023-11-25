@@ -11,9 +11,9 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Program: ibox-sum
+ * @Program: wegame
  * @Description: Etcd用观察者
- * @Author: ccm
+ * @Author: xiongjie.cn@gmail.com
  * @CreateTime: 2021-12-29 17:59
  */
 @Data
