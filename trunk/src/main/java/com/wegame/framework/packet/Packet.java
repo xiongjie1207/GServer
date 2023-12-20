@@ -40,8 +40,8 @@ public class Packet extends SPacket {
         NetBuilder netBuilder = new NetBuilder(module,pid);
         return netBuilder;
     }
-    public static ProtoBuilder newProtoBuilder(short module,short pid) {
-        ProtoBuilder protoBuilder = new ProtoBuilder(module,pid);
+    public static GrpcBuilder newProtoBuilder(short module, short pid) {
+        GrpcBuilder protoBuilder = new GrpcBuilder(module,pid);
         return protoBuilder;
     }
 
@@ -103,17 +103,17 @@ public class Packet extends SPacket {
         }
     }
 
-    public static class ProtoBuilder {
+    public static class GrpcBuilder {
         private short module;
         private short pid;
         private byte[] data;
 
-        private ProtoBuilder(short module,short pid) {
+        private GrpcBuilder(short module, short pid) {
             this.module = module;
             this.pid = pid;
         }
 
-        public <T> ProtoBuilder setData(T object) {
+        public <T> GrpcBuilder setData(T object) {
             if(object!=null){
                 try {
                     Class clazz = object.getClass();

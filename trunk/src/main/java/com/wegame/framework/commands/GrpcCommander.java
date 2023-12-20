@@ -11,7 +11,7 @@ import java.io.IOException;
  * @Date 2022/11/17 20:30
  **/
 @Slf4j
-public class PBCommander extends Commander{
+public class GrpcCommander extends Commander{
     public <T> T getMessage(Class<T> clazz){
         T newObject = null;
         try {
