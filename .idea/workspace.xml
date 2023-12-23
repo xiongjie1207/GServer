@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/PBCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/GrpcCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,6 +252,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Maven.wegame [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [install].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -674,6 +673,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-86fc8109" />
         <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-920bfa72" />
       </set>
     </attachedChunks>
@@ -970,7 +970,10 @@
       <workItem from="1700917399002" duration="103000" />
       <workItem from="1701255336926" duration="56000" />
       <workItem from="1702567083624" duration="489000" />
-      <workItem from="1703082731940" duration="365000" />
+      <workItem from="1703082731940" duration="3740000" />
+      <workItem from="1703089381883" duration="776000" />
+      <workItem from="1703266150507" duration="1722000" />
+      <workItem from="1703311591981" duration="1051000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1315,7 +1318,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
