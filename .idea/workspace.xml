@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
     </list>
@@ -973,7 +972,14 @@
       <workItem from="1703082731940" duration="3740000" />
       <workItem from="1703089381883" duration="776000" />
       <workItem from="1703266150507" duration="1722000" />
-      <workItem from="1703311591981" duration="1051000" />
+      <workItem from="1703311591981" duration="1067000" />
+      <workItem from="1703340763966" duration="1366000" />
+      <workItem from="1703356327508" duration="249000" />
+      <workItem from="1705398292150" duration="421000" />
+      <workItem from="1705740274828" duration="35000" />
+      <workItem from="1705740372347" duration="650000" />
+      <workItem from="1706709684577" duration="53000" />
+      <workItem from="1706838200717" duration="768000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1318,7 +1324,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
