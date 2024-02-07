@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/GrpcChannel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Register.java" afterDir="false" />
+    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="增加grpc功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/config/EtcdConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/config/EtcdConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/EtcdObserver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/EtcdUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Functional.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/GrpcClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/NotifyChannel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/WatchListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -990,7 +980,7 @@
       <workItem from="1707153151943" duration="2118000" />
       <workItem from="1707184026763" duration="2480000" />
       <workItem from="1707195361549" duration="22402000" />
-      <workItem from="1707318946846" duration="4721000" />
+      <workItem from="1707318946846" duration="7304000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1335,7 +1325,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1455,7 +1445,8 @@
     <MESSAGE value="热加载jar包" />
     <MESSAGE value="修改serverconfig某些情况下为null的bug" />
     <MESSAGE value="代码优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="代码优化" />
+    <MESSAGE value="增加grpc功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加grpc功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

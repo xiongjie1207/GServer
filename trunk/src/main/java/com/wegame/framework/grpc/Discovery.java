@@ -53,8 +53,7 @@ public class Discovery {
             for (KeyValue kv : kvs) {
                 addChannel(kv.getKey().toString(UTF_8), kv.getValue().toString(UTF_8));
             }
-            //创建线程监听前缀
-            new Thread(() -> watcher(prefixAddress)).start();
+            watcher(prefixAddress);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
