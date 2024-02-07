@@ -40,7 +40,6 @@
         <protobuf.version>3.17.2</protobuf.version>
         <grpc-spring-boot-starter.version>6.0.0</grpc-spring-boot-starter.version>
         <javax.mail.version>1.4.7</javax.mail.version>
-        <nacos.version>2.0.3</nacos.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
         <io.etcd.version>0.5.11</io.etcd.version>
         <guava.version>27.0.1-jre</guava.version>
@@ -81,7 +80,6 @@
             <artifactId>commons-lang</artifactId>
             <version>${commons-lang.version}</version>
         </dependency>
-
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>

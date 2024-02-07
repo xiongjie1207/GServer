@@ -1,8 +1,6 @@
 package com.wegame.framework.config;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
  * @Program: grpc-demo
@@ -11,8 +9,6 @@ import org.springframework.stereotype.Component;
  * @CreateTime: 2021-11-18 16:20
  */
 @Data
-@Component("etcdConfig")
-@ConfigurationProperties("etcd-config")
 public class EtcdConfig {
     private final String prefix = "/wegame";
 

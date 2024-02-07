@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/GrpcChannel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/config/EtcdConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/config/EtcdConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/EtcdObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/EtcdUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Functional.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/GrpcClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/NotifyChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/WatchListener.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +28,9 @@
       <list>
         <option value="AnnotationType" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -253,6 +263,7 @@
   &quot;keyToString&quot;: {
     &quot;Maven.wegame [deploy].executor&quot;: &quot;Run&quot;,
     &quot;Maven.wegame [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [package].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -266,7 +277,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/xiongjie/JavaProjects/GServer/trunk/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/xiongjie/JavaProjects/GServer/trunk/src/main/java/com/wegame/framework/grpc&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -275,18 +286,18 @@
     &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.37770897&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;0577db339ace206af4fbe2f733f11d07&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc" />
       <recent name="$PROJECT_DIR$/trunk/src/main/java" />
       <recent name="$PROJECT_DIR$/trunk/src/test/resources" />
       <recent name="$PROJECT_DIR$/trunk/src/test/java" />
       <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/plugin" />
-      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/logic" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
@@ -301,8 +312,8 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.wegame.framework.config" />
       <recent name="com.wegame.framework.grpc" />
+      <recent name="com.wegame.framework.config" />
       <recent name="com.wegame.framework.core" />
       <recent name="com.wegame.framework.handler" />
       <recent name="com.wegame.utils" />
@@ -669,14 +680,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-86fc8109" />
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-920bfa72" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBootOptions">
     <option name="showAdditionalConfigNotification" value="false" />
@@ -979,7 +982,15 @@
       <workItem from="1705740274828" duration="35000" />
       <workItem from="1705740372347" duration="650000" />
       <workItem from="1706709684577" duration="53000" />
-      <workItem from="1706838200717" duration="782000" />
+      <workItem from="1706838200717" duration="829000" />
+      <workItem from="1707060951435" duration="2590000" />
+      <workItem from="1707107875404" duration="989000" />
+      <workItem from="1707112760104" duration="8704000" />
+      <workItem from="1707150617153" duration="1680000" />
+      <workItem from="1707153151943" duration="2118000" />
+      <workItem from="1707184026763" duration="2480000" />
+      <workItem from="1707195361549" duration="22402000" />
+      <workItem from="1707318946846" duration="4721000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1324,7 +1335,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
