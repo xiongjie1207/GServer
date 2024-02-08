@@ -1,6 +1,5 @@
 package com.wegame.framework.grpc;
 
-import com.wegame.framework.config.EtcdConfig;
 import io.etcd.jetcd.KeyValue;
 import io.etcd.jetcd.watch.WatchEvent;
 import io.etcd.jetcd.watch.WatchResponse;
@@ -74,11 +73,11 @@ public abstract class GrpcClient implements WatchListener {
 
     @PostConstruct
     private void init() {
-        discovery = new Discovery(getEtcdConfig().getEtcdAddress());
-        discovery.watchService(getEtcdConfig().getPrefixFormat(remoteServiceName()), this);
+        discovery = new Discovery(getEtcdAddress());
+        discovery.watchService(remoteServiceName(), this);
     }
 
-    protected abstract EtcdConfig getEtcdConfig();
+    protected abstract String[] getEtcdAddress();
 
     protected abstract String remoteServiceName();
 }
