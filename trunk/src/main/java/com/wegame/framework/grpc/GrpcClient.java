@@ -1,11 +1,13 @@
 package com.wegame.framework.grpc;
 
+import com.wegame.framework.config.EtcdConfig;
 import io.etcd.jetcd.KeyValue;
 import io.etcd.jetcd.watch.WatchEvent;
 import io.etcd.jetcd.watch.WatchResponse;
 import io.grpc.Channel;
 import io.grpc.ManagedChannelBuilder;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,8 +17,9 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * @Author xiongjie
  * @Date 2024/02/08 20:40
  **/
-public class GrpcClient implements WatchListener {
+public abstract class GrpcClient implements WatchListener {
     private final Object lock = new Object();
+    private Discovery discovery;
     private final Map<String, Channel> channelMap = new HashMap<>();
 
     @Override
@@ -68,4 +71,14 @@ public class GrpcClient implements WatchListener {
     protected Channel channel(String host) {
         return ManagedChannelBuilder.forTarget(host).usePlaintext().build();
     }
+
+    @PostConstruct
+    private void init() {
+        discovery = new Discovery(getEtcdConfig().getEtcdAddress());
+        discovery.watchService(getEtcdConfig().getPrefixFormat(remoteServiceName()), this);
+    }
+
+    protected abstract EtcdConfig getEtcdConfig();
+
+    protected abstract String remoteServiceName();
 }
