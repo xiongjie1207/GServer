@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/GrpcClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/WatchListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Discovery.java" afterDir="false" />
     </list>
@@ -983,7 +985,8 @@
       <workItem from="1707318946846" duration="7484000" />
       <workItem from="1707369511671" duration="7921000" />
       <workItem from="1707385257847" duration="26000" />
-      <workItem from="1707394692239" duration="331000" />
+      <workItem from="1707394692239" duration="447000" />
+      <workItem from="1707395593778" duration="964000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1328,7 +1331,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
