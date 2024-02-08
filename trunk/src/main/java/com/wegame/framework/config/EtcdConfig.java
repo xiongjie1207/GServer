@@ -14,30 +14,30 @@ public class EtcdConfig {
 
     private String[] etcdAddress;
 
-    private String serverName;
+    private String serviceName;
 
-    private String ip;
+    private String serviceIp;
 
-    private int port;
+    private int servicePort;
 
     private long ttl;
 
 
 
     public String getEtcdKey() {
-        return String.format("%s/%s/%s:%d",prefix,serverName,ip,port);
+        return String.format("%s/%s/%s:%d",prefix, serviceName, serviceIp, servicePort);
     }
 
     public String getHttpKey(String port) {
-        return String.format("%s/http_%s/%s:%s", prefix, serverName, ip, port);
+        return String.format("%s/http_%s/%s:%s", prefix, serviceName, serviceIp, port);
     }
 
     public String getHttpHost(String port) {
-        return String.format("%s:%s", ip, port);
+        return String.format("%s:%s", serviceIp, port);
     }
 
     public String getEtcdValue() {
-        return String.format("%s:%d",ip,port);
+        return String.format("%s:%d", serviceIp, servicePort);
     }
 
     public String getPrefixFormat(String app_name) {return String.format("%s/%s", prefix, app_name);}

@@ -1,5 +1,6 @@
 package com.wegame.framework.grpc;
 
+import com.wegame.util.ScheduledUtils;
 import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;
 import io.etcd.jetcd.KeyValue;
@@ -53,7 +54,7 @@ public class Discovery {
             for (KeyValue kv : kvs) {
                 addChannel(kv.getKey().toString(UTF_8), kv.getValue().toString(UTF_8));
             }
-            watcher(prefixAddress);
+            ScheduledUtils.getInstance().executeTask(() -> watcher(prefixAddress));
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
