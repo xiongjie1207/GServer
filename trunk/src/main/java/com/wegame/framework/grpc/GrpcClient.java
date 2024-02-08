@@ -43,7 +43,6 @@ public abstract class GrpcClient implements WatchListener {
 
     public void removeChannel(KeyValue keyValue) {
         String key = keyValue.getKey().toString(UTF_8);
-        String value = keyValue.getValue().toString(UTF_8);
         log.warn("服务掉线:{}", key);
         channelMap.remove(key);
     }
