@@ -41,7 +41,7 @@
         <grpc-spring-boot-starter.version>6.0.0</grpc-spring-boot-starter.version>
         <javax.mail.version>1.4.7</javax.mail.version>
         <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
-        <io.etcd.version>0.5.11</io.etcd.version>
+        <io.etcd.version>0.7.5</io.etcd.version>
         <guava.version>27.0.1-jre</guava.version>
         <opencsv.version>5.6</opencsv.version>
         <reflectasm.version>1.11.3</reflectasm.version>
