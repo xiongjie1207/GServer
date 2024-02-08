@@ -45,7 +45,7 @@ public class Discovery implements Watch.Listener {
     }
 
     public void watchService(String key) {
-        GetOption getOption = GetOption.newBuilder().withPrefix(ByteSequence.from(key, UTF_8)).build();
+        GetOption getOption = GetOption.newBuilder().isPrefix(true).build();
         //请求当前前缀
         CompletableFuture<GetResponse> getResponseCompletableFuture = client.getKVClient().get(ByteSequence.from(key, UTF_8), getOption);
 
@@ -64,7 +64,7 @@ public class Discovery implements Watch.Listener {
     private void watcher(ByteSequence key) {
 
         System.out.println("watching prefix:" + key);
-        WatchOption watchOption = WatchOption.newBuilder().withPrefix(key).build();
+        WatchOption watchOption = WatchOption.newBuilder().isPrefix(true).build();
         //实例化一个监听对象，当监听的key发生变化时会被调用
         Watch.Watcher watcher = client.getWatchClient().watch(key, watchOption, this);
         this.watchMap.put(key.toString(UTF_8), watcher);
