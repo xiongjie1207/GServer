@@ -5,12 +5,11 @@ import io.etcd.jetcd.watch.WatchEvent;
 import io.etcd.jetcd.watch.WatchResponse;
 import io.grpc.Channel;
 import io.grpc.ManagedChannelBuilder;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -19,11 +18,11 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * @Author xiongjie
  * @Date 2024/02/08 20:40
  **/
+@Slf4j
 public abstract class GrpcClient implements WatchListener {
-    private final Object lock = new Object();
     private Discovery discovery;
     private final Map<String, Channel> channelMap = new HashMap<>();
-    private List<String> keys = new ArrayList<>();
+
     @Override
     public void onNext(WatchResponse watchResponse) {
         for (WatchEvent watchEvent : watchResponse.getEvents()) {
@@ -39,17 +38,14 @@ public abstract class GrpcClient implements WatchListener {
     public void addChannel(KeyValue keyValue) {
         String key = keyValue.getKey().toString(UTF_8);
         String value = keyValue.getValue().toString(UTF_8);
-        synchronized (lock) {
-            channelMap.put(key, channel(value));
-        }
+        channelMap.put(key, channel(value));
     }
 
     public void removeChannel(KeyValue keyValue) {
         String key = keyValue.getKey().toString(UTF_8);
         String value = keyValue.getValue().toString(UTF_8);
-        synchronized (lock) {
-            channelMap.remove(key);
-        }
+        log.warn("服务掉线:{}", key);
+        channelMap.remove(key);
     }
 
     @Override
@@ -63,6 +59,9 @@ public abstract class GrpcClient implements WatchListener {
     }
 
     protected Channel select() throws Exception {
+        if (this.channelMap.isEmpty()) {
+            throw new Exception("channels size is zero");
+        }
         for (Channel channel : this.channelMap.values()) {
             return channel;
         }
@@ -79,10 +78,12 @@ public abstract class GrpcClient implements WatchListener {
         discovery = new Discovery(getEtcdAddress());
         discovery.watchService(remoteServiceName(), this);
     }
+
     @PreDestroy
-    private void destroy(){
+    private void destroy() {
         discovery.close();
     }
+
     protected abstract String[] getEtcdAddress();
 
     protected abstract String remoteServiceName();

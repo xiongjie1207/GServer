@@ -1,6 +1,5 @@
 package com.wegame.framework.grpc;
 
-import com.wegame.util.ScheduledUtils;
 import io.etcd.jetcd.ByteSequence;
 import io.etcd.jetcd.Client;
 import io.etcd.jetcd.KeyValue;
@@ -40,12 +39,10 @@ public class Discovery {
             for (KeyValue kv : kvs) {
                 listener.addChannel(kv);
             }
-            ScheduledUtils.getInstance().executeTask(() -> {
-                WatchOption watchOption = WatchOption.newBuilder().isPrefix(true).build();
-                //实例化一个监听对象，当监听的key发生变化时会被调用
-                Watch.Watcher watcher = client.getWatchClient().watch(ByteSequence.from(key, UTF_8), watchOption, listener);
-                this.watchMap.put(key, watcher);
-            });
+            WatchOption watchOption = WatchOption.newBuilder().isPrefix(true).build();
+            //实例化一个监听对象，当监听的key发生变化时会被调用
+            Watch.Watcher watcher = client.getWatchClient().watch(ByteSequence.from(key, UTF_8), watchOption, listener);
+            this.watchMap.put(key, watcher);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }

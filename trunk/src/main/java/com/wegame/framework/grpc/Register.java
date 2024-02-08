@@ -65,10 +65,10 @@ public class Register {
         return client;
     }
 
-    public void putWithLease(String key, String value) {
+    public void put(String key, String value, long ttl) {
         Lease leaseClient = getClient().getLeaseClient();
         keys.add(key);
-        leaseClient.grant(60).thenAccept(result -> {
+        leaseClient.grant(ttl).thenAccept(result -> {
             // 租约ID
             long leaseId = result.getID();
 
