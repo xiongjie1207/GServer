@@ -5,6 +5,9 @@ import io.etcd.jetcd.lease.LeaseKeepAliveResponse;
 import io.etcd.jetcd.options.PutOption;
 import io.grpc.stub.CallStreamObserver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.google.common.base.Charsets.UTF_8;
 
 public class Register {
@@ -12,9 +15,14 @@ public class Register {
     private final String[] endpoints;
     private final Object lock = new Object();
 
+    private List<String> keys = new ArrayList<>();
 
     public Register(String[] endpoints) {
         this.endpoints = endpoints;
+    }
+
+    public void removeKeys() {
+        keys.forEach(key -> getKVClient().delete(bytesOf(key)));
     }
 
     /**
@@ -27,11 +35,12 @@ public class Register {
     }
 
     public void close() {
+        removeKeys();
         client.close();
-        client = null;
     }
 
     public Response.Header put(String key, String value) throws Exception {
+        keys.add(key);
         return getKVClient().put(bytesOf(key), bytesOf(value)).get().getHeader();
     }
 
@@ -58,7 +67,7 @@ public class Register {
 
     public void putWithLease(String key, String value) {
         Lease leaseClient = getClient().getLeaseClient();
-
+        keys.add(key);
         leaseClient.grant(60).thenAccept(result -> {
             // 租约ID
             long leaseId = result.getID();

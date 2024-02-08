@@ -7,7 +7,10 @@ import io.grpc.Channel;
 import io.grpc.ManagedChannelBuilder;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -20,7 +23,7 @@ public abstract class GrpcClient implements WatchListener {
     private final Object lock = new Object();
     private Discovery discovery;
     private final Map<String, Channel> channelMap = new HashMap<>();
-
+    private List<String> keys = new ArrayList<>();
     @Override
     public void onNext(WatchResponse watchResponse) {
         for (WatchEvent watchEvent : watchResponse.getEvents()) {
@@ -76,7 +79,10 @@ public abstract class GrpcClient implements WatchListener {
         discovery = new Discovery(getEtcdAddress());
         discovery.watchService(remoteServiceName(), this);
     }
-
+    @PreDestroy
+    private void destroy(){
+        discovery.close();
+    }
     protected abstract String[] getEtcdAddress();
 
     protected abstract String remoteServiceName();
