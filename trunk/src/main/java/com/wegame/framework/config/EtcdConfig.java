@@ -10,8 +10,6 @@ import lombok.Data;
  */
 @Data
 public class EtcdConfig {
-    private final String prefix = "/wegame";
-
     private String[] etcdAddress;
 
     private String serviceName;
@@ -23,13 +21,12 @@ public class EtcdConfig {
     private long ttl;
 
 
-
     public String getEtcdKey() {
-        return String.format("%s/%s/%s:%d",prefix, serviceName, serviceIp, servicePort);
+        return String.format("/%s/%s:%d", serviceName, serviceIp, servicePort);
     }
 
     public String getHttpKey(String port) {
-        return String.format("%s/http_%s/%s:%s", prefix, serviceName, serviceIp, port);
+        return String.format("/%s/%s:%s", serviceName, serviceIp, port);
     }
 
     public String getHttpHost(String port) {
@@ -40,5 +37,7 @@ public class EtcdConfig {
         return String.format("%s:%d", serviceIp, servicePort);
     }
 
-    public String getPrefixFormat(String app_name) {return String.format("%s/%s", prefix, app_name);}
+    public String getPrefixFormat(String app_name) {
+        return String.format("/%s", app_name);
+    }
 }
