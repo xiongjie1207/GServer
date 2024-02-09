@@ -1,56 +1,75 @@
 package com.wegame.framework.grpc;
 
-import io.etcd.jetcd.ByteSequence;
-import io.etcd.jetcd.Client;
-import io.etcd.jetcd.KeyValue;
-import io.etcd.jetcd.Watch;
-import io.etcd.jetcd.kv.GetResponse;
-import io.etcd.jetcd.options.GetOption;
-import io.etcd.jetcd.options.WatchOption;
+import lombok.SneakyThrows;
+import org.apache.zookeeper.*;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+/**
+ * @author fanqiechaodan
+ * @Classname ServiceConsumer
+ * @Description
+ */
+public class Discovery implements org.apache.zookeeper.Watcher {
 
-public class Discovery {
-    private Client client;
+    private static final int SESSION_TIMEOUT = 500000;
 
+    private final ZooKeeper zooKeeper;
+    private WatchListener listener;
+    private String serviceName;
 
-    private final Map<String, Watch.Watcher> watchMap = new HashMap<>();
-
-
-    public Discovery(String[] endpoints) {
-        client = Client.builder().endpoints(endpoints).build();
+    public Discovery(String zooKeeperAddress) throws IOException {
+        this.zooKeeper = new ZooKeeper(zooKeeperAddress, SESSION_TIMEOUT, this);
     }
 
-
-    public void watchService(String key, WatchListener listener) {
-        GetOption getOption = GetOption.newBuilder().isPrefix(true).build();
-        //请求当前前缀
-        CompletableFuture<GetResponse> getResponseCompletableFuture = client.getKVClient().get(ByteSequence.from(key, UTF_8), getOption);
-
-        try {
-            //获取当前前缀下的服务并存储
-            List<KeyValue> kvs = getResponseCompletableFuture.get().getKvs();
-            for (KeyValue kv : kvs) {
-                listener.addChannel(kv);
-            }
-            WatchOption watchOption = WatchOption.newBuilder().isPrefix(true).build();
-            //实例化一个监听对象，当监听的key发生变化时会被调用
-            Watch.Watcher watcher = client.getWatchClient().watch(ByteSequence.from(key, UTF_8), watchOption, listener);
-            this.watchMap.put(key, watcher);
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+    /**
+     * 获取服务地址
+     *
+     * @param serviceName
+     * @return
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void watchService(String serviceName, WatchListener listener) throws KeeperException, InterruptedException {
+        this.listener = listener;
+        if (zooKeeper.exists(serviceName, this) == null) {
+            zooKeeper.create(serviceName, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
+        List<String> childrenList = zooKeeper.getChildren(serviceName, this);
+        for (String serviceNode : childrenList) {
+            String nodePath = serviceName + "/" + serviceNode;
+            String serviceUrl = new String(zooKeeper.getData(nodePath, this, null));
+            listener.add(nodePath, serviceUrl);
+        }
+
     }
 
-    public void close() {
-        client.close();
-        client = null;
+    public void close() throws InterruptedException {
+        zooKeeper.close();
     }
 
+    @SneakyThrows
+    @Override
+    public void process(WatchedEvent watchedEvent) {
+        switch (watchedEvent.getType()) {
+            case NodeCreated -> {
+                String serviceUrl = new String(zooKeeper.getData(watchedEvent.getPath(), this, null));
+                listener.add(watchedEvent.getPath(), serviceUrl);
+            }
+            case NodeDeleted -> {
+                listener.remove(watchedEvent.getPath());
+            }
+            case NodeChildrenChanged -> {
+                List<String> childrenList = zooKeeper.getChildren(watchedEvent.getPath(), this);
+                for (String serviceNode : childrenList) {
+                    String nodePath = watchedEvent.getPath() + "/" + serviceNode;
+                    String serviceUrl = new String(this.zooKeeper.getData(nodePath, this, null));
+                    listener.add(nodePath, serviceUrl);
+                }
+
+            }
+        }
+
+    }
 }

@@ -9,8 +9,8 @@ import lombok.Data;
  * @CreateTime: 2021-11-18 16:20
  */
 @Data
-public class EtcdConfig {
-    private String[] etcdAddress;
+public class ZKConfig {
+    private String ZKAddress;
 
     private String serviceName;
 
@@ -21,7 +21,7 @@ public class EtcdConfig {
     private long ttl;
 
 
-    public String getEtcdKey() {
+    public String getZKKey() {
         return String.format("/%s/%s:%d", serviceName, serviceIp, servicePort);
     }
 
@@ -33,7 +33,7 @@ public class EtcdConfig {
         return String.format("%s:%s", serviceIp, port);
     }
 
-    public String getEtcdValue() {
+    public String getZKValue() {
         return String.format("%s:%d", serviceIp, servicePort);
     }
 

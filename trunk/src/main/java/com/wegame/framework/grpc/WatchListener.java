@@ -1,14 +1,11 @@
 package com.wegame.framework.grpc;
 
-import io.etcd.jetcd.KeyValue;
-import io.etcd.jetcd.Watch;
-
 /**
  * @Author xiongjie
- * @Date 2024/02/08 20:43
+ * @Date 2024/02/10 01:53
  **/
-public interface WatchListener extends Watch.Listener {
-    void addChannel(KeyValue keyValue);
+public interface WatchListener {
+    void add(String key, String path);
 
-    void removeChannel(KeyValue keyValue);
+    void remove(String key);
 }
