@@ -6,6 +6,7 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
 import java.util.List;
@@ -43,8 +44,9 @@ public class Registry {
             zooKeeper.create(serviceName, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
         String nodePath = serviceName + "/" + serviceAddress;
-        if (zooKeeper.exists(nodePath, false) != null) {
-            zooKeeper.delete(nodePath, 0);
+        Stat state = zooKeeper.exists(nodePath, false);
+        if (state != null) {
+            zooKeeper.delete(nodePath, state.getVersion());
         }
         String serviceNodePath = zooKeeper.create(nodePath, serviceAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("注册成功;serviceNodePath:" + serviceNodePath);
@@ -55,7 +57,10 @@ public class Registry {
             List<String> childrenList = zooKeeper.getChildren(this.serviceName, true);
             for (String serviceNode : childrenList) {
                 String nodePath = this.serviceName + "/" + serviceNode;
-                zooKeeper.delete(nodePath, 0);
+                Stat state = zooKeeper.exists(nodePath, false);
+                if (state != null) {
+                    zooKeeper.delete(nodePath, state.getVersion());
+                }
             }
             zooKeeper.close();
         } catch (Exception e) {
