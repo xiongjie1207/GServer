@@ -56,7 +56,7 @@ public class Discovery implements PathChildrenCacheListener {
     public void watchService(String serviceName, WatchListener listener) {
         this.listener = listener;
         this.serviceName = serviceName;
-        curatorCache = CuratorCache.build(this.curator, this.serviceName);
+        curatorCache = CuratorCache.builder(this.curator, this.serviceName).build();
         CuratorCacheListener curatorCacheListener = CuratorCacheListener.builder()
                 .forPathChildrenCache(this.serviceName, this.curator, this)
                 .build();
