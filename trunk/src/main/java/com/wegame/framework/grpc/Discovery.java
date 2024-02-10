@@ -2,9 +2,15 @@ package com.wegame.framework.grpc;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.zookeeper.*;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.cache.CuratorCache;
+import org.apache.curator.framework.recipes.cache.CuratorCacheListener;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.zookeeper.KeeperException;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,17 +19,30 @@ import java.util.List;
  * @Description
  */
 @Slf4j
-public class Discovery implements org.apache.zookeeper.Watcher {
+public class Discovery implements PathChildrenCacheListener {
 
-    private static final int SESSION_TIMEOUT = 20000;
-
-    private final ZooKeeper zooKeeper;
+    private final int SESSION_TIMEOUT = 20000;
+    private final int connectionTimeoutMs = 20000;
+    private final int maxRetries = 10;
+    private final CuratorFramework curator;
     private WatchListener listener;
     private String serviceName;
+    private final int sleepMsBetweenRetry = 20000;
+    private CuratorCache curatorCache;
 
-    public Discovery(String zooKeeperAddress) throws IOException {
-        this.zooKeeper = new ZooKeeper(zooKeeperAddress, SESSION_TIMEOUT, this);
+    public Discovery(String zooKeeperAddress) {
+        this.curator = CuratorFrameworkFactory.builder()
+                //连接地址  集群用,隔开
+                .connectString(zooKeeperAddress)
+                .connectionTimeoutMs(connectionTimeoutMs)
+                //会话超时时间
+                .sessionTimeoutMs(SESSION_TIMEOUT)
+                //设置重试机制
+                .retryPolicy(new ExponentialBackoffRetry(sleepMsBetweenRetry, maxRetries))
+                .build();
+        this.curator.start();
     }
+
 
     /**
      * 获取服务地址
@@ -33,49 +52,53 @@ public class Discovery implements org.apache.zookeeper.Watcher {
      * @throws KeeperException
      * @throws InterruptedException
      */
-    public void watchService(String serviceName, WatchListener listener) throws KeeperException, InterruptedException {
+    @SneakyThrows
+    public void watchService(String serviceName, WatchListener listener) {
         this.listener = listener;
         this.serviceName = serviceName;
-        if (zooKeeper.exists(serviceName, true) == null) {
-            zooKeeper.create(serviceName, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-        }
-        getChildrenList(this.serviceName);
+        curatorCache = CuratorCache.build(this.curator, this.serviceName);
+        CuratorCacheListener curatorCacheListener = CuratorCacheListener.builder()
+                .forPathChildrenCache(this.serviceName, this.curator, this)
+                .build();
+        curatorCache.listenable().addListener(curatorCacheListener);
+        curatorCache.start();
 
     }
 
-    private void getChildrenList(String serviceName) throws InterruptedException, KeeperException {
-        List<String> childrenList = zooKeeper.getChildren(serviceName, true);
+    @SneakyThrows
+    private void getChildrenList(String serviceName) {
+        List<String> childrenList = curator.getChildren().forPath(serviceName);
         System.out.println("服务列表:" + childrenList);
         this.listener.removeAllChannel();
         for (String serviceNode : childrenList) {
             String nodePath = serviceName + "/" + serviceNode;
-            String serviceUrl = new String(zooKeeper.getData(nodePath, this, null));
+            String serviceUrl = new String(curator.getData().forPath((nodePath)));
             listener.addChannel(nodePath, serviceUrl);
         }
     }
 
     public void close() throws InterruptedException {
-        zooKeeper.close();
+        curator.close();
     }
 
-    @SneakyThrows
+
     @Override
-    public void process(WatchedEvent watchedEvent) {
+    public void childEvent(CuratorFramework curatorFramework, PathChildrenCacheEvent watchedEvent) throws Exception {
         switch (watchedEvent.getType()) {
-            case NodeCreated -> {
-                log.warn("服务上线:{}", watchedEvent.getPath());
-                String serviceUrl = new String(zooKeeper.getData(watchedEvent.getPath(), true, null));
-                listener.addChannel(watchedEvent.getPath(), serviceUrl);
+            case CHILD_ADDED -> {
+                log.warn("服务上线:{}", watchedEvent.getData().getPath());
+                String serviceUrl = new String(curator.getData().forPath(watchedEvent.getData().getPath()));
+                listener.addChannel(watchedEvent.getData().getPath(), serviceUrl);
             }
-            case NodeDeleted -> {
-                log.warn("服务下线:{}", watchedEvent.getPath());
-                if (zooKeeper.exists(watchedEvent.getPath(), true) == null) {
-                    listener.removeChannel(watchedEvent.getPath());
+            case CHILD_REMOVED -> {
+                log.warn("服务下线:{}", watchedEvent.getData().getPath());
+                if (curator.checkExists().forPath(watchedEvent.getData().getPath()) == null) {
+                    listener.removeChannel(watchedEvent.getData().getPath());
                 }
             }
-            case NodeChildrenChanged -> {
-                log.warn("子目录更新:{}", watchedEvent.getPath());
-                getChildrenList(this.serviceName);
+            case CHILD_UPDATED -> {
+                log.warn("子目录更新:{}", watchedEvent.getData().getPath());
+                getChildrenList(watchedEvent.getData().getPath());
             }
         }
     }
