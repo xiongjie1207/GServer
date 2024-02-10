@@ -1,6 +1,7 @@
 package com.wegame.framework.grpc;
 
 import io.grpc.Channel;
+import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -14,22 +15,31 @@ import java.util.Map;
  **/
 @Slf4j
 public abstract class GrpcClient implements WatchListener {
-    private Discovery serviceConsumer;
-    private final Map<String, Channel> channelMap = new HashMap<>();
+    private Discovery discovery;
+    private final Map<String, ManagedChannel> channelMap = new HashMap<>();
 
 
     @Override
-    public void add(String key, String path) {
+    public void addChannel(String key, String path) {
+        ManagedChannel channel = channelMap.get(key);
+        if (channel != null) {
+            channel.shutdownNow();
+        }
         channelMap.put(key, channel(path));
     }
 
     @Override
-    public void remove(String key) {
-        channelMap.remove(key);
+    public void removeAllChannel() {
+        for (Map.Entry<String, ManagedChannel> entry : this.channelMap.entrySet()) {
+            entry.getValue().shutdownNow();
+        }
+        this.channelMap.clear();
     }
 
+    @Override
     public void removeChannel(String key) {
-        log.warn("服务掉线:{}", key);
+        ManagedChannel channel = channelMap.get(key);
+        channel.shutdownNow();
         channelMap.remove(key);
     }
 
@@ -45,15 +55,15 @@ public abstract class GrpcClient implements WatchListener {
     }
 
 
-    protected Channel channel(String host) {
+    protected ManagedChannel channel(String host) {
         return ManagedChannelBuilder.forTarget(host).usePlaintext().build();
     }
 
     @PostConstruct
     private void init() {
         try {
-            serviceConsumer = new Discovery(getZKAddress());
-            serviceConsumer.watchService(remoteServiceName(), this);
+            discovery = new Discovery(getZKAddress());
+            discovery.watchService(remoteServiceName(), this);
         } catch (Exception exception) {
             exception.printStackTrace();
         }

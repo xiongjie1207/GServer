@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class Registry {
 
-    private static final int SESSION_TIMEOUT = 500000;
+    private static final int SESSION_TIMEOUT = 20000;
 
     private final ZooKeeper zooKeeper;
 
@@ -42,7 +42,11 @@ public class Registry {
         if (zooKeeper.exists(serviceName, false) == null) {
             zooKeeper.create(serviceName, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
-        String serviceNodePath = zooKeeper.create(serviceName + "/" + serviceAddress, serviceAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+        String nodePath = serviceName + "/" + serviceAddress;
+        if (zooKeeper.exists(nodePath, false) != null) {
+            zooKeeper.delete(nodePath, 0);
+        }
+        String serviceNodePath = zooKeeper.create(nodePath, serviceAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("注册成功;serviceNodePath:" + serviceNodePath);
     }
 
@@ -51,7 +55,7 @@ public class Registry {
             List<String> childrenList = zooKeeper.getChildren(this.serviceName, true);
             for (String serviceNode : childrenList) {
                 String nodePath = this.serviceName + "/" + serviceNode;
-                zooKeeper.delete(nodePath,0);
+                zooKeeper.delete(nodePath, 0);
             }
             zooKeeper.close();
         } catch (Exception e) {
