@@ -1,6 +1,7 @@
 package com.wegame.framework.grpc;
 
 
+import com.wegame.framework.config.ZKConfig;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
@@ -9,7 +10,6 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,12 +24,13 @@ public class Registry {
     private final int maxRetries = 10;
     private final CuratorFramework curator;
     private final int sleepMsBetweenRetry = 20000;
-    private String serviceName;
+    private ZKConfig zkConfig;
 
-    public Registry(String zooKeeperAddress) throws IOException {
+    public Registry(ZKConfig zkConfig) {
+        this.zkConfig = zkConfig;
         this.curator = CuratorFrameworkFactory.builder()
                 //连接地址  集群用,隔开
-                .connectString(zooKeeperAddress)
+                .connectString(this.zkConfig.getZKAddress())
                 .connectionTimeoutMs(connectionTimeoutMs)
                 //会话超时时间
                 .sessionTimeoutMs(SESSION_TIMEOUT)
@@ -37,32 +38,29 @@ public class Registry {
                 .retryPolicy(new ExponentialBackoffRetry(sleepMsBetweenRetry, maxRetries))
                 .build();
         this.curator.start();
+        this.registryService();
     }
 
     /**
      * 注册服务
-     *
-     * @param serviceName
-     * @param serviceAddress
      */
     @SneakyThrows
-    public void registryService(String serviceName, String serviceAddress) {
-        this.serviceName = serviceName;
+    private void registryService() {
         // 如果根节点不存在就创建
-        String nodePath = serviceName + "/" + serviceAddress;
+        String nodePath = zkConfig.getPrefixFormat(zkConfig.getServiceName()) + "/" + zkConfig.getZKValue();
         Stat state = curator.checkExists().forPath(nodePath);
         if (state != null) {
             curator.delete().forPath(nodePath);
         }
-        String serviceNodePath = curator.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(nodePath, serviceAddress.getBytes());
+        String serviceNodePath = curator.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(nodePath, this.zkConfig.getZKValue().getBytes());
         System.out.println("注册成功;serviceNodePath:" + serviceNodePath);
     }
 
     public void close() {
         try {
-            List<String> childrenList = curator.getChildren().forPath(this.serviceName);
+            List<String> childrenList = curator.getChildren().forPath(this.zkConfig.getServiceName());
             for (String serviceNode : childrenList) {
-                String nodePath = this.serviceName + "/" + serviceNode;
+                String nodePath = this.zkConfig.getServiceName() + "/" + serviceNode;
                 Stat state = curator.checkExists().forPath(nodePath);
                 if (state != null) {
                     curator.delete().forPath(nodePath);

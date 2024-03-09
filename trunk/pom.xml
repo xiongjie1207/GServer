@@ -48,7 +48,7 @@
         <netty-all.version>4.1.101.Final</netty-all.version>
         <lombok.version>1.18.30</lombok.version>
         <curator.version>5.5.0</curator.version>
-
+        <nacos-version>2022.0.0.0</nacos-version>
     </properties>
     <distributionManagement>
         <repository>
@@ -71,6 +71,11 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${nacos-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>

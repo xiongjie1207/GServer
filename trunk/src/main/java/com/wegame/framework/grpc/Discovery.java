@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 public class Discovery implements PathChildrenCacheListener {
 
-    private final int SESSION_TIMEOUT = 20000;
+    private final int SESSION_TIMEOUT = 1000;
     private final int connectionTimeoutMs = 20000;
     private final int maxRetries = 10;
     private final CuratorFramework curator;
