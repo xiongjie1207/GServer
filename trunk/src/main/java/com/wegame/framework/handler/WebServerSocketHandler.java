@@ -88,7 +88,7 @@ public class WebServerSocketHandler extends ServerSocketHandler {
         }
         short module = Short.parseShort(jsonObject.get(GameCons.MODULE).toString());
         short pid = Short.parseShort(jsonObject.get(GameCons.PID).toString());
-        IPacket packet = Packet.newNetBuilder(module,pid).setData(request.getBytes()).build();
+        IPacket packet = Packet.newByteBuilder(module,pid).setData(request.getBytes()).build();
         AttributeKey<ISession> key = AttributeKey.valueOf(GameCons.SessionAttrKey);
         ISession session = ctx.channel().attr(key).get();
         GameEventLoop.getInstance().dispatch(packet, session);

@@ -114,16 +114,6 @@
             <artifactId>commons-beanutils</artifactId>
             <version>${commons-beanutils.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.baidu</groupId>
-            <artifactId>jprotobuf</artifactId>
-            <version>${jprotobuf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baidu</groupId>
-            <artifactId>jprotobuf-precompile-plugin</artifactId>
-            <version>${jprotobuf-precompile-plugin.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

@@ -1,6 +1,5 @@
 package com.wegame.mmorpg.model;
 
-import com.baidu.bjf.remoting.protobuf.annotation.Protobuf;
 import lombok.Data;
 
 /**
@@ -9,10 +8,8 @@ import lombok.Data;
  **/
 @Data
 public class Vector2 {
-    @Protobuf(order = 1, required = true)
     protected float x;
 
-    @Protobuf(order = 3, required = true)
     protected float z;
 
     public Vector2() {

@@ -1,6 +1,5 @@
 package com.wegame.mmorpg.entity;
 
-import com.baidu.bjf.remoting.protobuf.annotation.Protobuf;
 import com.wegame.framework.packet.IPacket;
 import com.wegame.mmorpg.component.*;
 import com.wegame.mmorpg.constants.RoleState;
@@ -8,17 +7,12 @@ import lombok.Data;
 
 @Data
 public class PlayerEntity implements CharacterEntity {
-    @Protobuf(order = 1, required = true)
     private int id;
-    @Protobuf(order = 2, required = true)
     private int state;
     // 玩家私密的数据是不必要的;
-    @Protobuf(order = 3, required = false)
     private PlayerInfoComponent playerInfo;
-    @Protobuf(order = 4, required = true)
     private EquipmentComponent equipmentInfo;
 
-    @Protobuf(order = 5, required = true)
     private TransformComponent transformInfo;
 
 

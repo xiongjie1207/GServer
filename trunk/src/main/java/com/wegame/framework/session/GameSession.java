@@ -52,10 +52,9 @@ public class GameSession<T> implements ChannelFutureListener, ISession<T> {
         return cf;
     }
 
-    public void setChannel(Channel channel) {
-        this.channel.refersTo(channel);
+    public Channel getChannel(){
+        return this.channel.get();
     }
-
     @Override
     public ChannelFuture write(IPacket msg) {
         Channel channel1 = channel.get();

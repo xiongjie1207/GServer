@@ -81,9 +81,9 @@ public abstract class AbsHttpServerComponent implements IComponent {
                 String module = getRequest().getHeader(GameCons.MODULE);
                 IPacket packet;
                 if (StringUtils.isBlank(data)) {
-                    packet = Packet.newNetBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(null).build();
+                    packet = Packet.newByteBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(null).build();
                 } else {
-                    packet = Packet.newNetBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(data.getBytes())
+                    packet = Packet.newByteBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(data.getBytes())
                         .build();
                 }
 

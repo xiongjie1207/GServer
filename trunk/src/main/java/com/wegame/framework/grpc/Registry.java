@@ -58,12 +58,13 @@ public class Registry {
 
     public void close() {
         try {
-            List<String> childrenList = curator.getChildren().forPath(this.zkConfig.getServiceName());
+            String rootNodePath = zkConfig.getPrefixFormat(zkConfig.getServiceName()) + "/";
+            List<String> childrenList = curator.getChildren().forPath(rootNodePath);
             for (String serviceNode : childrenList) {
-                String nodePath = this.zkConfig.getServiceName() + "/" + serviceNode;
-                Stat state = curator.checkExists().forPath(nodePath);
+                String childNodePath = rootNodePath + serviceNode;
+                Stat state = curator.checkExists().forPath(childNodePath);
                 if (state != null) {
-                    curator.delete().forPath(nodePath);
+                    curator.delete().forPath(childNodePath);
                 }
             }
             curator.close();

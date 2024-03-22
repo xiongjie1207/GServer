@@ -51,7 +51,7 @@ public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
         try {
             short module = bytebuf.readShort();
             int pid = bytebuf.readInt();
-            Packet.Builder builder = Packet.newNetBuilder(module,pid);
+            Packet.Builder builder = Packet.newByteBuilder(module,pid);
             int byteLength = bytebuf.readableBytes();
             if (byteLength > 0) {
                 byte[] bytes = new byte[byteLength];
