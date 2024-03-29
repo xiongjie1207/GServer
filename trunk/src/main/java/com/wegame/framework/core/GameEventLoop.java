@@ -70,7 +70,7 @@ public class GameEventLoop implements Runnable {
         try {
             Action action = ActionMapping.getInstance().getAction(packet.getModule(),packet.getPid());
             if (action != null) {
-                SocketAction socketAction = new SocketAction(action);
+                SocketAction<Object> socketAction = new SocketAction<>(action);
                 socketAction.setPacket(packet);
                 socketAction.setSession(session);
                 synchronized (this.actions) {
