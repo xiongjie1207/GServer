@@ -6,6 +6,9 @@ import com.wegame.framework.renderer.IRenderer;
 import com.wegame.framework.renderer.JsonBaseRenderer;
 import io.netty.util.CharsetUtil;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
@@ -14,14 +17,25 @@ import java.util.Date;
 import java.util.Map;
 
 @Slf4j
-public class JsonCommander extends Commander {
+public non-sealed class JsonCommander extends Commander {
 
+    public HttpServletResponse getHttpServletResponse() {
+        return this.getHttpAction().getResponse();
+    }
+
+    protected HttpServletRequest getHttpServletRequest() {
+        return this.getHttpAction().getRequest();
+    }
 
     /**
      * @param cookie 添加cookies信息
      */
     protected void addCookie(Cookie cookie) {
         this.getHttpServletResponse().addCookie(cookie);
+    }
+
+    protected HttpSession getHttpSession() {
+        return getHttpAction().getRequest().getSession();
     }
 
 

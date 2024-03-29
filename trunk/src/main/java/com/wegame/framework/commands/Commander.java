@@ -22,11 +22,8 @@ import com.wegame.framework.core.HttpAction;
 import com.wegame.framework.core.ServerContext;
 import com.wegame.framework.core.SocketAction;
 import com.wegame.framework.session.ISession;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
-public abstract class Commander {
+public sealed abstract class Commander permits JsonCommander, PbCommander {
 
     private <T extends Action> T getAction() {
         return ServerContext.getContext().getAction();
@@ -38,27 +35,17 @@ public abstract class Commander {
 
     public abstract <T> T getObject(Class<T> clazz);
 
-    public HttpServletResponse getHttpServletResponse() {
-        return this.getHttpAction().getResponse();
-    }
-
-    protected HttpServletRequest getHttpServletRequest() {
-        return this.getHttpAction().getRequest();
-    }
 
     protected HttpAction getHttpAction() {
         return this.getAction();
     }
 
-    protected SocketAction getSocketAction() {
+    protected <T> SocketAction<T> getSocketAction() {
         return this.getAction();
     }
 
-    protected HttpSession getHttpSession() {
-        return getHttpAction().getRequest().getSession();
-    }
-
-    protected ISession getSocketSession() {
-        return getSocketAction().getSession();
+    protected <T> ISession<T> getSocketSession() {
+        SocketAction<T> action = getSocketAction();
+        return action.getSession();
     }
 }
