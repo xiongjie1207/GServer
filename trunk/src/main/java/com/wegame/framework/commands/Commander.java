@@ -36,6 +36,8 @@ public abstract class Commander {
         return getAction().getPacket().getData();
     }
 
+    public abstract <T> T getObject(Class<T> clazz);
+
     public HttpServletResponse getHttpServletResponse() {
         return this.getHttpAction().getResponse();
     }

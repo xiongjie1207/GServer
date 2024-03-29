@@ -20,6 +20,7 @@ public class AOISystem {
     private int mapSize; // 暂时支持正方形, 表示我们当前地图 mapSize * mapSize; --->
     private int AOIBlockNum = 0;
     private AOIBlock[][] AOIBlocksData = null;
+
     public void init(int mapSize, int blockSize) {
         this.blockSize = this.AOISize / 3; // 由视野大小，算出AOI每个小块大小;
         this.mapSize = mapSize * blockSize; // SGYD ---> 64 * 4 = 256;
@@ -68,62 +69,62 @@ public class AOISystem {
                                    ArrayList<PlayerEntity> toPlayers, long ignoreId) {
         // 当前中心块
         this.sendMsgInMap(this.AOIBlocksData[blockX][blockY].getEntities(), msg, toPlayers,
-            ignoreId);
+                ignoreId);
         // end
 
         // 左
         if (blockX - 1 >= 0) {
             this.sendMsgInMap(this.AOIBlocksData[blockX - 1][blockY].getEntities(), msg, toPlayers,
-                ignoreId);
+                    ignoreId);
         }
         // end
 
         // 右
         if (blockX + 1 < this.AOIBlockNum) {
             this.sendMsgInMap(this.AOIBlocksData[blockX + 1][blockY].getEntities(), msg, toPlayers,
-                ignoreId);
+                    ignoreId);
         }
         // end
 
         // 上
         if (blockY + 1 < this.AOIBlockNum) {
             this.sendMsgInMap(this.AOIBlocksData[blockX][blockY + 1].getEntities(), msg, toPlayers,
-                ignoreId);
+                    ignoreId);
         }
         // end
 
         // 下
         if (blockY - 1 >= 0) {
             this.sendMsgInMap(this.AOIBlocksData[blockX][blockY - 1].getEntities(), msg, toPlayers,
-                ignoreId);
+                    ignoreId);
         }
         // end
 
         // 左上
         if (blockX - 1 >= 0 && blockY + 1 < this.AOIBlockNum) {
             this.sendMsgInMap(this.AOIBlocksData[blockX - 1][blockY + 1].getEntities(), msg,
-                toPlayers, ignoreId);
+                    toPlayers, ignoreId);
         }
         // end
 
         // 左下
         if (blockX - 1 >= 0 && blockY - 1 >= 0) {
             this.sendMsgInMap(this.AOIBlocksData[blockX - 1][blockY - 1].getEntities(), msg,
-                toPlayers, ignoreId);
+                    toPlayers, ignoreId);
         }
         // end
 
         // 右上
         if (blockX + 1 < this.AOIBlockNum && blockY + 1 < this.AOIBlockNum) {
             this.sendMsgInMap(this.AOIBlocksData[blockX + 1][blockY + 1].getEntities(), msg,
-                toPlayers, ignoreId);
+                    toPlayers, ignoreId);
         }
         // end
 
         // 右下
         if (blockX + 1 < this.AOIBlockNum && blockY - 1 >= 0) {
             this.sendMsgInMap(this.AOIBlocksData[blockX + 1][blockY - 1].getEntities(), msg,
-                toPlayers, ignoreId);
+                    toPlayers, ignoreId);
         }
         // end
     }
@@ -142,7 +143,7 @@ public class AOISystem {
         int blockY = ((int) point.getZ()) / this.blockSize;
 
         if (blockX < 0 || blockX >= this.AOIBlockNum ||
-            blockY < 0 || blockY >= this.AOIBlockNum) {
+                blockY < 0 || blockY >= this.AOIBlockNum) {
             return;
         }
 
@@ -167,9 +168,9 @@ public class AOISystem {
                 data.put("player", playerEntity.getId());
                 if (playerEntity.getAStarComponent() != null) {
                     float dstX = playerEntity.getAStarComponent().getRoadPoints()[
-                        playerEntity.getAStarComponent().getRoadPoints().length - 1].getX();
+                            playerEntity.getAStarComponent().getRoadPoints().length - 1].getX();
                     float dstZ = playerEntity.getAStarComponent().getRoadPoints()[
-                        playerEntity.getAStarComponent().getRoadPoints().length - 1].getZ();
+                            playerEntity.getAStarComponent().getRoadPoints().length - 1].getZ();
                     data.put("x", (int) (dstX * (1 << 16)));
                     data.put("y", (int) (dstZ * (1 << 16)));
                 } else if (playerEntity.getJoystickComponent() != null) {
@@ -186,7 +187,7 @@ public class AOISystem {
         int blockY = ((int) entity.getTransformInfo().getPosition().getZ()) / this.blockSize;
 
         if (blockX < 0 || blockX >= this.AOIBlockNum ||
-            blockY < 0 || blockY >= this.AOIBlockNum) {
+                blockY < 0 || blockY >= this.AOIBlockNum) {
             return false;
         }
         entity.getAoiComponent().setBlockX(blockX);
@@ -215,7 +216,7 @@ public class AOISystem {
 
         // 把自己记录到这里, 正式加入了
         this.AOIBlocksData[entity.getAoiComponent().getBlockX()][entity.getAoiComponent()
-            .getBlockY()].getEntities().add(entity);
+                .getBlockY()].getEntities().add(entity);
         // end
     }
 
@@ -224,7 +225,7 @@ public class AOISystem {
             return;
         }
         this.AOIBlocksData[entity.getAoiComponent().getBlockX()][entity.getAoiComponent()
-            .getBlockY()].getEntities().remove(entity);
+                .getBlockY()].getEntities().remove(entity);
 
         // 告诉周为所有的人，我已经离开了;
         List<Integer> leavePlayers = new ArrayList<>();
@@ -244,7 +245,7 @@ public class AOISystem {
     private boolean isInList(ArrayList<AOIPoint> list, AOIPoint value) {
         for (AOIPoint aoiPoint : list) {
             if (aoiPoint.getBlockX() == value.getBlockX() &&
-                aoiPoint.getBlockY() == value.getBlockY()) {
+                    aoiPoint.getBlockY() == value.getBlockY()) {
                 return true;
             }
         }
@@ -340,9 +341,9 @@ public class AOISystem {
             data.put("playerId", entity.getId());
             if (entity.getAStarComponent() != null) {
                 float dstX = entity.getAStarComponent().getRoadPoints()[
-                    entity.getAStarComponent().getRoadPoints().length - 1].getX();
+                        entity.getAStarComponent().getRoadPoints().length - 1].getX();
                 float dstZ = entity.getAStarComponent().getRoadPoints()[
-                    entity.getAStarComponent().getRoadPoints().length - 1].getZ();
+                        entity.getAStarComponent().getRoadPoints().length - 1].getZ();
                 data.put("x", dstX * (1 << 16));
                 data.put("y", dstZ * (1 << 16));
             } else if (entity.getJoystickComponent() != null) {
@@ -358,12 +359,12 @@ public class AOISystem {
         int blockY = ((int) entity.getTransformInfo().getPosition().getZ()) / this.blockSize;
 
         if (blockX < 0 || blockX >= this.AOIBlockNum ||
-            blockY < 0 || blockY >= this.AOIBlockNum) {
+                blockY < 0 || blockY >= this.AOIBlockNum) {
             return;
         }
         // entity 的AOI不会有任何变化
         if (entity.getAoiComponent().getBlockX() == blockX &&
-            entity.getAoiComponent().getBlockY() == blockY) {
+                entity.getAoiComponent().getBlockY() == blockY) {
             return;
         }
         // end
@@ -371,7 +372,7 @@ public class AOISystem {
         // 变化前AOI区域
         ArrayList<AOIPoint> oldAOIBlocks = new ArrayList<>();
         this.getAOIPoints(entity.getAoiComponent().getBlockX(),
-            entity.getAoiComponent().getBlockY(), oldAOIBlocks);
+                entity.getAoiComponent().getBlockY(), oldAOIBlocks);
         // 变化后AOI区域
         ArrayList<AOIPoint> newAOIBlocks = new ArrayList<>();
         this.getAOIPoints(blockX, blockY, newAOIBlocks);
@@ -412,10 +413,10 @@ public class AOISystem {
             // end
         }
         // 发给entity，周围新进来的角色
-        if (toPlayers.size() > 0) {
+        if (!toPlayers.isEmpty()) {
             HashMap<String, Object> pack = new HashMap<>();
             pack.put("ghostPlayers", toPlayers);
-            IPacket packet = Packet.newJsonBuilder((short) 0,(short) 100).setData(pack).build();
+            IPacket packet = new Packet((short) 0, (short) 100);
             entity.sendMessage(packet);
             // 如果entity正在行走，给这些新玩家，发送一个导航事件;
             this.syncSelfRunOptToOthers(toPlayers, entity);
@@ -429,7 +430,7 @@ public class AOISystem {
 
         // 更新entity所在的块的位置
         this.AOIBlocksData[entity.getAoiComponent().getBlockX()][entity.getAoiComponent()
-            .getBlockY()].getEntities().remove(entity);
+                .getBlockY()].getEntities().remove(entity);
         this.AOIBlocksData[blockX][blockY].getEntities().add(entity);
         entity.getAoiComponent().setBlockX(blockX);
         entity.getAoiComponent().setBlockY(blockY);

@@ -5,7 +5,9 @@ package com.wegame.framework.packet;
  */
 public interface IPacket {
     short getModule();
+
     int getPid();
 
     byte[] getData();
+
 }

@@ -17,7 +17,6 @@ package com.wegame.framework.codec;
  * Created by xiongjie on 2016/12/22.
  */
 
-import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.packet.Packet;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -25,24 +24,15 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
 
-import java.nio.charset.Charset;
 import java.util.List;
 
 @Slf4j
 @ChannelHandler.Sharable
 public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
-    private final Charset charset;
 
     public MessageDecoder() {
-        this(Charset.defaultCharset());
     }
 
-    public MessageDecoder(Charset charset) {
-        if (charset == null) {
-            throw new NullPointerException("charset");
-        }
-        this.charset = charset;
-    }
 
     @Override
     protected void decode(ChannelHandlerContext paramChannelHandlerContext, ByteBuf bytebuf,
@@ -51,15 +41,15 @@ public class MessageDecoder extends MessageToMessageDecoder<ByteBuf> {
         try {
             short module = bytebuf.readShort();
             int pid = bytebuf.readInt();
-            Packet.Builder builder = Packet.newByteBuilder(module,pid);
+            Packet packet;
             int byteLength = bytebuf.readableBytes();
             if (byteLength > 0) {
                 byte[] bytes = new byte[byteLength];
                 bytebuf.readBytes(bytes);
-                builder.setData(bytes);
+                packet = new Packet(module, pid);
+                packet.setData(bytes);
+                paramList.add(packet);
             }
-            IPacket packet = builder.build();
-            paramList.add(packet);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }

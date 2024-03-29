@@ -3,7 +3,6 @@ package com.wegame.framework.component.net;
 import com.wegame.framework.component.IComponent;
 import com.wegame.framework.core.GameCons;
 import com.wegame.framework.core.GameEventLoop;
-import com.wegame.framework.packet.IPacket;
 import com.wegame.framework.packet.Packet;
 import com.wegame.util.AppStatus;
 import jakarta.servlet.http.Cookie;
@@ -18,6 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.Enumeration;
 import java.util.Map;
 
@@ -44,6 +44,7 @@ import java.util.Map;
  */
 public abstract class AbsHttpServerComponent implements IComponent {
     private static final String CHAR_SET_UTF_8 = "utf-8";
+
     @Override
     public boolean start() {
         return true;
@@ -53,6 +54,7 @@ public abstract class AbsHttpServerComponent implements IComponent {
     public boolean stop() {
         return true;
     }
+
     @Override
     public String getName() {
         return "httpServerComponent";
@@ -68,6 +70,7 @@ public abstract class AbsHttpServerComponent implements IComponent {
         }
 
     }
+
     protected final void handle() {
         try {
             if (AppStatus.Status == AppStatus.Running) {
@@ -79,16 +82,16 @@ public abstract class AbsHttpServerComponent implements IComponent {
                 String data = stringBuilder.toString();
                 String pid = getRequest().getHeader(GameCons.PID);
                 String module = getRequest().getHeader(GameCons.MODULE);
-                IPacket packet;
+                Packet packet;
                 if (StringUtils.isBlank(data)) {
-                    packet = Packet.newByteBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(null).build();
+                    packet = new Packet(Short.parseShort(module), Short.parseShort(pid));
                 } else {
-                    packet = Packet.newByteBuilder(Short.parseShort(module),Short.parseShort(pid)).setData(data.getBytes())
-                        .build();
+                    packet = new Packet(Short.parseShort(module), Short.parseShort(pid));
+                    packet.setData(data.getBytes(Charset.defaultCharset()));
                 }
 
                 LoggerFactory.getLogger(this.getClass())
-                    .info(String.format("http receive %s", packet.toString()));
+                        .info(String.format("http receive %s", packet));
                 GameEventLoop.getInstance().dispatch(packet, getRequest(), getResponse());
             }
         } catch (IOException e) {
@@ -98,12 +101,12 @@ public abstract class AbsHttpServerComponent implements IComponent {
 
 
     protected HttpServletResponse getResponse() {
-        ServletRequestAttributes attributes=(ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return attributes.getResponse();
     }
 
     protected HttpServletRequest getRequest() {
-        ServletRequestAttributes attributes=(ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return attributes.getRequest();
     }
 

@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="代码优化">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化pb">
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/PbCommander.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/codec/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/codec/MessageDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/GrpcCommander.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/component/net/AbsHttpServerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/component/net/AbsHttpServerComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Registry.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc/Registry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/WebServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/WebServerSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/IPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/IPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/SPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/EquipmentComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/EquipmentComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/GhostInfoComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/GhostInfoComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/MonestInfoComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/MonestInfoComponent.java" afterDir="false" />
@@ -24,8 +24,11 @@
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/TransformComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/TransformComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/MonestEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/MonestEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/PlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/logic/AOISystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/logic/AOISystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/HttpRequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/HttpRequestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/JsonUtils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,11 +325,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wegame.framework.packet" />
+      <recent name="com.wegame.framework.commands" />
       <recent name="com.wegame.framework.grpc" />
       <recent name="com.wegame.framework.config" />
       <recent name="com.wegame.framework.core" />
-      <recent name="com.wegame.framework.handler" />
-      <recent name="com.wegame.utils" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GameApplicationTest">
@@ -1022,6 +1025,13 @@
       <workItem from="1710515258970" duration="85000" />
       <workItem from="1710778041680" duration="844000" />
       <workItem from="1711026837800" duration="7727000" />
+      <workItem from="1711113813062" duration="379000" />
+      <workItem from="1711191872159" duration="4328000" />
+      <workItem from="1711601719763" duration="659000" />
+      <workItem from="1711604718410" duration="292000" />
+      <workItem from="1711605143406" duration="2048000" />
+      <workItem from="1711629956357" duration="15000000" />
+      <workItem from="1711675815982" duration="2297000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1366,7 +1376,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1458,11 +1468,41 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="ee0aee48-48c7-4eed-8f34-c2df48a2ecd0" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State />
+          </value>
+        </entry>
+        <entry key="ee0aee48-48c7-4eed-8f34-c2df48a2ecd0">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/xiongjie/JavaProjects/GServer/trunk/src/main/java/com/wegame/framework/commands" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
           </value>
         </entry>
       </map>
@@ -1489,7 +1529,8 @@
     <MESSAGE value="服务注册发现模块切换到zookeeper" />
     <MESSAGE value="grpc更新" />
     <MESSAGE value="代码优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="代码优化" />
+    <MESSAGE value="优化pb" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化pb" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

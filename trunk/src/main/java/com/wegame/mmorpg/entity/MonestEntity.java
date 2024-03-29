@@ -1,17 +1,25 @@
 package com.wegame.mmorpg.entity;
 
+import com.baidu.bjf.remoting.protobuf.annotation.Protobuf;
 import com.wegame.mmorpg.component.*;
 import com.wegame.mmorpg.constants.RoleState;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 public class MonestEntity implements CharacterEntity {
+    @Protobuf(order = 1, required = true)
     private int id;
+    @Protobuf(order = 2, required = true)
+    @Getter
     private int state;
+    @Protobuf(order = 3, required = true)
     private MonestInfoComponent monestInfo;
 
+    @Protobuf(order = 4, required = true)
     private TransformComponent transformInfo;
 
+    @Protobuf(order = 5, required = true)
     private ShapeComponent shapeInfo;
 
     private AStarComponent aStarComponent;

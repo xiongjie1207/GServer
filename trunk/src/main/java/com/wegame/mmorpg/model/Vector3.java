@@ -1,9 +1,11 @@
 package com.wegame.mmorpg.model;
 
+import com.baidu.bjf.remoting.protobuf.annotation.Protobuf;
 import lombok.Data;
 
 @Data
 public class Vector3 extends Vector2{
+    @Protobuf(order = 2, required = true)
     private float y;
 
 

@@ -37,7 +37,7 @@ public class WebServerSocketHandler extends ServerSocketHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, IPacket msg)
-        throws Exception {
+            throws Exception {
         // TODO Auto-generated method stub
 
         if (msg instanceof FullHttpRequest) {
@@ -51,7 +51,7 @@ public class WebServerSocketHandler extends ServerSocketHandler {
     }
 
     private void handlerWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame)
-        throws Exception {
+            throws Exception {
 
         //关闭请求
         if (frame instanceof CloseWebSocketFrame) {
@@ -88,7 +88,8 @@ public class WebServerSocketHandler extends ServerSocketHandler {
         }
         short module = Short.parseShort(jsonObject.get(GameCons.MODULE).toString());
         short pid = Short.parseShort(jsonObject.get(GameCons.PID).toString());
-        IPacket packet = Packet.newByteBuilder(module,pid).setData(request.getBytes()).build();
+        Packet packet = new Packet(module, pid);
+        packet.setData(request.getBytes());
         AttributeKey<ISession> key = AttributeKey.valueOf(GameCons.SessionAttrKey);
         ISession session = ctx.channel().attr(key).get();
         GameEventLoop.getInstance().dispatch(packet, session);
@@ -103,13 +104,13 @@ public class WebServerSocketHandler extends ServerSocketHandler {
         if (!req.decoderResult().isSuccess()) {
 
             sendHttpResponse(ctx, req,
-                new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
+                    new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
             return;
         }
 
         WebSocketServerHandshakerFactory wsFactory =
-            new WebSocketServerHandshakerFactory("ws:/" + ctx.channel() + "/websocket", null,
-                false);
+                new WebSocketServerHandshakerFactory("ws:/" + ctx.channel() + "/websocket", null,
+                        false);
         handshaker = wsFactory.newHandshaker(req);
 
 

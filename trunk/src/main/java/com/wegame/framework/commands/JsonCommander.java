@@ -27,7 +27,7 @@ public class JsonCommander extends Commander {
 
     protected IRenderer createJsonRenderer() {
         return new JsonBaseRenderer(this.getHttpAction().getRequest(),
-            this.getHttpAction().getResponse());
+                this.getHttpAction().getResponse());
     }
 
     protected <T extends Object> T getData(String name) {
@@ -38,7 +38,7 @@ public class JsonCommander extends Commander {
         return (T) jsonObject.get(name);
     }
 
-    protected <T> T getObject(Class<T> clazz) {
+    public <T> T getObject(Class<T> clazz) {
         if (this.getData() == null) {
             return null;
         }
@@ -152,7 +152,7 @@ public class JsonCommander extends Commander {
             return Integer.parseInt(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Integer value.");
+                    "Can not parse the parameter \"" + value + "\" to Integer value.");
         }
     }
 
@@ -165,7 +165,7 @@ public class JsonCommander extends Commander {
             return Long.parseLong(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Long value.");
+                    "Can not parse the parameter \"" + value + "\" to Long value.");
         }
     }
 
@@ -178,7 +178,7 @@ public class JsonCommander extends Commander {
             return Boolean.parseBoolean(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Boolean value.");
+                    "Can not parse the parameter \"" + value + "\" to Boolean value.");
         }
     }
 
@@ -191,7 +191,7 @@ public class JsonCommander extends Commander {
             return Short.parseShort(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Short value.");
+                    "Can not parse the parameter \"" + value + "\" to Short value.");
         }
     }
 
@@ -203,7 +203,7 @@ public class JsonCommander extends Commander {
             return Byte.parseByte(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Byte value");
+                    "Can not parse the parameter \"" + value + "\" to Byte value");
         }
     }
 
@@ -216,7 +216,7 @@ public class JsonCommander extends Commander {
             return Double.parseDouble(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Double value.");
+                    "Can not parse the parameter \"" + value + "\" to Double value.");
         }
     }
 
@@ -229,7 +229,7 @@ public class JsonCommander extends Commander {
             return Float.parseFloat(value.toString());
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Float value.");
+                    "Can not parse the parameter \"" + value + "\" to Float value.");
         }
     }
 
@@ -243,12 +243,12 @@ public class JsonCommander extends Commander {
                 return new java.text.SimpleDateFormat("yyyy-MM-dd").parse(value.toString().trim());
             } else {
                 return new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(
-                    value.toString().trim());
+                        value.toString().trim());
             }
 
         } catch (Exception e) {
             throw new FormatException(
-                "Can not parse the parameter \"" + value + "\" to Date value.");
+                    "Can not parse the parameter \"" + value + "\" to Date value.");
         }
     }
 }
