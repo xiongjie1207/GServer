@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化pb">
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/PbCommander.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/codec/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/codec/MessageDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/component/net/AbsHttpServerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/component/net/AbsHttpServerComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/WebServerSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/WebServerSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/IPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/IPacket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/packet/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/EquipmentComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/EquipmentComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/GhostInfoComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/GhostInfoComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/MonestInfoComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/MonestInfoComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/PlayerInfoComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/PlayerInfoComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/ShapeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/ShapeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/TransformComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/component/TransformComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/MonestEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/MonestEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/entity/PlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/logic/AOISystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/logic/AOISystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/mmorpg/model/Vector3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/HttpRequestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/HttpRequestUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/util/JsonUtils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1031,7 +1009,9 @@
       <workItem from="1711604718410" duration="292000" />
       <workItem from="1711605143406" duration="2048000" />
       <workItem from="1711629956357" duration="15000000" />
-      <workItem from="1711675815982" duration="2297000" />
+      <workItem from="1711675815982" duration="2368000" />
+      <workItem from="1711685494030" duration="312000" />
+      <workItem from="1711686476151" duration="98000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1376,7 +1356,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

@@ -28,5 +28,10 @@ public class Packet implements IPacket {
     public void setData(byte[] data) {
         this.packetBody.setData(data);
     }
-
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("module:").append(this.getModule()).append("/");
+        stringBuilder.append("pid:").append(this.getPid());
+        return stringBuilder.toString();
+    }
 }
