@@ -40,12 +40,12 @@ public sealed abstract class Commander permits JsonCommander, PbCommander {
         return this.getAction();
     }
 
-    protected <T> SocketAction<T> getSocketAction() {
+    protected SocketAction getSocketAction() {
         return this.getAction();
     }
 
-    protected <T> ISession<T> getSocketSession() {
-        SocketAction<T> action = getSocketAction();
+    protected ISession getSocketSession() {
+        SocketAction action = getSocketAction();
         return action.getSession();
     }
 }

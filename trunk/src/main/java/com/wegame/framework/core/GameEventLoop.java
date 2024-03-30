@@ -47,7 +47,7 @@ public class GameEventLoop implements Runnable {
     }
 
     public void start(int initialDelay, int delay) {
-        ScheduledUtils.getInstance().newSingleThreadExecutor(this,initialDelay,delay);
+        ScheduledUtils.getInstance().newSingleThreadExecutor(this, initialDelay, delay);
     }
 
     public void stop() {
@@ -68,16 +68,16 @@ public class GameEventLoop implements Runnable {
 
     public void dispatch(IPacket packet, ISession session) {
         try {
-            Action action = ActionMapping.getInstance().getAction(packet.getModule(),packet.getPid());
+            Action action = ActionMapping.getInstance().getAction(packet.getModule(), packet.getPid());
             if (action != null) {
-                SocketAction<Object> socketAction = new SocketAction<>(action);
+                SocketAction socketAction = new SocketAction(action);
                 socketAction.setPacket(packet);
                 socketAction.setSession(session);
                 synchronized (this.actions) {
                     actions.add(socketAction);
                 }
             } else {
-                log.warn("No mapping found for socket protocol:"+packet.getModule()+"_"+ packet.getPid());
+                log.warn("No mapping found for socket protocol:" + packet.getModule() + "_" + packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -89,7 +89,7 @@ public class GameEventLoop implements Runnable {
 
     public void dispatch(IPacket packet, HttpServletRequest request, HttpServletResponse response) {
         try {
-            Action action = ActionMapping.getInstance().getAction(packet.getModule(),packet.getPid());
+            Action action = ActionMapping.getInstance().getAction(packet.getModule(), packet.getPid());
             if (action != null) {
                 HttpAction httpAction = new HttpAction(action);
                 httpAction.setPacket(packet);
@@ -98,7 +98,7 @@ public class GameEventLoop implements Runnable {
                 executeCommand(httpAction);
             } else {
                 log
-                    .warn("No mapping found for http protocol:"+packet.getModule()+"_"+ packet.getPid());
+                        .warn("No mapping found for http protocol:" + packet.getModule() + "_" + packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block

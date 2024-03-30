@@ -19,19 +19,19 @@ import com.wegame.framework.session.ISession;
  * <p>
  * Created by xiongjie on 2016/12/23.
  */
-public class SocketAction<T> extends Action {
-    private ISession<T> session;
+public class SocketAction extends Action {
+    private ISession session;
 
     public SocketAction(Action action) {
         super(action.getModule(), action.getPid(), action.getMethodAccess(), action.getCommander(),
                 action.getMethodIndex(), action.getBeforeInterceptor());
     }
 
-    public ISession<T> getSession() {
+    public ISession getSession() {
         return session;
     }
 
-    public void setSession(ISession<T> session) {
+    public void setSession(ISession session) {
         this.session = session;
     }
 }

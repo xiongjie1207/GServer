@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化pb">
+    <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/JsonCommander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/PbCommander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/PbCommander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameEventLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameEventLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/SocketAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/SocketAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/ISession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/ISession.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,7 +281,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDK",
+    "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.37770897",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
@@ -1022,7 +1022,10 @@
       <workItem from="1711708559855" duration="104000" />
       <workItem from="1711720116356" duration="178000" />
       <workItem from="1711720382200" duration="31000" />
-      <workItem from="1711721242526" duration="1219000" />
+      <workItem from="1711721242526" duration="3023000" />
+      <workItem from="1711732911965" duration="11000" />
+      <workItem from="1711732942055" duration="27000" />
+      <workItem from="1711811336693" duration="1088000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1367,7 +1370,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1506,7 +1509,6 @@
     <MESSAGE value="正常关闭server" />
     <MESSAGE value="优化服务器启动顺序" />
     <MESSAGE value="优化数据发送类型" />
-    <MESSAGE value="优化" />
     <MESSAGE value="数据库查询排序优化" />
     <MESSAGE value="csv转table" />
     <MESSAGE value="springboot版本更新到3.1" />
@@ -1521,7 +1523,8 @@
     <MESSAGE value="grpc更新" />
     <MESSAGE value="代码优化" />
     <MESSAGE value="优化pb" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化pb" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

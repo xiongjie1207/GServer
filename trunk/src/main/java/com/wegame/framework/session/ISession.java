@@ -4,7 +4,7 @@ import com.wegame.framework.packet.IPacket;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 
-public interface ISession<T> {
+public interface ISession {
     boolean isConnected();
 
     ChannelFuture write(IPacket msg);
@@ -13,9 +13,9 @@ public interface ISession<T> {
 
     ChannelFuture close();
 
-    T getObject();
+    Object getObject();
 
-    void setOjbect(T ojbect);
+    void setOjbect(Object ojbect);
 
-    void setOnCloseOperationComplete(ChannelFutureListener onCloseOperationComplete);
+    void addOnCloseOperationComplete(ChannelFutureListener onCloseOperationComplete);
 }

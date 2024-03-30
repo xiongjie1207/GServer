@@ -9,10 +9,10 @@ import io.netty.util.AttributeKey;
 
 import java.lang.ref.WeakReference;
 
-public class GameSession<T> implements ChannelFutureListener, ISession<T> {
+public class GameSession implements ChannelFutureListener, ISession {
     private WeakReference<Channel> channel;
     private ChannelFutureListener onCloseOperationComplete;
-    private T dataOjbect;
+    private Object dataOjbect;
 
     public GameSession(Channel channel) {
         this.channel = new WeakReference<>(channel);
@@ -21,17 +21,17 @@ public class GameSession<T> implements ChannelFutureListener, ISession<T> {
         this.channel.get().closeFuture().addListener(this);
     }
 
-    public void setOnCloseOperationComplete(ChannelFutureListener onCloseOperationComplete) {
+    public void addOnCloseOperationComplete(ChannelFutureListener onCloseOperationComplete) {
         this.onCloseOperationComplete = onCloseOperationComplete;
     }
 
     @Override
-    public T getObject() {
+    public Object getObject() {
         return dataOjbect;
     }
 
     @Override
-    public void setOjbect(T object) {
+    public void setOjbect(Object object) {
         this.dataOjbect = object;
     }
 
@@ -52,13 +52,14 @@ public class GameSession<T> implements ChannelFutureListener, ISession<T> {
         return cf;
     }
 
-    public Channel getChannel(){
+    public Channel getChannel() {
         return this.channel.get();
     }
+
     @Override
     public ChannelFuture write(IPacket msg) {
         Channel channel1 = channel.get();
-        if(channel1!=null&&channel1.isWritable()){
+        if (channel1 != null && channel1.isWritable()) {
             return channel1.writeAndFlush(msg);
         }
         return null;
@@ -67,7 +68,7 @@ public class GameSession<T> implements ChannelFutureListener, ISession<T> {
 
     @Override
     public ChannelFuture close() {
-        if(channel.get()!=null){
+        if (channel.get() != null) {
             return channel.get().close();
         }
         return null;
@@ -84,9 +85,9 @@ public class GameSession<T> implements ChannelFutureListener, ISession<T> {
 
     @Override
     public String toString() {
-        if(channel.get()!=null){
+        if (channel.get() != null) {
             return String.format("session channelId is:%s,remote address is:%s",
-                channel.get().id().asLongText(), channel.get().remoteAddress());
+                    channel.get().id().asLongText(), channel.get().remoteAddress());
         }
         return String.valueOf(this.hashCode());
     }
