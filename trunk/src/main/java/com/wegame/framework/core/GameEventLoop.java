@@ -29,6 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Slf4j
 public class GameEventLoop implements Runnable {
@@ -37,7 +38,7 @@ public class GameEventLoop implements Runnable {
     private final List<IUpdater> updaterList;
 
     protected GameEventLoop() {
-        actions = new ArrayList<>();
+        actions = new CopyOnWriteArrayList<>();
         updaterList = new ArrayList<>();
 
     }
@@ -73,9 +74,7 @@ public class GameEventLoop implements Runnable {
                 SocketAction socketAction = new SocketAction(action);
                 socketAction.setPacket(packet);
                 socketAction.setSession(session);
-                synchronized (this.actions) {
-                    actions.add(socketAction);
-                }
+                actions.add(socketAction);
             } else {
                 log.warn("No mapping found for socket protocol:" + packet.getModule() + "_" + packet.getPid());
             }
@@ -97,8 +96,7 @@ public class GameEventLoop implements Runnable {
                 httpAction.setResponse(response);
                 executeCommand(httpAction);
             } else {
-                log
-                        .warn("No mapping found for http protocol:" + packet.getModule() + "_" + packet.getPid());
+                log.warn("No mapping found for http protocol:" + packet.getModule() + "_" + packet.getPid());
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -125,12 +123,8 @@ public class GameEventLoop implements Runnable {
         // TODO Auto-generated method stub
         try {
             DeltaTime.update();
-            List<Action> tempAction;
-            synchronized (this.actions) {
-                tempAction = new ArrayList<>(this.actions);
-                this.actions.clear();
-            }
-            for (Action action : tempAction) {
+            while (!actions.isEmpty()) {
+                Action action = this.actions.remove(0);
                 this.executeCommand(action);
             }
             for (IUpdater update : this.updaterList) {
