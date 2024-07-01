@@ -2,9 +2,9 @@ package com.wegame.framework.core;
 
 import com.esotericsoftware.reflectasm.MethodAccess;
 import com.wegame.aop.annotation.Ignore;
-import com.wegame.core.annotation.ActionKey;
 import com.wegame.framework.aop.Interceptor;
 import com.wegame.framework.aop.InterceptorBuilder;
+import com.wegame.framework.aop.annotation.ActionKey;
 import com.wegame.framework.aop.annotation.Around;
 import com.wegame.framework.component.IComponent;
 import org.slf4j.LoggerFactory;

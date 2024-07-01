@@ -1,4 +1,4 @@
-package com.wegame.core.annotation;
+package com.wegame.framework.aop.annotation;
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
