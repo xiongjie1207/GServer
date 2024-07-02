@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化">
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/BaseJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/Join.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/Operator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/SimpleSpecification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/SpecificationOperator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/InterceptorBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/InterceptorBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/ActionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/ActionKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/Around.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/Around.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/Ignore.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/Ignore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/ResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/ResponseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultInterceptor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1058,7 +1044,7 @@
       <workItem from="1719806961503" duration="1009000" />
       <workItem from="1719833231226" duration="1170000" />
       <workItem from="1719891912221" duration="799000" />
-      <workItem from="1719895556285" duration="1028000" />
+      <workItem from="1719895556285" duration="2104000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1403,7 +1389,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
