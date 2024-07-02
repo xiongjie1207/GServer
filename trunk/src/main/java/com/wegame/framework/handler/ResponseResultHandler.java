@@ -34,7 +34,6 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
         if (body instanceof Result) {
             return body;
         }
-
         return Result.success(body);
     }
 }

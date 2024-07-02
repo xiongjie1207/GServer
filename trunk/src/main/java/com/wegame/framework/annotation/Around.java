@@ -1,7 +1,3 @@
-package com.wegame.aop.annotation;
-
-import java.lang.annotation.*;
-
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -19,8 +15,21 @@ import java.lang.annotation.*;
  * <p>
  * Created by xiongjie on 2017/3/5.
  */
+
+package com.wegame.framework.annotation;
+
+import com.wegame.framework.aop.Interceptor;
+
+import java.lang.annotation.*;
+
+/**
+ * Before is used to configure Interceptor and Validator.
+ */
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
-public @interface Ignore {
+@Target({ElementType.TYPE, ElementType.METHOD})
+public @interface Around {
+    Class<? extends Interceptor>[] value();
 }
+
+

@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cc88b9-5287-45cb-893c-d88f34a66665" name="Default" comment="优化">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/BaseJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/Join.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/Operator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/SimpleSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db/SpecificationOperator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/commands/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameEventLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameEventLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/SocketAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/SocketAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/ISession.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/session/ISession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/InterceptorBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/InterceptorBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/ActionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/ActionKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/Around.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/Around.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/Ignore.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/Ignore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/aop/annotation/ResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/annotation/ResponseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/core/GameComponentScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/handler/ResponseResultInterceptor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +87,12 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;xiongjie1207&quot;
+  }
+}</component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -88,6 +101,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/xiongjie1207/GServer.git&quot;,
+    &quot;accountId&quot;: &quot;f301c676-bcdf-475b-b1dd-3eb4e551038e&quot;
+  }
+}</component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -255,47 +274,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.wegame [clean,install].executor": "Run",
-    "Maven.wegame [deploy].executor": "Run",
-    "Maven.wegame [install].executor": "Run",
-    "Maven.wegame [package].executor": "Run",
-    "Maven.wegame [verify].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "11",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/xiongjie/JavaProjects/GServer/trunk/src/main/java/com/wegame/framework/grpc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37770897",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "0577db339ace206af4fbe2f733f11d07",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.wegame [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.wegame [verify].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/xiongjie/JavaProjects/GServer/trunk/src/main/java/com/wegame/framework/db&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37770897&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0577db339ace206af4fbe2f733f11d07&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/db" />
       <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/grpc" />
       <recent name="$PROJECT_DIR$/trunk/src/main/java" />
       <recent name="$PROJECT_DIR$/trunk/src/test/resources" />
       <recent name="$PROJECT_DIR$/trunk/src/test/java" />
-      <recent name="$PROJECT_DIR$/trunk/src/main/java/com/wegame/framework/plugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/trunk/src/main/resources" />
@@ -310,11 +330,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wegame.util" />
       <recent name="com.wegame.framework.packet" />
       <recent name="com.wegame.framework.commands" />
       <recent name="com.wegame.framework.grpc" />
       <recent name="com.wegame.framework.config" />
-      <recent name="com.wegame.framework.core" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GameApplicationTest">
@@ -678,10 +698,15 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SpringBootOptions">
-    <option name="showAdditionalConfigNotification" value="false" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
   </component>
@@ -1025,7 +1050,15 @@
       <workItem from="1711721242526" duration="3023000" />
       <workItem from="1711732911965" duration="11000" />
       <workItem from="1711732942055" duration="27000" />
-      <workItem from="1711811336693" duration="1088000" />
+      <workItem from="1711811336693" duration="2276000" />
+      <workItem from="1715445578701" duration="787000" />
+      <workItem from="1715611393453" duration="1303000" />
+      <workItem from="1719463554416" duration="912000" />
+      <workItem from="1719798348211" duration="7508000" />
+      <workItem from="1719806961503" duration="1009000" />
+      <workItem from="1719833231226" duration="1170000" />
+      <workItem from="1719891912221" duration="799000" />
+      <workItem from="1719895556285" duration="1028000" />
     </task>
     <task id="LOCAL-00017" summary="代码优化">
       <created>1522143150150</created>
@@ -1370,7 +1403,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687968939897</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

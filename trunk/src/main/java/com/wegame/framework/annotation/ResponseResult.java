@@ -1,4 +1,4 @@
-package com.wegame.framework.aop.annotation;
+package com.wegame.framework.annotation;
 
 import java.lang.annotation.*;
 

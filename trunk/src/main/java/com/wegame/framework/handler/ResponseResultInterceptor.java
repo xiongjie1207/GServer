@@ -1,6 +1,6 @@
 package com.wegame.framework.handler;
 
-import com.wegame.framework.aop.annotation.ResponseResult;
+import com.wegame.framework.annotation.ResponseResult;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;

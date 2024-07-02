@@ -1,4 +1,7 @@
-package com.wegame.framework.aop.annotation;
+package com.wegame.framework.annotation;
+
+import java.lang.annotation.*;
+
 /**
  * Copyright (c) 2015-2016, James Xiong 熊杰 (xiongjie.cn@gmail.com).
  * <p>
@@ -14,17 +17,10 @@ package com.wegame.framework.aop.annotation;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * Created by xiongjie on 2016/12/22.
+ * Created by xiongjie on 2017/3/5.
  */
-
-
-import java.lang.annotation.*;
-
-@Retention(RetentionPolicy.RUNTIME)
 @Inherited
-@Target(ElementType.METHOD)
-public @interface ActionKey {
-    short pid() default 0;
-
-    short module() default 0;
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+public @interface Ignore {
 }

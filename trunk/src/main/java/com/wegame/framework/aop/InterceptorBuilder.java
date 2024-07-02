@@ -18,7 +18,7 @@ package com.wegame.framework.aop;
  */
 
 
-import com.wegame.framework.aop.annotation.Around;
+import com.wegame.framework.annotation.Around;
 
 /**
  * InterceptorBuilder
