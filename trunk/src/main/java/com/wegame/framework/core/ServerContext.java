@@ -21,7 +21,7 @@ package com.wegame.framework.core;
 
 public class ServerContext {
     private static ServerContext instance;
-    private final ThreadLocal<Action> actionThreadLocal = new ThreadLocal<Action>();
+    private final ThreadLocal<Action> actionThreadLocal = new ThreadLocal<>();
 
     private ServerContext() {
 
